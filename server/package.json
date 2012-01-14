@@ -1,0 +1,9 @@
+{
+  "name": "waterworx",
+  "version": "0.1.0",
+  "description": "Server for sprinkler control hardware",
+  "dependencies": {
+    "connect": "1.8.x",
+    "mongodb": "0.9.x"
+  }
+}

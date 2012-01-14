@@ -1,0 +1,7 @@
+*node_modules*
+firmware/bin/obj
+firmware/bin/*.*
+!firmware/bin/waterworx.hex
+*.mcw
+*.mcs
+*.swp
