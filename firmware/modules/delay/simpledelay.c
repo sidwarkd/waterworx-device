@@ -48,10 +48,12 @@
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Nilesh Rajbharti     5/9/02  Original        (Rev 1.0)
  ********************************************************************/
+#ifndef __DELAY_C
 #define __DELAY_C
 
-#include "TCPIP Stack/TCPIP.h"
-
+#include <userconfig.h>
+#include <base/module.h>
+#include "module.h"
 
 #if !defined(__18CXX) || defined(HI_TECH_C)
 void DelayMs(WORD ms)
@@ -84,4 +86,5 @@ void Delay10us(DWORD dwCount)
 		#endif
 	}
 }
+#endif
 #endif

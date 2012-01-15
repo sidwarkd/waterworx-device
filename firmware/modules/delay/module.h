@@ -2,7 +2,9 @@
 #define DELAY_MODULE_H
 
 #include <base/module.h>
+#ifndef __C32__
 #include <delays.h>
+#endif
 
 #if !defined(GetInstructionClock)
 	#error GetInstructionClock() must be defined.
