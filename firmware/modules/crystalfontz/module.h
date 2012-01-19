@@ -1,8 +1,10 @@
 #ifndef CRYSTALFONTZ_MODULE_H
 #define CRYSTALFONTZ_MODULE_H
 
+#include <userconfig.h>
 #include <base/module.h>
 #include <delay/module.h>
+
 
 // Verify the appropriate modules have been included
 #ifndef DELAY_MODULE_H
@@ -32,8 +34,7 @@
 // FUNCTION PROTOTYPES
 // ============================================================================
 void LCD_Initialize(void);
-void LCD_WriteFromROM(const rom CHAR *data);
-void LCD_WriteFromRAM(const ram CHAR *data);
+void LCD_Write(const CHAR *data);
 void LCD_ClearScreen(void);
 void WriteLCDSPIByte(CHAR b);
 void LCD_SetContrast(BYTE level);

@@ -93,5 +93,18 @@
 #define GetPeripheralClock()        (GetSystemClock()) 
 #define GetInstructionClock()       (GetSystemClock())
 
+//============================================
+// CRYSTALFONTZ SETTINGS
+//============================================
+#define LCD_CS_PIN TRISDbits.TRISD1
+#define LCD_CLK_PIN TRISDbits.TRISD2
+#define LCD_DATA_PIN TRISDbits.TRISD3
+
+#define LCD_CS  LATDbits.LATD1
+#define LCD_CLK LATDbits.LATD2
+#define LCD_DATA LATDbits.LATD3
+
+
+
 #endif
 

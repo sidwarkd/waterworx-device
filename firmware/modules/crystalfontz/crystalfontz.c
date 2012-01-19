@@ -28,15 +28,7 @@ void LCD_Initialize()
 	DelayMs(200);
 }
 
-void LCD_WriteFromROM(const rom CHAR *data)
-{
-	while(*data)
-	{
-		WriteLCDSPIByte(*data++);
-	}
-}
-
-void LCD_WriteFromRAM(const ram CHAR *data)
+void LCD_Write(const CHAR *data)
 {
 	while(*data)
 	{
@@ -73,9 +65,7 @@ void WriteLCDSPIByte(CHAR b)
 		DelayMs(1);
 		LCD_CLK = 1;
 		DelayMs(1);
-		_asm
-	    rlcf  data,1,1
-	    _endasm
+		data = data << 1;
 	    BitCount--;             // Count iterations through loop
     } while(BitCount);
 	LCD_CS = 1;

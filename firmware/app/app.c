@@ -4,7 +4,13 @@
 
 void main()
 {
+	char data[36];
+
 	InitializeSystem();
+
+	LCD_Initialize();
+
+	LCD_Write("Hello World");
 
     while(1)
     {
@@ -26,6 +32,12 @@ void main()
     		mLED_Green_On();
     		DelayMs(1000);
     		mLED_Green_Off();
+    	}
+
+    	if(mSwitch_Prog == SWITCH_PRESSED)
+    	{
+    		strcpy(data, "It works!");
+    		LCD_Write(data);
     	}
     }
 }

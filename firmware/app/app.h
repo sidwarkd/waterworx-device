@@ -9,5 +9,6 @@ void InitializeSystem();
 // Modules
 #include <base/module.h>
 #include <delay/module.h>
+#include <crystalfontz/module.h>
 
 #endif
