@@ -63,10 +63,32 @@
     
 #endif
 
+// =====================================================
+// I/O Pin Settings
+// =====================================================
+#define mLED_Yellow     LATEbits.LATE0
+#define mLED_Red        LATEbits.LATE1
+#define mLED_White      LATEbits.LATE2
+#define mLED_Green      LATEbits.LATE3
+// These settings are backward because of how the UBW board
+// is laid out.  Change them if you make your own board
+#define mLED_Yellow_On()        (mLED_Yellow = 0);
+#define mLED_Red_On()           (mLED_Red = 0); 
+#define mLED_White_On()         (mLED_White = 0);
+#define mLED_Green_On()         (mLED_Green = 0);
+#define mLED_Yellow_Off()       (mLED_Yellow = 1);
+#define mLED_Red_Off()          (mLED_Red = 1);
+#define mLED_White_Off()        (mLED_White = 1);
+#define mLED_Green_Off()        (mLED_Green = 1);
+
+#define mSwitch_Prog    PORTEbits.RE7
+#define mSwitch_User    PORTEbits.RE6
+#define SWITCH_PRESSED  0
 
 // =====================================================
 // Oscillator Settings
 // =====================================================
+#define CLOCK_FREQ      80000000L
 #define GetSystemClock()            (80000000ul)
 #define GetPeripheralClock()        (GetSystemClock()) 
 #define GetInstructionClock()       (GetSystemClock())

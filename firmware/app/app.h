@@ -2,7 +2,9 @@
 #define APP_H
 
 #include "userconfig.h"
+#include <plib.h>
 
+void InitializeSystem();
 
 // Modules
 #include <base/module.h>
