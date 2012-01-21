@@ -81,8 +81,8 @@
 #define mLED_White_Off()        (mLED_White = 1);
 #define mLED_Green_Off()        (mLED_Green = 1);
 
-#define mSwitch_Prog    PORTEbits.RE7
-#define mSwitch_User    PORTEbits.RE6
+#define mSwitch_Prog    (PORTEbits.RE7)
+#define mSwitch_User    (PORTEbits.RE6)
 #define SWITCH_PRESSED  0
 
 // =====================================================
@@ -103,6 +103,86 @@
 #define LCD_CS  LATDbits.LATD1
 #define LCD_CLK LATDbits.LATD2
 #define LCD_DATA LATDbits.LATD3
+
+//============================================
+// MRF24WB0M WiFi I/O pins
+//============================================
+#define MRF24WB0M_IN_SPI1
+//#define MRF24WB0M_IN_SPI2
+#if defined(MRF24WB0M_IN_SPI1)
+        // MRF24WB0M in SPI1 slot
+        #define WF_CS_TRIS                      (TRISBbits.TRISB2)
+        #define WF_CS_IO                        (LATBbits.LATB2)
+        #define WF_SDI_TRIS                     (TRISFbits.TRISF7)
+        #define WF_SCK_TRIS                     (TRISFbits.TRISF6)
+        #define WF_SDO_TRIS                     (TRISFbits.TRISF8)
+        #define WF_RESET_TRIS           (TRISFbits.TRISF0)
+        #define WF_RESET_IO                     (LATFbits.LATF0)
+        #define WF_INT_TRIS                     (TRISEbits.TRISE8)      // INT1
+        #define WF_INT_IO                       (PORTEbits.RE8)
+        #define WF_HIBERNATE_TRIS       (TRISFbits.TRISF1)
+        #define WF_HIBERNATE_IO         (PORTFbits.RF1)
+        #define WF_INT_EDGE                     (INTCONbits.INT1EP)
+        #define WF_INT_IE                       (IEC0bits.INT1IE)
+        #define WF_INT_IF                       (IFS0bits.INT1IF)
+        #define WF_INT_IE_CLEAR         IEC0CLR
+        #define WF_INT_IF_CLEAR         IFS0CLR
+        #define WF_INT_IE_SET           IEC0SET
+        #define WF_INT_IF_SET           IFS0SET
+        #define WF_INT_BIT                      0x00000080
+        #define WF_INT_IPCSET           IPC1SET
+        #define WF_INT_IPCCLR           IPC1CLR
+        #define WF_INT_IPC_MASK         0xFF000000
+        #define WF_INT_IPC_VALUE        0x0C000000
+
+        #define WF_SSPBUF                       (SPI1BUF)
+        #define WF_SPISTAT                      (SPI1STAT)
+        #define WF_SPISTATbits          (SPI1STATbits)
+        #define WF_SPICON1                      (SPI1CON)
+        #define WF_SPICON1bits          (SPI1CONbits)
+        #define WF_SPI_IE_CLEAR         IEC0CLR
+        #define WF_SPI_IF_CLEAR         IFS0CLR
+        #define WF_SPI_INT_BITS         0x03800000
+        #define WF_SPI_BRG                      (SPI1BRG)
+        #define WF_MAX_SPI_FREQ         (10000000ul)    // Hz
+
+#elif defined(MRF24WB0M_IN_SPI2)
+        // MRF24WB0M in SPI2 slot
+        #define WF_CS_TRIS                      (TRISGbits.TRISG9)
+        #define WF_CS_IO                        (LATGbits.LATG9)
+        #define WF_SDI_TRIS                     (TRISGbits.TRISG7)
+        #define WF_SCK_TRIS                     (TRISGbits.TRISG6)
+        #define WF_SDO_TRIS                     (TRISGbits.TRISG8)
+        #define WF_RESET_TRIS           (TRISGbits.TRISG0)
+        #define WF_RESET_IO                     (LATGbits.LATG0)
+        #define WF_INT_TRIS                     (TRISAbits.TRISA14)     // INT3
+        #define WF_INT_IO                       (PORTAbits.RA14)
+        #define WF_HIBERNATE_TRIS       (TRISGbits.TRISG1)
+        #define WF_HIBERNATE_IO         (PORTGbits.RG1)
+        #define WF_INT_EDGE                     (INTCONbits.INT3EP)
+        #define WF_INT_IE                       (IEC0bits.INT3IE)
+        #define WF_INT_IF                       (IFS0bits.INT3IF)
+        #define WF_INT_IE_CLEAR         IEC0CLR
+        #define WF_INT_IF_CLEAR         IFS0CLR
+        #define WF_INT_IE_SET           IEC0SET
+        #define WF_INT_IF_SET           IFS0SET
+        #define WF_INT_BIT                      0x00008000
+        #define WF_INT_IPCSET           IPC3SET
+        #define WF_INT_IPCCLR           IPC3CLR
+        #define WF_INT_IPC_MASK         0xFF000000
+        #define WF_INT_IPC_VALUE        0x0C000000
+
+        #define WF_SSPBUF                       (SPI2BUF)
+        #define WF_SPISTAT                      (SPI2STAT)
+        #define WF_SPISTATbits          (SPI2STATbits)
+        #define WF_SPICON1                      (SPI2CON)
+        #define WF_SPICON1bits          (SPI2CONbits)
+        #define WF_SPI_IE_CLEAR         IEC1CLR
+        #define WF_SPI_IF_CLEAR         IFS1CLR
+        #define WF_SPI_INT_BITS         0x000000e0
+        #define WF_SPI_BRG                      (SPI2BRG)
+        #define WF_MAX_SPI_FREQ         (10000000ul)    // Hz
+#endif
 
 
 

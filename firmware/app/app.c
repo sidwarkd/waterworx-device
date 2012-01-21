@@ -2,13 +2,17 @@
 
 #include "app.h"
 
-void main()
+void _general_exception_handler(unsigned cause, unsigned status)
+{
+	Nop();
+	Nop();
+}
+
+int main(void)
 {
 	char data[36];
 
 	InitializeSystem();
-
-	LCD_Initialize();
 
 	LCD_Write("Hello World");
 
@@ -34,17 +38,14 @@ void main()
     		mLED_Green_Off();
     	}
 
-    	if(mSwitch_Prog == SWITCH_PRESSED)
-    	{
-    		strcpy(data, "It works!");
-    		LCD_Write(data);
-    	}
+    	WIFI_PerformStackTasks();
     }
 }
 
 void InitializeSystem()
 {
 	SYSTEMConfigWaitStatesAndPB(CLOCK_FREQ);
+	mOSCSetPBDIV(OSC_PB_DIV_4);  // Set to get 20MHz PB clock
 	CheKseg0CacheOn();
 	mJTAGPortEnable(0);
 
@@ -70,5 +71,8 @@ void InitializeSystem()
 	mPORTFClearBits(0xFFFF);
 	mPORTGClearBits(0xFFFF);
 
-	//INTEnableSystemMultiVectoredInt();
+	INTEnableSystemMultiVectoredInt();
+	
+	LCD_Initialize();
+	WIFI_Initialize();
 }

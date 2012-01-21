@@ -10,5 +10,6 @@ void InitializeSystem();
 #include <base/module.h>
 #include <delay/module.h>
 #include <crystalfontz/module.h>
+#include <wifi/module.h>
 
 #endif
