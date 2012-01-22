@@ -3,6 +3,7 @@
 
 #include <userconfig.h>
 #include <base/module.h>
+#include <crystalfontz/module.h>
 #include <TCPIP Stack/TCPIP.h>
 
 #include <wifi/TCPIPConfig.h>
@@ -18,6 +19,7 @@
 // main.h
 #define SaveAppConfig(a)
 void GenericTCPClient(void);
+void DisplayIPValue(IP_ADDR IPVal);
 
 // Core Module Functions
 void WIFI_Initialize(void);

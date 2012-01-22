@@ -88,6 +88,8 @@ void WIFI_PerformStackTasks(void)
         // This tasks invokes each of the core stack application tasks
         //StackApplications();
 
+        TelnetTask();
+
 
 		// Process application specific tasks here.
 		// For this demo app, this will include the Generic TCP 
@@ -109,6 +111,7 @@ void WIFI_PerformStackTasks(void)
 			dwLastIP = AppConfig.MyIPAddr.Val;
 
 			mLED_White_On();
+            DisplayIPValue(AppConfig.MyIPAddr);
 			DelayMs(1000);
 			mLED_White_Off();
 
@@ -351,4 +354,20 @@ static void InitAppConfig(void)
 
 		break;
 	}
+}
+
+void DisplayIPValue(IP_ADDR IPVal)
+{
+    static BYTE IPDigit[4];
+    BYTE i;
+
+    BYTE j;
+
+    for(i = 0; i < sizeof(IP_ADDR); i++)
+    {
+        uitoa((WORD)IPVal.v[i], IPDigit);
+        
+        LCD_Write((char*)IPDigit);
+        LCD_Write(".");
+    }
 }

@@ -71,9 +71,10 @@ file_043=wifi
 file_044=wifi
 file_045=tcpip
 file_046=tcpip
-file_047=app
+file_047=wifi
 file_048=app
-file_049=crystalfontz
+file_049=app
+file_050=crystalfontz
 [GENERATED_FILES]
 file_000=no
 file_001=no
@@ -125,6 +126,7 @@ file_046=no
 file_047=no
 file_048=no
 file_049=no
+file_050=no
 [OTHER_FILES]
 file_000=no
 file_001=no
@@ -176,6 +178,7 @@ file_046=no
 file_047=no
 file_048=no
 file_049=no
+file_050=no
 [FILE_INFO]
 file_000=app\app.c
 file_001=modules\delay\simpledelay.c
@@ -224,9 +227,10 @@ file_043=modules\wifi\WF_Config.c
 file_044=modules\wifi\wifi.c
 file_045=modules\TCPIP Stack\src\ICMP.c
 file_046=modules\TCPIP Stack\src\NBNS.c
-file_047=app\app.h
-file_048=app\userconfig.h
-file_049=modules\crystalfontz\module.h
+file_047=modules\wifi\Telnet.c
+file_048=app\app.h
+file_049=app\userconfig.h
+file_050=modules\crystalfontz\module.h
 [SUITE_INFO]
 suite_guid={14495C23-81F8-43F3-8A44-859C583D7760}
 suite_state=
