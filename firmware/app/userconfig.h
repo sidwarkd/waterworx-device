@@ -77,6 +77,7 @@
 #define mLED_White_On()         (mLED_White = 0);
 #define mLED_Green_On()         (mLED_Green = 0);
 #define mLED_Yellow_Off()       (mLED_Yellow = 1);
+#define mLED_Yellow_Toggle()    (mLED_Yellow = !mLED_Yellow);
 #define mLED_Red_Off()          (mLED_Red = 1);
 #define mLED_White_Off()        (mLED_White = 1);
 #define mLED_Green_Off()        (mLED_Green = 1);
@@ -90,7 +91,7 @@
 // =====================================================
 #define CLOCK_FREQ      80000000L
 #define GetSystemClock()            (80000000ul)
-#define GetPeripheralClock()        (GetSystemClock()) 
+#define GetPeripheralClock()        (GetSystemClock()/4) 
 #define GetInstructionClock()       (GetSystemClock())
 
 //============================================
@@ -111,17 +112,17 @@
 //#define MRF24WB0M_IN_SPI2
 #if defined(MRF24WB0M_IN_SPI1)
         // MRF24WB0M in SPI1 slot
-        #define WF_CS_TRIS              (TRISAbits.TRISA3)//
-        #define WF_CS_IO                (LATAbits.LATA3)//
-        #define WF_SDI_TRIS             (TRISCbits.TRISC4) //
-        #define WF_SCK_TRIS             (TRISDbits.TRISD10)//
-        #define WF_SDO_TRIS             (TRISDbits.TRISD0) //
+        #define WF_CS_TRIS              (TRISAbits.TRISA3)
+        #define WF_CS_IO                (LATAbits.LATA3)
+        #define WF_SDI_TRIS             (TRISCbits.TRISC4) 
+        #define WF_SCK_TRIS             (TRISDbits.TRISD10)
+        #define WF_SDO_TRIS             (TRISDbits.TRISD0)
         #define WF_RESET_TRIS           (TRISFbits.TRISF0)//
-        #define WF_RESET_IO             (LATFbits.LATF0)
-        #define WF_INT_TRIS             (TRISEbits.TRISE8) //     // INT1
-        #define WF_INT_IO               (PORTEbits.RE8)//
-        #define WF_HIBERNATE_TRIS       (TRISFbits.TRISF1)//
-        #define WF_HIBERNATE_IO         (PORTFbits.RF1)//
+        #define WF_RESET_IO             (LATFbits.LATF0)//
+        #define WF_INT_TRIS             (TRISEbits.TRISE8)     // INT1
+        #define WF_INT_IO               (PORTEbits.RE8)
+        #define WF_HIBERNATE_TRIS       (TRISFbits.TRISF1)
+        #define WF_HIBERNATE_IO         (PORTFbits.RF1)
         #define WF_INT_EDGE             (INTCONbits.INT1EP)
         #define WF_INT_IE               (IEC0bits.INT1IE)
         #define WF_INT_IF               (IFS0bits.INT1IF)

@@ -13,7 +13,7 @@
 
 // HardwareProfile.h
 #define GENERATED_BY_TCPIPCONFIG "Version 1.0.4168.28618"
-#define PIC32_GP_SK_DM320001
+//#define PIC32_GP_SK_DM320001
 
 
 // main.h

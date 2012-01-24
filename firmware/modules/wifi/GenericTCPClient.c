@@ -56,19 +56,20 @@
 
 #include <userconfig.h>
 #include "TCPIPConfig.h"
+#include <crystalfontz/module.h>
 
 #if defined(STACK_USE_GENERIC_TCP_CLIENT_EXAMPLE)
 
 #include "TCPIP Stack/TCPIP.h"
 
 // Defines the server to be accessed for this application
-static BYTE ServerName[] =	"google.com";
+static BYTE ServerName[] =	"10.0.0.2";
 
 // Defines the port to be accessed for this application
 static WORD ServerPort = 80;
 
 // Defines the URL to be requested by this HTTP client
-static ROM BYTE RemoteURL[] = "/";
+static ROM BYTE RemoteURL[] = "/test.html";
 
 
 /*****************************************************************************
@@ -177,11 +178,6 @@ void GenericTCPClient(void)
 	
 			// Get count of RX bytes waiting
 			w = TCPIsGetReady(MySocket);	
-
-			//if(w > 0)
-			//{
-			//    LCD_WriteFromROM("SIDWAR ROCKS");
-			//}
 	
 			// Obtain and print the server reply
 			i = sizeof(vBuffer)-1;
@@ -197,6 +193,7 @@ void GenericTCPClient(void)
 				#if defined(STACK_USE_UART)
 				putsUART((char*)vBuffer);
 				#endif
+				LCD_Write((char*)vBuffer);
 
 				// putsUART is a blocking call which will slow down the rest of the stack 
 				// if we shovel the whole TCP RX FIFO into the serial port all at once.  

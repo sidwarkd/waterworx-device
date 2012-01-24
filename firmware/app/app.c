@@ -4,6 +4,7 @@
 
 void _general_exception_handler(unsigned cause, unsigned status)
 {
+	mLED_Red_On();
 	Nop();
 	Nop();
 }

@@ -74,11 +74,11 @@ void WIFI_PerformStackTasks(void)
 		}
 	#endif
         // Blink LED0 (right most one) every second.
-        //if(TickGet() - t >= TICK_SECOND/2ul)
-        //{
-        //    t = TickGet();
-        //    LED0_IO ^= 1;
-        //}
+        if(TickGet() - t >= TICK_SECOND/2ul)
+        {
+            t = TickGet();
+            mLED_Yellow_Toggle();
+        }
 
         // This task performs normal stack task including checking
         // for incoming packet, type of packet and calling
@@ -87,8 +87,9 @@ void WIFI_PerformStackTasks(void)
 
         // This tasks invokes each of the core stack application tasks
         //StackApplications();
+        GenericTCPClient();
 
-        TelnetTask();
+        //TelnetTask();
 
 
 		// Process application specific tasks here.

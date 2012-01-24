@@ -81,7 +81,7 @@
 //#define STACK_USE_TFTP_CLIENT			// Trivial File Transfer Protocol client
 #define STACK_USE_GENERIC_TCP_CLIENT_EXAMPLE	// HTTP Client example in GenericTCPClient.c
 //#define STACK_USE_GENERIC_TCP_SERVER_EXAMPLE	// ToUpper server example in GenericTCPServer.c
-//#define STACK_USE_TELNET_SERVER			// Telnet server
+#define STACK_USE_TELNET_SERVER			// Telnet server
 //#define STACK_USE_ANNOUNCE				// Microchip Embedded Ethernet Device Discoverer server/client
 #define STACK_USE_DNS					// Domain Name Service Client for resolving hostname strings to IP addresses
 //#define STACK_USE_DNS_SERVER			// Domain Name Service Server for redirection to the local device
@@ -150,7 +150,7 @@
  *   To clear EEPROM, hold BUTTON0, reset the board, and continue
  *   holding until the LEDs flash.  Release, and reset again.
  */
-#define MY_DEFAULT_HOST_NAME			"MCHPBOARD"
+#define MY_DEFAULT_HOST_NAME			"EMBDFUN"
 
 #define MY_DEFAULT_MAC_BYTE1            (0x00)	// Use the default of 00-04-A3-00-00-00
 #define MY_DEFAULT_MAC_BYTE2            (0x04)	// if using an ENCX24J600, MRF24WB0M, or
@@ -236,7 +236,7 @@
 	// Allocate how much total RAM (in bytes) you want to allocate
 	// for use by your TCP TCBs, RX FIFOs, and TX FIFOs.
 	#define TCP_ETH_RAM_SIZE					(0ul)
-	#define TCP_PIC_RAM_SIZE					(2321ul)
+	#define TCP_PIC_RAM_SIZE					(1869ul)
 	#define TCP_SPI_RAM_SIZE					(0ul)
 	#define TCP_SPI_RAM_BASE_ADDRESS			(0x00)
 
@@ -278,11 +278,11 @@
 			WORD wRXBufferSize;
 		} TCPSocketInitializer[] = 
 		{
-			{TCP_PURPOSE_GENERIC_TCP_CLIENT, TCP_PIC_RAM, 125, 100},
-			//{TCP_PURPOSE_GENERIC_TCP_SERVER, TCP_PIC_RAM, 20, 20},
-			//{TCP_PURPOSE_TELNET, TCP_PIC_RAM, 200, 150},
-			//{TCP_PURPOSE_TELNET, TCP_PIC_RAM, 200, 150},
-			//{TCP_PURPOSE_TELNET, TCP_PIC_RAM, 200, 150},
+			{TCP_PURPOSE_GENERIC_TCP_CLIENT, TCP_PIC_RAM, 125, 500},
+			//{TCP_PURPOSE_GENERIC_TCP_SERVER, TCP_ETH_RAM, 20, 20},
+			{TCP_PURPOSE_TELNET, TCP_PIC_RAM, 200, 500},
+			//{TCP_PURPOSE_TELNET, TCP_PIC_RAM, 200, 500},
+			//{TCP_PURPOSE_TELNET, TCP_PIC_RAM, 200, 500},
 			//{TCP_PURPOSE_FTP_COMMAND, TCP_ETH_RAM, 100, 40},
 			//{TCP_PURPOSE_FTP_DATA, TCP_ETH_RAM, 0, 128},
 			//{TCP_PURPOSE_TCP_PERFORMANCE_TX, TCP_ETH_RAM, 200, 1},
@@ -290,7 +290,7 @@
 			//{TCP_PURPOSE_UART_2_TCP_BRIDGE, TCP_ETH_RAM, 256, 256},
 			//{TCP_PURPOSE_HTTP_SERVER, TCP_ETH_RAM, 1000, 1000},
 			//{TCP_PURPOSE_HTTP_SERVER, TCP_ETH_RAM, 1000, 1000},
-			{TCP_PURPOSE_DEFAULT, TCP_PIC_RAM, 1000, 1000},
+			{TCP_PURPOSE_DEFAULT, TCP_PIC_RAM, 200, 200},
 			//{TCP_PURPOSE_BERKELEY_SERVER, TCP_ETH_RAM, 25, 20},
 			//{TCP_PURPOSE_BERKELEY_SERVER, TCP_ETH_RAM, 25, 20},
 			//{TCP_PURPOSE_BERKELEY_SERVER, TCP_ETH_RAM, 25, 20},
@@ -303,7 +303,7 @@
  *   Define the maximum number of available UDP Sockets, and whether
  *   or not to include a checksum on packets being transmitted.
  */
-#define MAX_UDP_SOCKETS     (8u)
+#define MAX_UDP_SOCKETS     (3u)
 //#define UDP_USE_TX_CHECKSUM		// This slows UDP TX performance by nearly 50%, except when using the ENCX24J600 or PIC32MX6XX/7XX, which have a super fast DMA and incurs virtually no speed pentalty.
 
 
@@ -418,7 +418,7 @@
 
 	// Default username and password required to login to the Telnet server.
 	#define TELNET_USERNAME			"admin"
-	#define TELNET_PASSWORD			"microchip"
+	#define TELNET_PASSWORD			"admin"
 
 
 // -- SNMP Options -------------------------------------------------------
