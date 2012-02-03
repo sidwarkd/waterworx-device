@@ -14,7 +14,6 @@ void DisplayStatusCode(HttpResponse *response)
     CHAR status[5];
     itoa(status, response->status_code, 10);
     LCD_Write(status);
-    LCD_Write("done");
     CurrentPacket = NULL;
 }
 
@@ -23,37 +22,16 @@ int main(void)
 	BYTE i = 0;
 	InitializeSystem();
 
+	#ifdef DEBUGGING
 	LCD_Write("App Start");
+	#endif
 
     while(1)
     {
-    	// If the USER switch is pressed light up the LED for a second and continue
-    	if(mSwitch_User == SWITCH_PRESSED)
-    	{
-    		mLED_Yellow_On();
-    		DelayMs(1000);
-    		mLED_Yellow_Off();
-    		DelayMs(1000);
-    		mLED_Red_On();
-    		DelayMs(1000);
-    		mLED_Red_Off();
-    		DelayMs(1000);
-    		mLED_White_On();
-    		DelayMs(1000);
-    		mLED_White_Off();
-    		DelayMs(1000);
-    		mLED_Green_On();
-    		DelayMs(1000);
-    		mLED_Green_Off();
-    	}
-
     	if(mSwitch_Prog == SWITCH_PRESSED)
     	{
     		if(i == 0)
-    			WIFI_PerformGet((CHAR*)"hardlysoftware.com", (CHAR*)"/dummy", DisplayStatusCode);
-    		else
-    			WIFI_PerformGet((CHAR*)"hardlysoftware.com", (CHAR*)"/", DisplayStatusCode);
-    		i^=1;
+    			WIFI_PerformGet((CHAR*)"sensorstatus.com", (CHAR*)"/", DisplayStatusCode);
     	}
 
     	WIFI_PerformStackTasks();

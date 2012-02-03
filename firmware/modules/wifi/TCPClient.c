@@ -8,15 +8,6 @@
 //#include "TCPIP Stack/TCPIP.h"
 #include <wifi/module.h>
 
-// Defines the server to be accessed for this application
-static BYTE ServerName[] =	"hardlysoftware.com";
-
-// Defines the port to be accessed for this application
-static WORD ServerPort = 80;
-
-// Defines the URL to be requested by this HTTP client
-static ROM BYTE RemoteURL[] = "/";
-
 void ProcessTCPRequests(void)
 {
 	WORD				i;
@@ -108,17 +99,13 @@ void ProcessTCPRequests(void)
 
 				memcpy(buffer + offset, vBuffer, sizeof(vBuffer));
 				offset += sizeof(vBuffer);
-
-				// putsUART is a blocking call which will slow down the rest of the stack 
-				// if we shovel the whole TCP RX FIFO into the serial port all at once.  
+ 
 				// Therefore, let's break out after only one chunk most of the time.  The 
 				// only exception is when the remote node disconncets from us and we need to 
 				// use up all the data before changing states.
 				if(TCPState == SM_PROCESS_RESPONSE)
 					break;
 			}
-
-			//TCPState = SM_DISCONNECT;
 
 			break;
 	

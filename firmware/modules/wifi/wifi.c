@@ -54,8 +54,6 @@ void WIFI_Initialize(void)
 
 void WIFI_PerformStackTasks(void)
 {
-    //while(1)
-    //{
 	#if defined(WF_USE_POWER_SAVE_FUNCTIONS)
 		if (!psConfDone && WFisConnected()) {	
 			PsPollEnabled = (MY_DEFAULT_PS_POLL == WF_ENABLED);
@@ -75,55 +73,39 @@ void WIFI_PerformStackTasks(void)
 			psConfDone = TRUE;
 		}
 	#endif
-        // Blink LED0 (right most one) every second.
-        if(TickGet() - t >= TICK_SECOND/2ul)
-        {
-            t = TickGet();
-            mLED_Yellow_Toggle();
-        }
+    // Blink LED every second.
+    #ifdef DEBUGGING
+    if(TickGet() - t >= TICK_SECOND/2ul)
+    {
+        t = TickGet();
+        mLED_Yellow_Toggle();
+    }
+    #endif
 
-        // This task performs normal stack task including checking
-        // for incoming packet, type of packet and calling
-        // appropriate stack entity to process it.
-        StackTask();
+    // This task performs normal stack task including checking
+    // for incoming packet, type of packet and calling
+    // appropriate stack entity to process it.
+    StackTask();
 
-        // This tasks invokes each of the core stack application tasks
-        //StackApplications();
-        //GenericTCPClient();
-        ProcessTCPRequests();
+    // Process pending requests.  Currently only support 1
+    ProcessTCPRequests();
 
-        //TelnetTask();
+    // If the local IP address has changed (ex: due to DHCP lease change)
+    // write the new IP address to the LCD display, UART, and Announce 
+    // service
+	if(dwLastIP != AppConfig.MyIPAddr.Val)
+	{
+		dwLastIP = AppConfig.MyIPAddr.Val;
 
+		mLED_White_On();
+        DisplayIPValue(AppConfig.MyIPAddr);
+		DelayMs(1000);
+		mLED_White_Off();
 
-		// Process application specific tasks here.
-		// For this demo app, this will include the Generic TCP 
-		// client and servers, and the SNMP, Ping, and SNMP Trap
-		// demos.  Following that, we will process any IO from
-		// the inputs on the board itself.
-		// Any custom modules or processing you need to do should
-		// go here.
-		#if defined(STACK_USE_GENERIC_TCP_CLIENT_EXAMPLE)
-		//GenericTCPClient();
+		#if defined(STACK_USE_ANNOUNCE)
+			AnnounceIP();
 		#endif
-
-
-        // If the local IP address has changed (ex: due to DHCP lease change)
-        // write the new IP address to the LCD display, UART, and Announce 
-        // service
-		if(dwLastIP != AppConfig.MyIPAddr.Val)
-		{
-			dwLastIP = AppConfig.MyIPAddr.Val;
-
-			mLED_White_On();
-            DisplayIPValue(AppConfig.MyIPAddr);
-			DelayMs(1000);
-			mLED_White_Off();
-
-			#if defined(STACK_USE_ANNOUNCE)
-				AnnounceIP();
-			#endif
-		}
-	//}
+	}
 }
 
 #if defined(WF_CS_TRIS)

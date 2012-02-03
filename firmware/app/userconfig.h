@@ -2,6 +2,14 @@
 #define APP_USERCONFIG_H
 
 //============================================
+// RUNTIME MODE
+//============================================
+#define DEBUGGING
+#ifndef DEBUGGING
+#define RELEASE
+#endif
+
+//============================================
 // CONFIGURATION BITS
 //============================================
 #if defined(APPLICATION_ENTRY_POINT)

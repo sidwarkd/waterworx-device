@@ -61,7 +61,6 @@ struct pending_packet *CurrentPacket;
 
 // main.h
 #define SaveAppConfig(a)
-//void GenericTCPClient(void);
 void ProcessTCPRequests(void);
 void DisplayIPValue(IP_ADDR IPVal);
 
@@ -75,6 +74,5 @@ void WIFI_PerformPost(HttpRequest request, void (*callback)(HttpResponse *respon
 BYTE* GetHeaderValue(CHAR *key, HeaderItem *headers);
 static void GenerateRequestPacket(TCP_SOCKET socket, HttpRequest *request);
 static void ParseHttpResponsePacket(BYTE *buffer, HttpResponse *response);
-//void DisplayStatusCode(HttpResponse *response);
 
 #endif
