@@ -29,10 +29,12 @@ void WIFI_Initialize(void)
 {
 	static DWORD t = 0;
 	static DWORD dwLastIP = 0;
-	
+    UINT8 i = 0;
 
 	WF_CS_IO = 1;
 	WF_CS_TRIS = 0;
+
+    CurrentPacket = NULL;
 
 	// Initialize application specific hardware
     TickInit();
@@ -52,8 +54,8 @@ void WIFI_Initialize(void)
 
 void WIFI_PerformStackTasks(void)
 {
-    while(1)
-    {
+    //while(1)
+    //{
 	#if defined(WF_USE_POWER_SAVE_FUNCTIONS)
 		if (!psConfDone && WFisConnected()) {	
 			PsPollEnabled = (MY_DEFAULT_PS_POLL == WF_ENABLED);
@@ -87,7 +89,8 @@ void WIFI_PerformStackTasks(void)
 
         // This tasks invokes each of the core stack application tasks
         //StackApplications();
-        GenericTCPClient();
+        //GenericTCPClient();
+        ProcessTCPRequests();
 
         //TelnetTask();
 
@@ -120,7 +123,7 @@ void WIFI_PerformStackTasks(void)
 				AnnounceIP();
 			#endif
 		}
-	}
+	//}
 }
 
 #if defined(WF_CS_TRIS)
@@ -372,3 +375,33 @@ void DisplayIPValue(IP_ADDR IPVal)
         LCD_Write(".");
     }
 }
+
+void WIFI_PerformGet(CHAR *server, CHAR* url, void (*callback)(HttpResponse *response))
+{
+    BYTE headerIndex = 0;
+
+    if(CurrentPacket == NULL)
+    {
+        WiFiPacket.request.port = 80;
+        strcpy(WiFiPacket.request.method, "GET");
+        strcpy(WiFiPacket.request.url, url);
+        strcpy(WiFiPacket.request.http_version, "1.0");
+        // Add host and connection header
+        strcpy(WiFiPacket.request.headers[headerIndex].name, "Host");
+        strcpy(WiFiPacket.request.headers[headerIndex++].value, server);
+        strcpy(WiFiPacket.request.headers[headerIndex].name, "Connection");
+        strcpy(WiFiPacket.request.headers[headerIndex++].value, "close");
+
+        // Null the names of unused headers
+        for(headerIndex; headerIndex < MAX_HEADERS; headerIndex++)
+        {
+            WiFiPacket.request.headers[headerIndex].name[0] = '\0';
+        }
+
+        WiFiPacket.request.body = NULL;
+        WiFiPacket.callback = callback;
+        CurrentPacket = &WiFiPacket;
+    }
+}
+
+

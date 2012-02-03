@@ -9,13 +9,21 @@ void _general_exception_handler(unsigned cause, unsigned status)
 	Nop();
 }
 
+void DisplayStatusCode(HttpResponse *response)
+{
+    CHAR status[5];
+    itoa(status, response->status_code, 10);
+    LCD_Write(status);
+    LCD_Write("done");
+    CurrentPacket = NULL;
+}
+
 int main(void)
 {
-	char data[36];
-
+	BYTE i = 0;
 	InitializeSystem();
 
-	LCD_Write("Hello World");
+	LCD_Write("App Start");
 
     while(1)
     {
@@ -37,6 +45,15 @@ int main(void)
     		mLED_Green_On();
     		DelayMs(1000);
     		mLED_Green_Off();
+    	}
+
+    	if(mSwitch_Prog == SWITCH_PRESSED)
+    	{
+    		if(i == 0)
+    			WIFI_PerformGet((CHAR*)"hardlysoftware.com", (CHAR*)"/dummy", DisplayStatusCode);
+    		else
+    			WIFI_PerformGet((CHAR*)"hardlysoftware.com", (CHAR*)"/", DisplayStatusCode);
+    		i^=1;
     	}
 
     	WIFI_PerformStackTasks();

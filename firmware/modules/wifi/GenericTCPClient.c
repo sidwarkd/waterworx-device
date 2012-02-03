@@ -112,7 +112,8 @@ void GenericTCPClient(void)
 		SM_SOCKET_OBTAINED,
 		SM_PROCESS_RESPONSE,
 		SM_DISCONNECT,
-		SM_DONE
+		SM_DONE,
+		SM_PERFORM_CALLBACK
 	} GenericTCPExampleState = SM_DONE;
 
 	switch(GenericTCPExampleState)
@@ -211,9 +212,14 @@ void GenericTCPClient(void)
 			// For this application, we wish to stay connected, but this state will still get entered if the remote server decides to disconnect
 			TCPDisconnect(MySocket);
 			MySocket = INVALID_SOCKET;
-			GenericTCPExampleState = SM_DONE;
+			GenericTCPExampleState = SM_PERFORM_CALLBACK;
 			break;
 	
+		case SM_PERFORM_CALLBACK:
+			// Call the callback function to perform processing on the response
+			GenericTCPExampleState = SM_DONE;
+			break;
+
 		case SM_DONE:
 			// Do nothing unless the user pushes BUTTON1 and wants to restart the whole connection/download process
 			if(mSwitch_Prog == 0u)

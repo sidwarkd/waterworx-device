@@ -80,6 +80,7 @@
 #define mLED_Yellow_Toggle()    (mLED_Yellow = !mLED_Yellow);
 #define mLED_Red_Off()          (mLED_Red = 1);
 #define mLED_White_Off()        (mLED_White = 1);
+#define mLED_White_Toggle()    (mLED_White = !mLED_White);
 #define mLED_Green_Off()        (mLED_Green = 1);
 
 #define mSwitch_Prog    (PORTEbits.RE7)
@@ -104,6 +105,11 @@
 #define LCD_CS  LATDbits.LATD1
 #define LCD_CLK LATDbits.LATD2
 #define LCD_DATA LATDbits.LATD3
+
+//============================================
+// WiFi Settings
+//============================================
+#define MAX_PENDING_REQUESTS    2
 
 //============================================
 // MRF24WB0M WiFi I/O pins
