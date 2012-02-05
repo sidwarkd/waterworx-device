@@ -386,4 +386,42 @@ void WIFI_PerformGet(CHAR *server, CHAR* url, void (*callback)(HttpResponse *res
     }
 }
 
+void WIFI_PerformPost(CHAR *server, CHAR* url, CHAR* body, void (*callback)(HttpResponse *response))
+{
+    BYTE headerIndex = 0;
+
+    if(CurrentPacket == NULL)
+    {
+        WiFiPacket.request.port = 80;
+        strcpy(WiFiPacket.request.method, "POST");
+        strcpy(WiFiPacket.request.url, url);
+        strcpy(WiFiPacket.request.http_version, "1.0");
+        // Add host and connection header
+        strcpy(WiFiPacket.request.headers[headerIndex].name, "Host");
+        strcpy(WiFiPacket.request.headers[headerIndex++].value, server);
+        strcpy(WiFiPacket.request.headers[headerIndex].name, "Content-Type");
+        strcpy(WiFiPacket.request.headers[headerIndex++].value, "application/json; charset=utf-8");
+        strcpy(WiFiPacket.request.headers[headerIndex].name, "Connection");
+        strcpy(WiFiPacket.request.headers[headerIndex++].value, "close");
+
+        // Null the names of unused headers
+        for(headerIndex; headerIndex < MAX_HEADERS; headerIndex++)
+        {
+            WiFiPacket.request.headers[headerIndex].name[0] = '\0';
+        }
+
+        if(body)
+        {
+            WiFiPacket.request.body = body;
+        }
+        else
+        {
+            WiFiPacket.request.body = NULL;
+        }
+        
+        WiFiPacket.callback = callback;
+        CurrentPacket = &WiFiPacket;
+    }
+}
+
 

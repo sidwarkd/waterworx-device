@@ -24,6 +24,8 @@ void DisplayResponseBody(HttpResponse *response)
 
 int main(void)
 {
+	static CHAR *json = "{\"did\":\"123456\",\"name\":\"prototype\"}";
+
 	InitializeSystem();
 
 	#ifdef DEBUGGING
@@ -34,7 +36,8 @@ int main(void)
     {
     	if(mSwitch_Prog == SWITCH_PRESSED)
     	{
-    		WIFI_PerformGet((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", DisplayResponseBody);
+    		//WIFI_PerformGet((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", DisplayResponseBody);
+    		WIFI_PerformPost((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", json, DisplayResponseBody);
     	}
 
     	WIFI_PerformStackTasks();

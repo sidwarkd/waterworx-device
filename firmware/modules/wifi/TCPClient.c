@@ -188,7 +188,10 @@ static void GenerateRequestPacket(TCP_SOCKET socket, HttpRequest *request)
 	TCPPutString(socket, (BYTE*)PACKET_NEWLINE);
 
 	if(request->body)
+	{
 		TCPPutString(socket, (BYTE*)request->body);
+		TCPPutString(socket, (BYTE*)PACKET_NEWLINE);
+	}
 }
 
 static void ParseHttpResponsePacket(BYTE *buffer, HttpResponse *response)

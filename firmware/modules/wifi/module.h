@@ -16,7 +16,7 @@
 #define MAX_HEADER_NAME_LENGTH		16
 #define MAX_HEADER_VALUE_LENGTH		64
 #define MAX_URL_LENGTH				128
-#define MAX_METHOD_LENGTH			4
+#define MAX_METHOD_LENGTH			5
 #define MAX_HTTP_VERSION_LENGTH		4
 #define MAX_REQUEST_BODY_LENGTH		256
 #define MAX_RESPONSE_BODY_LENGTH	1024
@@ -68,7 +68,7 @@ void DisplayIPValue(IP_ADDR IPVal);
 void WIFI_Initialize(void);
 void WIFI_PerformStackTasks(void);
 void WIFI_PerformGet(CHAR *server, CHAR* url, void (*callback)(HttpResponse *response));
-void WIFI_PerformPost(HttpRequest request, void (*callback)(HttpResponse *response));
+void WIFI_PerformPost(CHAR *server, CHAR* url, CHAR* body, void (*callback)(HttpResponse *response));
 
 // Helper Functions
 BYTE* GetHeaderValue(CHAR *key, HeaderItem *headers);
