@@ -17,9 +17,13 @@ void DisplayStatusCode(HttpResponse *response)
     CurrentPacket = NULL;
 }
 
+void DisplayResponseBody(HttpResponse *response)
+{
+	LCD_Write(response->body);
+}
+
 int main(void)
 {
-	BYTE i = 0;
 	InitializeSystem();
 
 	#ifdef DEBUGGING
@@ -30,8 +34,7 @@ int main(void)
     {
     	if(mSwitch_Prog == SWITCH_PRESSED)
     	{
-    		if(i == 0)
-    			WIFI_PerformGet((CHAR*)"sensorstatus.com", (CHAR*)"/", DisplayStatusCode);
+    		WIFI_PerformGet((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", DisplayResponseBody);
     	}
 
     	WIFI_PerformStackTasks();

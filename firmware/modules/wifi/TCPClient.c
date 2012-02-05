@@ -97,8 +97,8 @@ void ProcessTCPRequests(void)
 				}
 				w -= TCPGetArray(MySocket, vBuffer, i);
 
-				memcpy(buffer + offset, vBuffer, sizeof(vBuffer));
-				offset += sizeof(vBuffer);
+				memcpy(buffer + offset, vBuffer, i);
+				offset += i;
  
 				// Therefore, let's break out after only one chunk most of the time.  The 
 				// only exception is when the remote node disconncets from us and we need to 
@@ -194,8 +194,21 @@ static void GenerateRequestPacket(TCP_SOCKET socket, HttpRequest *request)
 static void ParseHttpResponsePacket(BYTE *buffer, HttpResponse *response)
 {
 	CHAR *token;
+	CHAR *bodyptr;
+	UINT8 i = 0;
+
+	// Before we mess with the buffer with strtok let's find the body
+	bodyptr = strstr((CHAR*)buffer, "\r\n\r\n");
 
 	token = strtok((CHAR*)buffer, " ");
 	token = strtok(NULL, " ");
 	response->status_code = (WORD)atoi(token);
+
+	// Take as many headers as we can
+	// TODO: Add header parsing when needed
+
+	if(bodyptr && (bodyptr + 4))
+	{
+		strcpy(response->body, bodyptr + 4);
+	}
 }

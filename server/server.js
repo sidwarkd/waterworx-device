@@ -2,9 +2,6 @@ var connect = require('connect'),
   mongo = require('mongodb'),
   Waterworx = require('./lib/waterworx').Waterworx;
 
-//db = new mongo.Db('test', new mongo.Server("ds029107.mongolab.com", 29107, {}), {});
-
-
 
 mongo.connect(process.env.MONGOLAB_URI, {}, function(error, db){
   var waterworx = new Waterworx();
