@@ -24,13 +24,21 @@ void DisplayResponseBody(HttpResponse *response)
 
 int main(void)
 {
-	static CHAR *json = "{\"did\":\"123456\",\"name\":\"prototype\"}";
+	//static CHAR *json = "{\"did\":\"123456\",\"name\":\"prototype\"}";
+	cJSON *root;
+	CHAR *json;
 
 	InitializeSystem();
 
 	#ifdef DEBUGGING
 	//LCD_Write("App Start");
 	#endif
+
+	// Build up JSON to send
+	root = cJSON_CreateObject();
+	cJSON_AddStringToObject(root, "did", "123456");
+	cJSON_AddStringToObject(root, "name", "jsonPrototype");
+	json = cJSON_Print(root);
 
     while(1)
     {

@@ -386,7 +386,7 @@ void WIFI_PerformGet(CHAR *server, CHAR* url, void (*callback)(HttpResponse *res
     }
 }
 
-void WIFI_PerformPost(CHAR *server, CHAR* url, CHAR* body, void (*callback)(HttpResponse *response))
+void WIFI_PerformPost(CHAR *server, CHAR *url, CHAR* body, void (*callback)(HttpResponse *response))
 {
     BYTE headerIndex = 0;
 
@@ -402,8 +402,7 @@ void WIFI_PerformPost(CHAR *server, CHAR* url, CHAR* body, void (*callback)(Http
         strcpy(WiFiPacket.request.headers[headerIndex].name, "Content-Type");
         strcpy(WiFiPacket.request.headers[headerIndex++].value, "application/json");
         strcpy(WiFiPacket.request.headers[headerIndex].name, "Content-Length");
-        strcpy(WiFiPacket.request.headers[headerIndex++].value, "35");
-        //itoa(WiFiPacket.request.headers[headerIndex++].value, strlen(body),10);
+        itoa(WiFiPacket.request.headers[headerIndex++].value, strlen(body),10);
         strcpy(WiFiPacket.request.headers[headerIndex].name, "Connection");
         strcpy(WiFiPacket.request.headers[headerIndex++].value, "close");
 

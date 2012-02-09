@@ -11,5 +11,6 @@ void InitializeSystem();
 #include <delay/module.h>
 #include <crystalfontz/module.h>
 #include <wifi/module.h>
+#include <json/module.h>
 
 #endif
