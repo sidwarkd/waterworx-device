@@ -98,7 +98,7 @@ void WIFI_PerformStackTasks(void)
 		dwLastIP = AppConfig.MyIPAddr.Val;
 
 		mLED_White_On();
-        DisplayIPValue(AppConfig.MyIPAddr);
+        //DisplayIPValue(AppConfig.MyIPAddr);
 		DelayMs(1000);
 		mLED_White_Off();
 
@@ -400,7 +400,10 @@ void WIFI_PerformPost(CHAR *server, CHAR* url, CHAR* body, void (*callback)(Http
         strcpy(WiFiPacket.request.headers[headerIndex].name, "Host");
         strcpy(WiFiPacket.request.headers[headerIndex++].value, server);
         strcpy(WiFiPacket.request.headers[headerIndex].name, "Content-Type");
-        strcpy(WiFiPacket.request.headers[headerIndex++].value, "application/json; charset=utf-8");
+        strcpy(WiFiPacket.request.headers[headerIndex++].value, "application/json");
+        strcpy(WiFiPacket.request.headers[headerIndex].name, "Content-Length");
+        strcpy(WiFiPacket.request.headers[headerIndex++].value, "35");
+        //itoa(WiFiPacket.request.headers[headerIndex++].value, strlen(body),10);
         strcpy(WiFiPacket.request.headers[headerIndex].name, "Connection");
         strcpy(WiFiPacket.request.headers[headerIndex++].value, "close");
 

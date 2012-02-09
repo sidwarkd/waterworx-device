@@ -17,7 +17,7 @@
 #define MAX_HEADER_VALUE_LENGTH		64
 #define MAX_URL_LENGTH				128
 #define MAX_METHOD_LENGTH			5
-#define MAX_HTTP_VERSION_LENGTH		4
+#define MAX_HTTP_VERSION_LENGTH		5
 #define MAX_REQUEST_BODY_LENGTH		256
 #define MAX_RESPONSE_BODY_LENGTH	1024
 #define HTTP_STATUS_LINE_OVERHEAD	10
@@ -72,7 +72,7 @@ void WIFI_PerformPost(CHAR *server, CHAR* url, CHAR* body, void (*callback)(Http
 
 // Helper Functions
 BYTE* GetHeaderValue(CHAR *key, HeaderItem *headers);
-static void GenerateRequestPacket(TCP_SOCKET socket, HttpRequest *request);
+static void GenerateRequestPacket(HttpRequest *request, BYTE *packet);
 static void ParseHttpResponsePacket(BYTE *buffer, HttpResponse *response);
 
 #endif

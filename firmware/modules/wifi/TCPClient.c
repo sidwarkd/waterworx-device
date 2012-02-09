@@ -1,27 +1,26 @@
 #define __TCPCLIENT_C
 
-//#include <userconfig.h>
-//#include "TCPIPConfig.h"
-//#include <crystalfontz/module.h>
-
-
-//#include "TCPIP Stack/TCPIP.h"
 #include <wifi/module.h>
 
 void ProcessTCPRequests(void)
 {
-	WORD				i;
-	WORD				w;
-	static BYTE			buffer[MAX_RESPONSE_SIZE];
-	BYTE				vBuffer[32];
-	static WORD offset = 0;
+	WORD bytesToRead;
+	WORD numRXBytesReady;
+	BYTE vBuffer[32];
 	BYTE *server;
-	static DWORD		Timer;
+
+	static BYTE	buffer[MAX_RESPONSE_SIZE];
+	static BYTE	txPacket[1024];
+	static WORD offset = 0;
+	static BYTE *txPos;
+	static DWORD Timer;
 	static TCP_SOCKET	MySocket = INVALID_SOCKET;
+
 	static enum _TCPState
 	{
 		SM_HOME = 0,
 		SM_SOCKET_OBTAINED,
+		SM_SEND_REQUEST,
 		SM_PROCESS_RESPONSE,
 		SM_DISCONNECT,
 		SM_PARSE_RESPONSE,
@@ -65,16 +64,25 @@ void ProcessTCPRequests(void)
 
 			Timer = TickGet();
 
-			// Make certain the socket can be written to
-			if(TCPIsPutReady(MySocket) < 125u)
-				break;
-			
 			// Generate the packet to send
-			GenerateRequestPacket(MySocket, &(CurrentPacket->request));
+			GenerateRequestPacket(&(CurrentPacket->request), &txPacket[0]);
 
-			// Send the packet
-			TCPFlush(MySocket);
+			txPos = &txPacket[0];
 			TCPState++;
+			break;
+
+		case SM_SEND_REQUEST:
+			if(*txPos != '\0')
+			{
+				txPos = TCPPutString(MySocket, txPos);
+			}
+			else
+			{
+				TCPFlush(MySocket);
+				txPos = NULL;
+				memset(txPacket, 0, sizeof(txPacket));
+				TCPState++;
+			}
 			break;
 
 		case SM_PROCESS_RESPONSE:
@@ -86,19 +94,22 @@ void ProcessTCPRequests(void)
 			}
 	
 			// Get count of RX bytes waiting
-			w = TCPIsGetReady(MySocket);	
+			numRXBytesReady = TCPIsGetReady(MySocket);	
 
-			i = sizeof(vBuffer);
-			while(w)
+			bytesToRead = sizeof(vBuffer);
+			while(numRXBytesReady)
 			{
-				if(w < i)
+				if(numRXBytesReady < bytesToRead)
 				{
-					i = w;
+					bytesToRead = numRXBytesReady;
 				}
-				w -= TCPGetArray(MySocket, vBuffer, i);
+				
+				numRXBytesReady -= TCPGetArray(MySocket, vBuffer, bytesToRead);
 
-				memcpy(buffer + offset, vBuffer, i);
-				offset += i;
+				// TODO: Assumes call above actually read bytesToRead number of bytes. Maybe change this
+				// memcpy to copy the return number from TCPGetArray
+				memcpy(buffer + offset, vBuffer, bytesToRead);
+				offset += bytesToRead;
  
 				// Therefore, let's break out after only one chunk most of the time.  The 
 				// only exception is when the remote node disconncets from us and we need to 
@@ -131,6 +142,9 @@ void ProcessTCPRequests(void)
 			}
 
 			CurrentPacket = NULL;
+			// Clear out the response
+			Response.status_code = 0;
+			Response.body[0] = '\0';
 			TCPState = SM_DONE;
 			offset = 0;
 			break;
@@ -158,18 +172,19 @@ BYTE* GetHeaderValue(CHAR *key, HeaderItem *headers)
 	return NULL;
 }
 
-static void GenerateRequestPacket(TCP_SOCKET socket, HttpRequest *request)
+static void GenerateRequestPacket(HttpRequest *request, BYTE *packet)
 {
 	UINT8 i = 0;
 	CHAR statusline[MAX_STATUS_LINE_LENGTH];
 
 	// Consturct the status line
-	TCPPutString(socket, (BYTE*)request->method);
-	TCPPutString(socket, (BYTE*)" ");
-	TCPPutString(socket, (BYTE*)request->url);
-	TCPPutString(socket, (BYTE*)" HTTP/");
-	TCPPutString(socket, (BYTE*)request->http_version);
-	TCPPutString(socket, (BYTE*)PACKET_NEWLINE);
+	strcat(packet, (BYTE*)request->method);
+	strcat(packet, (BYTE*)" ");
+	strcat(packet, (BYTE*)request->url);
+	strcat(packet, (BYTE*)" HTTP/");
+	strcat(packet, (BYTE*)request->http_version);
+	strcat(packet, (BYTE*)PACKET_NEWLINE);
+
 
 	// Construct the headers
 	for(i = 0; i < MAX_HEADERS; i++)
@@ -177,20 +192,20 @@ static void GenerateRequestPacket(TCP_SOCKET socket, HttpRequest *request)
 		HeaderItem *header = request->headers + i;
 		if(*(header->name))
 		{
-			TCPPutString(socket, (BYTE*)header->name);
-			TCPPutString(socket, (BYTE*)": ");
-			TCPPutString(socket, (BYTE*)header->value);
-			TCPPutString(socket, (BYTE*)PACKET_NEWLINE);
+			strcat(packet, (BYTE*)header->name);
+			strcat(packet, (BYTE*)": ");
+			strcat(packet, (BYTE*)header->value);
+			strcat(packet, (BYTE*)PACKET_NEWLINE);
 		}
 	}
 
 	// Append the body
-	TCPPutString(socket, (BYTE*)PACKET_NEWLINE);
+	strcat(packet, (BYTE*)PACKET_NEWLINE);
 
 	if(request->body)
 	{
-		TCPPutString(socket, (BYTE*)request->body);
-		TCPPutString(socket, (BYTE*)PACKET_NEWLINE);
+		strcat(packet, (BYTE*)request->body);
+		//strcat(packet, (BYTE*)"{\"did\":\"123456\",\"name\":\"prototype\"}");
 	}
 }
 

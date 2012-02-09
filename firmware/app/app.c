@@ -29,7 +29,7 @@ int main(void)
 	InitializeSystem();
 
 	#ifdef DEBUGGING
-	LCD_Write("App Start");
+	//LCD_Write("App Start");
 	#endif
 
     while(1)
