@@ -49,6 +49,7 @@ int main(void)
     	}
 
     	WIFI_PerformStackTasks();
+    	SPRINKLER_ProcessTasks();
     }
 }
 
@@ -85,4 +86,5 @@ void InitializeSystem()
 	
 	LCD_Initialize();
 	WIFI_Initialize();
+	SPRINKLER_Initialize();
 }

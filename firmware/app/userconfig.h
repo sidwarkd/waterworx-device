@@ -199,6 +199,13 @@
         #define WF_MAX_SPI_FREQ         (10000000ul)    // Hz
 #endif
 
+//============================================
+// Sprinkler Module Settings
+//============================================
+#define MAX_SPRINKLER_PROGRAMS  5
+#define MAX_ZONES_PER_PROGRAM   20
+#define MAX_QUEUED_PROGRAMS     15
+#define SPRINKLER_TIME_IF       (IFS1bits.RTCCIF)
 
 
 #endif

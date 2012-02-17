@@ -18,7 +18,7 @@ filter_obj=*.o
 filter_lib=*.a
 filter_lkr=*.ld
 [CAT_SUBFOLDERS]
-subfolder_src=app;crystalfontz;delay;json;tcpip;wifi
+subfolder_src=app;crystalfontz;delay;json;sprinkler;tcpip;wifi
 subfolder_inc=app;crystalfontz
 subfolder_obj=
 subfolder_lib=
@@ -75,9 +75,10 @@ file_047=wifi
 file_048=tcpip
 file_049=wifi
 file_050=json
-file_051=app
+file_051=sprinkler
 file_052=app
-file_053=crystalfontz
+file_053=app
+file_054=crystalfontz
 [GENERATED_FILES]
 file_000=no
 file_001=no
@@ -133,6 +134,7 @@ file_050=no
 file_051=no
 file_052=no
 file_053=no
+file_054=no
 [OTHER_FILES]
 file_000=no
 file_001=no
@@ -188,6 +190,7 @@ file_050=no
 file_051=no
 file_052=no
 file_053=no
+file_054=no
 [FILE_INFO]
 file_000=app\app.c
 file_001=modules\delay\simpledelay.c
@@ -240,9 +243,10 @@ file_047=modules\wifi\Telnet.c
 file_048=modules\TCPIP Stack\src\Announce.c
 file_049=modules\wifi\TCPClient.c
 file_050=modules\json\cJSON.c
-file_051=app\app.h
-file_052=app\userconfig.h
-file_053=modules\crystalfontz\module.h
+file_051=modules\sprinkler\sprinkler.c
+file_052=app\app.h
+file_053=app\userconfig.h
+file_054=modules\crystalfontz\module.h
 [SUITE_INFO]
 suite_guid={14495C23-81F8-43F3-8A44-859C583D7760}
 suite_state=
