@@ -37,7 +37,7 @@ typedef enum
 }sprinklerState;
 
 static SprinklerProgram sprinkler_programs[MAX_SPRINKLER_PROGRAMS];
-static QueuedProgram program_queue[MAX_QUEUED_PROGRAMS];
+static QueuedEvent program_queue[MAX_QUEUED_PROGRAMS];
 QueuedEvent *CurrentEvent;
 UINT8 eventsProcessed;
 

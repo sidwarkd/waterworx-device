@@ -48,8 +48,24 @@ int main(void)
     		WIFI_PerformPost((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", json, DisplayResponseBody);
     	}
 
+    	if(mSwitch_User == SWITCH_PRESSED)
+    	{
+    		if(RtccGetClkStat() == RTCC_CLK_ON)
+    		{
+    			LCD_Write("Clock OK");
+    		}
+    	}
+
+    	if(mRtccGetIntFlag())
+    	{
+    		mLED_Red_Toggle();
+    		mRtccClrIntFlag();
+    	}
+
     	WIFI_PerformStackTasks();
     	SPRINKLER_ProcessTasks();
+
+
     }
 }
 
@@ -87,4 +103,17 @@ void InitializeSystem()
 	LCD_Initialize();
 	WIFI_Initialize();
 	SPRINKLER_Initialize();
+
+	// RTCC Time 0xhhmmss00
+	// RTCC Date 0xyymmddww where ww is the integer of the weekday 0=Sunday
+	RtccOpen(0x10300000, 0x12021604, 0);
+	while((RtccGetClkStat() != RTCC_CLK_ON));
+	RtccSetAlarmDate(0x12021604);
+	RtccSetAlarmTime(0x10301500);
+	
+	RtccSetAlarmRpt(RTCC_RPT_TEN_SEC);
+	RtccSetAlarmRptCount(10);
+	//RtccChimeEnable();
+	RtccAlarmEnable();
+
 }

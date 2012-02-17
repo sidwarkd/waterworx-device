@@ -34,6 +34,7 @@ void SPRINKLER_ProcessTasks()
 
 		case SS_PROGRAM_START:
 			// Load the first station
+			
 			break;
 
 		case SS_ZONE_START:
@@ -52,8 +53,8 @@ void SPRINKLER_Initialize()
 	// Read the programs and queue data from non-volatile data store
 
 	// Load the next program
-	programsProcessed = 0;
-	CurrentProgram = program_queue[programsProcessed];
+	eventsProcessed = 0;
+	//CurrentProgram = program_queue[eventsProcessed];
 
 	// Set the interrupt time for the program
 }

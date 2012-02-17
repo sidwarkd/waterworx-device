@@ -87,6 +87,7 @@
 #define mLED_Yellow_Off()       (mLED_Yellow = 1);
 #define mLED_Yellow_Toggle()    (mLED_Yellow = !mLED_Yellow);
 #define mLED_Red_Off()          (mLED_Red = 1);
+#define mLED_Red_Toggle()       (mLED_Red = !mLED_Red);
 #define mLED_White_Off()        (mLED_White = 1);
 #define mLED_White_Toggle()    (mLED_White = !mLED_White);
 #define mLED_Green_Off()        (mLED_Green = 1);
