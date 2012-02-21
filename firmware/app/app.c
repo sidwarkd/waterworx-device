@@ -19,7 +19,8 @@ void DisplayStatusCode(HttpResponse *response)
 
 void DisplayResponseBody(HttpResponse *response)
 {
-	LCD_Write(response->body);
+	//LCD_Write(response->body);
+	SERIALUSB_Write(response->body);
 }
 
 int main(void)
@@ -32,6 +33,7 @@ int main(void)
 
 	#ifdef DEBUGGING
 	//LCD_Write("App Start");
+	SERIALUSB_Write("App Starting\r\n");
 	#endif
 
 	// Build up JSON to send
@@ -52,7 +54,8 @@ int main(void)
     	{
     		if(RtccGetClkStat() == RTCC_CLK_ON)
     		{
-    			LCD_Write("Clock OK");
+    			//LCD_Write("Clock OK");
+    			SERIALUSB_Write("Clock OK");
     		}
     	}
 
@@ -63,9 +66,8 @@ int main(void)
     	}
 
     	WIFI_PerformStackTasks();
-    	SPRINKLER_ProcessTasks();
-
-
+    	//SPRINKLER_ProcessTasks();
+    	SERIALUSB_ProcessTasks();
     }
 }
 
@@ -103,6 +105,7 @@ void InitializeSystem()
 	LCD_Initialize();
 	WIFI_Initialize();
 	SPRINKLER_Initialize();
+	SERIALUSB_Initialize();
 
 	// RTCC Time 0xhhmmss00
 	// RTCC Date 0xyymmddww where ww is the integer of the weekday 0=Sunday

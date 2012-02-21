@@ -13,5 +13,6 @@ void InitializeSystem();
 #include <wifi/module.h>
 #include <json/module.h>
 #include <sprinkler/module.h>
+#include <usb/module.h>
 
 #endif
