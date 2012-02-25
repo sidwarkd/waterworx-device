@@ -85,8 +85,7 @@ void SERIALUSB_Initialize(void)
 
 void SERIALUSB_Write(char *data)
 {
-  //Check if we received a character over the physical UART, and we need
-  //to buffer it up for eventual transmission to the USB host.
+  // Buffer data for eventual transmission to the USB host.
   UINT8 i = 0;
   UINT8 length = 0;
 

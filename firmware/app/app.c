@@ -5,6 +5,7 @@
 void _general_exception_handler(unsigned cause, unsigned status)
 {
 	mLED_Red_On();
+	SERIALUSB_Write("An exception occurred!!!");
 	Nop();
 	Nop();
 }
@@ -13,28 +14,24 @@ void DisplayStatusCode(HttpResponse *response)
 {
     CHAR status[5];
     itoa(status, response->status_code, 10);
-    LCD_Write(status);
+    SERIALUSB_Write(status);
     CurrentPacket = NULL;
 }
 
 void DisplayResponseBody(HttpResponse *response)
 {
-	//LCD_Write(response->body);
 	SERIALUSB_Write(response->body);
 }
 
 int main(void)
 {
-	//static CHAR *json = "{\"did\":\"123456\",\"name\":\"prototype\"}";
 	cJSON *root;
 	CHAR *json;
+	INT count = 2000000;
+	DateTime *dt;
+	char buff[256];
 
 	InitializeSystem();
-
-	#ifdef DEBUGGING
-	//LCD_Write("App Start");
-	SERIALUSB_Write("App Starting\r\n");
-	#endif
 
 	// Build up JSON to send
 	root = cJSON_CreateObject();
@@ -47,16 +44,14 @@ int main(void)
     	if(mSwitch_Prog == SWITCH_PRESSED)
     	{
     		//WIFI_PerformGet((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", DisplayResponseBody);
-    		WIFI_PerformPost((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", json, DisplayResponseBody);
+    		//WIFI_PerformPost((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", json, DisplayResponseBody);
+    		SDCARD_Initialize();
     	}
 
     	if(mSwitch_User == SWITCH_PRESSED)
     	{
-    		if(RtccGetClkStat() == RTCC_CLK_ON)
-    		{
-    			//LCD_Write("Clock OK");
-    			SERIALUSB_Write("Clock OK");
-    		}
+    		//SDCARD_Initialize();
+    		SDCARD_PrintDirectoryListing();
     	}
 
     	if(mRtccGetIntFlag())
@@ -65,7 +60,7 @@ int main(void)
     		mRtccClrIntFlag();
     	}
 
-    	WIFI_PerformStackTasks();
+    	//WIFI_PerformStackTasks();
     	//SPRINKLER_ProcessTasks();
     	SERIALUSB_ProcessTasks();
     }
@@ -102,15 +97,17 @@ void InitializeSystem()
 
 	INTEnableSystemMultiVectoredInt();
 	
-	LCD_Initialize();
-	WIFI_Initialize();
-	SPRINKLER_Initialize();
+	//LCD_Initialize();
+	//WIFI_Initialize();
+	//SPRINKLER_Initialize();
 	SERIALUSB_Initialize();
+	//SDCARD_Initialize();
+	RTCC_Initialize(); 
 
 	// RTCC Time 0xhhmmss00
 	// RTCC Date 0xyymmddww where ww is the integer of the weekday 0=Sunday
-	RtccOpen(0x10300000, 0x12021604, 0);
-	while((RtccGetClkStat() != RTCC_CLK_ON));
+	//RtccOpen(0x10300000, 0x12021604, 0);
+	//while((RtccGetClkStat() != RTCC_CLK_ON));
 	RtccSetAlarmDate(0x12021604);
 	RtccSetAlarmTime(0x10301500);
 	

@@ -91,6 +91,7 @@
 #define mLED_White_Off()        (mLED_White = 1);
 #define mLED_White_Toggle()    (mLED_White = !mLED_White);
 #define mLED_Green_Off()        (mLED_Green = 1);
+#define mLED_Green_Toggle()    (mLED_Green = !mLED_Green);
 
 #define mSwitch_Prog    (PORTEbits.RE7)
 #define mSwitch_User    (PORTEbits.RE6)

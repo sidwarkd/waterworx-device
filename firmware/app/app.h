@@ -14,5 +14,7 @@ void InitializeSystem();
 #include <json/module.h>
 #include <sprinkler/module.h>
 #include <usb/module.h>
+#include <sdcard/module.h>
+#include <rtcc/module.h>
 
 #endif
