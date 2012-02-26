@@ -85,9 +85,10 @@ file_057=sdcard
 file_058=sdcard
 file_059=sdcard
 file_060=rtcc
-file_061=app
+file_061=sdcard
 file_062=app
-file_063=crystalfontz
+file_063=app
+file_064=crystalfontz
 [GENERATED_FILES]
 file_000=no
 file_001=no
@@ -153,6 +154,7 @@ file_060=no
 file_061=no
 file_062=no
 file_063=no
+file_064=no
 [OTHER_FILES]
 file_000=no
 file_001=no
@@ -218,6 +220,7 @@ file_060=no
 file_061=no
 file_062=no
 file_063=no
+file_064=no
 [FILE_INFO]
 file_000=app\app.c
 file_001=modules\delay\simpledelay.c
@@ -280,16 +283,17 @@ file_057=modules\sdcard\src\fatfs_mmc_spi.c
 file_058=modules\sdcard\src\ff.c
 file_059=modules\sdcard\src\sdcard.c
 file_060=modules\rtcc\rtcc_helper.c
-file_061=app\app.h
-file_062=app\userconfig.h
-file_063=modules\crystalfontz\module.h
+file_061=modules\sdcard\src\sdcard_helper.c
+file_062=app\app.h
+file_063=app\userconfig.h
+file_064=modules\crystalfontz\module.h
 [SUITE_INFO]
 suite_guid={14495C23-81F8-43F3-8A44-859C583D7760}
 suite_state=
 [TOOL_SETTINGS]
 TS{CB0AF4B8-4022-429D-8F99-8A56782B2C6D}=
 TS{9C698E0A-CBC9-4EFF-AE7D-B569F93E7322}=-g
-TS{77F59DA1-3C53-4677-AC5F-A03EB0125170}=--defsym=_min_heap_size=1024 -Map="$(BINDIR_)$(TARGETBASE).map" -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
+TS{77F59DA1-3C53-4677-AC5F-A03EB0125170}=--defsym=_min_heap_size=2048 -Map="$(BINDIR_)$(TARGETBASE).map" -o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)"
 TS{0396C0A1-9052-4E4F-8B84-EF0162B1B4E9}=
 [INSTRUMENTED_TRACE]
 enable=0

@@ -23,13 +23,33 @@ void DisplayResponseBody(HttpResponse *response)
 	SERIALUSB_Write(response->body);
 }
 
+void LogResponseBody(HttpResponse *response)
+{
+	FILEHANDLE file;
+	char buff[256];
+
+	DateTimeToString(Now(), &buff[0]);
+	if(OpenFile("http.log", &file, FA_WRITE | FA_OPEN_ALWAYS) == TRUE)
+	{
+		WriteFile(buff, &file);
+		WriteFile(response->body, &file);
+		WriteFile("\r\n", &file);
+		CloseFile(&file);
+	}
+	else
+	{
+		SERIALUSB_Write("Unable to open file\r\n");
+	}
+
+	SERIALUSB_Write(response->body);
+}
+
 int main(void)
 {
 	cJSON *root;
 	CHAR *json;
 	INT count = 2000000;
 	DateTime *dt;
-	char buff[256];
 
 	InitializeSystem();
 
@@ -45,22 +65,23 @@ int main(void)
     	{
     		//WIFI_PerformGet((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", DisplayResponseBody);
     		//WIFI_PerformPost((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", json, DisplayResponseBody);
-    		SDCARD_Initialize();
     	}
 
     	if(mSwitch_User == SWITCH_PRESSED)
     	{
-    		//SDCARD_Initialize();
-    		SDCARD_PrintDirectoryListing();
+				
     	}
 
     	if(mRtccGetIntFlag())
     	{
-    		mLED_Red_Toggle();
+    		//mLED_Red_Toggle();
     		mRtccClrIntFlag();
+    		SERIALUSB_Write("ALARM\r\n");
+
+    		WIFI_PerformPost((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", json, LogResponseBody);
     	}
 
-    	//WIFI_PerformStackTasks();
+    	WIFI_PerformStackTasks();
     	//SPRINKLER_ProcessTasks();
     	SERIALUSB_ProcessTasks();
     }
@@ -98,12 +119,12 @@ void InitializeSystem()
 	INTEnableSystemMultiVectoredInt();
 	
 	//LCD_Initialize();
-	//WIFI_Initialize();
+	WIFI_Initialize();
 	//SPRINKLER_Initialize();
-	SERIALUSB_Initialize();
-	//SDCARD_Initialize();
 	RTCC_Initialize(); 
-
+	SERIALUSB_Initialize();
+	SDCARD_Initialize();
+	
 	// RTCC Time 0xhhmmss00
 	// RTCC Date 0xyymmddww where ww is the integer of the weekday 0=Sunday
 	//RtccOpen(0x10300000, 0x12021604, 0);

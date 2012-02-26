@@ -1,9 +1,9 @@
 #ifndef __SDCARD_MODULE
 #define __SDCARD_MODULE
 
+#include <plib.h>
 #include <base/GenericTypeDefs.h>
 #include <usb/module.h>
-#include <plib.h>
 #include <sdcard\module.h>
 #include <sdcard\diskio.h>
 #include <sdcard\ff.h>
@@ -36,12 +36,23 @@
 #define FATFS_SPI_START_CFG_1		(PRI_PRESCAL_64_1 | SEC_PRESCAL_8_1 | MASTER_ENABLE_ON | SPI_CKE_ON | SPI_SMP_ON)
 #define FATFS_SPI_START_CFG_2		(SPI_ENABLE)
 
-static BOOL cardInitialized;
+
+BOOL fsMounted;
+static FATFS fatfs[_DRIVES];	// file system object
+static FATFS *fs;
+
+typedef FIL FILEHANDLE;
+
+#define f_size(fp) ((fp)->fsize)
 
 void SDCARD_Initialize(void);
-void SDCARD_Mount(void);
+BOOL SDCARD_Mount(void);
 void SDCARD_Unmount(void);
-void SDCARD_PrintDriveStatus(void);
-void SDCARD_PrintDirectoryListing(void);
+
+// Helper functions for interacting with the SD card
+BOOL OpenFile(char *filename, FILEHANDLE *stream, BYTE flags);
+void CloseFile(FILEHANDLE *stream);
+int WriteFile(const char *str, FILEHANDLE *stream);
+
 
 #endif

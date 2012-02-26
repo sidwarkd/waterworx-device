@@ -68,6 +68,6 @@ DateTime* Now(void)
 
 void DateTimeToString(DateTime *dateTime, char *outputString)
 {
-	sprintf(outputString, "%d %s %d, %d:%d:%d", dateTime->day, MONTHS[dateTime->month - 1], dateTime->year, dateTime->hour, dateTime->minute, dateTime->second);
+	sprintf(outputString, "%d %s %d, %02d:%02d:%02d", dateTime->day, MONTHS[dateTime->month - 1], dateTime->year, dateTime->hour, dateTime->minute, dateTime->second);
 }
 
