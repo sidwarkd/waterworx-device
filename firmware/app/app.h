@@ -17,4 +17,8 @@ void InitializeSystem();
 #include <sdcard/module.h>
 #include <rtcc/module.h>
 
+#ifdef TESTING
+#include <test/module.h>
+#endif
+
 #endif

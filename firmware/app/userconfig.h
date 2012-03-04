@@ -9,6 +9,8 @@
 #define RELEASE
 #endif
 
+#define TESTING
+
 //============================================
 // CONFIGURATION BITS
 //============================================
@@ -209,6 +211,10 @@
 #define MAX_QUEUED_PROGRAMS     15
 #define SPRINKLER_TIME_IF       (IFS1bits.RTCCIF)
 
+//============================================
+// Testing Module Settings
+//============================================
+#define NUM_MODULES_TO_TEST     1
 
 #endif
 

@@ -46,6 +46,7 @@ void LogResponseBody(HttpResponse *response)
 
 int main(void)
 {
+	#ifndef TESTING
 	cJSON *root;
 	CHAR *json;
 	INT count = 2000000;
@@ -85,6 +86,22 @@ int main(void)
     	//SPRINKLER_ProcessTasks();
     	SERIALUSB_ProcessTasks();
     }
+  #else
+  // Testing mode
+  InitializeSystem();
+
+  while(1)
+  {
+  	if(mSwitch_Prog == SWITCH_PRESSED)
+  	{
+  		Modules[0] = RTCC_GetTestModule();
+  		RunAllTests();
+  		DisplayTestResults();
+  	}
+
+  	SERIALUSB_ProcessTasks();
+  }
+  #endif
 }
 
 void InitializeSystem()
@@ -121,7 +138,9 @@ void InitializeSystem()
 	//LCD_Initialize();
 	WIFI_Initialize();
 	//SPRINKLER_Initialize();
+	mLED_Green_On();
 	RTCC_Initialize(); 
+	mLED_Green_Off();
 	SERIALUSB_Initialize();
 	SDCARD_Initialize();
 	

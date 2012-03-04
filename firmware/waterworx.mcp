@@ -18,7 +18,7 @@ filter_obj=*.o
 filter_lib=*.a
 filter_lkr=*.ld
 [CAT_SUBFOLDERS]
-subfolder_src=app;crystalfontz;delay;json;rtcc;sdcard;sprinkler;tcpip;usb;wifi
+subfolder_src=app;crystalfontz;delay;json;rtcc;sdcard;sprinkler;tcpip;test;usb;wifi
 subfolder_inc=app;crystalfontz;usb
 subfolder_obj=
 subfolder_lib=
@@ -86,9 +86,11 @@ file_058=sdcard
 file_059=sdcard
 file_060=rtcc
 file_061=sdcard
-file_062=app
-file_063=app
-file_064=crystalfontz
+file_062=test
+file_063=rtcc
+file_064=app
+file_065=app
+file_066=crystalfontz
 [GENERATED_FILES]
 file_000=no
 file_001=no
@@ -155,6 +157,8 @@ file_061=no
 file_062=no
 file_063=no
 file_064=no
+file_065=no
+file_066=no
 [OTHER_FILES]
 file_000=no
 file_001=no
@@ -221,6 +225,8 @@ file_061=no
 file_062=no
 file_063=no
 file_064=no
+file_065=no
+file_066=no
 [FILE_INFO]
 file_000=app\app.c
 file_001=modules\delay\simpledelay.c
@@ -284,9 +290,11 @@ file_058=modules\sdcard\src\ff.c
 file_059=modules\sdcard\src\sdcard.c
 file_060=modules\rtcc\rtcc_helper.c
 file_061=modules\sdcard\src\sdcard_helper.c
-file_062=app\app.h
-file_063=app\userconfig.h
-file_064=modules\crystalfontz\module.h
+file_062=modules\test\tester.c
+file_063=modules\rtcc\rtcc_tests.c
+file_064=app\app.h
+file_065=app\userconfig.h
+file_066=modules\crystalfontz\module.h
 [SUITE_INFO]
 suite_guid={14495C23-81F8-43F3-8A44-859C583D7760}
 suite_state=

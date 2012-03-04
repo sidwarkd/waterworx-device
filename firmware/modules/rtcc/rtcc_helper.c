@@ -13,12 +13,41 @@ void RTCC_Disable()
 
 void SetDateTime(DateTime *dateTime)
 {
-	//RtccSetTimeDate(tm, dt);
+	rtccTime tm;
+	rtccDate dt;
+	UINT16 year;
+
+	year = dateTime->year - 2000;
+
+	dt.year = (year / 10)<<4;
+	dt.year += (year % 10);
+	dt.mon = (dateTime->month / 10)<<4;
+	dt.mon += (dateTime->month % 10);
+	dt.mday = (dateTime->day / 10)<<4;;
+	dt.mday += (dateTime->day % 10);;
+	dt.wday = dateTime->day_of_week;
+	tm.hour = (dateTime->hour / 10)<<4;
+	tm.hour += (dateTime->hour % 10);
+	tm.min = (dateTime->minute / 10)<<4;
+	tm.min += (dateTime->minute % 10);
+	tm.sec = (dateTime->second / 10)<<4;
+	tm.sec += (dateTime->second % 10);
+
+	RtccSetTimeDate(tm.l, dt.l);
 }
 
 void SetDateTimeWithArgs(UINT16 year, UINT8 month, UINT8 day, UINT8 dayOfWeek, UINT8 hour, UINT8 minute, UINT8 second)
 {
-	
+	DateTime dateTime;
+	dateTime.year = year;
+	dateTime.month = month;
+	dateTime.day = day;
+	dateTime.day_of_week = dayOfWeek;
+	dateTime.hour = hour;
+	dateTime.minute = minute;
+	dateTime.second = second;
+
+	SetDateTime(&dateTime);
 }
 
 

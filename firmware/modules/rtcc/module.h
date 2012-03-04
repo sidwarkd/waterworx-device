@@ -2,6 +2,7 @@
 #define __RTCC_MODULE
 
 #include <plib.h>
+#include <userconfig.h>
 
 // RTCC Time is in the format of 0xhhmmss00 where trailing 00 are just unused bits
 // RTCC Date is in the format of 0xyymmddww where ww is the integer of the weekday 0=Sunday
@@ -33,6 +34,13 @@ void SetDateTime(DateTime *dateTime);
 void SetDateTimeWithArgs(UINT16 year, UINT8 month, UINT8 day, UINT8 dayOfWeek, UINT8 hour, UINT8 minute, UINT8 second);
 DateTime* Now(void);
 void DateTimeToString(DateTime *dateTime, char *outputString);
+
+#ifdef TESTING
+#include <test/module.h>
+TestModule *RTCC_GetTestModule(void);
+Test RTCC_Tests[3];
+TestModule RTCCTestModule;
+#endif
 
 
 #endif
