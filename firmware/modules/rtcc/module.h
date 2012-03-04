@@ -37,8 +37,9 @@ void DateTimeToString(DateTime *dateTime, char *outputString);
 
 #ifdef TESTING
 #include <test/module.h>
+#define RTCC_TestCount	3
 TestModule *RTCC_GetTestModule(void);
-Test RTCC_Tests[3];
+Test RTCC_Tests[RTCC_TestCount];
 TestModule RTCCTestModule;
 #endif
 
