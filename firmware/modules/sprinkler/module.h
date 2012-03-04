@@ -29,11 +29,14 @@ typedef struct
 
 typedef enum
 {  
-	SS_WAITING = 0,
-	SS_PROGRAM_START,
-	SS_ZONE_START,
-	SS_ZONE_RUNNING,
-	SS_PROGRAM_END
+	SS_STARTUP = 0,			// Unit just turned on
+	SS_CONFIGURED,			// All setting have been applied.  Ready for operation
+	SS_UPDATING,				// The state for phoning home and getting updates
+	SS_WAITING,					// Waiting for the next program to start.  Idle state
+	SS_PROGRAM_START,		// State to prepare everything for a program run
+	SS_ZONE_START,			// Start of each zone in a program
+	SS_ZONE_RUNNING,		// Zone is running.
+	SS_PROGRAM_END			// Post program cleanup before returning to SS_WAITING
 }sprinklerState;
 
 static SprinklerProgram sprinkler_programs[MAX_SPRINKLER_PROGRAMS];
