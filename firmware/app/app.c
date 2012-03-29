@@ -10,7 +10,7 @@ void _general_exception_handler(unsigned cause, unsigned status)
 	Nop();
 }
 
-void DisplayStatusCode(HttpResponse *response)
+/*void DisplayStatusCode(HttpResponse *response)
 {
     CHAR status[5];
     itoa(status, response->status_code, 10);
@@ -42,27 +42,17 @@ void LogResponseBody(HttpResponse *response)
 	}
 
 	SERIALUSB_Write(response->body);
-}
+}*/
 
 int main(void)
 {
 	#ifndef TESTING
-	cJSON *root;
-	CHAR *json;
-	INT count = 2000000;
-	DateTime *dt;
 
 	InitializeSystem();
 
-	// Build up JSON to send
-	root = cJSON_CreateObject();
-	cJSON_AddStringToObject(root, "did", "123456");
-	cJSON_AddStringToObject(root, "name", "jsonPrototype");
-	json = cJSON_Print(root);
-
     while(1)
     {
-    	if(mSwitch_Prog == SWITCH_PRESSED)
+    	/*if(mSwitch_Prog == SWITCH_PRESSED)
     	{
     		//WIFI_PerformGet((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", DisplayResponseBody);
     		//WIFI_PerformPost((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", json, DisplayResponseBody);
@@ -72,18 +62,16 @@ int main(void)
     	{
 				
     	}
-
+        */
     	if(mRtccGetIntFlag())
     	{
     		//mLED_Red_Toggle();
     		mRtccClrIntFlag();
-    		SERIALUSB_Write("ALARM\r\n");
-
-    		WIFI_PerformPost((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", json, LogResponseBody);
+            SPRINKLER_Initialize();
     	}
 
+		SPRINKLER_ProcessTasks();
     	WIFI_PerformStackTasks();
-    	//SPRINKLER_ProcessTasks();
     	SERIALUSB_ProcessTasks();
     }
   #else
@@ -138,9 +126,7 @@ void InitializeSystem()
 	//LCD_Initialize();
 	WIFI_Initialize();
 	//SPRINKLER_Initialize();
-	mLED_Green_On();
 	RTCC_Initialize(); 
-	mLED_Green_Off();
 	SERIALUSB_Initialize();
 	SDCARD_Initialize();
 	
@@ -148,11 +134,11 @@ void InitializeSystem()
 	// RTCC Date 0xyymmddww where ww is the integer of the weekday 0=Sunday
 	//RtccOpen(0x10300000, 0x12021604, 0);
 	//while((RtccGetClkStat() != RTCC_CLK_ON));
-	RtccSetAlarmDate(0x12021604);
-	RtccSetAlarmTime(0x10301500);
+	RtccSetAlarmDate(0x00042904);
+	RtccSetAlarmTime(0x10303000);
 	
 	RtccSetAlarmRpt(RTCC_RPT_TEN_SEC);
-	RtccSetAlarmRptCount(10);
+	RtccSetAlarmRptCount(3);
 	//RtccChimeEnable();
 	RtccAlarmEnable();
 

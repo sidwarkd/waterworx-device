@@ -8,6 +8,7 @@ void ProcessTCPRequests(void)
 	WORD numRXBytesReady;
 	BYTE vBuffer[32];
 	BYTE *server;
+	UINT16 i;
 
 	static BYTE	buffer[MAX_RESPONSE_SIZE];
 	static BYTE	txPacket[1024];
@@ -151,6 +152,11 @@ void ProcessTCPRequests(void)
 
 		case SM_DONE:
 			// Do nothing until there is a pending request
+			for(i = 0; i < ARRAY_SIZE(Response.body); i++)
+			{
+				Response.body[i] = '\0';
+			}
+			
 			if(CurrentPacket != NULL)
 			{
 				TCPState = SM_HOME;

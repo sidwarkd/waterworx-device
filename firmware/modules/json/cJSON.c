@@ -266,17 +266,10 @@ char *cJSON_PrintUnformatted(cJSON *item)	{return print_value(item,0,0);}
 /* Parser core - when encountering text, process appropriately. */
 static const char *parse_value(cJSON *item,const char *value)
 {
-	char nullStr[4];
-	char falseStr[5];
-	char trueStr[4];
-	strcpy(nullStr, "null");
-	strcpy(falseStr, "false");
-	strcpy(trueStr, "true");
-
 	if (!value)						return 0;	/* Fail on null. */
-	if (!strncmp(value,nullStr,4))	{ item->type=cJSON_NULL;  return value+4; }
-	if (!strncmp(value,falseStr,5))	{ item->type=cJSON_False; return value+5; }
-	if (!strncmp(value,trueStr,4))	{ item->type=cJSON_True; item->valueint=1;	return value+4; }
+	if (!strncmp(value,"null",4))	{ item->type=cJSON_NULL;  return value+4; }
+	if (!strncmp(value,"false",5))	{ item->type=cJSON_False; return value+5; }
+	if (!strncmp(value,"true",4))	{ item->type=cJSON_True; item->valueint=1;	return value+4; }
 	if (*value=='\"')				{ return parse_string(item,value); }
 	if (*value=='-' || (*value>='0' && *value<='9'))	{ return parse_number(item,value); }
 	if (*value=='[')				{ return parse_array(item,value); }

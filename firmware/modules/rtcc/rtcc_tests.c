@@ -116,6 +116,80 @@ static BOOL Test3(void)
 	return TRUE;
 }
 
+// MilitaryTimeStringToRTCCTime
+static BOOL Test4(void)
+{
+	char timeString[12];
+	rtccTime tm;
+	rtccExpectedTime etm;
+
+	// Time string can have 0 in 4th position
+	strcpy(timeString, "0111");
+	etm = 0x01110000;
+	MilitaryTimeStringToRTCCTime(&timeString[0], &tm);
+	if(etm != tm) return FALSE;
+
+	// Time string can have 0 in 3rd position
+	strcpy(timeString, "1011");
+	etm = 0x10110000;
+	MilitaryTimeStringToRTCCTime(&timeString[0], &tm);
+	if(etm != tm) return FALSE;
+
+	// Time string can have 0 in 2nd position
+	strcpy(timeString, "2105");
+	etm = 0x21050000;
+	MilitaryTimeStringToRTCCTime(&timeString[0], &tm);
+	if(etm != tm) return FALSE;
+
+	// Time string can have 0 in 1st position
+	strcpy(timeString, "1130");
+	etm = 0x11300000;
+	MilitaryTimeStringToRTCCTime(&timeString[0], &tm);
+	if(etm != tm) return FALSE;
+
+	// Function returns null if invalid short string passed
+	strcpy(timeString, "123");;
+	MilitaryTimeStringToRTCCTime(&timeString[0], &tm);
+	if(tm != NULL) return FALSE;
+
+	// Function returns null if invalid long string passed
+	strcpy(timeString, "123456");
+	MilitaryTimeStringToRTCCTime(&timeString[0], &tm);
+	if(tm != NULL) return FALSE;
+}
+
+// RTCCTimeToMilitaryTimeString
+static BOOL Test5(void)
+{
+	char timeString[12];
+	char expected[12];
+	rtccTime tm;
+
+	// Time string can have 0 in 4th position
+	strcpy(expected, "0111");
+	tm = 0x01110000;
+	RTCCTimeToMilitaryTimeString( &tm, &timeString[0]);
+	if(strcmp(expect, timeString) != 0) return FALSE;
+
+	// Time string can have 0 in 3rd position
+	strcpy(expected, "1011");
+	tm = 0x10110000;
+	RTCCTimeToMilitaryTimeString( &tm, &timeString[0]);
+	if(strcmp(expect, timeString) != 0) return FALSE;
+
+	// Time string can have 0 in 2nd position
+	strcpy(expected, "2105");
+	tm = 0x21050000;
+	RTCCTimeToMilitaryTimeString( &tm, &timeString[0]);
+	if(strcmp(expect, timeString) != 0) return FALSE;
+
+	// Time string can have 0 in 1st position
+	strcpy(expected, "1130");
+	tm = 0x11300000;
+	RTCCTimeToMilitaryTimeString( &tm, &timeString[0]);
+	if(strcmp(expect, timeString) != 0) return FALSE;
+}
+
 
 TestModule *RTCC_GetTestModule()
 {
@@ -140,15 +214,15 @@ TestModule *RTCC_GetTestModule()
 	strcpy(test->name, "Test3");
 	test->run = Test3;
 
-	/*test = RTCC_Tests + 0;
+	test = RTCC_Tests + 3;
 	strcpy(test->name, "Test4");
 	test->run = Test4;
 
-	test = RTCC_Tests + 1;
+	test = RTCC_Tests + 4;
 	strcpy(test->name, "Test5");
 	test->run = Test5;
 
-	test = RTCC_Tests + 2;
+	/*test = RTCC_Tests + 2;
 	strcpy(test->name, "Test6");
 	test->run = Test6;
 

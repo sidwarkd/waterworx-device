@@ -2,7 +2,7 @@
 
 void RTCC_Initialize()
 {
-	RtccOpen(0x10300000, 0x12021604, 0);
+	RtccOpen(0x10300000, 0x00042904, 0);
 	while((RtccGetClkStat() != RTCC_CLK_ON));
 }
 
@@ -98,5 +98,37 @@ DateTime* Now(void)
 void DateTimeToString(DateTime *dateTime, char *outputString)
 {
 	sprintf(outputString, "%d %s %d, %02d:%02d:%02d", dateTime->day, MONTHS[dateTime->month - 1], dateTime->year, dateTime->hour, dateTime->minute, dateTime->second);
+}
+
+void MilitaryTimeStringToRTCCTime(char *militaryTimeString, rtccTime *time)
+{	
+	// Format will be HHMM
+	INT timeVal;
+
+	if(strlen(militaryTimeString) == 4)
+	{
+		timeVal = atoi(militaryTimeString);
+
+		time->hour = (timeVal / 1000)<<4;
+		time->hour += (timeVal / 100);
+		time->min = (timeVal / 10)<<4;
+		time->min += (timeVal % 10);
+		time->sec = 0;
+	}
+	else
+		time = NULL;
+}
+
+void RTCCTimeToMilitaryTimeString(rtccTime *time, char *militaryTimeString)
+{
+	int hour;
+	int minute;
+
+	hour = 0 + ((time->hour & TENS_MASK)>>4)*10;
+	hour += (time->hour & ONES_MASK);
+	minute = 0 + ((time->min & TENS_MASK)>>4)*10;
+	minute += (time->min & ONES_MASK);
+
+	itoa(militaryTimeString, hour + minute, 10);
 }
 

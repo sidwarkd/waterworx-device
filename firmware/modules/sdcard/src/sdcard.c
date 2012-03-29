@@ -10,9 +10,9 @@ void SDCARD_Initialize(void)
 {
 	// Set up Timer 1 to generate interrupts at 1kHz
 	// this is used to drive the underlying disk io system
-  OpenCoreTimer(FOSC/ 2000);
-  // set up the timer interrupt with a priority of 1
-  mConfigIntCoreTimer(CT_INT_ON | CT_INT_PRIOR_1);
+ 	OpenCoreTimer(FOSC/ 2000);
+ 	// set up the timer interrupt with a priority of 1
+ 	mConfigIntCoreTimer(CT_INT_ON | CT_INT_PRIOR_1);
 
 	_SetChipSelect(FALSE);
 	fsMounted = FALSE;

@@ -34,10 +34,12 @@ void SetDateTime(DateTime *dateTime);
 void SetDateTimeWithArgs(UINT16 year, UINT8 month, UINT8 day, UINT8 dayOfWeek, UINT8 hour, UINT8 minute, UINT8 second);
 DateTime* Now(void);
 void DateTimeToString(DateTime *dateTime, char *outputString);
+void MilitaryTimeStringToRTCCTime(char *militaryTimeString, rtccTime *time);
+void RTCCTimeToMilitaryTimeString(rtccTime *time, char *militaryTimeString);
 
 #ifdef TESTING
 #include <test/module.h>
-#define RTCC_TestCount	3
+#define RTCC_TestCount	5
 TestModule *RTCC_GetTestModule(void);
 Test RTCC_Tests[RTCC_TestCount];
 TestModule RTCCTestModule;
