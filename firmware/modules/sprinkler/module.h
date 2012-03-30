@@ -7,13 +7,14 @@
 #include <usb/module.h>
 #include <wifi/module.h>
 #include <json/module.h>
+#include <sdcard/module.h>
 
 #define RELAY_OFF	0
 #define RELAY_ON	1
 
 typedef struct
 {
-	UINT8 	id;
+	INT8 	id;
 	UINT8	runtime;
 }SprinklerZone;
 

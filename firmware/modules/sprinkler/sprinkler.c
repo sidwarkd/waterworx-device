@@ -38,7 +38,7 @@ char program_json[] = "{ \
 
 static BOOL Initialized = FALSE;
 static sprinklerState STATE_AFTER_CALLBACK;
-static sprinklerState SPRINKLER_STATE = -1;
+static sprinklerState SPRINKLER_STATE = 99;
 
 static void TurnOffAllZones()
 {
@@ -50,6 +50,26 @@ static void TurnOnZone(UINT8 zoneID)
 	TurnOffAllZones();
 	if(zoneID <= 3)
 		LATE |= (1 << zoneID);
+}
+
+static void WriteProgramsToDisk()
+{
+
+	FILEHANDLE file;
+	char buff[2048];
+
+	ProgramsToJSON(&buff[0]);
+	if(OpenFile("programs.jsn", &file, FA_WRITE | FA_OPEN_ALWAYS) == TRUE)
+	{
+		WriteFile(buff, &file);
+		WriteFile("\r\n", &file);
+		CloseFile(&file);
+		SERIALUSB_Write("\r\nPrograms saved to card!");
+	}
+	else
+	{
+		SERIALUSB_Write("\r\nUnable to open file");
+	}
 }
 
 static void SetModuleDateTime(HttpResponse *response)
@@ -105,8 +125,16 @@ void SPRINKLER_ProcessTasks()
 			SPRINKLER_STATE = SS_WAITING_FOR_CALLBACK;
 			break;
 
+		case SS_CHECK_FOR_UPDATES:
+			// Hit the server and see if there are any updates (firmware, programs, cancellations)
+			
+			STATE_AFTER_CALLBACK = SS_WAIT_FOR_PROGRAM;
+			SPRINKLER_STATE = SS_WAITING_FOR_CALLBACK;
+			break;
+
 		case SS_LOAD_PROGRAMS:
-			// Read stored program data
+			// Read stored program data.  If there is no data for programs then just continue
+			// to poll for updates until there is.
 			retVal = LoadProgramsFromJSON(&program_json[0]);
 			if(retVal == 0)
 			{
@@ -123,11 +151,7 @@ void SPRINKLER_ProcessTasks()
 			}
 			break;
 
-		case SS_CHECK_FOR_UPDATES:
-			// Hit the server and see if there are any updates (firmware, programs, cancellations)
-			STATE_AFTER_CALLBACK = SS_WAIT_FOR_PROGRAM;
-			SPRINKLER_STATE = SS_WAITING_FOR_CALLBACK;
-			break;
+
 
 		case SS_WAIT_FOR_PROGRAM:
 			// If the next queued program time interrup has fired start that program.
@@ -175,10 +199,15 @@ void SPRINKLER_ProcessTasks()
 void SPRINKLER_Initialize()
 {
 	UINT8 i;
+	UINT8 j;
 	for(i = 0; i < ARRAY_SIZE(sprinkler_programs); i++)
 	{
 		SprinklerProgram *program = sprinkler_programs + i;
-		program->id[0] = '\0';
+		program->type = 0;
+		for(j = 0; j < ARRAY_SIZE(program->zones); j++)
+		{
+			program->zones[j].id = -1;
+		}
 	}
 
 	SPRINKLER_STATE = SS_GET_DATE_TIME;
@@ -259,6 +288,52 @@ UINT8 LoadProgramsFromJSON(char *json)
 
 UINT8 ProgramsToJSON(char *outputJSON)
 {
-	
+	UINT8 returnVal = 0;
+	SprinklerProgram *current_program;
+	SprinklerZone *current_zone;
+	char start_time[6]; 
+	char *generatedJSON;
+
+	cJSON *programArray;
+	cJSON *program;
+	cJSON *zoneArray;
+	cJSON *zone;
+	cJSON *root = cJSON_CreateObject();
+	cJSON_AddItemToObject(root, "programs", programArray=cJSON_CreateArray());
+
+	current_program = sprinkler_programs + 0;
+	while(*(current_program->id))
+	{
+		program = cJSON_CreateObject();
+
+		cJSON_AddStringToObject(program, "id", &(current_program->id[0]));
+		cJSON_AddNumberToObject(program, "type", current_program->type);
+		cJSON_AddStringToObject(program, "opt", &(current_program->type_options[0]));
+		RTCCTimeToMilitaryTimeString(&(current_program->start_time), &start_time[0]);
+		cJSON_AddStringToObject(program, "st", &start_time[0]);
+		cJSON_AddNumberToObject(program, "split", current_program->split);
+
+		cJSON_AddItemToObject(program, "zones", zoneArray=cJSON_CreateArray());
+
+		current_zone = current_program->zones + 0;
+		while(current_zone->id >= 0)
+		{
+			zone = cJSON_CreateObject();
+
+			cJSON_AddNumberToObject(zone, "id", current_zone->id);
+			cJSON_AddNumberToObject(zone, "rt", current_zone->runtime);
+
+			cJSON_AddItemToArray(zoneArray, zone);
+			current_zone += 1;
+		}
+
+		cJSON_AddItemToArray(programArray, program);
+		current_program += 1;
+	}
+
+	generatedJSON = cJSON_PrintUnformatted(root);
+	strcpy(outputJSON, generatedJSON);
+	free(generatedJSON);
+	cJSON_Delete(root);
 }
 

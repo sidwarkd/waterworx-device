@@ -18,8 +18,16 @@ typedef struct _DateTime
 	UINT8 second;
 }DateTime;
 
+typedef struct _Alarm
+{
+    DateTime time;
+    void (*callback)(void);
+    BOOL hasFired;
+}Alarm;
+
 static DateTime _now;
 static char *MONTHS[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+static Alarm _nextAlarm;
 
 // BCD conversion masks
 #define TENS_MASK 0xF0
@@ -28,6 +36,7 @@ static char *MONTHS[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug",
 
 void RTCC_Initialize(void);
 void RTCC_Disable(void);
+void RTCC_ProcessTasks(void);
 DWORD GetDateTimeAsDWORD(DateTime *dateTime);
 DWORD GetCurrentDateTimeAsDWORD(void);
 void SetDateTime(DateTime *dateTime);
@@ -36,6 +45,9 @@ DateTime* Now(void);
 void DateTimeToString(DateTime *dateTime, char *outputString);
 void MilitaryTimeStringToRTCCTime(char *militaryTimeString, rtccTime *time);
 void RTCCTimeToMilitaryTimeString(rtccTime *time, char *militaryTimeString);
+
+// Alarm Functions
+void RTCC_SetNextAlarm(DateTime *dateTime, void (*callback)(void));
 
 #ifdef TESTING
 #include <test/module.h>

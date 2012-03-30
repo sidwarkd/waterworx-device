@@ -47,8 +47,17 @@ void LogResponseBody(HttpResponse *response)
 int main(void)
 {
 	#ifndef TESTING
+    DateTime alarmTime;
+    alarmTime.year = 2000;
+    alarmTime.month = 4;
+    alarmTime.day = 29;
+    alarmTime.day_of_week = 6;
+    alarmTime.hour = 10;
+    alarmTime.minute = 30;
+    alarmTime.second = 30;
 
 	InitializeSystem();
+    RTCC_SetNextAlarm(&alarmTime, SPRINKLER_Initialize);
 
     while(1)
     {
@@ -63,16 +72,22 @@ int main(void)
 				
     	}
         */
-    	if(mRtccGetIntFlag())
+    	/*if(mRtccGetIntFlag())
     	{
     		//mLED_Red_Toggle();
     		mRtccClrIntFlag();
             SPRINKLER_Initialize();
-    	}
+    	}*/
+
+        /*if(GetCurrentDateTimeAsDWORD() > GetDateTimeAsDWORD(&alarmTime))
+        {
+            SPRINKLER_Initialize();
+        }*/
 
 		SPRINKLER_ProcessTasks();
     	WIFI_PerformStackTasks();
     	SERIALUSB_ProcessTasks();
+        RTCC_ProcessTasks();
     }
   #else
   // Testing mode
@@ -129,17 +144,4 @@ void InitializeSystem()
 	RTCC_Initialize(); 
 	SERIALUSB_Initialize();
 	SDCARD_Initialize();
-	
-	// RTCC Time 0xhhmmss00
-	// RTCC Date 0xyymmddww where ww is the integer of the weekday 0=Sunday
-	//RtccOpen(0x10300000, 0x12021604, 0);
-	//while((RtccGetClkStat() != RTCC_CLK_ON));
-	RtccSetAlarmDate(0x00042904);
-	RtccSetAlarmTime(0x10303000);
-	
-	RtccSetAlarmRpt(RTCC_RPT_TEN_SEC);
-	RtccSetAlarmRptCount(3);
-	//RtccChimeEnable();
-	RtccAlarmEnable();
-
 }

@@ -2,13 +2,45 @@
 
 void RTCC_Initialize()
 {
-	RtccOpen(0x10300000, 0x00042904, 0);
+	rtccDate dt, dAlrm;
+	rtccTime tm, tAlrm;
+
+	
+	RtccInit();
 	while((RtccGetClkStat() != RTCC_CLK_ON));
+	RtccOpen(0x10300000, 0x00042906, 0);
+
+	_nextAlarm.hasFired = TRUE;
 }
 
 void RTCC_Disable()
 {
 	RtccShutdown();
+}
+
+void RTCC_ProcessTasks()
+{
+	// Check for alarm condition
+	if(!_nextAlarm.hasFired && (GetCurrentDateTimeAsDWORD() > GetDateTimeAsDWORD(&(_nextAlarm.time))))
+	{
+		_nextAlarm.callback();
+		_nextAlarm.hasFired = TRUE;
+	}
+}
+
+void RTCC_SetNextAlarm(DateTime *dateTime, void (*callback)(void))
+{
+	// Copy alarm values
+	_nextAlarm.time.year = dateTime->year;
+	_nextAlarm.time.month = dateTime->month;
+	_nextAlarm.time.day = dateTime->day;
+	_nextAlarm.time.day_of_week = dateTime->day_of_week;
+	_nextAlarm.time.hour = dateTime->hour;
+	_nextAlarm.time.minute = dateTime->minute;
+	_nextAlarm.time.second = dateTime->second;
+
+	_nextAlarm.callback = callback;
+	_nextAlarm.hasFired = FALSE;
 }
 
 void SetDateTime(DateTime *dateTime)
@@ -129,6 +161,6 @@ void RTCCTimeToMilitaryTimeString(rtccTime *time, char *militaryTimeString)
 	minute = 0 + ((time->min & TENS_MASK)>>4)*10;
 	minute += (time->min & ONES_MASK);
 
-	itoa(militaryTimeString, hour + minute, 10);
+	sprintf(militaryTimeString, "%02.2d%02.2d", hour, minute);
 }
 
