@@ -16,6 +16,7 @@ typedef struct _DateTime
 	UINT8 hour;
 	UINT8 minute;
 	UINT8 second;
+    UINT16 total_days;
 }DateTime;
 
 typedef struct _Alarm
@@ -28,6 +29,9 @@ typedef struct _Alarm
 static DateTime _now;
 static char *MONTHS[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 static Alarm _nextAlarm;
+static DateTime BASE_DATE = {2012, 1, 1, 0, 0, 0, 0, 0};  // January 1, 2012
+static UINT8 DaysPerMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+static UINT8 LeapYearDaysPerMonth = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 // BCD conversion masks
 #define TENS_MASK 0xF0
@@ -45,6 +49,10 @@ DateTime* Now(void);
 void DateTimeToString(DateTime *dateTime, char *outputString);
 void MilitaryTimeStringToRTCCTime(char *militaryTimeString, rtccTime *time);
 void RTCCTimeToMilitaryTimeString(rtccTime *time, char *militaryTimeString);
+UINT16 SetAndReturnTotalDays(DateTime *dateTime);
+void ConvertTotalDaysToDateTime(UINT16 totalDays, DateTime *dateTime);
+void CopyDateTime(DateTime *dest, DateTime *src);
+
 
 // Alarm Functions
 void RTCC_SetNextAlarm(DateTime *dateTime, void (*callback)(void));

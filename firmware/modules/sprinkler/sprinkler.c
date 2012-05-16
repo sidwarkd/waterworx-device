@@ -36,9 +36,9 @@ char program_json[] = "{ \
     }								\
 ]}";
 
-static BOOL Initialized = FALSE;
 static sprinklerState STATE_AFTER_CALLBACK;
 static sprinklerState SPRINKLER_STATE = 99;
+static SprinklerProgram *NextProgramToRun = NULL;
 
 static void TurnOffAllZones()
 {
@@ -50,6 +50,36 @@ static void TurnOnZone(UINT8 zoneID)
 	TurnOffAllZones();
 	if(zoneID <= 3)
 		LATE |= (1 << zoneID);
+}
+
+static void StartProgram()
+{
+	if(SPRINKLER_STATE == SS_WAITING_FOR_CALLBACK)
+		STATE_AFTER_CALLBACK = SS_PROGRAM_START;
+	else
+		SPRINKLER_STATE = SS_PROGRAM_START;
+}
+
+static void StartPollingForUpdates()
+{
+	rtccTime tm, tAlrm;	
+	rtccDate dt, dAlrm;	
+
+	// Set up 1 minute alarm to trigger update checks
+	do
+	{
+		RtccGetTimeDate(&tm, &dt);			// get current time and date
+	}while((tm.sec&0xf)>0x7);				// don't want to have minute or BCD rollover
+
+	tAlrm.l=tm.l;
+	dAlrm.l=dt.l;
+	tAlrm.min+=1;	// alarm due in 1 minute
+
+	RtccChimeEnable();			// rollover
+	RtccSetAlarmRptCount(0);		// we'll get more than one alarm
+	RtccSetAlarmRpt(RTCC_RPT_MIN);		// one alarm every second
+	RtccSetAlarmTimeDate(tAlrm.l, dAlrm.l);	// set the alarm time
+	RtccAlarmEnable();			// enable the alarm
 }
 
 static void WriteProgramsToDisk()
@@ -106,7 +136,7 @@ static void SetModuleDateTime(HttpResponse *response)
 		SERIALUSB_Write(timeString);
 		#endif
 
-		Initialized = TRUE;
+		StartPollingForUpdates();
 		SPRINKLER_STATE = SS_CALLBACK_FINISHED;
 	}
 }
@@ -125,13 +155,6 @@ void SPRINKLER_ProcessTasks()
 			SPRINKLER_STATE = SS_WAITING_FOR_CALLBACK;
 			break;
 
-		case SS_CHECK_FOR_UPDATES:
-			// Hit the server and see if there are any updates (firmware, programs, cancellations)
-			
-			STATE_AFTER_CALLBACK = SS_WAIT_FOR_PROGRAM;
-			SPRINKLER_STATE = SS_WAITING_FOR_CALLBACK;
-			break;
-
 		case SS_LOAD_PROGRAMS:
 			// Read stored program data.  If there is no data for programs then just continue
 			// to poll for updates until there is.
@@ -140,7 +163,7 @@ void SPRINKLER_ProcessTasks()
 			{
 				// Successfully loaded programs
 				SERIALUSB_Write("\r\nLoaded programs from JSON!");
-				SPRINKLER_STATE = SS_CHECK_FOR_UPDATES;
+				SPRINKLER_STATE = SS_SCHEDULE_NEXT_RUN;
 			}
 			else
 			{
@@ -151,19 +174,28 @@ void SPRINKLER_ProcessTasks()
 			}
 			break;
 
+		case SS_SCHEDULE_NEXT_RUN:
+			ScheduleNextProgram();
+			SPRINKLER_STATE = SS_CHECK_FOR_UPDATES;
+			break;
 
-
-		case SS_WAIT_FOR_PROGRAM:
-			// If the next queued program time interrup has fired start that program.
-			// Otherwise just wait here.
-			if(SPRINKLER_TIME_IF || START_PROGRAM_TEST)
+		case SS_CHECK_FOR_UPDATES:
+			// Hit the server and see if there are any updates (firmware, programs, cancellations)
+			if(mRtccGetIntFlag())
 			{
-				SPRINKLER_TIME_IF = 0;
-				SPRINKLER_STATE++;
+				mRtccClrIntFlag();
+				// TODO: hit server now
+				#ifdef DEBUG_SPRINKLER_MODULE
+				SERIALUSB_Write("\r\nChecking for updates");
+				#endif
+
+				STATE_AFTER_CALLBACK = SS_LOAD_PROGRAMS;
+				SPRINKLER_STATE = SS_WAITING_FOR_CALLBACK;
 			}
 			break;
 
 		case SS_PROGRAM_START:
+			RtccAlarmDisable();
 			// Load the first station
 			
 			break;
@@ -175,6 +207,8 @@ void SPRINKLER_ProcessTasks()
 			break;
 
 		case SS_PROGRAM_END:
+			RtccAlarmEnable();
+			SPRINKLER_STATE = SS_SCHEDULE_NEXT_RUN;
 			break;
 
 		case SS_WAITING_FOR_CALLBACK:
@@ -189,6 +223,7 @@ void SPRINKLER_ProcessTasks()
 
 		case SS_ERROR:
 			// The state machine broke.  Surface error somehow
+			asm ("nop");
 			break;
 
 		default:
@@ -200,6 +235,7 @@ void SPRINKLER_Initialize()
 {
 	UINT8 i;
 	UINT8 j;
+
 	for(i = 0; i < ARRAY_SIZE(sprinkler_programs); i++)
 	{
 		SprinklerProgram *program = sprinkler_programs + i;
@@ -337,3 +373,50 @@ UINT8 ProgramsToJSON(char *outputJSON)
 	cJSON_Delete(root);
 }
 
+DWORD CalculateNextRunTime(SprinklerProgram *program)
+{
+
+}
+
+void ScheduleNextProgram()
+{
+	// Loop through every program and determine the next start time.  If there are 
+	// no programs then set the state back to check for updates.
+	SprinklerProgram *nextProgram = NULL;
+	SprinklerProgram *tempProgram;
+	UINT8 i = 0;
+
+	for(i = 0; i < ARRAY_SIZE(sprinkler_programs); i++)
+	{
+		SprinklerProgram *temp = sprinkler_programs + i;
+		// Check to make sure it's a valid program
+		if(*(temp->id))
+		{
+			// If nextProgram doesn't have anything then set it to temp by default
+			if(!nextProgram)
+			{
+				nextProgram = temp;
+			}
+			else
+			{
+				// Calculate the start times and see if temp is sooner than nextProgram
+				if(CalculateNextRunTime(temp) < CalculateNextRunTime(nextProgram))
+				{
+					nextProgram = temp;
+				}
+			}
+		}
+	}
+
+	// If we found a program to run, schedule it otherwise go back to checking for updates
+	if(nextProgram)
+	{
+		NextProgramToRun = nextProgram;
+		RTCC_SetNextAlarm(&nextProgram->next_runtime, StartProgram);
+	}
+	else
+	{
+		NextProgramToRun = NULL;
+	}
+
+}

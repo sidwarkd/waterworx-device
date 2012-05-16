@@ -8,7 +8,7 @@ void RTCC_Initialize()
 	
 	RtccInit();
 	while((RtccGetClkStat() != RTCC_CLK_ON));
-	RtccOpen(0x10300000, 0x00042906, 0);
+	RtccOpen(0x10300000, 0x90042906, 0);
 
 	_nextAlarm.hasFired = TRUE;
 }
@@ -162,5 +162,53 @@ void RTCCTimeToMilitaryTimeString(rtccTime *time, char *militaryTimeString)
 	minute += (time->min & ONES_MASK);
 
 	sprintf(militaryTimeString, "%02.2d%02.2d", hour, minute);
+}
+
+// Calculate # of days since January 1, 2012
+UINT16 SetAndReturnTotalDays(DateTime *dateTime)
+{
+	DateTime baseCopy;
+	UINT16 totalDays;
+	CopyDateTime(&baseCopy, &BASE_DATE);
+
+	while(baseCopy->year < dateTime->year)
+	{
+		if(baseCopy->year % 4)
+			totalDays += 366;
+		else
+			totalDays += 365;
+
+		baseCopy->year++;
+	}
+	while(baseCopy->month < dateTime->month)
+	{
+		if(dateTime->year % 4)
+			totalDays += LeapYearDaysPerMonth[baseCopy->month];
+		else
+			totalDays += DaysPerMonth[baseCopy->month];
+
+		baseCopy->month++;
+	}
+
+	totalDays += dateTime->day;
+	dateTime->total_days = totalDays;
+	return totalDays;
+}
+
+void ConvertTotalDaysToDateTime(UINT16 totalDays, DateTime *dateTime)
+{
+
+}
+
+void CopyDateTime(DateTime *dest, DateTime *src)
+{
+	dest->year = src->year;
+	dest->month = src->month;
+	dest->day = src->day;
+	dest->day_of_week = src->day_of_week;
+	dest->hour = src->hour;
+	dest->minute = src->minute;
+	dest->second = src->second;
+    dest->total_days = src->total_days;
 }
 
