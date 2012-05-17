@@ -42,6 +42,8 @@ int main(void)
         {
             SPRINKLER_Initialize();
         }*/
+
+        TCPIP_PerformStackTasks();
     }
   #else
   // Testing mode
@@ -98,4 +100,6 @@ void InitializeSystem()
 	//RTCC_Initialize(); 
 	//SERIALUSB_Initialize();
 	//SDCARD_Initialize();
+
+    TCPIP_Initialize();
 }

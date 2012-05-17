@@ -2,9 +2,9 @@
 firmware/bin/obj
 firmware/bin/*.*
 !firmware/bin/waterworx.hex
-firmware2/bin/obj
-firmware2/bin/*.*
-!firmware2/bin/waterworx.hex
+firmwarev2/bin/obj
+firmwarev2/bin/*.*
+!firmwarev2/bin/waterworx.hex
 *.mcw
 *.mcs
 *.swp

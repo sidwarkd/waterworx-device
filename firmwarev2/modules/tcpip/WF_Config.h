@@ -98,7 +98,7 @@
 
 #define MY_DEFAULT_SCAN_TYPE                WF_ACTIVE_SCAN      /* WF_ACTIVE_SCAN or WF_PASSIVE_SCAN */
 
-#define MY_DEFAULT_CHANNEL_LIST             {1,6,11}            /* Desired channel list              */
+#define MY_DEFAULT_CHANNEL_LIST             {1,2,3,4,5,6,7,8,9,10,11}	/* Desired channel list for FCC, use less channels to minimize scan time */
 
 #define MY_DEFAULT_LIST_RETRY_COUNT_ADHOC           (3)                 /* Number of times to try to connect to the SSID when using Ad/Hoc network type */
 #define MY_DEFAULT_LIST_RETRY_COUNT_INFRASTRUCTURE  (WF_RETRY_FOREVER)  /* Number of times to try to connect to the SSID when using Infrastructure network type */
@@ -111,13 +111,14 @@
 
 #define MY_DEFAULT_PS_POLL                   WF_DISABLED         /* WF_DISABLED or WF_ENABLED */
 
-#define MY_DEFAULT_WIFI_SECURITY_MODE        WF_SECURITY_WPA2_WITH_KEY
+#define MY_DEFAULT_WIFI_SECURITY_MODE        WF_SECURITY_OPEN
+#define MY_DEFAULT_WIFI_SECURITY_WEP_KEYTYPE  WF_SECURITY_WEP_OPENKEY /* WF_SECURITY_WEP_OPENKEY (default) or	  */
 
 //#define USE_MRF24W_HOST_BUFFER
 
-//#define STACK_USE_EZ_CONFIG
-//#define EZ_CONFIG_SCAN
-//#define EZ_CONFIG_STALL
+#define STACK_USE_EZ_CONFIG
+#define EZ_CONFIG_SCAN
+#define EZ_CONFIG_STALL
 //#define EZ_CONFIG_STORE
 
 
@@ -180,7 +181,7 @@
 
 
 /* Valid Key Index: 0, 1, 2, 3  */
-#define MY_DEFAULT_WEP_KEY_INDEX        (0u)
+#define MY_DEFAULT_WEP_KEY_INDEX        (0)
 
 
 #endif /* __WF_CONFIG_H_ */

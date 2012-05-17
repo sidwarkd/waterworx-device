@@ -67,13 +67,13 @@
 //#define STACK_USE_UART2TCP_BRIDGE		// UART to TCP Bridge application example
 //#define STACK_USE_IP_GLEANING
 #define STACK_USE_ICMP_SERVER			// Ping query and response capability
-//#define STACK_USE_ICMP_CLIENT			// Ping transmission capability
+#define STACK_USE_ICMP_CLIENT			// Ping transmission capability
 #define STACK_USE_HTTP2_SERVER			// New HTTP server with POST, Cookies, Authentication, etc.
 //#define STACK_USE_SSL_SERVER			// SSL server socket support (Requires SW300052)
 //#define STACK_USE_SSL_CLIENT			// SSL client socket support (Requires SW300052)
-#define STACK_USE_AUTO_IP               // Dynamic link-layer IP address automatic configuration protocol
+//#define STACK_USE_AUTO_IP               // Dynamic link-layer IP address automatic configuration protocol
 #define STACK_USE_DHCP_CLIENT			// Dynamic Host Configuration Protocol client for obtaining IP address and other parameters
-//#define STACK_USE_DHCP_SERVER			// Single host DHCP server
+#define STACK_USE_DHCP_SERVER			// Single host DHCP server
 //#define STACK_USE_FTP_SERVER			// File Transfer Protocol (old)
 //#define STACK_USE_SMTP_CLIENT			// Simple Mail Transfer Protocol for sending email
 //#define STACK_USE_SNMP_SERVER			// Simple Network Management Protocol v2C Community Agent
@@ -84,7 +84,7 @@
 //#define STACK_USE_TELNET_SERVER			// Telnet server
 #define STACK_USE_ANNOUNCE				// Microchip Embedded Ethernet Device Discoverer server/client
 #define STACK_USE_DNS					// Domain Name Service Client for resolving hostname strings to IP addresses
-//#define STACK_USE_DNS_SERVER			// Domain Name Service Server for redirection to the local device
+#define STACK_USE_DNS_SERVER			// Domain Name Service Server for redirection to the local device
 #define STACK_USE_NBNS					// NetBIOS Name Service Server for repsonding to NBNS hostname broadcast queries
 //#define STACK_USE_REBOOT_SERVER			// Module for resetting this PIC remotely.  Primarily useful for a Bootloader.
 //#define STACK_USE_SNTP_CLIENT			// Simple Network Time Protocol for obtaining current date/time from Internet
@@ -105,7 +105,7 @@
  *   applications.  If your custom application requires it
  *   otherwise, uncomment the appropriate selection.
  */
-//#define STACK_USE_MPFS2
+#define STACK_USE_MPFS2
 
 /* MPFS Storage Location
  *   If html pages are stored in internal program memory,
@@ -150,7 +150,7 @@
  *   To clear EEPROM, hold BUTTON0, reset the board, and continue
  *   holding until the LEDs flash.  Release, and reset again.
  */
-#define MY_DEFAULT_HOST_NAME			"WATERWORX"
+#define MY_DEFAULT_HOST_NAME			"waterworx"
 
 #define MY_DEFAULT_MAC_BYTE1            (0x00)	// Use the default of 00-04-A3-00-00-00
 #define MY_DEFAULT_MAC_BYTE2            (0x04)	// if using an ENCX24J600, MRF24WB0M, or
@@ -348,18 +348,18 @@
 
 	// Configure MPFS over HTTP updating
 	// Comment this line to disable updating via HTTP
-	#define HTTP_MPFS_UPLOAD		"mpfsupload"
+	//#define HTTP_MPFS_UPLOAD		"mpfsupload"
 	//#define HTTP_MPFS_UPLOAD_REQUIRES_AUTH	// Require password for MPFS uploads
 		// Certain firewall and router combinations cause the MPFS2 Utility to fail
 		// when uploading.  If this happens, comment out this definition.
 
 	// Define which HTTP modules to use
 	// If not using a specific module, comment it to save resources
-	#define HTTP_USE_POST					// Enable POST support
-	#define HTTP_USE_COOKIES				// Enable cookie support
-	#define HTTP_USE_AUTHENTICATION			// Enable basic authentication support
+	//#define HTTP_USE_POST					// Enable POST support
+	//#define HTTP_USE_COOKIES				// Enable cookie support
+	//#define HTTP_USE_AUTHENTICATION			// Enable basic authentication support
 
-	#define HTTP_NO_AUTH_WITHOUT_SSL		// Uncomment to require SSL before requesting a password
+	//#define HTTP_NO_AUTH_WITHOUT_SSL		// Uncomment to require SSL before requesting a password
 
     // Define the listening port for the HTTP server
   	#define HTTP_PORT               (80u)
@@ -373,7 +373,7 @@
     // Define the minimum number of bytes free in the TX FIFO before executing callbacks
 	#define HTTP_MIN_CALLBACK_FREE	(16u)
 
-	#define STACK_USE_HTTP_APP_RECONFIG		// Use the AppConfig web page in the Demo App (~2.5kb ROM, ~0b RAM)
+	//#define STACK_USE_HTTP_APP_RECONFIG		// Use the AppConfig web page in the Demo App (~2.5kb ROM, ~0b RAM)
 	//#define STACK_USE_HTTP_MD5_DEMO			// Use the MD5 Demo web page (~5kb ROM, ~160b RAM)
 	//#define STACK_USE_HTTP_EMAIL_DEMO		// Use the e-mail demo web page
 
@@ -403,11 +403,11 @@
 
 	// Default local listening port for the Telnet server.  Port 23 is the
 	// protocol default.
-	#define TELNET_PORT				(23u)
+	#define TELNET_PORT				23
 
 	// Default local listening port for the Telnet server when SSL secured.
 	// Port 992 is the telnets protocol default.
-	#define TELNETS_PORT			(992u)
+	#define TELNETS_PORT			992
 
 	// Force all connecting clients to be SSL secured and connected via
 	// TELNETS_PORT.  Connections on port TELNET_PORT will be ignored.  If

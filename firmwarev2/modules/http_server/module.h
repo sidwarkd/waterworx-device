@@ -3,11 +3,12 @@
 
 #include <userconfig.h>
 #include <base/module.h>
-#include <crystalfontz/module.h>
 #include <TCPIP Stack/TCPIP.h>
 
-#include <wifi/TCPIPConfig.h>
-#include <wifi/WF_Config.h>
+#include <tcpip/TCPIPConfig.h>
+#include <tcpip/WF_Config.h>
+
+#include <TCPIP Stack/WFEasyConfig.h>
 
 // Put compile errors if missing WF pin definitions
 

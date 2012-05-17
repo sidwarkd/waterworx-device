@@ -8,7 +8,9 @@ void InitializeSystem();
 
 // Modules
 #include <base/module.h>
-//#include <delay/module.h>
+#include <delay/module.h>
+#include <tcpip/module.h>
+#include <http_server/module.h>
 //#include <crystalfontz/module.h>
 //#include <wifi/module.h>
 //#include <json/module.h>

@@ -3,10 +3,12 @@
 
 #include <userconfig.h>
 #include <base/module.h>
+#include <TCPIPConfig.h>
 #include <TCPIP Stack/TCPIP.h>
 
-#include <TCPIPConfig.h>
 #include <WF_Config.h>
+
+#include <TCPIP Stack/WFEasyConfig.h>
 
 // Put compile errors if missing WF pin definitions
 

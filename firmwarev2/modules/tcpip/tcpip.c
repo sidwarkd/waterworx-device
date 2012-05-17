@@ -11,6 +11,10 @@ BYTE AN0String[8];
 
 static DWORD t = 0;
 static DWORD dwLastIP = 0;
+#if defined(WF_USE_POWER_SAVE_FUNCTIONS)
+BOOL  PsPollEnabled;
+BOOL  psConfDone = FALSE;
+#endif
 
 // Private helper functions.
 // These may or may not be present in all applications.
@@ -33,12 +37,20 @@ void TCPIP_Initialize(void)
 	// Initialize application specific hardware
     TickInit();
 
+    #if defined(STACK_USE_MPFS2)
+    MPFSInit();
+    #endif
+
 	// Initialize Stack and application related NV variables into AppConfig.
 	InitAppConfig();
 
 	// Initialize core stack layers (MAC, ARP, TCP, UDP) and
 	// application modules (HTTP, SNMP, etc.)
     StackInit();
+
+    #if defined ( EZ_CONFIG_SCAN )
+    WFInitScan();
+    #endif
 
     // Start up the WiFi module
     #if defined(WF_CS_TRIS)
@@ -50,30 +62,35 @@ void TCPIP_Initialize(void)
 
 void TCPIP_PerformStackTasks(void)
 {
-	/*#if defined(WF_USE_POWER_SAVE_FUNCTIONS)
+	#if defined(WF_USE_POWER_SAVE_FUNCTIONS)
 		if (!psConfDone && WFisConnected()) {	
 			PsPollEnabled = (MY_DEFAULT_PS_POLL == WF_ENABLED);
 			if (!PsPollEnabled) {	 
 				// disable low power (PS-Poll) mode 
-				#if defined(STACK_USE_UART)
-				putrsUART("Disable PS-Poll\r\n");		 
-				#endif
 				WF_PsPollDisable();
 			} else {
 				// Enable low power (PS-Poll) mode 
-				#if defined(STACK_USE_UART)
-				putrsUART("Enable PS-Poll\r\n");		
-				#endif
 				WF_PsPollEnable(TRUE);
 			}	
 			psConfDone = TRUE;
 		}
 	#endif
-    */
+    
 
     // Blink LED every second.
     #ifdef DEBUGGING
+    //if(TickGet() - t >= TICK_SECOND/2ul)
+    //{
+    //    t = TickGet();
+    //    mLED_Yellow_Toggle();
+    //}
+    #if defined (STACK_USE_EZ_CONFIG)
+    // Blink LED0 twice per sec when unconfigured, once per sec after config
+    if((TickGet() - t >= TICK_SECOND/(4ul - (CFGCXT.isWifiDoneConfigure*2ul))))
+    #else
+    // Blink LED0 (right most one) every second.
     if(TickGet() - t >= TICK_SECOND/2ul)
+    #endif // STACK_USE_EZ_CONFIG
     {
         t = TickGet();
         mLED_Yellow_Toggle();
@@ -85,15 +102,14 @@ void TCPIP_PerformStackTasks(void)
     // appropriate stack entity to process it.
     StackTask();
 
-    #if defined(WF_CS_TRIS)
-    if (gRFModuleVer1209orLater)
-        WiFiTask();
-    #endif
+    //#if defined(WF_CS_TRIS)
+    //if (gRFModuleVer1209orLater)
+    //    WiFiTask();
+    //#endif
 
     //ProcessTCPRequests();
 
-    // DO WEB SERVER STUFF HERE
-    HttpServer();
+    StackApplications();
 
     // If the local IP address has changed (ex: due to DHCP lease change)
     // write the new IP address to the LCD display, UART, and Announce 
@@ -170,14 +186,14 @@ static void WF_Connect(void)
     
     WF_CASetBeaconTimeout(40);
 
-    if (gRFModuleVer1209orLater)
+    /*if (gRFModuleVer1209orLater)
     {
         // If WEP security is used, set WEP Key Type.  The default WEP Key Type is Shared Key.
         if (AppConfig.SecurityMode == WF_SECURITY_WEP_40 || AppConfig.SecurityMode == WF_SECURITY_WEP_104)
         {
             WF_CPSetWepKeyType(ConnectionProfileID, MY_DEFAULT_WIFI_SECURITY_WEP_KEYTYPE);
         }
-    }  
+    } */ 
     
     /* Set Security */
     #if (MY_DEFAULT_WIFI_SECURITY_MODE == WF_SECURITY_OPEN)
@@ -353,8 +369,8 @@ void DisplayIPValue(IP_ADDR IPVal)
     {
         uitoa((WORD)IPVal.v[i], IPDigit);
         
-        LCD_Write((char*)IPDigit);
-        LCD_Write(".");
+        //LCD_Write((char*)IPDigit);
+        //LCD_Write(".");
     }
 }
 

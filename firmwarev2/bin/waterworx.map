@@ -1,5 +1,17 @@
 Archive member included because of file (symbol)
 
+c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+                              bin\obj\Tick.o (__udivdi3)
+c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcmp.o)
+                              bin\obj\CustomHTTPApp.o (memcmp)
+c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcpy.o)
+                              bin\obj\tcpip.o (memcpy)
+c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memset.o)
+                              bin\obj\tcpip.o (memset)
+c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strcmp.o)
+                              bin\obj\HTTP2.o (strcmp)
+c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strlen.o)
+                              bin\obj\WFEasyConfig.o (strlen)
 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(general-exception.o)
                               c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/crt0.o (_general_exception_context)
 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
@@ -25,28 +37,63 @@ c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../
 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
                               c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o) (INTEnableInterrupts)
 
+Allocating common symbols
+Common symbol       size              file
+
+RawWindowState      0x2               bin\obj\WFDriverRaw.o
+WiFiPacket          0x224             bin\obj\app.o
+activeUDPSocket     0x1               bin\obj\UDP.o
+curHTTP             0x88              bin\obj\HTTP2.o
+g_rxIndexSetBeyondBuffer
+                    0x4               bin\obj\WFMac.o
+UDPTxCount          0x2               bin\obj\UDP.o
+PsPollEnabled       0x4               bin\obj\tcpip.o
+curHTTPID           0x1               bin\obj\HTTP2.o
+g_ScanCtx           0x6               bin\obj\WFEasyConfig.o
+RawWindowReady      0x8               bin\obj\WFDriverRaw.o
+RawMoveState        0x8               bin\obj\WFDriverCom.o
+g_rxDtim            0x4               bin\obj\WFPowerSave.o
+AN0String           0x8               bin\obj\tcpip.o
+UDPSocketInfo       0xe0              bin\obj\UDP.o
+remoteNode          0xa               bin\obj\StackTsk.o
+UDPRxCount          0x2               bin\obj\UDP.o
+g_easyConfigCtx     0x94              bin\obj\WFEasyConfig.o
+httpStubs           0x10              bin\obj\HTTP2.o
+AppConfig           0x97              bin\obj\tcpip.o
+CurrentPacket       0x4               bin\obj\app.o
+
 Microchip PIC32 Memory-Usage Report
 
 kseg0 Program-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
-.text                   0x9d000008          0x554        1364  App's exec code 
-.text.general_exception 0x9d00055c           0xd0         208   
-.rodata                 0x9d00062c           0x54          84  Read-only const 
-.text.PORTSetPinsDigita 0x9d000680           0x40          64   
-.text.INTEnableSystemMu 0x9d0006c0           0x34          52   
-.text.INTRestoreInterru 0x9d0006f4           0x1c          28   
-.text                   0x9d000710           0x18          24  App's exec code 
-.text.CheKseg0CacheOff  0x9d000728           0x18          24   
-.text.CheKseg0CacheOn   0x9d000740           0x18          24   
-.text                   0x9d000758           0x10          16  App's exec code 
-.text._bootstrap_except 0x9d000768            0xc          12   
-.text._on_reset         0x9d000774            0x8           8   
-.text._on_bootstrap     0x9d00077c            0x8           8   
-.text.INTDisableInterru 0x9d000784            0x8           8   
-.text.INTEnableInterrup 0x9d00078c            0x8           8   
-.dinit                  0x9d000794            0x4           4   
-      Total kseg0_program_mem used  :       0x790        1936  0.4% of 0x80000
+.text                   0x9d000008        0x10f34       69428  App's exec code 
+.rodata                 0x9d010f3c          0xf58        3928  Read-only const 
+.text                   0x9d011e94         0x75cc       30156  App's exec code 
+.rodata                 0x9d019460          0x518        1304  Read-only const 
+.text                   0x9d019978         0x2b9c       11164  App's exec code 
+.dinit                  0x9d01c514          0x260         608   
+.text                   0x9d01c774          0xcac        3244  App's exec code 
+.text.general_exception 0x9d01d420           0xd0         208   
+.text                   0x9d01d4f0          0x140         320  App's exec code 
+.rodata                 0x9d01d630           0x98         152  Read-only const 
+.text.PORTSetPinsDigita 0x9d01d6c8           0x40          64   
+.text.INTEnableSystemMu 0x9d01d708           0x34          52   
+.rodata                 0x9d01d73c           0x48          72  Read-only const 
+.text.INTRestoreInterru 0x9d01d784           0x1c          28   
+.rodata                 0x9d01d7a0           0x18          24  Read-only const 
+.text                   0x9d01d7b8           0x18          24  App's exec code 
+.text.CheKseg0CacheOff  0x9d01d7d0           0x18          24   
+.text.CheKseg0CacheOn   0x9d01d7e8           0x18          24   
+.text                   0x9d01d800           0x10          16  App's exec code 
+.text._bootstrap_except 0x9d01d810            0xc          12   
+.rodata                 0x9d01d81c           0x10          16  Read-only const 
+.text._on_reset         0x9d01d82c            0x8           8   
+.text._on_bootstrap     0x9d01d834            0x8           8   
+.text.INTDisableInterru 0x9d01d83c            0x8           8   
+.text.INTEnableInterrup 0x9d01d844            0x8           8   
+.rodata                 0x9d01d84c            0x4           4  Read-only const 
+      Total kseg0_program_mem used  :     0x1d848      120904  23.1% of 0x80000
 
 kseg0 Boot-Memory Usage
 section                    address  length [bytes]      (dec)  Description
@@ -57,7 +104,9 @@ Exception-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
 .app_excpt              0x9fc01180           0x10          16  General-Exception 
-          Total exception_mem used  :        0x10          16  0.4% of 0x1000
+.vector_4               0x9fc01280            0x8           8  Interrupt Vector 4 
+.vector_7               0x9fc012e0            0x8           8  Interrupt Vector 7 
+          Total exception_mem used  :        0x20          32  0.8% of 0x1000
 
 kseg1 Boot-Memory Usage
 section                    address  length [bytes]      (dec)  Description
@@ -66,24 +115,29 @@ section                    address  length [bytes]      (dec)  Description
 .bev_excpt              0xbfc00380           0x10          16  BEV-Exception 
          Total kseg1_boot_mem used  :       0x204         516  44.2% of 0x490
         --------------------------------------------------------------------------
-         Total Program Memory used  :       0x9a4        2468  0.5% of 0x81e00
+         Total Program Memory used  :     0x1da6c      121452  22.8% of 0x81e00
         --------------------------------------------------------------------------
 
 
 kseg1 Data-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
-         Total kseg1_data_mem used  :           0           0  <1% of 0x20000
+.eh_frame               0xa0000000           0x28          40   
+.sdata                  0xa0000028           0x1c          28  Small init data 
+.sbss                   0xa0000044          0x140         320  Small uninit data 
+.bss                    0xa0000184          0x4d4        1236  Uninitialized data 
+.bss                    0xa0000658         0x1b5c        7004  Uninitialized data 
+         Total kseg1_data_mem used  :      0x21b4        8628  6.6% of 0x20000
         --------------------------------------------------------------------------
-            Total Data Memory used  :           0           0  <1% of 0x20000
+            Total Data Memory used  :      0x21b4        8628  6.6% of 0x20000
         --------------------------------------------------------------------------
 
 
 Dynamic Data-Memory Reservation
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
-heap                    0xa0000008          0x800        2048  Reserved for heap 
-stack                   0xa0000820        0x1f7d8      128984  Reserved for stack 
+heap                    0xa00021b8          0x800        2048  Reserved for heap 
+stack                   0xa00029d0        0x1d620      120352  Reserved for stack 
 
         --------------------------------------------------------------------------
 
@@ -93,6 +147,114 @@ Discarded input sections
  .pdr           0x00000000       0xa0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/crt0.o
  .reginfo       0x00000000       0x18 bin\obj\app.o
  .pdr           0x00000000       0x60 bin\obj\app.o
+ .reginfo       0x00000000       0x18 bin\obj\CustomHTTPApp.o
+ .pdr           0x00000000       0x20 bin\obj\CustomHTTPApp.o
+ .reginfo       0x00000000       0x18 bin\obj\simpledelay.o
+ .pdr           0x00000000       0x40 bin\obj\simpledelay.o
+ .reginfo       0x00000000       0x18 bin\obj\tcpip.o
+ .pdr           0x00000000       0xa0 bin\obj\tcpip.o
+ .reginfo       0x00000000       0x18 bin\obj\WF_Config.o
+ .pdr           0x00000000       0x20 bin\obj\WF_Config.o
+ .reginfo       0x00000000       0x18 bin\obj\WF_Eint.o
+ .pdr           0x00000000       0xe0 bin\obj\WF_Eint.o
+ .reginfo       0x00000000       0x18 bin\obj\WF_Spi.o
+ .pdr           0x00000000       0xa0 bin\obj\WF_Spi.o
+ .reginfo       0x00000000       0x18 bin\obj\WFConnectionAlgorithm.o
+ .pdr           0x00000000      0x440 bin\obj\WFConnectionAlgorithm.o
+ .reginfo       0x00000000       0x18 bin\obj\WFConnectionManager.o
+ .pdr           0x00000000       0xe0 bin\obj\WFConnectionManager.o
+ .reginfo       0x00000000       0x18 bin\obj\WFConnectionProfile.o
+ .pdr           0x00000000      0x2e0 bin\obj\WFConnectionProfile.o
+ .reginfo       0x00000000       0x18 bin\obj\WFConsole.o
+ .pdr           0x00000000        0x0 bin\obj\WFConsole.o
+ .reginfo       0x00000000       0x18 bin\obj\WFConsoleIfconfig.o
+ .pdr           0x00000000        0x0 bin\obj\WFConsoleIfconfig.o
+ .reginfo       0x00000000       0x18 bin\obj\WFConsoleIwconfig.o
+ .pdr           0x00000000        0x0 bin\obj\WFConsoleIwconfig.o
+ .reginfo       0x00000000       0x18 bin\obj\WFConsoleIwpriv.o
+ .pdr           0x00000000        0x0 bin\obj\WFConsoleIwpriv.o
+ .reginfo       0x00000000       0x18 bin\obj\WFConsoleMsgHandler.o
+ .pdr           0x00000000        0x0 bin\obj\WFConsoleMsgHandler.o
+ .reginfo       0x00000000       0x18 bin\obj\WFConsoleMsgs.o
+ .pdr           0x00000000        0x0 bin\obj\WFConsoleMsgs.o
+ .reginfo       0x00000000       0x18 bin\obj\WFDataTxRx.o
+ .pdr           0x00000000        0x0 bin\obj\WFDataTxRx.o
+ .reginfo       0x00000000       0x18 bin\obj\WFDriverCom.o
+ .pdr           0x00000000      0x260 bin\obj\WFDriverCom.o
+ .reginfo       0x00000000       0x18 bin\obj\WFDriverRaw.o
+ .pdr           0x00000000      0x2a0 bin\obj\WFDriverRaw.o
+ .reginfo       0x00000000       0x18 bin\obj\WFEasyConfig.o
+ .pdr           0x00000000       0xe0 bin\obj\WFEasyConfig.o
+ .reginfo       0x00000000       0x18 bin\obj\WFEventHandler.o
+ .pdr           0x00000000       0x60 bin\obj\WFEventHandler.o
+ .reginfo       0x00000000       0x18 bin\obj\WFInit.o
+ .pdr           0x00000000       0x40 bin\obj\WFInit.o
+ .reginfo       0x00000000       0x18 bin\obj\WFMac.o
+ .pdr           0x00000000      0x3e0 bin\obj\WFMac.o
+ .reginfo       0x00000000       0x18 bin\obj\WFMgmtMsg.o
+ .pdr           0x00000000       0xa0 bin\obj\WFMgmtMsg.o
+ .reginfo       0x00000000       0x18 bin\obj\WFParamMsg.o
+ .pdr           0x00000000      0x240 bin\obj\WFParamMsg.o
+ .reginfo       0x00000000       0x18 bin\obj\WFPowerSave.o
+ .pdr           0x00000000      0x1e0 bin\obj\WFPowerSave.o
+ .reginfo       0x00000000       0x18 bin\obj\WFScan.o
+ .pdr           0x00000000       0x40 bin\obj\WFScan.o
+ .reginfo       0x00000000       0x18 bin\obj\WFTxPower.o
+ .pdr           0x00000000       0x80 bin\obj\WFTxPower.o
+ .reginfo       0x00000000       0x18 bin\obj\Announce.o
+ .pdr           0x00000000       0x40 bin\obj\Announce.o
+ .reginfo       0x00000000       0x18 bin\obj\ARP.o
+ .pdr           0x00000000       0xc0 bin\obj\ARP.o
+ .reginfo       0x00000000       0x18 bin\obj\AutoIP.o
+ .pdr           0x00000000        0x0 bin\obj\AutoIP.o
+ .reginfo       0x00000000       0x18 bin\obj\BigInt.o
+ .pdr           0x00000000        0x0 bin\obj\BigInt.o
+ .reginfo       0x00000000       0x18 bin\obj\DHCP.o
+ .pdr           0x00000000      0x140 bin\obj\DHCP.o
+ .reginfo       0x00000000       0x18 bin\obj\DHCPs.o
+ .pdr           0x00000000       0x60 bin\obj\DHCPs.o
+ .reginfo       0x00000000       0x18 bin\obj\DNS.o
+ .pdr           0x00000000       0xc0 bin\obj\DNS.o
+ .reginfo       0x00000000       0x18 bin\obj\DNSs.o
+ .pdr           0x00000000       0x40 bin\obj\DNSs.o
+ .reginfo       0x00000000       0x18 bin\obj\ETHPIC32ExtPhy.o
+ .pdr           0x00000000        0x0 bin\obj\ETHPIC32ExtPhy.o
+ .reginfo       0x00000000       0x18 bin\obj\ETHPIC32IntMac.o
+ .pdr           0x00000000        0x0 bin\obj\ETHPIC32IntMac.o
+ .reginfo       0x00000000       0x18 bin\obj\Helpers.o
+ .pdr           0x00000000      0x200 bin\obj\Helpers.o
+ .reginfo       0x00000000       0x18 bin\obj\HTTP2.o
+ .pdr           0x00000000      0x160 bin\obj\HTTP2.o
+ .reginfo       0x00000000       0x18 bin\obj\ICMP.o
+ .pdr           0x00000000       0xc0 bin\obj\ICMP.o
+ .reginfo       0x00000000       0x18 bin\obj\IP.o
+ .pdr           0x00000000       0x80 bin\obj\IP.o
+ .reginfo       0x00000000       0x18 bin\obj\MPFS2.o
+ .pdr           0x00000000      0x280 bin\obj\MPFS2.o
+ .reginfo       0x00000000       0x18 bin\obj\NBNS.o
+ .pdr           0x00000000       0x60 bin\obj\NBNS.o
+ .reginfo       0x00000000       0x18 bin\obj\StackTsk.o
+ .pdr           0x00000000       0x80 bin\obj\StackTsk.o
+ .reginfo       0x00000000       0x18 bin\obj\TCP.o
+ .pdr           0x00000000      0x420 bin\obj\TCP.o
+ .reginfo       0x00000000       0x18 bin\obj\Tick.o
+ .pdr           0x00000000      0x100 bin\obj\Tick.o
+ .reginfo       0x00000000       0x18 bin\obj\UDP.o
+ .pdr           0x00000000      0x240 bin\obj\UDP.o
+ .reginfo       0x00000000       0x18 bin\obj\MPFSImg2.o
+ .pdr           0x00000000        0x0 bin\obj\MPFSImg2.o
+ .reginfo       0x00000000       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+ .pdr           0x00000000       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+ .reginfo       0x00000000       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcmp.o)
+ .pdr           0x00000000       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcmp.o)
+ .reginfo       0x00000000       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcpy.o)
+ .pdr           0x00000000       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcpy.o)
+ .reginfo       0x00000000       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memset.o)
+ .pdr           0x00000000       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memset.o)
+ .reginfo       0x00000000       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strcmp.o)
+ .pdr           0x00000000       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strcmp.o)
+ .reginfo       0x00000000       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strlen.o)
+ .pdr           0x00000000       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strlen.o)
  .reginfo       0x00000000       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(general-exception.o)
  .pdr           0x00000000       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(general-exception.o)
  .reginfo       0x00000000       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
@@ -141,6 +303,54 @@ Linker script and memory map
 
 LOAD c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/crt0.o
 LOAD bin\obj\app.o
+LOAD bin\obj\CustomHTTPApp.o
+LOAD bin\obj\simpledelay.o
+LOAD bin\obj\tcpip.o
+LOAD bin\obj\WF_Config.o
+LOAD bin\obj\WF_Eint.o
+LOAD bin\obj\WF_Spi.o
+LOAD bin\obj\WFConnectionAlgorithm.o
+LOAD bin\obj\WFConnectionManager.o
+LOAD bin\obj\WFConnectionProfile.o
+LOAD bin\obj\WFConsole.o
+LOAD bin\obj\WFConsoleIfconfig.o
+LOAD bin\obj\WFConsoleIwconfig.o
+LOAD bin\obj\WFConsoleIwpriv.o
+LOAD bin\obj\WFConsoleMsgHandler.o
+LOAD bin\obj\WFConsoleMsgs.o
+LOAD bin\obj\WFDataTxRx.o
+LOAD bin\obj\WFDriverCom.o
+LOAD bin\obj\WFDriverRaw.o
+LOAD bin\obj\WFEasyConfig.o
+LOAD bin\obj\WFEventHandler.o
+LOAD bin\obj\WFInit.o
+LOAD bin\obj\WFMac.o
+LOAD bin\obj\WFMgmtMsg.o
+LOAD bin\obj\WFParamMsg.o
+LOAD bin\obj\WFPowerSave.o
+LOAD bin\obj\WFScan.o
+LOAD bin\obj\WFTxPower.o
+LOAD bin\obj\Announce.o
+LOAD bin\obj\ARP.o
+LOAD bin\obj\AutoIP.o
+LOAD bin\obj\BigInt.o
+LOAD bin\obj\DHCP.o
+LOAD bin\obj\DHCPs.o
+LOAD bin\obj\DNS.o
+LOAD bin\obj\DNSs.o
+LOAD bin\obj\ETHPIC32ExtPhy.o
+LOAD bin\obj\ETHPIC32IntMac.o
+LOAD bin\obj\Helpers.o
+LOAD bin\obj\HTTP2.o
+LOAD bin\obj\ICMP.o
+LOAD bin\obj\IP.o
+LOAD bin\obj\MPFS2.o
+LOAD bin\obj\NBNS.o
+LOAD bin\obj\StackTsk.o
+LOAD bin\obj\TCP.o
+LOAD bin\obj\Tick.o
+LOAD bin\obj\UDP.o
+LOAD bin\obj\MPFSImg2.o
                 0x00000001                __MPLAB_BUILD = 0x1
                 0x00000800                _min_heap_size = 0x800
 LOAD c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a
@@ -230,8 +440,9 @@ LOAD c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../.
  *(.vector_3)
                 0x00000001                ASSERT (((_vector_spacing == 0x0) || (SIZEOF (.vector_3) <= (_vector_spacing << 0x5))), function at exception vector 3 too large)
 
-.vector_4       0x9fc01280        0x0
+.vector_4       0x9fc01280        0x8
  *(.vector_4)
+ .vector_4      0x9fc01280        0x8 bin\obj\Tick.o
                 0x00000001                ASSERT (((_vector_spacing == 0x0) || (SIZEOF (.vector_4) <= (_vector_spacing << 0x5))), function at exception vector 4 too large)
 
 .vector_5       0x9fc012a0        0x0
@@ -242,8 +453,9 @@ LOAD c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../.
  *(.vector_6)
                 0x00000001                ASSERT (((_vector_spacing == 0x0) || (SIZEOF (.vector_6) <= (_vector_spacing << 0x5))), function at exception vector 6 too large)
 
-.vector_7       0x9fc012e0        0x0
+.vector_7       0x9fc012e0        0x8
  *(.vector_7)
+ .vector_7      0x9fc012e0        0x8 bin\obj\WF_Eint.o
                 0x00000001                ASSERT (((_vector_spacing == 0x0) || (SIZEOF (.vector_7) <= (_vector_spacing << 0x5))), function at exception vector 7 too large)
 
 .vector_8       0x9fc01300        0x0
@@ -508,43 +720,129 @@ LOAD c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../.
                 0xa0000000                . = ALIGN (0x4)
                 0xa0000000                _persist_end = .
 
-.eh_frame
+.eh_frame       0xa0000000       0x28
  *(.eh_frame)
-                0xa0000000                . = .
-                0xa0007ff0                _gp = (ALIGN (0x10) + 0x7ff0)
+ .eh_frame      0xa0000000       0x28 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+                0xa0000028                . = .
+                0xa0008020                _gp = (ALIGN (0x10) + 0x7ff0)
 
 .got
  *(.got.plt)
  *(.got)
 
-.sdata          0xa0000000        0x0
-                0xa0000000                _sdata_begin = .
+.sdata          0xa0000028       0x1c
+                0xa0000028                _sdata_begin = .
  *(.sdata .sdata.* .gnu.linkonce.s.*)
-                0xa0000000                _sdata_end = .
+ .sdata         0xa0000028        0x1 bin\obj\WFConnectionAlgorithm.o
+ .sdata         0xa0000029        0x1 bin\obj\WFPowerSave.o
+ *fill*         0xa000002a        0x2 00
+ .sdata         0xa000002c        0x4 bin\obj\DHCPs.o
+                0xa000002c                bDHCPServerEnabled
+ .sdata         0xa0000030        0x8 bin\obj\DNS.o
+ .sdata         0xa0000038        0x1 bin\obj\DNSs.o
+ *fill*         0xa0000039        0x3 00
+ .sdata         0xa000003c        0x4 bin\obj\Helpers.o
+ .sdata         0xa0000040        0x2 bin\obj\TCP.o
+ .sdata         0xa0000042        0x2 bin\obj\UDP.o
+                0xa0000044                _sdata_end = .
 
 .lit8
  *(.lit8)
 
 .lit4
  *(.lit4)
-                0xa0000000                . = ALIGN (0x4)
-                0xa0000000                _data_end = .
-                0xa0000000                _bss_begin = .
+                0xa0000044                . = ALIGN (0x4)
+                0xa0000044                _data_end = .
+                0xa0000044                _bss_begin = .
 
-.sbss           0xa0000000        0x0
-                0xa0000000                _sbss_begin = .
+.sbss           0xa0000044      0x140
+                0xa0000044                _sbss_begin = .
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ .sbss          0xa0000044        0xc bin\obj\CustomHTTPApp.o
+ .sbss          0xa0000050       0x14 bin\obj\tcpip.o
+                0xa000005c                psConfDone
+ .sbss          0xa0000064        0x4 bin\obj\WFConnectionManager.o
+ .sbss          0xa0000068       0x24 bin\obj\WFDriverCom.o
+                0xa000007c                g_DhcpSuccessful
+                0xa0000080                g_WiFiConnectionChanged
+                0xa0000084                g_WiFiConnection
+                0xa0000088                g_dhcpInProgress
+ .sbss          0xa000008c        0x4 bin\obj\WFDriverRaw.o
+                0xa000008c                g_HostRAWDataPacketReceived
+ .sbss          0xa0000090        0x4 bin\obj\WFInit.o
+                0xa0000090                gRFModuleVer1209orLater
+ .sbss          0xa0000094       0x1c bin\obj\WFMac.o
+ .sbss          0xa00000b0       0x14 bin\obj\WFMgmtMsg.o
+                0xa00000b0                gHostScanNotAllowed
+                0xa00000c0                g_WaitingForMgmtResponse
+ .sbss          0xa00000c4        0xc bin\obj\WFPowerSave.o
+ .sbss          0xa00000d0        0x8 bin\obj\Announce.o
+ .sbss          0xa00000d8        0x4 bin\obj\ARP.o
+ .sbss          0xa00000dc        0x4 bin\obj\DHCP.o
+                0xa00000dc                DHCPClientInitializedOnce
+ .sbss          0xa00000e0        0xc bin\obj\DHCPs.o
+ .sbss          0xa00000ec       0x18 bin\obj\DNS.o
+ .sbss          0xa0000104       0x10 bin\obj\ICMP.o
+ .sbss          0xa0000114        0x4 bin\obj\IP.o
+ .sbss          0xa0000118        0x8 bin\obj\MPFS2.o
+ .sbss          0xa0000120        0x8 bin\obj\NBNS.o
+ .sbss          0xa0000128        0x8 bin\obj\StackTsk.o
+                0xa000012c                g_DhcpRenew
+ .sbss          0xa0000130        0x2 bin\obj\TCP.o
+ *fill*         0xa0000132        0x2 00
+ .sbss          0xa0000134        0xc bin\obj\Tick.o
+ .sbss          0xa0000140        0x8 bin\obj\UDP.o
  *(.scommon)
-                0xa0000000                _sbss_end = .
+ .scommon       0xa0000148        0x4 bin\obj\app.o
+                0xa0000148                CurrentPacket
+ .scommon       0xa000014c        0x0 bin\obj\CustomHTTPApp.o
+ .scommon       0xa000014c        0xc bin\obj\tcpip.o
+                0xa000014c                PsPollEnabled
+                0xa0000150                AN0String
+ .scommon       0xa0000158        0x8 bin\obj\WFDriverCom.o
+                0xa0000158                RawMoveState
+ .scommon       0xa0000160        0xc bin\obj\WFDriverRaw.o
+                0xa0000160                RawWindowState
+                0xa0000164                RawWindowReady
+ .scommon       0xa000016c        0x6 bin\obj\WFEasyConfig.o
+                0xa000016c                g_ScanCtx
+ *fill*         0xa0000172        0x2 00
+ .scommon       0xa0000174        0x4 bin\obj\WFMac.o
+                0xa0000174                g_rxIndexSetBeyondBuffer
+ .scommon       0xa0000178        0x4 bin\obj\WFPowerSave.o
+                0xa0000178                g_rxDtim
+ .scommon       0xa000017c        0x1 bin\obj\HTTP2.o
+                0xa000017c                curHTTPID
+ *fill*         0xa000017d        0x1 00
+ .scommon       0xa000017e        0x6 bin\obj\UDP.o
+                0xa000017e                activeUDPSocket
+                0xa0000180                UDPTxCount
+                0xa0000182                UDPRxCount
+                0xa0000184                _sbss_end = .
 
-.bss            0xa0000000        0x0
+.bss            0xa0000184      0x4d4
  *(.dynbss)
  *(COMMON)
-                0xa0000000                . = ALIGN (0x4)
-                0xa0000000                . = ALIGN (0x4)
-                0xa0000000                _end = .
-                0xa0000000                _bss_end = .
+ COMMON         0xa0000184      0x224 bin\obj\app.o
+                0xa0000184                WiFiPacket
+ COMMON         0xa00003a8       0x97 bin\obj\tcpip.o
+                0xa00003a8                AppConfig
+ *fill*         0xa000043f        0x1 00
+ COMMON         0xa0000440       0x94 bin\obj\WFEasyConfig.o
+                0xa0000440                g_easyConfigCtx
+ COMMON         0xa00004d4       0x98 bin\obj\HTTP2.o
+                0xa00004d4                curHTTP
+                0xa000055c                httpStubs
+ COMMON         0xa000056c        0xa bin\obj\StackTsk.o
+                0xa000056c                remoteNode
+ *fill*         0xa0000576        0x2 00
+ COMMON         0xa0000578       0xe0 bin\obj\UDP.o
+                0xa0000578                UDPSocketInfo
+                0xa0000658                . = ALIGN (0x4)
+                0xa0000658                . = ALIGN (0x4)
+                0xa0000658                _end = .
+                0xa0000658                _bss_end = .
                 0x00020000                _bmxdudba_address = 0x20000
                 0x00020000                _bmxdupba_address = 0x20000
 
@@ -576,14 +874,71 @@ LOAD c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../.
 .stab.indexstr
  *(.stab.indexstr)
 
-.comment        0x00000000       0xa2
+.comment        0x00000000      0x1f6
  *(.comment)
  .comment       0x00000000       0x51 bin\obj\app.o
                                  0x52 (size before relaxing)
+ .comment       0x00000000       0x52 bin\obj\CustomHTTPApp.o
+ .comment       0x00000000       0x52 bin\obj\simpledelay.o
+ .comment       0x00000000       0x52 bin\obj\tcpip.o
+ .comment       0x00000000       0x52 bin\obj\WF_Config.o
+ .comment       0x00000000       0x52 bin\obj\WF_Eint.o
+ .comment       0x00000000       0x52 bin\obj\WF_Spi.o
+ .comment       0x00000000       0x52 bin\obj\WFConnectionAlgorithm.o
+ .comment       0x00000000       0x52 bin\obj\WFConnectionManager.o
+ .comment       0x00000000       0x52 bin\obj\WFConnectionProfile.o
+ .comment       0x00000000       0x52 bin\obj\WFConsole.o
+ .comment       0x00000000       0x52 bin\obj\WFConsoleIfconfig.o
+ .comment       0x00000000       0x52 bin\obj\WFConsoleIwconfig.o
+ .comment       0x00000000       0x52 bin\obj\WFConsoleIwpriv.o
+ .comment       0x00000000       0x52 bin\obj\WFConsoleMsgHandler.o
+ .comment       0x00000000       0x52 bin\obj\WFConsoleMsgs.o
+ .comment       0x00000000       0x52 bin\obj\WFDataTxRx.o
+ .comment       0x00000000       0x52 bin\obj\WFDriverCom.o
+ .comment       0x00000000       0x52 bin\obj\WFDriverRaw.o
+ .comment       0x00000000       0x52 bin\obj\WFEasyConfig.o
+ .comment       0x00000000       0x52 bin\obj\WFEventHandler.o
+ .comment       0x00000000       0x52 bin\obj\WFInit.o
+ .comment       0x00000000       0x52 bin\obj\WFMac.o
+ .comment       0x00000000       0x52 bin\obj\WFMgmtMsg.o
+ .comment       0x00000000       0x52 bin\obj\WFParamMsg.o
+ .comment       0x00000000       0x52 bin\obj\WFPowerSave.o
+ .comment       0x00000000       0x52 bin\obj\WFScan.o
+ .comment       0x00000000       0x52 bin\obj\WFTxPower.o
+ .comment       0x00000000       0x52 bin\obj\Announce.o
+ .comment       0x00000000       0x52 bin\obj\ARP.o
+ .comment       0x00000000       0x52 bin\obj\AutoIP.o
+ .comment       0x00000000       0x52 bin\obj\BigInt.o
+ .comment       0x00000000       0x52 bin\obj\DHCP.o
+ .comment       0x00000000       0x52 bin\obj\DHCPs.o
+ .comment       0x00000000       0x52 bin\obj\DNS.o
+ .comment       0x00000000       0x52 bin\obj\DNSs.o
+ .comment       0x00000000       0x52 bin\obj\ETHPIC32ExtPhy.o
+ .comment       0x00000000       0x52 bin\obj\ETHPIC32IntMac.o
+ .comment       0x00000000       0x52 bin\obj\Helpers.o
+ .comment       0x00000000       0x52 bin\obj\HTTP2.o
+ .comment       0x00000000       0x52 bin\obj\ICMP.o
+ .comment       0x00000000       0x52 bin\obj\IP.o
+ .comment       0x00000000       0x52 bin\obj\MPFS2.o
+ .comment       0x00000000       0x52 bin\obj\NBNS.o
+ .comment       0x00000000       0x52 bin\obj\StackTsk.o
+ .comment       0x00000000       0x52 bin\obj\TCP.o
+ .comment       0x00000000       0x52 bin\obj\Tick.o
+ .comment       0x00000000       0x52 bin\obj\UDP.o
+ .comment       0x00000000       0x52 bin\obj\MPFSImg2.o
+ .comment       0x00000000       0x52 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+ .comment       0x00000051       0x55 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcmp.o)
+                                 0x56 (size before relaxing)
+ .comment       0x000000a6       0x55 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memset.o)
+                                 0x56 (size before relaxing)
+ .comment       0x000000fb       0x55 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strcmp.o)
+                                 0x56 (size before relaxing)
+ .comment       0x00000150       0x55 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strlen.o)
+                                 0x56 (size before relaxing)
  .comment       0x00000000       0x52 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
  .comment       0x00000000       0x52 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
  .comment       0x00000000       0x52 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
- .comment       0x00000051       0x51 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+ .comment       0x000001a5       0x51 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
                                  0x52 (size before relaxing)
  .comment       0x00000000       0x52 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
  .comment       0x00000000       0x52 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
@@ -604,124 +959,507 @@ LOAD c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../.
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x148
+.debug_aranges  0x00000000      0x5e8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x20 bin\obj\app.o
  .debug_aranges
-                0x00000020       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+                0x00000020       0x20 bin\obj\CustomHTTPApp.o
  .debug_aranges
-                0x00000040       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+                0x00000040       0x20 bin\obj\simpledelay.o
  .debug_aranges
-                0x00000060       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+                0x00000060       0x20 bin\obj\tcpip.o
  .debug_aranges
-                0x00000080       0x28 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+                0x00000080       0x20 bin\obj\WF_Config.o
  .debug_aranges
-                0x000000a8       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+                0x000000a0       0x20 bin\obj\WF_Eint.o
  .debug_aranges
-                0x000000c8       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+                0x000000c0       0x20 bin\obj\WF_Spi.o
  .debug_aranges
-                0x000000e8       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+                0x000000e0       0x20 bin\obj\WFConnectionAlgorithm.o
  .debug_aranges
-                0x00000108       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+                0x00000100       0x20 bin\obj\WFConnectionManager.o
  .debug_aranges
-                0x00000128       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
+                0x00000120       0x20 bin\obj\WFConnectionProfile.o
+ .debug_aranges
+                0x00000140       0x20 bin\obj\WFDriverCom.o
+ .debug_aranges
+                0x00000160       0x20 bin\obj\WFDriverRaw.o
+ .debug_aranges
+                0x00000180       0x20 bin\obj\WFEasyConfig.o
+ .debug_aranges
+                0x000001a0       0x20 bin\obj\WFEventHandler.o
+ .debug_aranges
+                0x000001c0       0x20 bin\obj\WFInit.o
+ .debug_aranges
+                0x000001e0       0x20 bin\obj\WFMac.o
+ .debug_aranges
+                0x00000200       0x20 bin\obj\WFMgmtMsg.o
+ .debug_aranges
+                0x00000220       0x20 bin\obj\WFParamMsg.o
+ .debug_aranges
+                0x00000240       0x20 bin\obj\WFPowerSave.o
+ .debug_aranges
+                0x00000260       0x20 bin\obj\WFScan.o
+ .debug_aranges
+                0x00000280       0x20 bin\obj\WFTxPower.o
+ .debug_aranges
+                0x000002a0       0x20 bin\obj\Announce.o
+ .debug_aranges
+                0x000002c0       0x20 bin\obj\ARP.o
+ .debug_aranges
+                0x000002e0       0x20 bin\obj\DHCP.o
+ .debug_aranges
+                0x00000300       0x20 bin\obj\DHCPs.o
+ .debug_aranges
+                0x00000320       0x20 bin\obj\DNS.o
+ .debug_aranges
+                0x00000340       0x20 bin\obj\DNSs.o
+ .debug_aranges
+                0x00000360       0x20 bin\obj\Helpers.o
+ .debug_aranges
+                0x00000380       0x20 bin\obj\HTTP2.o
+ .debug_aranges
+                0x000003a0       0x20 bin\obj\ICMP.o
+ .debug_aranges
+                0x000003c0       0x20 bin\obj\IP.o
+ .debug_aranges
+                0x000003e0       0x20 bin\obj\MPFS2.o
+ .debug_aranges
+                0x00000400       0x20 bin\obj\NBNS.o
+ .debug_aranges
+                0x00000420       0x20 bin\obj\StackTsk.o
+ .debug_aranges
+                0x00000440       0x20 bin\obj\TCP.o
+ .debug_aranges
+                0x00000460       0x20 bin\obj\Tick.o
+ .debug_aranges
+                0x00000480       0x20 bin\obj\UDP.o
+ .debug_aranges
+                0x000004a0       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x000004c0       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+ .debug_aranges
+                0x000004e0       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+ .debug_aranges
+                0x00000500       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+ .debug_aranges
+                0x00000520       0x28 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+ .debug_aranges
+                0x00000548       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+ .debug_aranges
+                0x00000568       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+ .debug_aranges
+                0x00000588       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+ .debug_aranges
+                0x000005a8       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+ .debug_aranges
+                0x000005c8       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
 
 .debug_pubnames
-                0x00000000      0x1e2
+                0x00000000     0x1f11
  *(.debug_pubnames)
  .debug_pubnames
-                0x00000000       0x4f bin\obj\app.o
+                0x00000000       0x70 bin\obj\app.o
  .debug_pubnames
-                0x0000004f       0x33 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+                0x00000070       0x46 bin\obj\CustomHTTPApp.o
  .debug_pubnames
-                0x00000082       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+                0x000000b6       0x2c bin\obj\simpledelay.o
  .debug_pubnames
-                0x000000a2       0x24 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+                0x000000e2       0x93 bin\obj\tcpip.o
  .debug_pubnames
-                0x000000c6       0x3b c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+                0x00000175       0x26 bin\obj\WF_Config.o
  .debug_pubnames
-                0x00000101       0x2b c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+                0x0000019b       0x83 bin\obj\WF_Eint.o
  .debug_pubnames
-                0x0000012c       0x2b c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+                0x0000021e       0x66 bin\obj\WF_Spi.o
  .debug_pubnames
-                0x00000157       0x36 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+                0x00000284      0x339 bin\obj\WFConnectionAlgorithm.o
  .debug_pubnames
-                0x0000018d       0x2b c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+                0x000005bd       0xbc bin\obj\WFConnectionManager.o
  .debug_pubnames
-                0x000001b8       0x2a c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
+                0x00000679      0x1d6 bin\obj\WFConnectionProfile.o
+ .debug_pubnames
+                0x0000084f      0x191 bin\obj\WFDriverCom.o
+ .debug_pubnames
+                0x000009e0      0x1c8 bin\obj\WFDriverRaw.o
+ .debug_pubnames
+                0x00000ba8       0xac bin\obj\WFEasyConfig.o
+ .debug_pubnames
+                0x00000c54       0x2f bin\obj\WFEventHandler.o
+ .debug_pubnames
+                0x00000c83       0x3a bin\obj\WFInit.o
+ .debug_pubnames
+                0x00000cbd      0x228 bin\obj\WFMac.o
+ .debug_pubnames
+                0x00000ee5       0xce bin\obj\WFMgmtMsg.o
+ .debug_pubnames
+                0x00000fb3      0x1c5 bin\obj\WFParamMsg.o
+ .debug_pubnames
+                0x00001178      0x13d bin\obj\WFPowerSave.o
+ .debug_pubnames
+                0x000012b5       0x33 bin\obj\WFScan.o
+ .debug_pubnames
+                0x000012e8       0x7b bin\obj\WFTxPower.o
+ .debug_pubnames
+                0x00001363       0x33 bin\obj\Announce.o
+ .debug_pubnames
+                0x00001396       0x60 bin\obj\ARP.o
+ .debug_pubnames
+                0x000013f6       0xb9 bin\obj\DHCP.o
+ .debug_pubnames
+                0x000014af       0x3c bin\obj\DHCPs.o
+ .debug_pubnames
+                0x000014eb       0x55 bin\obj\DNS.o
+ .debug_pubnames
+                0x00001540       0x24 bin\obj\DNSs.o
+ .debug_pubnames
+                0x00001564      0x115 bin\obj\Helpers.o
+ .debug_pubnames
+                0x00001679       0xa4 bin\obj\HTTP2.o
+ .debug_pubnames
+                0x0000171d       0x7f bin\obj\ICMP.o
+ .debug_pubnames
+                0x0000179c       0x44 bin\obj\IP.o
+ .debug_pubnames
+                0x000017e0      0x140 bin\obj\MPFS2.o
+ .debug_pubnames
+                0x00001920       0x1f bin\obj\NBNS.o
+ .debug_pubnames
+                0x0000193f       0x71 bin\obj\StackTsk.o
+ .debug_pubnames
+                0x000019b0      0x1ba bin\obj\TCP.o
+ .debug_pubnames
+                0x00001b6a       0x7e bin\obj\Tick.o
+ .debug_pubnames
+                0x00001be8      0x155 bin\obj\UDP.o
+ .debug_pubnames
+                0x00001d3d       0x21 bin\obj\MPFSImg2.o
+ .debug_pubnames
+                0x00001d5e       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+ .debug_pubnames
+                0x00001d7e       0x33 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+ .debug_pubnames
+                0x00001db1       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+ .debug_pubnames
+                0x00001dd1       0x24 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+ .debug_pubnames
+                0x00001df5       0x3b c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+ .debug_pubnames
+                0x00001e30       0x2b c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+ .debug_pubnames
+                0x00001e5b       0x2b c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+ .debug_pubnames
+                0x00001e86       0x36 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+ .debug_pubnames
+                0x00001ebc       0x2b c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+ .debug_pubnames
+                0x00001ee7       0x2a c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
 
-.debug_info     0x00000000     0x21ca
+.debug_info     0x00000000    0x50b66
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000     0x1a29 bin\obj\app.o
- .debug_info    0x00001a29      0x106 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
- .debug_info    0x00001b2f       0xe0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
- .debug_info    0x00001c0f       0xe8 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
- .debug_info    0x00001cf7       0xd4 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
- .debug_info    0x00001dcb       0xcb c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
- .debug_info    0x00001e96       0xcb c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
- .debug_info    0x00001f61       0xd1 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
- .debug_info    0x00002032       0xcf c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
- .debug_info    0x00002101        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
- .debug_info    0x00002101       0xc9 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
+ .debug_info    0x00000000     0x1c7a bin\obj\app.o
+ .debug_info    0x00001c7a     0x1cda bin\obj\CustomHTTPApp.o
+ .debug_info    0x00003954     0x11f2 bin\obj\simpledelay.o
+ .debug_info    0x00004b46     0x210a bin\obj\tcpip.o
+ .debug_info    0x00006c50     0x1477 bin\obj\WF_Config.o
+ .debug_info    0x000080c7     0x202f bin\obj\WF_Eint.o
+ .debug_info    0x0000a0f6     0x19b0 bin\obj\WF_Spi.o
+ .debug_info    0x0000baa6     0x22cd bin\obj\WFConnectionAlgorithm.o
+ .debug_info    0x0000dd73     0x1c26 bin\obj\WFConnectionManager.o
+ .debug_info    0x0000f999     0x2098 bin\obj\WFConnectionProfile.o
+ .debug_info    0x00011a31     0x1170 bin\obj\WFConsole.o
+ .debug_info    0x00012ba1     0x1178 bin\obj\WFConsoleIfconfig.o
+ .debug_info    0x00013d19     0x1178 bin\obj\WFConsoleIwconfig.o
+ .debug_info    0x00014e91     0x1176 bin\obj\WFConsoleIwpriv.o
+ .debug_info    0x00016007     0x117a bin\obj\WFConsoleMsgHandler.o
+ .debug_info    0x00017181     0x1174 bin\obj\WFConsoleMsgs.o
+ .debug_info    0x000182f5     0x1171 bin\obj\WFDataTxRx.o
+ .debug_info    0x00019466     0x240c bin\obj\WFDriverCom.o
+ .debug_info    0x0001b872     0x19c7 bin\obj\WFDriverRaw.o
+ .debug_info    0x0001d239     0x173c bin\obj\WFEasyConfig.o
+ .debug_info    0x0001e975     0x14a9 bin\obj\WFEventHandler.o
+ .debug_info    0x0001fe1e     0x1a3d bin\obj\WFInit.o
+ .debug_info    0x0002185b     0x1e59 bin\obj\WFMac.o
+ .debug_info    0x000236b4     0x1539 bin\obj\WFMgmtMsg.o
+ .debug_info    0x00024bed     0x2119 bin\obj\WFParamMsg.o
+ .debug_info    0x00026d06     0x1ca4 bin\obj\WFPowerSave.o
+ .debug_info    0x000289aa     0x1729 bin\obj\WFScan.o
+ .debug_info    0x0002a0d3     0x1709 bin\obj\WFTxPower.o
+ .debug_info    0x0002b7dc     0x1bf8 bin\obj\Announce.o
+ .debug_info    0x0002d3d4     0x1bb8 bin\obj\ARP.o
+ .debug_info    0x0002ef8c     0x1168 bin\obj\AutoIP.o
+ .debug_info    0x000300f4     0x1168 bin\obj\BigInt.o
+ .debug_info    0x0003125c     0x21b3 bin\obj\DHCP.o
+ .debug_info    0x0003340f     0x1e44 bin\obj\DHCPs.o
+ .debug_info    0x00035253     0x1e4a bin\obj\DNS.o
+ .debug_info    0x0003709d     0x1a05 bin\obj\DNSs.o
+ .debug_info    0x00038aa2     0x1170 bin\obj\ETHPIC32ExtPhy.o
+ .debug_info    0x00039c12     0x1170 bin\obj\ETHPIC32IntMac.o
+ .debug_info    0x0003ad82     0x247a bin\obj\Helpers.o
+ .debug_info    0x0003d1fc     0x2089 bin\obj\HTTP2.o
+ .debug_info    0x0003f285     0x1af7 bin\obj\ICMP.o
+ .debug_info    0x00040d7c     0x1c45 bin\obj\IP.o
+ .debug_info    0x000429c1     0x191e bin\obj\MPFS2.o
+ .debug_info    0x000442df     0x1d2f bin\obj\NBNS.o
+ .debug_info    0x0004600e     0x1ac8 bin\obj\StackTsk.o
+ .debug_info    0x00047ad6     0x3284 bin\obj\TCP.o
+ .debug_info    0x0004ad5a     0x1af0 bin\obj\Tick.o
+ .debug_info    0x0004c84a     0x225b bin\obj\UDP.o
+ .debug_info    0x0004eaa5     0x119d bin\obj\MPFSImg2.o
+ .debug_info    0x0004fc42      0x783 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+ .debug_info    0x000503c5      0x106 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+ .debug_info    0x000504cb       0xe0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+ .debug_info    0x000505ab       0xe8 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+ .debug_info    0x00050693       0xd4 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+ .debug_info    0x00050767       0xcb c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+ .debug_info    0x00050832       0xcb c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+ .debug_info    0x000508fd       0xd1 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+ .debug_info    0x000509ce       0xcf c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+ .debug_info    0x00050a9d        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
+ .debug_info    0x00050a9d       0xc9 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
 
-.debug_abbrev   0x00000000      0x40b
+.debug_abbrev   0x00000000     0x683c
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x2bd bin\obj\app.o
- .debug_abbrev  0x000002bd       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
- .debug_abbrev  0x000002e2       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
- .debug_abbrev  0x00000307       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
- .debug_abbrev  0x0000032c       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
- .debug_abbrev  0x00000351       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
- .debug_abbrev  0x00000376       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
- .debug_abbrev  0x0000039b       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
- .debug_abbrev  0x000003c0       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
- .debug_abbrev  0x000003e5        0x1 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
- .debug_abbrev  0x000003e6       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
+ .debug_abbrev  0x00000000      0x30e bin\obj\app.o
+ .debug_abbrev  0x0000030e      0x220 bin\obj\CustomHTTPApp.o
+ .debug_abbrev  0x0000052e      0x19b bin\obj\simpledelay.o
+ .debug_abbrev  0x000006c9      0x26d bin\obj\tcpip.o
+ .debug_abbrev  0x00000936      0x1a2 bin\obj\WF_Config.o
+ .debug_abbrev  0x00000ad8      0x1aa bin\obj\WF_Eint.o
+ .debug_abbrev  0x00000c82      0x1f6 bin\obj\WF_Spi.o
+ .debug_abbrev  0x00000e78      0x284 bin\obj\WFConnectionAlgorithm.o
+ .debug_abbrev  0x000010fc      0x27c bin\obj\WFConnectionManager.o
+ .debug_abbrev  0x00001378      0x28b bin\obj\WFConnectionProfile.o
+ .debug_abbrev  0x00001603      0x166 bin\obj\WFConsole.o
+ .debug_abbrev  0x00001769      0x166 bin\obj\WFConsoleIfconfig.o
+ .debug_abbrev  0x000018cf      0x166 bin\obj\WFConsoleIwconfig.o
+ .debug_abbrev  0x00001a35      0x166 bin\obj\WFConsoleIwpriv.o
+ .debug_abbrev  0x00001b9b      0x166 bin\obj\WFConsoleMsgHandler.o
+ .debug_abbrev  0x00001d01      0x166 bin\obj\WFConsoleMsgs.o
+ .debug_abbrev  0x00001e67      0x166 bin\obj\WFDataTxRx.o
+ .debug_abbrev  0x00001fcd      0x2ba bin\obj\WFDriverCom.o
+ .debug_abbrev  0x00002287      0x29e bin\obj\WFDriverRaw.o
+ .debug_abbrev  0x00002525      0x24a bin\obj\WFEasyConfig.o
+ .debug_abbrev  0x0000276f      0x21c bin\obj\WFEventHandler.o
+ .debug_abbrev  0x0000298b      0x1fc bin\obj\WFInit.o
+ .debug_abbrev  0x00002b87      0x2ab bin\obj\WFMac.o
+ .debug_abbrev  0x00002e32      0x277 bin\obj\WFMgmtMsg.o
+ .debug_abbrev  0x000030a9      0x247 bin\obj\WFParamMsg.o
+ .debug_abbrev  0x000032f0      0x2a1 bin\obj\WFPowerSave.o
+ .debug_abbrev  0x00003591      0x1c9 bin\obj\WFScan.o
+ .debug_abbrev  0x0000375a      0x1d8 bin\obj\WFTxPower.o
+ .debug_abbrev  0x00003932      0x1f0 bin\obj\Announce.o
+ .debug_abbrev  0x00003b22      0x266 bin\obj\ARP.o
+ .debug_abbrev  0x00003d88      0x166 bin\obj\AutoIP.o
+ .debug_abbrev  0x00003eee      0x166 bin\obj\BigInt.o
+ .debug_abbrev  0x00004054      0x299 bin\obj\DHCP.o
+ .debug_abbrev  0x000042ed      0x22e bin\obj\DHCPs.o
+ .debug_abbrev  0x0000451b      0x262 bin\obj\DNS.o
+ .debug_abbrev  0x0000477d      0x1c6 bin\obj\DNSs.o
+ .debug_abbrev  0x00004943      0x166 bin\obj\ETHPIC32ExtPhy.o
+ .debug_abbrev  0x00004aa9      0x166 bin\obj\ETHPIC32IntMac.o
+ .debug_abbrev  0x00004c0f      0x23e bin\obj\Helpers.o
+ .debug_abbrev  0x00004e4d      0x2ae bin\obj\HTTP2.o
+ .debug_abbrev  0x000050fb      0x246 bin\obj\ICMP.o
+ .debug_abbrev  0x00005341      0x242 bin\obj\IP.o
+ .debug_abbrev  0x00005583      0x28e bin\obj\MPFS2.o
+ .debug_abbrev  0x00005811      0x247 bin\obj\NBNS.o
+ .debug_abbrev  0x00005a58      0x211 bin\obj\StackTsk.o
+ .debug_abbrev  0x00005c69      0x2db bin\obj\TCP.o
+ .debug_abbrev  0x00005f44      0x214 bin\obj\Tick.o
+ .debug_abbrev  0x00006158      0x2d9 bin\obj\UDP.o
+ .debug_abbrev  0x00006431      0x180 bin\obj\MPFSImg2.o
+ .debug_abbrev  0x000065b1      0x13d c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x000066ee       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+ .debug_abbrev  0x00006713       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+ .debug_abbrev  0x00006738       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+ .debug_abbrev  0x0000675d       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+ .debug_abbrev  0x00006782       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+ .debug_abbrev  0x000067a7       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+ .debug_abbrev  0x000067cc       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+ .debug_abbrev  0x000067f1       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+ .debug_abbrev  0x00006816        0x1 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
+ .debug_abbrev  0x00006817       0x25 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
 
-.debug_line     0x00000000      0x6b5
+.debug_line     0x00000000     0x773b
  *(.debug_line)
- .debug_line    0x00000000      0x246 bin\obj\app.o
- .debug_line    0x00000246       0xa6 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
- .debug_line    0x000002ec       0x93 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
- .debug_line    0x0000037f       0x97 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
- .debug_line    0x00000416       0x62 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
- .debug_line    0x00000478       0x73 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
- .debug_line    0x000004eb       0x73 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
- .debug_line    0x0000055e       0x6e c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
- .debug_line    0x000005cc       0x77 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
- .debug_line    0x00000643        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
- .debug_line    0x00000643       0x72 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
+ .debug_line    0x00000000      0x267 bin\obj\app.o
+ .debug_line    0x00000267      0x20c bin\obj\CustomHTTPApp.o
+ .debug_line    0x00000473      0x177 bin\obj\simpledelay.o
+ .debug_line    0x000005ea      0x221 bin\obj\tcpip.o
+ .debug_line    0x0000080b      0x196 bin\obj\WF_Config.o
+ .debug_line    0x000009a1      0x1ab bin\obj\WF_Eint.o
+ .debug_line    0x00000b4c      0x1c2 bin\obj\WF_Spi.o
+ .debug_line    0x00000d0e      0x316 bin\obj\WFConnectionAlgorithm.o
+ .debug_line    0x00001024      0x201 bin\obj\WFConnectionManager.o
+ .debug_line    0x00001225      0x2b8 bin\obj\WFConnectionProfile.o
+ .debug_line    0x000014dd      0x134 bin\obj\WFConsole.o
+ .debug_line    0x00001611      0x134 bin\obj\WFConsoleIfconfig.o
+ .debug_line    0x00001745      0x134 bin\obj\WFConsoleIwconfig.o
+ .debug_line    0x00001879      0x134 bin\obj\WFConsoleIwpriv.o
+ .debug_line    0x000019ad      0x134 bin\obj\WFConsoleMsgHandler.o
+ .debug_line    0x00001ae1      0x134 bin\obj\WFConsoleMsgs.o
+ .debug_line    0x00001c15      0x134 bin\obj\WFDataTxRx.o
+ .debug_line    0x00001d49      0x2e9 bin\obj\WFDriverCom.o
+ .debug_line    0x00002032      0x2c4 bin\obj\WFDriverRaw.o
+ .debug_line    0x000022f6      0x22f bin\obj\WFEasyConfig.o
+ .debug_line    0x00002525      0x239 bin\obj\WFEventHandler.o
+ .debug_line    0x0000275e      0x1c1 bin\obj\WFInit.o
+ .debug_line    0x0000291f      0x3c8 bin\obj\WFMac.o
+ .debug_line    0x00002ce7      0x20a bin\obj\WFMgmtMsg.o
+ .debug_line    0x00002ef1      0x275 bin\obj\WFParamMsg.o
+ .debug_line    0x00003166      0x227 bin\obj\WFPowerSave.o
+ .debug_line    0x0000338d      0x1c6 bin\obj\WFScan.o
+ .debug_line    0x00003553      0x1d1 bin\obj\WFTxPower.o
+ .debug_line    0x00003724      0x20c bin\obj\Announce.o
+ .debug_line    0x00003930      0x222 bin\obj\ARP.o
+ .debug_line    0x00003b52      0x134 bin\obj\AutoIP.o
+ .debug_line    0x00003c86      0x134 bin\obj\BigInt.o
+ .debug_line    0x00003dba      0x3de bin\obj\DHCP.o
+ .debug_line    0x00004198      0x2c9 bin\obj\DHCPs.o
+ .debug_line    0x00004461      0x30c bin\obj\DNS.o
+ .debug_line    0x0000476d      0x1f8 bin\obj\DNSs.o
+ .debug_line    0x00004965      0x134 bin\obj\ETHPIC32ExtPhy.o
+ .debug_line    0x00004a99      0x134 bin\obj\ETHPIC32IntMac.o
+ .debug_line    0x00004bcd      0x37c bin\obj\Helpers.o
+ .debug_line    0x00004f49      0x4a3 bin\obj\HTTP2.o
+ .debug_line    0x000053ec      0x233 bin\obj\ICMP.o
+ .debug_line    0x0000561f      0x1f6 bin\obj\IP.o
+ .debug_line    0x00005815      0x363 bin\obj\MPFS2.o
+ .debug_line    0x00005b78      0x23f bin\obj\NBNS.o
+ .debug_line    0x00005db7      0x219 bin\obj\StackTsk.o
+ .debug_line    0x00005fd0      0xb74 bin\obj\TCP.o
+ .debug_line    0x00006b44      0x1bd bin\obj\Tick.o
+ .debug_line    0x00006d01      0x363 bin\obj\UDP.o
+ .debug_line    0x00007064      0x156 bin\obj\MPFSImg2.o
+ .debug_line    0x000071ba      0x112 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+ .debug_line    0x000072cc       0xa6 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+ .debug_line    0x00007372       0x93 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+ .debug_line    0x00007405       0x97 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+ .debug_line    0x0000749c       0x62 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+ .debug_line    0x000074fe       0x73 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+ .debug_line    0x00007571       0x73 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+ .debug_line    0x000075e4       0x6e c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+ .debug_line    0x00007652       0x77 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+ .debug_line    0x000076c9        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
+ .debug_line    0x000076c9       0x72 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
 
-.debug_frame    0x00000000      0x198
+.debug_frame    0x00000000     0x2a64
  *(.debug_frame)
  .debug_frame   0x00000000       0x60 bin\obj\app.o
- .debug_frame   0x00000060       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
- .debug_frame   0x00000080       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
- .debug_frame   0x000000a0       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
- .debug_frame   0x000000c0       0x30 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
- .debug_frame   0x000000f0       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
- .debug_frame   0x00000110       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
- .debug_frame   0x00000130       0x28 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
- .debug_frame   0x00000158       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
- .debug_frame   0x00000178       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
+ .debug_frame   0x00000060       0x2c bin\obj\CustomHTTPApp.o
+ .debug_frame   0x0000008c       0x44 bin\obj\simpledelay.o
+ .debug_frame   0x000000d0       0x9c bin\obj\tcpip.o
+ .debug_frame   0x0000016c       0x2c bin\obj\WF_Config.o
+ .debug_frame   0x00000198       0xd0 bin\obj\WF_Eint.o
+ .debug_frame   0x00000268       0x8c bin\obj\WF_Spi.o
+ .debug_frame   0x000002f4      0x3b8 bin\obj\WFConnectionAlgorithm.o
+ .debug_frame   0x000006ac       0xcc bin\obj\WFConnectionManager.o
+ .debug_frame   0x00000778      0x294 bin\obj\WFConnectionProfile.o
+ .debug_frame   0x00000a0c      0x214 bin\obj\WFDriverCom.o
+ .debug_frame   0x00000c20      0x25c bin\obj\WFDriverRaw.o
+ .debug_frame   0x00000e7c       0xcc bin\obj\WFEasyConfig.o
+ .debug_frame   0x00000f48       0x60 bin\obj\WFEventHandler.o
+ .debug_frame   0x00000fa8       0x48 bin\obj\WFInit.o
+ .debug_frame   0x00000ff0      0x354 bin\obj\WFMac.o
+ .debug_frame   0x00001344       0x94 bin\obj\WFMgmtMsg.o
+ .debug_frame   0x000013d8      0x208 bin\obj\WFParamMsg.o
+ .debug_frame   0x000015e0      0x18c bin\obj\WFPowerSave.o
+ .debug_frame   0x0000176c       0x48 bin\obj\WFScan.o
+ .debug_frame   0x000017b4       0x80 bin\obj\WFTxPower.o
+ .debug_frame   0x00001834       0x48 bin\obj\Announce.o
+ .debug_frame   0x0000187c       0xb0 bin\obj\ARP.o
+ .debug_frame   0x0000192c      0x114 bin\obj\DHCP.o
+ .debug_frame   0x00001a40       0x64 bin\obj\DHCPs.o
+ .debug_frame   0x00001aa4       0xb4 bin\obj\DNS.o
+ .debug_frame   0x00001b58       0x48 bin\obj\DNSs.o
+ .debug_frame   0x00001ba0      0x1a0 bin\obj\Helpers.o
+ .debug_frame   0x00001d40      0x140 bin\obj\HTTP2.o
+ .debug_frame   0x00001e80       0xb0 bin\obj\ICMP.o
+ .debug_frame   0x00001f30       0x80 bin\obj\IP.o
+ .debug_frame   0x00001fb0      0x230 bin\obj\MPFS2.o
+ .debug_frame   0x000021e0       0x64 bin\obj\NBNS.o
+ .debug_frame   0x00002244       0x80 bin\obj\StackTsk.o
+ .debug_frame   0x000022c4      0x39c bin\obj\TCP.o
+ .debug_frame   0x00002660       0xcc bin\obj\Tick.o
+ .debug_frame   0x0000272c      0x200 bin\obj\UDP.o
+ .debug_frame   0x0000292c       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+ .debug_frame   0x0000294c       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+ .debug_frame   0x0000296c       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+ .debug_frame   0x0000298c       0x30 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+ .debug_frame   0x000029bc       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+ .debug_frame   0x000029dc       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+ .debug_frame   0x000029fc       0x28 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+ .debug_frame   0x00002a24       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+ .debug_frame   0x00002a44       0x20 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
 
-.debug_str      0x00000000      0x1b5
+.debug_str      0x00000000     0x42d0
  *(.debug_str)
  .debug_str     0x00000000      0x1b5 bin\obj\app.o
- .debug_str     0x000001b5        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
- .debug_str     0x000001b5        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
- .debug_str     0x000001b5        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
- .debug_str     0x000001b5        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
- .debug_str     0x000001b5        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
- .debug_str     0x000001b5        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
- .debug_str     0x000001b5        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
- .debug_str     0x000001b5        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
- .debug_str     0x000001b5        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
- .debug_str     0x000001b5        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
+ .debug_str     0x000001b5      0x142 bin\obj\CustomHTTPApp.o
+ .debug_str     0x000002f7      0x12f bin\obj\simpledelay.o
+ .debug_str     0x00000426      0x17e bin\obj\tcpip.o
+ .debug_str     0x000005a4      0x138 bin\obj\WF_Config.o
+ .debug_str     0x000006dc      0x160 bin\obj\WF_Eint.o
+ .debug_str     0x0000083c      0x16e bin\obj\WF_Spi.o
+ .debug_str     0x000009aa      0x213 bin\obj\WFConnectionAlgorithm.o
+ .debug_str     0x00000bbd      0x144 bin\obj\WFConnectionManager.o
+ .debug_str     0x00000d01      0x1d5 bin\obj\WFConnectionProfile.o
+ .debug_str     0x00000ed6      0x12f bin\obj\WFConsole.o
+ .debug_str     0x00001005      0x12f bin\obj\WFConsoleIfconfig.o
+ .debug_str     0x00001134      0x12f bin\obj\WFConsoleIwconfig.o
+ .debug_str     0x00001263      0x12f bin\obj\WFConsoleIwpriv.o
+ .debug_str     0x00001392      0x12f bin\obj\WFConsoleMsgHandler.o
+ .debug_str     0x000014c1      0x12f bin\obj\WFConsoleMsgs.o
+ .debug_str     0x000015f0      0x12f bin\obj\WFDataTxRx.o
+ .debug_str     0x0000171f      0x1f2 bin\obj\WFDriverCom.o
+ .debug_str     0x00001911      0x1c9 bin\obj\WFDriverRaw.o
+ .debug_str     0x00001ada      0x149 bin\obj\WFEasyConfig.o
+ .debug_str     0x00001c23      0x13a bin\obj\WFEventHandler.o
+ .debug_str     0x00001d5d      0x151 bin\obj\WFInit.o
+ .debug_str     0x00001eae      0x18c bin\obj\WFMac.o
+ .debug_str     0x0000203a      0x192 bin\obj\WFMgmtMsg.o
+ .debug_str     0x000021cc      0x178 bin\obj\WFParamMsg.o
+ .debug_str     0x00002344      0x16f bin\obj\WFPowerSave.o
+ .debug_str     0x000024b3      0x12f bin\obj\WFScan.o
+ .debug_str     0x000025e2      0x137 bin\obj\WFTxPower.o
+ .debug_str     0x00002719      0x15b bin\obj\Announce.o
+ .debug_str     0x00002874      0x147 bin\obj\ARP.o
+ .debug_str     0x000029bb      0x12f bin\obj\AutoIP.o
+ .debug_str     0x00002aea      0x12f bin\obj\BigInt.o
+ .debug_str     0x00002c19      0x177 bin\obj\DHCP.o
+ .debug_str     0x00002d90      0x165 bin\obj\DHCPs.o
+ .debug_str     0x00002ef5      0x139 bin\obj\DNS.o
+ .debug_str     0x0000302e      0x139 bin\obj\DNSs.o
+ .debug_str     0x00003167      0x12f bin\obj\ETHPIC32ExtPhy.o
+ .debug_str     0x00003296      0x12f bin\obj\ETHPIC32IntMac.o
+ .debug_str     0x000033c5      0x142 bin\obj\Helpers.o
+ .debug_str     0x00003507      0x14e bin\obj\HTTP2.o
+ .debug_str     0x00003655      0x12f bin\obj\ICMP.o
+ .debug_str     0x00003784      0x142 bin\obj\IP.o
+ .debug_str     0x000038c6      0x153 bin\obj\MPFS2.o
+ .debug_str     0x00003a19      0x152 bin\obj\NBNS.o
+ .debug_str     0x00003b6b      0x150 bin\obj\StackTsk.o
+ .debug_str     0x00003cbb      0x1fa bin\obj\TCP.o
+ .debug_str     0x00003eb5      0x14b bin\obj\Tick.o
+ .debug_str     0x00004000      0x1a1 bin\obj\UDP.o
+ .debug_str     0x000041a1      0x12f bin\obj\MPFSImg2.o
+ .debug_str     0x000042d0        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+ .debug_str     0x000042d0        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+ .debug_str     0x000042d0        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+ .debug_str     0x000042d0        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+ .debug_str     0x000042d0        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+ .debug_str     0x000042d0        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+ .debug_str     0x000042d0        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+ .debug_str     0x000042d0        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+ .debug_str     0x000042d0        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+ .debug_str     0x000042d0        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
+ .debug_str     0x000042d0        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
 
-.debug_loc
+.debug_loc      0x00000000      0xa47
  *(.debug_loc)
+ .debug_loc     0x00000000      0xa47 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -739,23 +1477,125 @@ LOAD c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../.
  *(.debug_varnames)
 
 .debug_pubtypes
-                0x00000000      0x11d
+                0x00000000     0x4129
  *(.debug_pubtypes)
  .debug_pubtypes
-                0x00000000      0x11d bin\obj\app.o
+                0x00000000      0x1a5 bin\obj\app.o
+ .debug_pubtypes
+                0x000001a5      0x23d bin\obj\CustomHTTPApp.o
+ .debug_pubtypes
+                0x000003e2       0xfa bin\obj\simpledelay.o
+ .debug_pubtypes
+                0x000004dc      0x1c5 bin\obj\tcpip.o
+ .debug_pubtypes
+                0x000006a1      0x10d bin\obj\WF_Config.o
+ .debug_pubtypes
+                0x000007ae      0x153 bin\obj\WF_Eint.o
+ .debug_pubtypes
+                0x00000901      0x148 bin\obj\WF_Spi.o
+ .debug_pubtypes
+                0x00000a49      0x18b bin\obj\WFConnectionAlgorithm.o
+ .debug_pubtypes
+                0x00000bd4      0x136 bin\obj\WFConnectionManager.o
+ .debug_pubtypes
+                0x00000d0a      0x180 bin\obj\WFConnectionProfile.o
+ .debug_pubtypes
+                0x00000e8a       0xe7 bin\obj\WFConsole.o
+ .debug_pubtypes
+                0x00000f71       0xe7 bin\obj\WFConsoleIfconfig.o
+ .debug_pubtypes
+                0x00001058       0xe7 bin\obj\WFConsoleIwconfig.o
+ .debug_pubtypes
+                0x0000113f       0xe7 bin\obj\WFConsoleIwpriv.o
+ .debug_pubtypes
+                0x00001226       0xe7 bin\obj\WFConsoleMsgHandler.o
+ .debug_pubtypes
+                0x0000130d       0xe7 bin\obj\WFConsoleMsgs.o
+ .debug_pubtypes
+                0x000013f4       0xe7 bin\obj\WFDataTxRx.o
+ .debug_pubtypes
+                0x000014db      0x1b4 bin\obj\WFDriverCom.o
+ .debug_pubtypes
+                0x0000168f      0x12c bin\obj\WFDriverRaw.o
+ .debug_pubtypes
+                0x000017bb      0x174 bin\obj\WFEasyConfig.o
+ .debug_pubtypes
+                0x0000192f      0x13e bin\obj\WFEventHandler.o
+ .debug_pubtypes
+                0x00001a6d      0x181 bin\obj\WFInit.o
+ .debug_pubtypes
+                0x00001bee      0x172 bin\obj\WFMac.o
+ .debug_pubtypes
+                0x00001d60      0x140 bin\obj\WFMgmtMsg.o
+ .debug_pubtypes
+                0x00001ea0      0x169 bin\obj\WFParamMsg.o
+ .debug_pubtypes
+                0x00002009      0x15e bin\obj\WFPowerSave.o
+ .debug_pubtypes
+                0x00002167      0x10e bin\obj\WFScan.o
+ .debug_pubtypes
+                0x00002275      0x117 bin\obj\WFTxPower.o
+ .debug_pubtypes
+                0x0000238c      0x186 bin\obj\Announce.o
+ .debug_pubtypes
+                0x00002512      0x16a bin\obj\ARP.o
+ .debug_pubtypes
+                0x0000267c       0xe7 bin\obj\AutoIP.o
+ .debug_pubtypes
+                0x00002763       0xe7 bin\obj\BigInt.o
+ .debug_pubtypes
+                0x0000284a      0x1c4 bin\obj\DHCP.o
+ .debug_pubtypes
+                0x00002a0e      0x1aa bin\obj\DHCPs.o
+ .debug_pubtypes
+                0x00002bb8      0x199 bin\obj\DNS.o
+ .debug_pubtypes
+                0x00002d51      0x149 bin\obj\DNSs.o
+ .debug_pubtypes
+                0x00002e9a       0xe7 bin\obj\ETHPIC32ExtPhy.o
+ .debug_pubtypes
+                0x00002f81       0xe7 bin\obj\ETHPIC32IntMac.o
+ .debug_pubtypes
+                0x00003068      0x14d bin\obj\Helpers.o
+ .debug_pubtypes
+                0x000031b5      0x1af bin\obj\HTTP2.o
+ .debug_pubtypes
+                0x00003364      0x16f bin\obj\ICMP.o
+ .debug_pubtypes
+                0x000034d3      0x178 bin\obj\IP.o
+ .debug_pubtypes
+                0x0000364b      0x168 bin\obj\MPFS2.o
+ .debug_pubtypes
+                0x000037b3      0x1a7 bin\obj\NBNS.o
+ .debug_pubtypes
+                0x0000395a      0x168 bin\obj\StackTsk.o
+ .debug_pubtypes
+                0x00003ac2      0x210 bin\obj\TCP.o
+ .debug_pubtypes
+                0x00003cd2      0x137 bin\obj\Tick.o
+ .debug_pubtypes
+                0x00003e09      0x1d7 bin\obj\UDP.o
+ .debug_pubtypes
+                0x00003fe0       0xf0 bin\obj\MPFSImg2.o
+ .debug_pubtypes
+                0x000040d0       0x59 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
 
-.debug_ranges   0x00000000       0xb0
+.debug_ranges   0x00000000      0x1b8
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x18 bin\obj\app.o
- .debug_ranges  0x00000018       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
- .debug_ranges  0x00000028       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
- .debug_ranges  0x00000038       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
- .debug_ranges  0x00000048       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
- .debug_ranges  0x00000060       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
- .debug_ranges  0x00000070       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
- .debug_ranges  0x00000080       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
- .debug_ranges  0x00000090       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
- .debug_ranges  0x000000a0       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
+ .debug_ranges  0x00000018       0x18 bin\obj\DHCPs.o
+ .debug_ranges  0x00000030       0x18 bin\obj\TCP.o
+ .debug_ranges  0x00000048       0x18 bin\obj\UDP.o
+ .debug_ranges  0x00000060       0xc0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+ .debug_ranges  0x00000120       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+ .debug_ranges  0x00000130       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+ .debug_ranges  0x00000140       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+ .debug_ranges  0x00000150       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+ .debug_ranges  0x00000168       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+ .debug_ranges  0x00000178       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+ .debug_ranges  0x00000188       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+ .debug_ranges  0x00000198       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+ .debug_ranges  0x000001a8       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
 
 .gnu.attributes
                 0x00000000       0x10
@@ -763,31 +1603,138 @@ LOAD c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../.
  .gnu.attributes
                 0x00000000       0x10 bin\obj\app.o
  .gnu.attributes
-                0x00000010       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+                0x00000010       0x10 bin\obj\CustomHTTPApp.o
  .gnu.attributes
-                0x00000020       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+                0x00000020       0x10 bin\obj\simpledelay.o
  .gnu.attributes
-                0x00000030       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+                0x00000030       0x10 bin\obj\tcpip.o
  .gnu.attributes
-                0x00000040       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+                0x00000040       0x10 bin\obj\WF_Config.o
  .gnu.attributes
-                0x00000050       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+                0x00000050       0x10 bin\obj\WF_Eint.o
  .gnu.attributes
-                0x00000060       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+                0x00000060       0x10 bin\obj\WF_Spi.o
  .gnu.attributes
-                0x00000070       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+                0x00000070       0x10 bin\obj\WFConnectionAlgorithm.o
  .gnu.attributes
-                0x00000080       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+                0x00000080       0x10 bin\obj\WFConnectionManager.o
  .gnu.attributes
-                0x00000090       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
+                0x00000090       0x10 bin\obj\WFConnectionProfile.o
  .gnu.attributes
-                0x000000a0       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
+                0x000000a0       0x10 bin\obj\WFConsole.o
+ .gnu.attributes
+                0x000000b0       0x10 bin\obj\WFConsoleIfconfig.o
+ .gnu.attributes
+                0x000000c0       0x10 bin\obj\WFConsoleIwconfig.o
+ .gnu.attributes
+                0x000000d0       0x10 bin\obj\WFConsoleIwpriv.o
+ .gnu.attributes
+                0x000000e0       0x10 bin\obj\WFConsoleMsgHandler.o
+ .gnu.attributes
+                0x000000f0       0x10 bin\obj\WFConsoleMsgs.o
+ .gnu.attributes
+                0x00000100       0x10 bin\obj\WFDataTxRx.o
+ .gnu.attributes
+                0x00000110       0x10 bin\obj\WFDriverCom.o
+ .gnu.attributes
+                0x00000120       0x10 bin\obj\WFDriverRaw.o
+ .gnu.attributes
+                0x00000130       0x10 bin\obj\WFEasyConfig.o
+ .gnu.attributes
+                0x00000140       0x10 bin\obj\WFEventHandler.o
+ .gnu.attributes
+                0x00000150       0x10 bin\obj\WFInit.o
+ .gnu.attributes
+                0x00000160       0x10 bin\obj\WFMac.o
+ .gnu.attributes
+                0x00000170       0x10 bin\obj\WFMgmtMsg.o
+ .gnu.attributes
+                0x00000180       0x10 bin\obj\WFParamMsg.o
+ .gnu.attributes
+                0x00000190       0x10 bin\obj\WFPowerSave.o
+ .gnu.attributes
+                0x000001a0       0x10 bin\obj\WFScan.o
+ .gnu.attributes
+                0x000001b0       0x10 bin\obj\WFTxPower.o
+ .gnu.attributes
+                0x000001c0       0x10 bin\obj\Announce.o
+ .gnu.attributes
+                0x000001d0       0x10 bin\obj\ARP.o
+ .gnu.attributes
+                0x000001e0       0x10 bin\obj\AutoIP.o
+ .gnu.attributes
+                0x000001f0       0x10 bin\obj\BigInt.o
+ .gnu.attributes
+                0x00000200       0x10 bin\obj\DHCP.o
+ .gnu.attributes
+                0x00000210       0x10 bin\obj\DHCPs.o
+ .gnu.attributes
+                0x00000220       0x10 bin\obj\DNS.o
+ .gnu.attributes
+                0x00000230       0x10 bin\obj\DNSs.o
+ .gnu.attributes
+                0x00000240       0x10 bin\obj\ETHPIC32ExtPhy.o
+ .gnu.attributes
+                0x00000250       0x10 bin\obj\ETHPIC32IntMac.o
+ .gnu.attributes
+                0x00000260       0x10 bin\obj\Helpers.o
+ .gnu.attributes
+                0x00000270       0x10 bin\obj\HTTP2.o
+ .gnu.attributes
+                0x00000280       0x10 bin\obj\ICMP.o
+ .gnu.attributes
+                0x00000290       0x10 bin\obj\IP.o
+ .gnu.attributes
+                0x000002a0       0x10 bin\obj\MPFS2.o
+ .gnu.attributes
+                0x000002b0       0x10 bin\obj\NBNS.o
+ .gnu.attributes
+                0x000002c0       0x10 bin\obj\StackTsk.o
+ .gnu.attributes
+                0x000002d0       0x10 bin\obj\TCP.o
+ .gnu.attributes
+                0x000002e0       0x10 bin\obj\Tick.o
+ .gnu.attributes
+                0x000002f0       0x10 bin\obj\UDP.o
+ .gnu.attributes
+                0x00000300       0x10 bin\obj\MPFSImg2.o
+ .gnu.attributes
+                0x00000310       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+ .gnu.attributes
+                0x00000320       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+ .gnu.attributes
+                0x00000330       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+ .gnu.attributes
+                0x00000340       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+ .gnu.attributes
+                0x00000350       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+ .gnu.attributes
+                0x00000360       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+ .gnu.attributes
+                0x00000370       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+ .gnu.attributes
+                0x00000380       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+ .gnu.attributes
+                0x00000390       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+ .gnu.attributes
+                0x000003a0       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
+ .gnu.attributes
+                0x000003b0       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
 OUTPUT(./bin\waterworx.elf elf32-tradlittlemips)
 LOAD stack
 LOAD data_init
 
-.stack          0xa0000820      0x400
- .stack         0xa0000820      0x400 stack
+.stack          0xa00029d0      0x400
+ .stack         0xa00029d0      0x400 stack
+
+.bss            0xa0000658     0x1b5c
+ .bss           0xa0000658     0x1a48 bin\obj\TCP.o
+ .bss           0xa00020a0       0x78 bin\obj\MPFS2.o
+ .bss           0xa0002118       0x3c bin\obj\CustomHTTPApp.o
+ .bss           0xa0002154       0x30 bin\obj\DHCP.o
+ .bss           0xa0002184       0x18 bin\obj\ARP.o
+ .bss           0xa000219c        0xc bin\obj\DNS.o
+ .bss           0xa00021a8        0xc bin\obj\ICMP.o
 
 .bss%z1         0x00000000        0x0
  .bss           0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/./proc/32MX795F512L\processor.o
@@ -907,141 +1854,1065 @@ LOAD data_init
 .data%z36       0x00000000        0x0
  .data          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(general-exception.o)
 
-.mdebug.abi32%z37
+.bss%z37        0x00000000        0x0
+ .bss           0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strlen.o)
+
+.data%z38       0x00000000        0x0
+ .data          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strlen.o)
+
+.bss%z39        0x00000000        0x0
+ .bss           0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strcmp.o)
+
+.data%z40       0x00000000        0x0
+ .data          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strcmp.o)
+
+.bss%z41        0x00000000        0x0
+ .bss           0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memset.o)
+
+.data%z42       0x00000000        0x0
+ .data          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memset.o)
+
+.bss%z43        0x00000000        0x0
+ .bss           0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcpy.o)
+
+.data%z44       0x00000000        0x0
+ .data          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcpy.o)
+
+.bss%z45        0x00000000        0x0
+ .bss           0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcmp.o)
+
+.data%z46       0x00000000        0x0
+ .data          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcmp.o)
+
+.mdebug.abi32%z47
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+
+.bss%z48        0x00000000        0x0
+ .bss           0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+
+.data%z49       0x00000000        0x0
+ .data          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+
+.mdebug.abi32%z50
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\MPFSImg2.o
+
+.bss%z51        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\MPFSImg2.o
+
+.data%z52       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\MPFSImg2.o
+
+.mdebug.abi32%z53
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\UDP.o
+
+.bss%z54        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\UDP.o
+
+.data%z55       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\UDP.o
+
+.mdebug.abi32%z56
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\Tick.o
+
+.bss%z57        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\Tick.o
+
+.data%z58       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\Tick.o
+
+.mdebug.abi32%z59
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\TCP.o
+
+.data%z60       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\TCP.o
+
+.mdebug.abi32%z61
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\StackTsk.o
+
+.bss%z62        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\StackTsk.o
+
+.data%z63       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\StackTsk.o
+
+.mdebug.abi32%z64
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\NBNS.o
+
+.bss%z65        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\NBNS.o
+
+.data%z66       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\NBNS.o
+
+.mdebug.abi32%z67
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\MPFS2.o
+
+.data%z68       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\MPFS2.o
+
+.mdebug.abi32%z69
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\IP.o
+
+.bss%z70        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\IP.o
+
+.data%z71       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\IP.o
+
+.mdebug.abi32%z72
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\ICMP.o
+
+.data%z73       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\ICMP.o
+
+.mdebug.abi32%z74
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\HTTP2.o
+
+.bss%z75        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\HTTP2.o
+
+.data%z76       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\HTTP2.o
+
+.mdebug.abi32%z77
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\Helpers.o
+
+.bss%z78        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\Helpers.o
+
+.data%z79       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\Helpers.o
+
+.mdebug.abi32%z80
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\ETHPIC32IntMac.o
+
+.bss%z81        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\ETHPIC32IntMac.o
+
+.data%z82       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\ETHPIC32IntMac.o
+
+.mdebug.abi32%z83
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\ETHPIC32ExtPhy.o
+
+.bss%z84        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\ETHPIC32ExtPhy.o
+
+.data%z85       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\ETHPIC32ExtPhy.o
+
+.mdebug.abi32%z86
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\DNSs.o
+
+.bss%z87        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\DNSs.o
+
+.data%z88       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\DNSs.o
+
+.mdebug.abi32%z89
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\DNS.o
+
+.data%z90       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\DNS.o
+
+.mdebug.abi32%z91
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\DHCPs.o
+
+.bss%z92        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\DHCPs.o
+
+.data%z93       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\DHCPs.o
+
+.mdebug.abi32%z94
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\DHCP.o
+
+.data%z95       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\DHCP.o
+
+.mdebug.abi32%z96
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\BigInt.o
+
+.bss%z97        0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\BigInt.o
+
+.data%z98       0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\BigInt.o
+
+.mdebug.abi32%z99
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\AutoIP.o
+
+.bss%z100       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\AutoIP.o
+
+.data%z101      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\AutoIP.o
+
+.mdebug.abi32%z102
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\ARP.o
+
+.data%z103      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\ARP.o
+
+.mdebug.abi32%z104
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\Announce.o
+
+.bss%z105       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\Announce.o
+
+.data%z106      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\Announce.o
+
+.mdebug.abi32%z107
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFTxPower.o
+
+.bss%z108       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFTxPower.o
+
+.data%z109      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFTxPower.o
+
+.mdebug.abi32%z110
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFScan.o
+
+.bss%z111       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFScan.o
+
+.data%z112      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFScan.o
+
+.mdebug.abi32%z113
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFPowerSave.o
+
+.bss%z114       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFPowerSave.o
+
+.data%z115      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFPowerSave.o
+
+.mdebug.abi32%z116
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFParamMsg.o
+
+.bss%z117       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFParamMsg.o
+
+.data%z118      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFParamMsg.o
+
+.mdebug.abi32%z119
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFMgmtMsg.o
+
+.bss%z120       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFMgmtMsg.o
+
+.data%z121      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFMgmtMsg.o
+
+.mdebug.abi32%z122
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFMac.o
+
+.bss%z123       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFMac.o
+
+.data%z124      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFMac.o
+
+.mdebug.abi32%z125
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFInit.o
+
+.bss%z126       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFInit.o
+
+.data%z127      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFInit.o
+
+.mdebug.abi32%z128
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFEventHandler.o
+
+.bss%z129       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFEventHandler.o
+
+.data%z130      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFEventHandler.o
+
+.mdebug.abi32%z131
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFEasyConfig.o
+
+.bss%z132       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFEasyConfig.o
+
+.data%z133      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFEasyConfig.o
+
+.mdebug.abi32%z134
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFDriverRaw.o
+
+.bss%z135       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFDriverRaw.o
+
+.data%z136      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFDriverRaw.o
+
+.mdebug.abi32%z137
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFDriverCom.o
+
+.bss%z138       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFDriverCom.o
+
+.data%z139      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFDriverCom.o
+
+.mdebug.abi32%z140
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFDataTxRx.o
+
+.bss%z141       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFDataTxRx.o
+
+.data%z142      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFDataTxRx.o
+
+.mdebug.abi32%z143
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFConsoleMsgs.o
+
+.bss%z144       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFConsoleMsgs.o
+
+.data%z145      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFConsoleMsgs.o
+
+.mdebug.abi32%z146
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFConsoleMsgHandler.o
+
+.bss%z147       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFConsoleMsgHandler.o
+
+.data%z148      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFConsoleMsgHandler.o
+
+.mdebug.abi32%z149
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFConsoleIwpriv.o
+
+.bss%z150       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFConsoleIwpriv.o
+
+.data%z151      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFConsoleIwpriv.o
+
+.mdebug.abi32%z152
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFConsoleIwconfig.o
+
+.bss%z153       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFConsoleIwconfig.o
+
+.data%z154      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFConsoleIwconfig.o
+
+.mdebug.abi32%z155
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFConsoleIfconfig.o
+
+.bss%z156       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFConsoleIfconfig.o
+
+.data%z157      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFConsoleIfconfig.o
+
+.mdebug.abi32%z158
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFConsole.o
+
+.bss%z159       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFConsole.o
+
+.data%z160      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFConsole.o
+
+.mdebug.abi32%z161
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFConnectionProfile.o
+
+.bss%z162       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFConnectionProfile.o
+
+.data%z163      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFConnectionProfile.o
+
+.mdebug.abi32%z164
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFConnectionManager.o
+
+.bss%z165       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFConnectionManager.o
+
+.data%z166      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFConnectionManager.o
+
+.mdebug.abi32%z167
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WFConnectionAlgorithm.o
+
+.bss%z168       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WFConnectionAlgorithm.o
+
+.data%z169      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WFConnectionAlgorithm.o
+
+.mdebug.abi32%z170
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WF_Spi.o
+
+.bss%z171       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WF_Spi.o
+
+.data%z172      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WF_Spi.o
+
+.mdebug.abi32%z173
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WF_Eint.o
+
+.bss%z174       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WF_Eint.o
+
+.data%z175      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WF_Eint.o
+
+.mdebug.abi32%z176
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\WF_Config.o
+
+.bss%z177       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\WF_Config.o
+
+.data%z178      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\WF_Config.o
+
+.mdebug.abi32%z179
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\tcpip.o
+
+.bss%z180       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\tcpip.o
+
+.data%z181      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\tcpip.o
+
+.mdebug.abi32%z182
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\simpledelay.o
+
+.bss%z183       0x00000000        0x0
+ .bss           0x00000000        0x0 bin\obj\simpledelay.o
+
+.data%z184      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\simpledelay.o
+
+.mdebug.abi32%z185
+                0x00000000        0x0
+ .mdebug.abi32  0x00000000        0x0 bin\obj\CustomHTTPApp.o
+
+.data%z186      0x00000000        0x0
+ .data          0x00000000        0x0 bin\obj\CustomHTTPApp.o
+
+.mdebug.abi32%z187
                 0x00000000        0x0
  .mdebug.abi32  0x00000000        0x0 bin\obj\app.o
 
-.bss%z38        0x00000000        0x0
+.bss%z188       0x00000000        0x0
  .bss           0x00000000        0x0 bin\obj\app.o
 
-.data%z39       0x00000000        0x0
+.data%z189      0x00000000        0x0
  .data          0x00000000        0x0 bin\obj\app.o
 
-.bss%z40        0x00000000        0x0
+.bss%z190       0x00000000        0x0
  .bss           0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/crt0.o
 
-.data%z41       0x00000000        0x0
+.data%z191      0x00000000        0x0
  .data          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/crt0.o
 
-.text           0x9d000008      0x554
- .text          0x9d000008      0x554 bin\obj\app.o
-                0x9d000008                _general_exception_handler
-                0x9d000044                main
-                0x9d0000e0                InitializeSystem
+.text           0x9d000008    0x10f34
+ .text          0x9d000008     0x861c bin\obj\TCP.o
+                0x9d000134                TCPInit
+                0x9d000430                TCPOpen
+                0x9d0008ac                TCPWasReset
+                0x9d000960                TCPIsConnected
+                0x9d0009d4                TCPDisconnect
+                0x9d000c84                TCPClose
+                0x9d000d10                TCPGetRemoteInfo
+                0x9d000da8                TCPFlush
+                0x9d000e48                TCPIsPutReady
+                0x9d001040                TCPPut
+                0x9d0013b4                TCPPutArray
+                0x9d00183c                TCPPutString
+                0x9d0018ac                TCPGetTxFIFOFull
+                0x9d00197c                TCPDiscard
+                0x9d001a24                TCPIsGetReady
+                0x9d001bc4                TCPGet
+                0x9d001e54                TCPGetArray
+                0x9d00221c                TCPGetRxFIFOFree
+                0x9d0022e4                TCPPeekArray
+                0x9d002590                TCPPeek
+                0x9d0025f0                TCPFindArrayEx
+                0x9d002c18                TCPFindEx
+                0x9d002c90                TCPTick
+                0x9d003d80                TCPProcess
+                0x9d007d48                TCPAdjustFIFOSize
+ .text          0x9d008624     0x2304 bin\obj\HTTP2.o
+                0x9d008624                HTTPPrint
+                0x9d00868c                HTTPPrint_
+                0x9d0086e0                HTTPInit
+                0x9d0087fc                HTTPServer
+                0x9d00a464                HTTPURLDecode
+                0x9d00a640                HTTPGetArg
+                0x9d00a710                HTTPIncFile
+ .text          0x9d00a928     0x1764 bin\obj\DHCP.o
+                0x9d00a928                DHCPInit
+                0x9d00aa1c                DHCPDisable
+                0x9d00aa8c                DHCPEnable
+                0x9d00aaec                DHCPIsEnabled
+                0x9d00ab24                DHCPIsBound
+                0x9d00ab60                DHCPStateChanged
+                0x9d00abc4                DHCPIsServerDetected
+                0x9d00ac00                DHCPTask
+ .text          0x9d00c08c     0x16c8 bin\obj\MPFS2.o
+                0x9d00c08c                MPFSInit
+                0x9d00c110                MPFSOpen
+                0x9d00c42c                MPFSOpenID
+                0x9d00c59c                MPFSClose
+                0x9d00c604                MPFSGet
+                0x9d00c828                MPFSGetArray
+                0x9d00cab4                MPFSGetLong
+                0x9d00cb0c                MPFSSeek
+                0x9d00cfe0                MPFSGetTimestamp
+                0x9d00d09c                MPFSGetMicrotime
+                0x9d00d158                MPFSGetFlags
+                0x9d00d214                MPFSGetSize
+                0x9d00d2d0                MPFSGetBytesRem
+                0x9d00d36c                MPFSGetStartAddr
+                0x9d00d428                MPFSGetEndAddr
+                0x9d00d4f4                MPFSGetFilename
+                0x9d00d5f4                MPFSGetPosition
+                0x9d00d660                MPFSGetID
+ .text          0x9d00d754     0x1528 bin\obj\WFMac.o
+                0x9d00da50                MACProcess
+                0x9d00dadc                MACInit
+                0x9d00db0c                RawInit
+                0x9d00db9c                MACIsLinked
+                0x9d00dbcc                MACIsTxReady
+                0x9d00dc84                WFisTxMgmtReady
+                0x9d00dd10                WFFreeMgmtTx
+                0x9d00dda0                SendRAWManagementFrame
+                0x9d00ddec                RawGetMgmtRxBuffer
+                0x9d00de68                SetRawRxMgmtInProgress
+                0x9d00dea4                isRawRxMgmtInProgress
+                0x9d00dec8                MACDiscardRx
+                0x9d00def0                MACGetFreeRxSize
+                0x9d00dfdc                MACGetHeader
+                0x9d00e1cc                MACPutHeader
+                0x9d00e2a8                MACFlush
+                0x9d00e334                MACSetReadPtrInRx
+                0x9d00e380                MACSetWritePtr
+                0x9d00e3d0                MACSetReadPtr
+                0x9d00e420                MACCalcRxChecksum
+                0x9d00e4ac                MACMemCopyAsync
+                0x9d00e9c0                MACIsMemCopyDone
+                0x9d00e9e4                MACGet
+                0x9d00ea58                MACGetArray
+                0x9d00eb38                MACPut
+                0x9d00ebb8                MACPutArray
+                0x9d00ec3c                MACPowerDown
+                0x9d00ec5c                MACPowerUp
+ .text          0x9d00ec7c     0x11f8 bin\obj\UDP.o
+                0x9d00ec7c                UDPInit
+                0x9d00ecec                UDPOpenEx
+                0x9d00ef2c                UDPTask
+                0x9d00f470                UDPIsOpened
+                0x9d00f4c0                UDPClose
+                0x9d00f568                UDPSetTxBuffer
+                0x9d00f5b4                UDPSetRxBuffer
+                0x9d00f604                UDPIsPutReady
+                0x9d00f690                UDPPut
+                0x9d00f71c                UDPPutArray
+                0x9d00f7c4                UDPPutString
+                0x9d00f81c                UDPFlush
+                0x9d00f908                UDPIsGetReady
+                0x9d00f998                UDPGet
+                0x9d00fa1c                UDPGetArray
+                0x9d00fadc                UDPDiscard
+                0x9d00fb3c                UDPProcess
+ .text          0x9d00fe74     0x10c8 bin\obj\Helpers.o
+                0x9d00fe74                LFSRSeedRand
+                0x9d00fef8                LFSRRand
+                0x9d00ff70                GenerateRandomDWORD
+                0x9d0101cc                StringToIPAddress
+                0x9d01056c                uitoa
+                0x9d010698                hexatob
+                0x9d01078c                btohexa_high
+                0x9d0107f0                btohexa_low
+                0x9d010854                stricmppgm2ram
+                0x9d0109c0                swaps
+                0x9d010a0c                swapl
+                0x9d010af4                CalcIPChecksum
+                0x9d010bdc                CalcIPBufferChecksum
+                0x9d010d24                strupr
+                0x9d010dc0                FormatNetBIOSName
+                0x9d010e88                strnchr
+
+.rodata         0x9d010f3c      0xf58
+ .rodata        0x9d010f3c      0xf58 bin\obj\MPFSImg2.o
+                0x9d010f3c                MPFS_Start
+
+.text           0x9d011e94     0x75cc
+ .text          0x9d011e94      0xf34 bin\obj\DNS.o
+                0x9d011e94                DNSBeginUsage
+                0x9d011ee8                DNSEndUsage
+                0x9d011f58                DNSResolve
+                0x9d011fec                DNSIsResolved
+ .text          0x9d012dc8      0xe58 bin\obj\WFConnectionAlgorithm.o
+                0x9d012dc8                WF_CASetElements
+                0x9d013028                WF_CAGetElements
+                0x9d013150                WF_CASetScanType
+                0x9d013194                WF_CAGetScanType
+                0x9d0131d8                WF_CASetMinChannelTime
+                0x9d01324c                WF_CAGetMinChannelTime
+                0x9d0132cc                WF_CASetMaxChannelTime
+                0x9d013340                WF_CAGetMaxChannelTime
+                0x9d0133c0                WF_CASetProbeDelay
+                0x9d013434                WF_CAGetProbeDelay
+                0x9d0134b4                WF_CASetScanCount
+                0x9d0134f8                WF_CAGetScanCount
+                0x9d01353c                WF_CASetRssi
+                0x9d013580                WF_CAGetRssi
+                0x9d0135c4                WF_CASetConnectionProfileList
+                0x9d0135e8                WF_CAGetConnectionProfileList
+                0x9d01360c                WF_CASetListRetryCount
+                0x9d013650                WF_CAGetListRetryCount
+                0x9d013694                WF_CASetEventNotificationAction
+                0x9d0136d4                WF_CAGetEventNotificationAction
+                0x9d013714                WF_CASetBeaconTimeoutAction
+                0x9d013758                WF_CAGetBeaconTimeoutAction
+                0x9d01379c                WF_CASetDeauthAction
+                0x9d0137e0                WF_CAGetDeauthAction
+                0x9d013824                WF_CASetChannelList
+                0x9d013870                WF_CAGetChannelList
+                0x9d013908                WF_CASetListenInterval
+                0x9d01397c                WF_CAGetListenInterval
+                0x9d0139fc                WF_CASetBeaconTimeout
+                0x9d013a40                WF_CAGetBeaconTimeout
+                0x9d013ab4                GetEventNotificationMask
+ .text          0x9d013c20      0xc08 bin\obj\DHCPs.o
+                0x9d013c20                DHCPServerTask
+ .text          0x9d014828      0xbc4 bin\obj\WFDriverCom.o
+                0x9d014828                WiFiTask
+                0x9d0149a4                SignalDHCPSuccessful
+                0x9d0149d0                SetDhcpProgressState
+                0x9d0149f8                SignalWiFiConnectionChanged
+                0x9d014a2c                WFProcess
+                0x9d014be8                Read8BitWFRegister
+                0x9d014c54                Write8BitWFRegister
+                0x9d014cc4                Read16BitWFRegister
+                0x9d014d4c                Write16BitWFRegister
+                0x9d014dd4                WriteWFArray
+                0x9d014e5c                ReadWFArray
+                0x9d0151b0                WFEintHandler
+                0x9d0152ec                WFHardwareInit
+ .text          0x9d0153ec      0xabc bin\obj\WFDriverRaw.o
+                0x9d0153ec                AllocateMgmtTxBuffer
+                0x9d015484                DeallocateMgmtRxBuffer
+                0x9d0154d0                AllocateDataTxBuffer
+                0x9d015568                DeallocateDataTxBuffer
+                0x9d0155b0                DeallocateDataRxBuffer
+                0x9d0155f0                RawSendTxBuffer
+                0x9d015644                RawMountRxBuffer
+                0x9d01569c                RawToRawCopy
+                0x9d0156f4                PushRawWindow
+                0x9d015740                PopRawWindow
+                0x9d015794                ScratchMount
+                0x9d015814                ScratchUnmount
+                0x9d01587c                RawRead
+                0x9d0158f0                RawWrite
+                0x9d015aac                RawSetIndex
+                0x9d015bb4                RawGetIndex
+                0x9d015c1c                RawGetByte
+                0x9d015cac                RawSetByte
+                0x9d015e40                SendRAWDataFrame
+ .text          0x9d015ea8      0xa70 bin\obj\WFConnectionProfile.o
+                0x9d015ea8                WF_CPCreate
+                0x9d015f24                WF_CPDelete
+                0x9d015f90                WF_CPGetIds
+                0x9d016000                WF_CPSetElements
+                0x9d016054                WF_CPGetElements
+                0x9d0160b0                WF_CPSetSsid
+                0x9d01610c                WF_CPGetSsid
+                0x9d0161b4                WF_CPSetSsidType
+                0x9d01620c                WF_CPGetSsidType
+                0x9d016264                WF_CPSetWepKeyType
+                0x9d0162bc                WF_CPGetWepKeyType
+                0x9d016314                WF_CPSetBssid
+                0x9d016364                WF_CPGetBssid
+                0x9d0163bc                WF_CPSetNetworkType
+                0x9d016414                WF_CPGetNetworkType
+                0x9d01646c                WF_CPSetSecurity
+                0x9d016554                WF_CPGetSecurity
+                0x9d016654                WF_CPSetDefaultWepKeyIndex
+                0x9d0166ac                WF_CPGetDefaultWepKeyIndex
+                0x9d016704                WF_CPSetAdHocBehavior
+                0x9d01675c                WF_CPGetAdHocBehavior
+ .text          0x9d016918      0x7a0 bin\obj\WFParamMsg.o
+                0x9d016918                WFEnableMRF24WB0MMode
+                0x9d016960                WFEnableBroadcastProbeResponse
+                0x9d0169a8                WFEnableDeferredPowerSave
+                0x9d0169f0                WFGetMRF24WB0MVersion
+                0x9d016a30                WF_GetDeviceInfo
+                0x9d016a98                WF_SetMacAddress
+                0x9d016ad8                WF_GetMacAddress
+                0x9d016b18                WF_SetMultiCastFilter
+                0x9d016c00                WF_GetMultiCastFilter
+                0x9d016ccc                WF_SetTxDataConfirm
+                0x9d016d10                WF_GetTxDataConfirm
+                0x9d016d50                WF_SetRegionalDomain
+                0x9d016d94                WF_GetRegionalDomain
+                0x9d016dd4                WF_SetRtsThreshold
+                0x9d016e48                WF_GetRtsThreshold
+                0x9d016ec4                WF_GetMacStats
+                0x9d016fa0                SendSetParamMsg
+                0x9d017028                SendGetParamMsg
+ .text          0x9d0170b8      0x724 bin\obj\NBNS.o
+                0x9d0170b8                NBNSTask
+ .text          0x9d0177dc      0x638 bin\obj\ICMP.o
+                0x9d0177dc                ICMPProcess
+                0x9d0179fc                ICMPSendPing
+                0x9d017a54                ICMPSendPingToHost
+                0x9d017ab8                ICMPGetReply
+                0x9d017d94                ICMPBeginUsage
+                0x9d017de8                ICMPEndUsage
+ .text          0x9d017e14      0x5f0 bin\obj\WFEasyConfig.o
+                0x9d017e14                WFEasyConfigInit
+                0x9d017e8c                WFEasyConfigMgr
+                0x9d018294                WFInitScan
+                0x9d0182c0                WFStartScan
+                0x9d01832c                WFRetrieveScanResult
+                0x9d0183b0                WFScanEventHandler
+ .text          0x9d018404      0x5a4 bin\obj\ARP.o
+                0x9d01850c                ARPInit
+                0x9d018594                ARPProcess
+                0x9d018758                ARPResolve
+                0x9d01883c                ARPIsResolved
+                0x9d01891c                SwapARPPacket
+ .text          0x9d0189a8      0x560 bin\obj\tcpip.o
+                0x9d0189a8                TCPIP_Initialize
+                0x9d018a24                TCPIP_PerformStackTasks
+                0x9d018e94                DisplayIPValue
+ .text          0x9d018f08      0x558 bin\obj\app.o
+                0x9d018f08                _general_exception_handler
+                0x9d018f44                main
+                0x9d018fdc                InitializeSystem
+
+.rodata         0x9d019460      0x518
+ .rodata        0x9d019460      0x518 bin\obj\HTTP2.o
+
+.text           0x9d019978     0x2b9c
+ .text          0x9d019978      0x4a4 bin\obj\WFEventHandler.o
+                0x9d019978                WFProcessMgmtIndicateMsg
+ .text          0x9d019e1c      0x49c bin\obj\WFPowerSave.o
+                0x9d019e1c                WFConfigureLowPowerMode
+                0x9d019ec4                WF_PsPollEnable
+                0x9d019f94                isSleepNeeded
+                0x9d019fb8                ClearSleepNeeded
+                0x9d019fdc                SetSleepNeeded
+                0x9d01a004                SetAppPowerSaveMode
+                0x9d01a030                GetAppPowerSaveMode
+                0x9d01a054                WF_PsPollDisable
+                0x9d01a0c8                WF_GetPowerSaveState
+                0x9d01a0f8                WFisPsPollEnabled
+                0x9d01a148                WFIsPsPollActive
+                0x9d01a16c                EnsureWFisAwake
+                0x9d01a1d8                WF_HibernateEnable
+ .text          0x9d01a2b8      0x458 bin\obj\StackTsk.o
+                0x9d01a2b8                StackInit
+                0x9d01a374                StackTask
+                0x9d01a688                StackApplications
+                0x9d01a6d8                RenewDhcp
+ .text          0x9d01a710      0x448 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1\libgcc.a(_udivdi3.o)
+                0x9d01a710                __udivdi3
+ .text          0x9d01ab58      0x3f0 bin\obj\IP.o
+                0x9d01ab58                IPGetHeader
+                0x9d01ad40                IPPutHeader
+                0x9d01ae6c                IPSetRxBuffer
+ .text          0x9d01af48      0x3c0 bin\obj\Announce.o
+                0x9d01af48                AnnounceIP
+                0x9d01b0c4                DiscoveryTask
+ .text          0x9d01b308      0x358 bin\obj\DNSs.o
+                0x9d01b308                DNSServerTask
+ .text          0x9d01b660      0x34c bin\obj\WFMgmtMsg.o
+                0x9d01b660                SendMgmtMsg
+                0x9d01b78c                SignalMgmtConfirmReceivedEvent
+                0x9d01b7b4                IgnoreNextMgmtResult
+                0x9d01b7dc                WaitForMgmtResponse
+                0x9d01b8dc                WaitForMgmtResponseAndReadData
+ .text          0x9d01b9ac      0x338 bin\obj\Tick.o
+                0x9d01b9ac                TickInit
+                0x9d01bae4                TickGet
+                0x9d01bb1c                TickGetDiv256
+                0x9d01bb8c                TickGetDiv64K
+                0x9d01bbfc                TickConvertToMilliseconds
+                0x9d01bc64                _T1Interrupt
+ .text          0x9d01bce4      0x2ec bin\obj\WFConnectionManager.o
+                0x9d01bce4                WF_CMConnect
+                0x9d01bd5c                WF_CMDisconnect
+                0x9d01bdd4                WF_CMGetConnectionState
+                0x9d01beac                WF_CMCheckConnectionState
+                0x9d01bf3c                WFisConnected
+                0x9d01bf60                SetLogicalConnectionState
+                0x9d01bf8c                WF_CMGetConnectContext
+ .text          0x9d01bfd0      0x2e4 bin\obj\WF_Eint.o
+                0x9d01bfd0                WF_EintIsDisabled
+                0x9d01c000                WF_EintIsPending
+                0x9d01c058                _WFInterrupt
+                0x9d01c1a8                WF_EintEnable
+                0x9d01c1f4                WF_EintDisable
+                0x9d01c220                WF_EintInit
+ .text          0x9d01c2b4      0x260 bin\obj\WF_Spi.o
+                0x9d01c2b4                WF_SpiInit
+                0x9d01c35c                WF_SpiEnableChipSelect
+                0x9d01c38c                WF_SpiDisableChipSelect
+                0x9d01c3cc                WFSpiTxRx
+
+.dinit          0x9d01c514      0x260
+ .dinit         0x9d01c514      0x260 data_init
+
+.text           0x9d01c774      0xcac
+ .text          0x9d01c774      0x240 bin\obj\CustomHTTPApp.o
+                0x9d01c774                HTTPExecuteGet
+ .text          0x9d01c9b4      0x210 bin\obj\WFTxPower.o
+                0x9d01c9b4                WF_TxPowerSetMinMax
+                0x9d01ca64                WF_TxPowerGetMinMax
+                0x9d01cb0c                WF_TxPowerGetFactoryMax
+                0x9d01cb60                WF_FixTxRateWithMaxPower
+ .text          0x9d01cbc4      0x174 bin\obj\WFScan.o
+                0x9d01cbc4                WF_Scan
+                0x9d01cc3c                WF_ScanGetResult
+ .text          0x9d01cd38      0x168 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcpy.o)
+                0x9d01cd38                memcpy
+ .text          0x9d01cea0      0x168 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strlen.o)
+                0x9d01cea0                strlen
+ .text          0x9d01d008      0x134 bin\obj\WFInit.o
+                0x9d01d008                WF_Init
+ .text          0x9d01d13c      0x120 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(strcmp.o)
+                0x9d01d13c                strcmp
+ .text          0x9d01d25c       0xf0 bin\obj\simpledelay.o
+                0x9d01d25c                DelayMs
+                0x9d01d2f0                Delay10us
+ .text          0x9d01d34c       0xd4 bin\obj\WF_Config.o
+                0x9d01d34c                WF_ProcessEvent
 
 .text.general_exception
-                0x9d00055c       0xd0
+                0x9d01d420       0xd0
  .text.general_exception
-                0x9d00055c       0xd0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(general-exception.o)
-                0x9d00055c                _general_exception_context
+                0x9d01d420       0xd0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(general-exception.o)
+                0x9d01d420                _general_exception_context
 
-.rodata         0x9d00062c       0x54
- .rodata        0x9d00062c       0x54 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
-                0x9d00062c                PortRegTbl
+.text           0x9d01d4f0      0x140
+ .text          0x9d01d4f0       0xa8 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memset.o)
+                0x9d01d4f0                memset
+ .text          0x9d01d598       0x98 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(memcmp.o)
+                0x9d01d598                memcmp
+
+.rodata         0x9d01d630       0x98
+ .rodata        0x9d01d630       0x54 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
+                0x9d01d630                PortRegTbl
+ .rodata        0x9d01d684       0x44 bin\obj\CustomHTTPApp.o
 
 .text.PORTSetPinsDigitalIn
-                0x9d000680       0x40
+                0x9d01d6c8       0x40
  .text.PORTSetPinsDigitalIn
-                0x9d000680       0x40 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
-                0x9d000680                PORTSetPinsDigitalIn
+                0x9d01d6c8       0x40 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
+                0x9d01d6c8                PORTSetPinsDigitalIn
 
 .text.INTEnableSystemMultiVectoredInt
-                0x9d0006c0       0x34
+                0x9d01d708       0x34
  .text.INTEnableSystemMultiVectoredInt
-                0x9d0006c0       0x34 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
-                0x9d0006c0                INTEnableSystemMultiVectoredInt
+                0x9d01d708       0x34 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
+                0x9d01d708                INTEnableSystemMultiVectoredInt
+
+.rodata         0x9d01d73c       0x48
+ .rodata        0x9d01d73c       0x2c bin\obj\tcpip.o
+ .rodata        0x9d01d768       0x1c bin\obj\Announce.o
 
 .text.INTRestoreInterrupts
-                0x9d0006f4       0x1c
+                0x9d01d784       0x1c
  .text.INTRestoreInterrupts
-                0x9d0006f4       0x1c c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
-                0x9d0006f4                INTRestoreInterrupts
+                0x9d01d784       0x1c c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
+                0x9d01d784                INTRestoreInterrupts
 
-.text           0x9d000710       0x18
- .text          0x9d000710       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-nmi-handler.o)
-                0x9d000710                _nmi_handler
+.rodata         0x9d01d7a0       0x18
+ .rodata        0x9d01d7a0       0x18 bin\obj\TCP.o
+                0x9d01d7a0                TCPSocketInitializer
+
+.text           0x9d01d7b8       0x18
+ .text          0x9d01d7b8       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-nmi-handler.o)
+                0x9d01d7b8                _nmi_handler
 
 .text.CheKseg0CacheOff
-                0x9d000728       0x18
+                0x9d01d7d0       0x18
  .text.CheKseg0CacheOff
-                0x9d000728       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
-                0x9d000728                CheKseg0CacheOff
+                0x9d01d7d0       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+                0x9d01d7d0                CheKseg0CacheOff
 
 .text.CheKseg0CacheOn
-                0x9d000740       0x18
+                0x9d01d7e8       0x18
  .text.CheKseg0CacheOn
-                0x9d000740       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
-                0x9d000740                CheKseg0CacheOn
+                0x9d01d7e8       0x18 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
+                0x9d01d7e8                CheKseg0CacheOn
 
-.text           0x9d000758       0x10
- .text          0x9d000758       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/crt0.o
-                0x9d000760                __crt0_exit
+.text           0x9d01d800       0x10
+ .text          0x9d01d800       0x10 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/crt0.o
+                0x9d01d808                __crt0_exit
 
 .text._bootstrap_exception_handler
-                0x9d000768        0xc
+                0x9d01d810        0xc
  .text._bootstrap_exception_handler
-                0x9d000768        0xc c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
-                0x9d000768                _bootstrap_exception_handler
+                0x9d01d810        0xc c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
+                0x9d01d810                _bootstrap_exception_handler
+
+.rodata         0x9d01d81c       0x10
+ .rodata        0x9d01d81c        0x8 bin\obj\WFInit.o
+ .rodata        0x9d01d824        0x8 bin\obj\MPFS2.o
 
 .text._on_reset
-                0x9d000774        0x8
+                0x9d01d82c        0x8
  .text._on_reset
-                0x9d000774        0x8 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
-                0x9d000774                _on_reset
+                0x9d01d82c        0x8 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
+                0x9d01d82c                _on_reset
 
 .text._on_bootstrap
-                0x9d00077c        0x8
+                0x9d01d834        0x8
  .text._on_bootstrap
-                0x9d00077c        0x8 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
-                0x9d00077c                _on_bootstrap
+                0x9d01d834        0x8 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
+                0x9d01d834                _on_bootstrap
 
 .text.INTDisableInterrupts
-                0x9d000784        0x8
+                0x9d01d83c        0x8
  .text.INTDisableInterrupts
-                0x9d000784        0x8 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
-                0x9d000784                INTDisableInterrupts
+                0x9d01d83c        0x8 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
+                0x9d01d83c                INTDisableInterrupts
 
 .text.INTEnableInterrupts
-                0x9d00078c        0x8
+                0x9d01d844        0x8
  .text.INTEnableInterrupts
-                0x9d00078c        0x8 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
-                0x9d00078c                INTEnableInterrupts
+                0x9d01d844        0x8 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
+                0x9d01d844                INTEnableInterrupts
 
-.dinit          0x9d000794        0x4
- .dinit         0x9d000794        0x4 data_init
+.rodata         0x9d01d84c        0x4
+ .rodata        0x9d01d84c        0x4 bin\obj\WFDriverRaw.o
 
-.text%z42       0x00000000        0x0
+.text%z192      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib/./proc/32MX795F512L\processor.o
 
-.text%z43       0x00000000        0x0
+.text%z193      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_interrupts_lib.o)
 
-.text%z44       0x00000000        0x0
+.text%z194      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(_ports_tbl_libp.o)
 
-.text%z45       0x00000000        0x0
+.text%z195      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(port_set_pins_digital_in_lib.o)
 
-.text%z46       0x00000000        0x0
+.text%z196      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_enable_mv_int_lib.o)
 
-.text%z47       0x00000000        0x0
+.text%z197      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_restore_interrupts_lib.o)
 
-.text%z48       0x00000000        0x0
+.text%z198      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(int_disable_interrupts_lib.o)
 
-.text%z49       0x00000000        0x0
+.text%z199      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libmchp_peripheral_32MX795F512L.a(pcache.o)
 
-.text%z50       0x00000000        0x0
+.text%z200      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-bootstrap.o)
 
-.text%z51       0x00000000        0x0
+.text%z201      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-on-reset.o)
 
-.text%z52       0x00000000        0x0
+.text%z202      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(default-bootstrap-exception-handler.o)
 
-.text%z53       0x00000000        0x0
+.text%z203      0x00000000        0x0
  .text          0x00000000        0x0 c:/program files/microchip/mplabc32/v2.02/bin/../lib/gcc/pic32mx/4.5.1/../../../../pic32mx/lib\libc.a(general-exception.o)
+
+.text%z204      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\MPFSImg2.o
+
+.text%z205      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\ETHPIC32IntMac.o
+
+.text%z206      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\ETHPIC32ExtPhy.o
+
+.text%z207      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\BigInt.o
+
+.text%z208      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\AutoIP.o
+
+.text%z209      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\WFDataTxRx.o
+
+.text%z210      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\WFConsoleMsgs.o
+
+.text%z211      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\WFConsoleMsgHandler.o
+
+.text%z212      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\WFConsoleIwpriv.o
+
+.text%z213      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\WFConsoleIwconfig.o
+
+.text%z214      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\WFConsoleIfconfig.o
+
+.text%z215      0x00000000        0x0
+ .text          0x00000000        0x0 bin\obj\WFConsole.o
