@@ -1,8 +1,71 @@
-<html>
-<head>
-    <title>Microchip EasyConfig Demo</title>
-</head>
-<body>
-    Hello from the Waterworx device
+<!DOCTYPE html> 
+<html> 
+    <head> 
+    <title>WaterWorx Sprinkler Controller</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <script src="js/mchp.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/device.js"></script>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+</head> 
+<body> 
+
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner" style="background-color:#75AE18; background-image:none">
+        <div class="container-fluid">
+          <a class="brand" href="/index.htm" style="color:white;">WaterWorx Sprinkler Controller</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+          <div class="hero-unit">
+            <h1>Congratulations!</h1>
+            <p>You're connected to your new WaterWorx sprinkler controller.  The hard part is over. 
+                We recommend you configure your device to connect to your home Wi-Fi network 
+                to unlock the full potential of the controller.  Once connected to your home 
+                network the WaterWorx device will sync with your online account and pull down your 
+                custom programs.</p>
+            <p><a class="btn btn-primary btn-large pull-right">Configure Network Now &raquo;</a></p>
+            <br/>
+            <br/>
+            <hr style="border-top: 1px solid #75AE18;" />
+            <br/>
+            <p>Of course if you just can't wait to start controlling your sprinklers you can use the 
+                controls below to manually turn stations on and off.  Just click a station to 
+                turn it on. Click again to turn it off. Enjoy!
+            </p>
+            <br/>
+            <div class="btn-toolbar" style="margin-bottom: 9px">
+                <div class="btn-group">
+                  <a class="btn btn-large zone" id="zone-1" ><i class="icon-tint"></i> Station 1</a>
+                  <a class="btn btn-large zone" id="zone-2" ><i class="icon-tint"></i> Station 2</a>
+                  <a class="btn btn-large zone" id="zone-3" ><i class="icon-tint"></i> Station 3</a>
+                  <a class="btn btn-large zone" id="zone-4" ><i class="icon-tint"></i> Station 4</a>
+                </div>
+            </div>
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; HardlySoftware, LLC 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
 </body>
 </html>

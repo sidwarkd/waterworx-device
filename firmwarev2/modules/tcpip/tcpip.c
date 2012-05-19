@@ -93,7 +93,7 @@ void TCPIP_PerformStackTasks(void)
     #endif // STACK_USE_EZ_CONFIG
     {
         t = TickGet();
-        mLED_Yellow_Toggle();
+        //mLED_Yellow_Toggle();
     }
     #endif
 
