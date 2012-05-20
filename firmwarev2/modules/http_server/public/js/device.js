@@ -1,32 +1,41 @@
 $(document).ready(function(){
     $("#zone-1").click(function(){
-        clearZones();
-        activateZone(1, this);
+        clearZone(4);
+        clearZone(3);
+        clearZone(2);
+        toggleZone(1, this);
         return false;
     });
     $("#zone-2").click(function(){
-        clearZones();
-        activateZone(2, this);
+        clearZone(4);
+        clearZone(3);
+        clearZone(1);
+        toggleZone(2, this);
         return false;
     });
     $("#zone-3").click(function(){
-        clearZones();
-        activateZone(3, this);
+        clearZone(4);
+        clearZone(2);
+        clearZone(1);
+        toggleZone(3, this);
         return false;
     });
     $("#zone-4").click(function(){
-        clearZones();
-        activateZone(4, this);
+        clearZone(3);
+        clearZone(2);
+        clearZone(1);
+        toggleZone(4, this);
         return false;
     });
 });
 
-function clearZones(){
-    $(".zone").removeClass("btn-success");
+function clearZone(zoneNumber){
+    var id = "#zone-" + zoneNumber;
+    $(id).removeClass("btn-success");
 }
 
-function activateZone(zoneNumber, el){
-    $(el).addClass("btn-success");
+function toggleZone(zoneNumber, el){
+    $(el).toggleClass("btn-success");
     $.ajax("/stations.cgi?station=" + zoneNumber, {
         async: false,
         dataType:"text",

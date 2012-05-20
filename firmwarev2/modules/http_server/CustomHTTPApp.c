@@ -196,25 +196,25 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 		// Toggle the specified LED
 		switch(*ptr) {
 			case '1':
-				mLED_Green_On();
+				mLED_Green_Toggle();
 				mLED_White_Off();
 				mLED_Red_Off();
 				mLED_Yellow_Off();
 				break;
 			case '2':
-				mLED_White_On();
+				mLED_White_Toggle();
 				mLED_Green_Off();
 				mLED_Red_Off();
 				mLED_Yellow_Off();
 				break;
 			case '3':
-				mLED_Red_On();
+				mLED_Red_Toggle();
 				mLED_Green_Off();
 				mLED_White_Off();
 				mLED_Yellow_Off();
 				break;
 			case '4':
-				mLED_Yellow_On();
+				mLED_Yellow_Toggle();
 				mLED_Green_Off();
 				mLED_White_Off();
 				mLED_Red_Off();
