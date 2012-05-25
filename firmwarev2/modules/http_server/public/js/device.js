@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $("#zone-1").click(function(){
+        clearZone(5);
         clearZone(4);
         clearZone(3);
         clearZone(2);
@@ -7,6 +8,7 @@ $(document).ready(function(){
         return false;
     });
     $("#zone-2").click(function(){
+        clearZone(5);
         clearZone(4);
         clearZone(3);
         clearZone(1);
@@ -14,6 +16,7 @@ $(document).ready(function(){
         return false;
     });
     $("#zone-3").click(function(){
+        clearZone(5);
         clearZone(4);
         clearZone(2);
         clearZone(1);
@@ -21,10 +24,19 @@ $(document).ready(function(){
         return false;
     });
     $("#zone-4").click(function(){
+        clearZone(5);
         clearZone(3);
         clearZone(2);
         clearZone(1);
         toggleZone(4, this);
+        return false;
+    });
+    $("#zone-5").click(function(){
+        clearZone(4);
+        clearZone(3);
+        clearZone(2);
+        clearZone(1);
+        toggleZone(5, this);
         return false;
     });
 });

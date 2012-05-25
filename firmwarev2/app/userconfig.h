@@ -80,6 +80,8 @@
 #define mLED_Red        LATEbits.LATE1
 #define mLED_White      LATEbits.LATE2
 #define mLED_Green      LATEbits.LATE3
+
+#define mStation5       LATAbits.LATA5
 // These settings are backward because of how the UBW board
 // is laid out.  Change them if you make your own board
 #define mLED_Yellow_On()        (mLED_Yellow = 0);
@@ -94,6 +96,11 @@
 #define mLED_White_Toggle()    (mLED_White = !mLED_White);
 #define mLED_Green_Off()        (mLED_Green = 1);
 #define mLED_Green_Toggle()    (mLED_Green = !mLED_Green);
+
+#define mStation5_On()        (mStation5 = 1);
+#define mStation5_Off()       (mStation5  = 0);
+#define mStation5_Toggle()    (mStation5  = !mStation5 );
+
 
 #define mSwitch_Prog    (PORTEbits.RE7)
 #define mSwitch_User    (PORTEbits.RE6)

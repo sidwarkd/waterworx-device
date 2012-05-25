@@ -164,7 +164,7 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 	BYTE bssIdx;
 	WORD_VAL bssIdxStr;
 	
-	mLED_Red_Toggle();
+	//mLED_Red_Toggle();
 	// Load the file name
 	// Make sure BYTE filename[] above is large enough for your longest name
 	MPFSGetFilename(curHTTP.file, filename, 20);
@@ -200,21 +200,32 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 				mLED_White_Off();
 				mLED_Red_Off();
 				mLED_Yellow_Off();
+				mStation5_Off();
 				break;
 			case '2':
 				mLED_White_Toggle();
 				mLED_Green_Off();
 				mLED_Red_Off();
 				mLED_Yellow_Off();
+				mStation5_Off();
 				break;
 			case '3':
 				mLED_Red_Toggle();
 				mLED_Green_Off();
 				mLED_White_Off();
 				mLED_Yellow_Off();
+				mStation5_Off();
 				break;
 			case '4':
 				mLED_Yellow_Toggle();
+				mLED_Green_Off();
+				mLED_White_Off();
+				mLED_Red_Off();
+				mStation5_Off();
+				break;
+			case '5':
+				mStation5_Toggle();
+				mLED_Yellow_Off();
 				mLED_Green_Off();
 				mLED_White_Off();
 				mLED_Red_Off();
