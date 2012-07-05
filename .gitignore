@@ -8,3 +8,6 @@ firmwarev2/bin/*.*
 *.mcw
 *.mcs
 *.swp
+hardware/UBW32_v26
+hardware/schematic/*.s#*
+
