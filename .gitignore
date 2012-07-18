@@ -10,6 +10,9 @@ firmwarev2/bin/*.*
 *.swp
 hardware/UBW32_v26
 hardware/schematic/*.s#*
+hardware/schematic/*.b#*
+hardware/schematic/*.dri
+hardware/schematic/*.gpi
+hardware/schematic/*.pro
 hardware/lbr/*.l#*
 hardware/datasheets
-
