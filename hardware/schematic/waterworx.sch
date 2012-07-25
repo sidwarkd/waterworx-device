@@ -16738,27 +16738,6 @@ type RDH, grid 15 mm</description>
 <pinref part="S1" gate="S" pin="4"/>
 </segment>
 </net>
-<net name="RC1" class="0">
-<segment>
-<wire x1="30.48" y1="81.28" x2="20.32" y2="81.28" width="0.1524" layer="91"/>
-<label x="20.32" y="81.534" size="1.778" layer="95"/>
-<pinref part="U1" gate="G$1" pin="T2CK/RC1"/>
-</segment>
-</net>
-<net name="RC2" class="0">
-<segment>
-<wire x1="30.48" y1="78.74" x2="20.32" y2="78.74" width="0.1524" layer="91"/>
-<label x="20.32" y="78.994" size="1.778" layer="95"/>
-<pinref part="U1" gate="G$1" pin="T3CK/RC2"/>
-</segment>
-</net>
-<net name="RC3" class="0">
-<segment>
-<wire x1="30.48" y1="76.2" x2="20.32" y2="76.2" width="0.1524" layer="91"/>
-<label x="20.32" y="76.454" size="1.778" layer="95"/>
-<pinref part="U1" gate="G$1" pin="T4CK/RC3"/>
-</segment>
-</net>
 <net name="RC13" class="0">
 <segment>
 <wire x1="220.98" y1="109.22" x2="228.6" y2="109.22" width="0.1524" layer="91"/>
