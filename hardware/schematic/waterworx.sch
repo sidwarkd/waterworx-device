@@ -3030,6 +3030,10 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <wire x1="7" y1="1" x2="8" y2="0" width="0.4064" layer="21"/>
 <wire x1="8" y1="0" x2="9" y2="1" width="0.4064" layer="21"/>
 </package>
+<package name="NANO2_HOLDER">
+<smd name="1" x="-3.185" y="0" dx="4.24" dy="3.81" layer="1"/>
+<smd name="2" x="3.185" y="0" dx="4.24" dy="3.81" layer="1"/>
+</package>
 </packages>
 <symbols>
 <symbol name="MRF24WB0MA">
@@ -3303,6 +3307,17 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <pin name="2" x="5.08" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="3" x="5.08" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="4" x="5.08" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+</symbol>
+<symbol name="FUSE">
+<wire x1="-3.81" y1="-0.762" x2="3.81" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="3.81" y1="0.762" x2="-3.81" y2="0.762" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-0.762" x2="3.81" y2="0.762" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="0.762" x2="-3.81" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<text x="-3.81" y="1.397" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-2.921" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -4015,6 +4030,24 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <connect gate="G$1" pin="2" pad="2B 2T"/>
 <connect gate="G$1" pin="3" pad="3B 3T"/>
 <connect gate="G$1" pin="4" pad="4B 4T"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LITTLEFUSE" prefix="F" uservalue="yes">
+<description>&lt;B&gt;LITTLEFUSE&lt;/B&gt;&lt;p&gt;
+Picofuse/slow Littlefuse</description>
+<gates>
+<gate name="A" symbol="FUSE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="NANO" package="NANO2_HOLDER">
+<connects>
+<connect gate="A" pin="1" pad="1"/>
+<connect gate="A" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -15805,6 +15838,7 @@ type RDH, grid 15 mm</description>
 <part name="T6" library="lizardworx" deviceset="LF-TRIAC" device="SOT223"/>
 <part name="GND4" library="SparkFun02-20-08" deviceset="GND" device=""/>
 <part name="U$3" library="lizardworx" deviceset="VNEG" device="" value="AC_HOT"/>
+<part name="F2" library="lizardworx" deviceset="LITTLEFUSE" device="NANO"/>
 </parts>
 <sheets>
 <sheet>
@@ -16122,6 +16156,10 @@ type RDH, grid 15 mm</description>
 </instance>
 <instance part="GND4" gate="1" x="332.74" y="91.44"/>
 <instance part="U$3" gate="G$2" x="368.3" y="111.76" rot="R180"/>
+<instance part="F2" gate="A" x="88.9" y="162.56" smashed="yes">
+<attribute name="NAME" x="87.63" y="158.877" size="1.778" layer="95"/>
+<attribute name="VALUE" x="85.09" y="159.639" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -17461,13 +17499,13 @@ type RDH, grid 15 mm</description>
 <pinref part="U$19" gate="G$2" pin="P$1"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="PWR"/>
-<wire x1="81.28" y1="162.56" x2="99.06" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="B2" gate="G$1" pin="AC1"/>
 <wire x1="99.06" y1="162.56" x2="99.06" y2="167.64" width="0.1524" layer="91"/>
-<junction x="99.06" y="162.56"/>
 <wire x1="99.06" y1="167.64" x2="101.6" y2="167.64" width="0.1524" layer="91"/>
 <pinref part="U$4" gate="G$2" pin="P$1"/>
+<pinref part="F2" gate="A" pin="2"/>
+<wire x1="93.98" y1="162.56" x2="99.06" y2="162.56" width="0.1524" layer="91"/>
+<junction x="99.06" y="162.56"/>
 </segment>
 <segment>
 <pinref part="R29" gate="G$1" pin="1"/>
@@ -17753,6 +17791,13 @@ type RDH, grid 15 mm</description>
 <wire x1="360.68" y1="99.06" x2="360.68" y2="93.98" width="0.1524" layer="91"/>
 <pinref part="OK6" gate="-1" pin="A1"/>
 <wire x1="360.68" y1="93.98" x2="355.6" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$37" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="PWR"/>
+<pinref part="F2" gate="A" pin="1"/>
+<wire x1="83.82" y1="162.56" x2="81.28" y2="162.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
