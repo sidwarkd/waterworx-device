@@ -16687,9 +16687,6 @@ type RDH, grid 15 mm</description>
 </net>
 <net name="SD_WP" class="0">
 <segment>
-<wire x1="30.48" y1="88.9" x2="20.32" y2="88.9" width="0.1524" layer="91"/>
-<label x="20.32" y="89.154" size="1.778" layer="95"/>
-<pinref part="U1" gate="G$1" pin="PMD5/RE5"/>
 <wire x1="190.5" y1="231.14" x2="180.34" y2="231.14" width="0.1524" layer="91"/>
 <label x="182.88" y="231.394" size="1.778" layer="95"/>
 <pinref part="U$2" gate="G$1" pin="WP"/>
