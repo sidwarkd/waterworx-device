@@ -2072,7 +2072,7 @@ BT138_SERIES_2.pdf</description>
 <device name="SOT223" package="SOT223">
 <connects>
 <connect gate="G$1" pin="A1" pad="1"/>
-<connect gate="G$1" pin="A2" pad="2"/>
+<connect gate="G$1" pin="A2" pad="2 4"/>
 <connect gate="G$1" pin="G" pad="3"/>
 </connects>
 <technologies>
