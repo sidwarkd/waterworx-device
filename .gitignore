@@ -9,10 +9,10 @@ firmwarev2/bin/*.*
 *.mcs
 *.swp
 hardware/UBW32_v26
-hardware/schematic/*.s#*
-hardware/schematic/*.b#*
-hardware/schematic/*.dri
-hardware/schematic/*.gpi
-hardware/schematic/*.pro
+hardware/design/*.s#*
+hardware/design/*.b#*
+hardware/design/*.dri
+hardware/design/*.gpi
+hardware/design/*.pro
 hardware/lbr/*.l#*
 hardware/datasheets
