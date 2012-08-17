@@ -13,7 +13,7 @@
 #define BRG_DIV2        4 
 #define BRGH2           1 
 
-void SERIAL_USB_Initialize(void);
+void SERIALUSB_Initialize(void);
 void SERIALUSB_ProcessTasks(void);
 void SERIALUSB_Write(char *data);
 

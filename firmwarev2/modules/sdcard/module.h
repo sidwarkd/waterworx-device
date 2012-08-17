@@ -11,6 +11,7 @@
 
 // define the Processor instruction frequency
 #define FOSC	80000000
+//#define FOSC	8000000
 
 // define the interface that the SD card is using
 //#define MEDIASD_IF_SPI1

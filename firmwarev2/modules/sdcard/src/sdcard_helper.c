@@ -18,12 +18,12 @@ BOOL OpenFile(char *filename, FILEHANDLE *stream, BYTE flags)
 		else
 		{
 			sprintf(&buffer[0], "Result: %d", res);
-			SERIALUSB_Write(&fatfsFilename[0]);
+			//SERIALUSB_Write(&fatfsFilename[0]);
 		}
 	}
 	else
 	{
-		SERIALUSB_Write("FS not mounted");
+		//SERIALUSB_Write("FS not mounted");
 	}
 	return FALSE;
 }

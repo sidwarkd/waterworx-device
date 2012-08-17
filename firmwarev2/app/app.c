@@ -14,21 +14,68 @@ void _general_exception_handler(unsigned cause, unsigned status)
 int main(void)
 {
 	#ifndef TESTING
+  FILEHANDLE fp;
 
 	InitializeSystem();
 
     while(1)
     {
-    	if(mSwitch_Prog == SWITCH_PRESSED)
+    	if(mSwitch_User == SWITCH_PRESSED)
     	{
     		//WIFI_PerformGet((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", DisplayResponseBody);
     		//WIFI_PerformPost((CHAR*)"waterworx.herokuapp.com", (CHAR*)"/", json, DisplayResponseBody);
-            mLED_White_Toggle();
-    	}
+       
+        //mLED_Red_Toggle();
+        //DelayMs(1000);
+        //mLED_Yellow_Toggle();
+        //DelayMs(1000); 
 
-    	if(mSwitch_User == SWITCH_PRESSED)
+        mLED_Yellow_On();
+        if(OpenFile("user.txt", &fp, FA_CREATE_NEW | FA_WRITE))
+        {
+          WriteFile("You pushed the user button.", &fp);
+          CloseFile(&fp);
+          DelayMs(2000);
+          mLED_Yellow_Off();
+        }
+        else
+        {
+          mLED_Red_On();
+        }
+    	}
+        
+
+    	if(mSwitch_Prog == SWITCH_PRESSED)
     	{
-			mLED_Yellow_Toggle();
+			  //mLED_Green_Toggle();
+        //DelayMs(1000);
+        //mLED_White_Toggle();
+        //DelayMs(1000);
+        /*
+
+        mLED_Green_Toggle();
+        DelayMs(1000);
+        mLED_White_Toggle();
+        DelayMs(1000);
+        mLED_Red_Toggle();
+        DelayMs(1000);
+        mLED_Yellow_Toggle();
+        DelayMs(1000);*/
+
+        /*mLED_White_On();
+        if(OpenFile("program.txt", &fp, FA_CREATE_NEW | FA_WRITE))
+        {
+          WriteFile("You pressed the program button.", &fp);
+          CloseFile(&fp);
+          DelayMs(2000);
+          mLED_White_Off();
+        }
+        else
+        {
+          mLED_Red_On();
+        }*/
+
+
     	}
         
     	/*if(mRtccGetIntFlag())
@@ -44,6 +91,7 @@ int main(void)
         }*/
 
         TCPIP_PerformStackTasks();
+        //SERIALUSB_ProcessTasks();
     }
   #else
   // Testing mode
@@ -67,6 +115,7 @@ void InitializeSystem()
 {
 	SYSTEMConfigWaitStatesAndPB(CLOCK_FREQ);
 	mOSCSetPBDIV(OSC_PB_DIV_4);  // Set to get 20MHz PB clock
+  //mOSCSetPBDIV(OSC_PB_DIV_2);
 	CheKseg0CacheOn();
 	mJTAGPortEnable(0);
 
@@ -93,13 +142,17 @@ void InitializeSystem()
 	mPORTGClearBits(0xFFFF);
 
 	INTEnableSystemMultiVectoredInt();
+
+  #ifdef SANITY_CHECK
+  mLED_Green_On();
+  #endif
 	
 	//LCD_Initialize();
 	//WIFI_Initialize();
 	//SPRINKLER_Initialize();
 	//RTCC_Initialize(); 
-	//SERIALUSB_Initialize();
+  //SERIALUSB_Initialize();
 	//SDCARD_Initialize();
 
-    TCPIP_Initialize();
+  TCPIP_Initialize();
 }

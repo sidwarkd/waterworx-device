@@ -27,7 +27,7 @@
         #pragma config SOSCSEL 	= DIG
         #pragma config CLKOEC	= OFF		// CLKO output disabled on RA6
         #pragma config FCMEN	= OFF		// Fail-Safe clock monitor off
-        #pragma config IESO	        = OFF		// Internal/External osc switch over mode
+        #pragma config IESO	    = OFF	    // Internal/External osc switch over mode
         #pragma config WDTPS 	= 32768		// WD post scalar
         #pragma config DSWDTOSC	= INTOSCREF	// DSWDT uses INTRC
         #pragma config RTCOSC	= INTOSCREF	// RTCC clock select
@@ -61,7 +61,7 @@
         #pragma config POSCMOD          = HS
         #pragma config IESO             = OFF
         #pragma config FSOSCEN          = ON
-        #pragma config FNOSC            = PRIPLL
+        #pragma config FNOSC            = PRIPLL //PRI//FRC
         #pragma config CP               = OFF
         #pragma config BWP              = OFF
         #pragma config PWP              = OFF
@@ -109,9 +109,12 @@
 // =====================================================
 // Oscillator Settings
 // =====================================================
+//#define CLOCK_FREQ              8000000L
 #define CLOCK_FREQ              80000000L
+//#define GetSystemClock()        (8000000ul)
 #define GetSystemClock()        (80000000ul)
 #define GetPeripheralClock()    (GetSystemClock()/4) 
+//#define GetPeripheralClock()    (GetSystemClock())
 #define GetInstructionClock()   (GetSystemClock())
 
 //============================================

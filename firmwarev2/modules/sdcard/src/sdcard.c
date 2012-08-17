@@ -109,12 +109,6 @@ DWORD get_fattime(void)
 	DWORD tmr;
 
 	INTDisableInterrupts();
-	/*tmr =	  (((DWORD)rtcYear - 80) << 25)
-			| ((DWORD)rtcMon << 21)
-			| ((DWORD)rtcMday << 16)
-			| (WORD)(rtcHour << 11)
-			| (WORD)(rtcMin << 5)
-			| (WORD)(rtcSec >> 1);*/
 	tmr = GetCurrentDateTimeAsDWORD();
 	INTEnableInterrupts();
 
