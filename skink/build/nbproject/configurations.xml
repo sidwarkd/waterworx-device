@@ -28,6 +28,7 @@
         <itemPath>../modules/bootldr/module.h</itemPath>
         <itemPath>../modules/bootldr/NVMem.c</itemPath>
         <itemPath>../modules/bootldr/NVMem.h</itemPath>
+        <itemPath>../modules/bootldr/bootldr.c</itemPath>
       </logicalFolder>
       <logicalFolder name="delay" displayName="delay" projectFiles="true">
         <itemPath>../modules/delay/module.h</itemPath>
@@ -38,19 +39,25 @@
         <itemPath>../modules/json/cJSON.h</itemPath>
         <itemPath>../modules/json/module.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="mdd" displayName="mdd" projectFiles="true">
-        <itemPath>../modules/mdd/FSConfig.h</itemPath>
-        <itemPath>../modules/mdd/FSDefs.h</itemPath>
-        <itemPath>../modules/mdd/FSIO.c</itemPath>
-        <itemPath>../modules/mdd/FSIO.h</itemPath>
-        <itemPath>../modules/mdd/module.h</itemPath>
-        <itemPath>../modules/mdd/SD-SPI.c</itemPath>
-        <itemPath>../modules/mdd/SD-SPI.h</itemPath>
-      </logicalFolder>
       <logicalFolder name="rtcc" displayName="rtcc" projectFiles="true">
         <itemPath>../modules/rtcc/module.h</itemPath>
         <itemPath>../modules/rtcc/rtcc_helper.c</itemPath>
         <itemPath>../modules/rtcc/rtcc_tests.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="sdcard" displayName="sdcard" projectFiles="true">
+        <logicalFolder name="src" displayName="src" projectFiles="true">
+          <itemPath>../modules/sdcard/src/diskio.c</itemPath>
+          <itemPath>../modules/sdcard/src/fatfs_mmc_spi.c</itemPath>
+          <itemPath>../modules/sdcard/src/ff.c</itemPath>
+          <itemPath>../modules/sdcard/src/sdcard.c</itemPath>
+          <itemPath>../modules/sdcard/src/sdcard_helper.c</itemPath>
+        </logicalFolder>
+        <itemPath>../modules/sdcard/diskio.h</itemPath>
+        <itemPath>../modules/sdcard/diskio_weak.h</itemPath>
+        <itemPath>../modules/sdcard/FATfs_Config.h</itemPath>
+        <itemPath>../modules/sdcard/ff.h</itemPath>
+        <itemPath>../modules/sdcard/integer.h</itemPath>
+        <itemPath>../modules/sdcard/module.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
