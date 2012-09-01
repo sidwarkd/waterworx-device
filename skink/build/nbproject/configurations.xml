@@ -51,12 +51,11 @@
           <itemPath>../modules/sdcard/src/ff.c</itemPath>
           <itemPath>../modules/sdcard/src/sdcard.c</itemPath>
           <itemPath>../modules/sdcard/src/sdcard_helper.c</itemPath>
+          <itemPath>../modules/sdcard/src/ccsbcs.c</itemPath>
         </logicalFolder>
         <itemPath>../modules/sdcard/diskio.h</itemPath>
         <itemPath>../modules/sdcard/diskio_weak.h</itemPath>
-        <itemPath>../modules/sdcard/FATfs_Config.h</itemPath>
         <itemPath>../modules/sdcard/ff.h</itemPath>
-        <itemPath>../modules/sdcard/integer.h</itemPath>
         <itemPath>../modules/sdcard/module.h</itemPath>
       </logicalFolder>
     </logicalFolder>

@@ -41,11 +41,11 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360919890/app.o ${OBJECTDIR}/_ext/35432207/NVMem.o ${OBJECTDIR}/_ext/2048433900/simpledelay.o ${OBJECTDIR}/_ext/66270815/cJSON.o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ${OBJECTDIR}/_ext/66509721/rtcc_tests.o ${OBJECTDIR}/_ext/1410781165/diskio.o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ${OBJECTDIR}/_ext/1410781165/ff.o ${OBJECTDIR}/_ext/1410781165/sdcard.o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ${OBJECTDIR}/_ext/35432207/bootldr.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360919890/app.o.d ${OBJECTDIR}/_ext/35432207/NVMem.o.d ${OBJECTDIR}/_ext/2048433900/simpledelay.o.d ${OBJECTDIR}/_ext/66270815/cJSON.o.d ${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d ${OBJECTDIR}/_ext/66509721/rtcc_tests.o.d ${OBJECTDIR}/_ext/1410781165/diskio.o.d ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d ${OBJECTDIR}/_ext/1410781165/ff.o.d ${OBJECTDIR}/_ext/1410781165/sdcard.o.d ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d ${OBJECTDIR}/_ext/35432207/bootldr.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360919890/app.o ${OBJECTDIR}/_ext/35432207/NVMem.o ${OBJECTDIR}/_ext/35432207/bootldr.o ${OBJECTDIR}/_ext/2048433900/simpledelay.o ${OBJECTDIR}/_ext/66270815/cJSON.o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ${OBJECTDIR}/_ext/66509721/rtcc_tests.o ${OBJECTDIR}/_ext/1410781165/diskio.o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ${OBJECTDIR}/_ext/1410781165/ff.o ${OBJECTDIR}/_ext/1410781165/sdcard.o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360919890/app.o.d ${OBJECTDIR}/_ext/35432207/NVMem.o.d ${OBJECTDIR}/_ext/35432207/bootldr.o.d ${OBJECTDIR}/_ext/2048433900/simpledelay.o.d ${OBJECTDIR}/_ext/66270815/cJSON.o.d ${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d ${OBJECTDIR}/_ext/66509721/rtcc_tests.o.d ${OBJECTDIR}/_ext/1410781165/diskio.o.d ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d ${OBJECTDIR}/_ext/1410781165/ff.o.d ${OBJECTDIR}/_ext/1410781165/sdcard.o.d ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d ${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1360919890/app.o ${OBJECTDIR}/_ext/35432207/NVMem.o ${OBJECTDIR}/_ext/2048433900/simpledelay.o ${OBJECTDIR}/_ext/66270815/cJSON.o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ${OBJECTDIR}/_ext/66509721/rtcc_tests.o ${OBJECTDIR}/_ext/1410781165/diskio.o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ${OBJECTDIR}/_ext/1410781165/ff.o ${OBJECTDIR}/_ext/1410781165/sdcard.o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ${OBJECTDIR}/_ext/35432207/bootldr.o
+OBJECTFILES=${OBJECTDIR}/_ext/1360919890/app.o ${OBJECTDIR}/_ext/35432207/NVMem.o ${OBJECTDIR}/_ext/35432207/bootldr.o ${OBJECTDIR}/_ext/2048433900/simpledelay.o ${OBJECTDIR}/_ext/66270815/cJSON.o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ${OBJECTDIR}/_ext/66509721/rtcc_tests.o ${OBJECTDIR}/_ext/1410781165/diskio.o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ${OBJECTDIR}/_ext/1410781165/ff.o ${OBJECTDIR}/_ext/1410781165/sdcard.o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o
 
 
 CFLAGS=
@@ -90,6 +90,11 @@ ${OBJECTDIR}/_ext/35432207/NVMem.o: ../modules/bootldr/NVMem.c  nbproject/Makefi
 	@${MKDIR} ${OBJECTDIR}/_ext/35432207 
 	@${RM} ${OBJECTDIR}/_ext/35432207/NVMem.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/35432207/NVMem.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/HardlySoftware/projects/waterworx/skink/app" -I"D:/HardlySoftware/projects/waterworx/skink/modules" -I"D:/HardlySoftware/projects/waterworx/skink/modules/base" -MMD -MF "${OBJECTDIR}/_ext/35432207/NVMem.o.d" -o ${OBJECTDIR}/_ext/35432207/NVMem.o ../modules/bootldr/NVMem.c  
+	
+${OBJECTDIR}/_ext/35432207/bootldr.o: ../modules/bootldr/bootldr.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/35432207 
+	@${RM} ${OBJECTDIR}/_ext/35432207/bootldr.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/35432207/bootldr.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/HardlySoftware/projects/waterworx/skink/app" -I"D:/HardlySoftware/projects/waterworx/skink/modules" -I"D:/HardlySoftware/projects/waterworx/skink/modules/base" -MMD -MF "${OBJECTDIR}/_ext/35432207/bootldr.o.d" -o ${OBJECTDIR}/_ext/35432207/bootldr.o ../modules/bootldr/bootldr.c  
 	
 ${OBJECTDIR}/_ext/2048433900/simpledelay.o: ../modules/delay/simpledelay.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2048433900 
@@ -136,10 +141,10 @@ ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o: ../modules/sdcard/src/sdcard_helpe
 	@${RM} ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/HardlySoftware/projects/waterworx/skink/app" -I"D:/HardlySoftware/projects/waterworx/skink/modules" -I"D:/HardlySoftware/projects/waterworx/skink/modules/base" -MMD -MF "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" -o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ../modules/sdcard/src/sdcard_helper.c  
 	
-${OBJECTDIR}/_ext/35432207/bootldr.o: ../modules/bootldr/bootldr.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/35432207 
-	@${RM} ${OBJECTDIR}/_ext/35432207/bootldr.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/35432207/bootldr.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/HardlySoftware/projects/waterworx/skink/app" -I"D:/HardlySoftware/projects/waterworx/skink/modules" -I"D:/HardlySoftware/projects/waterworx/skink/modules/base" -MMD -MF "${OBJECTDIR}/_ext/35432207/bootldr.o.d" -o ${OBJECTDIR}/_ext/35432207/bootldr.o ../modules/bootldr/bootldr.c  
+${OBJECTDIR}/_ext/1410781165/ccsbcs.o: ../modules/sdcard/src/ccsbcs.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/HardlySoftware/projects/waterworx/skink/app" -I"D:/HardlySoftware/projects/waterworx/skink/modules" -I"D:/HardlySoftware/projects/waterworx/skink/modules/base" -MMD -MF "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" -o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o ../modules/sdcard/src/ccsbcs.c  
 	
 else
 ${OBJECTDIR}/_ext/1360919890/app.o: ../app/app.c  nbproject/Makefile-${CND_CONF}.mk
@@ -151,6 +156,11 @@ ${OBJECTDIR}/_ext/35432207/NVMem.o: ../modules/bootldr/NVMem.c  nbproject/Makefi
 	@${MKDIR} ${OBJECTDIR}/_ext/35432207 
 	@${RM} ${OBJECTDIR}/_ext/35432207/NVMem.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/35432207/NVMem.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/HardlySoftware/projects/waterworx/skink/app" -I"D:/HardlySoftware/projects/waterworx/skink/modules" -I"D:/HardlySoftware/projects/waterworx/skink/modules/base" -MMD -MF "${OBJECTDIR}/_ext/35432207/NVMem.o.d" -o ${OBJECTDIR}/_ext/35432207/NVMem.o ../modules/bootldr/NVMem.c  
+	
+${OBJECTDIR}/_ext/35432207/bootldr.o: ../modules/bootldr/bootldr.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/35432207 
+	@${RM} ${OBJECTDIR}/_ext/35432207/bootldr.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/35432207/bootldr.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/HardlySoftware/projects/waterworx/skink/app" -I"D:/HardlySoftware/projects/waterworx/skink/modules" -I"D:/HardlySoftware/projects/waterworx/skink/modules/base" -MMD -MF "${OBJECTDIR}/_ext/35432207/bootldr.o.d" -o ${OBJECTDIR}/_ext/35432207/bootldr.o ../modules/bootldr/bootldr.c  
 	
 ${OBJECTDIR}/_ext/2048433900/simpledelay.o: ../modules/delay/simpledelay.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2048433900 
@@ -197,10 +207,10 @@ ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o: ../modules/sdcard/src/sdcard_helpe
 	@${RM} ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/HardlySoftware/projects/waterworx/skink/app" -I"D:/HardlySoftware/projects/waterworx/skink/modules" -I"D:/HardlySoftware/projects/waterworx/skink/modules/base" -MMD -MF "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" -o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ../modules/sdcard/src/sdcard_helper.c  
 	
-${OBJECTDIR}/_ext/35432207/bootldr.o: ../modules/bootldr/bootldr.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/35432207 
-	@${RM} ${OBJECTDIR}/_ext/35432207/bootldr.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/35432207/bootldr.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/HardlySoftware/projects/waterworx/skink/app" -I"D:/HardlySoftware/projects/waterworx/skink/modules" -I"D:/HardlySoftware/projects/waterworx/skink/modules/base" -MMD -MF "${OBJECTDIR}/_ext/35432207/bootldr.o.d" -o ${OBJECTDIR}/_ext/35432207/bootldr.o ../modules/bootldr/bootldr.c  
+${OBJECTDIR}/_ext/1410781165/ccsbcs.o: ../modules/sdcard/src/ccsbcs.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"D:/HardlySoftware/projects/waterworx/skink/app" -I"D:/HardlySoftware/projects/waterworx/skink/modules" -I"D:/HardlySoftware/projects/waterworx/skink/modules/base" -MMD -MF "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" -o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o ../modules/sdcard/src/ccsbcs.c  
 	
 endif
 

@@ -48,7 +48,7 @@
 #define FOSC	CLOCK_FREQ
 
 BOOL fsMounted;
-static FATFS fatfs[2];	// file system object
+static FATFS fatfs[_DRIVES];	// file system object
 static FATFS *fs;
 
 typedef FIL     FILEHANDLE;
@@ -74,9 +74,7 @@ typedef DIR     DIRECTORY;
 static DIRECTORY _currentDirectory;
 static FILEINFO _currentFileInfo;
 static FILEHANDLE _currentFile;
-#if _USE_LFN
-static char lfn[_MAX_LFN + 1];
-#endif
+static char lfn[256];
 
 
 // =================================
@@ -99,6 +97,5 @@ size_t FATFS_fwrite(void *buffer, size_t size, size_t count, FILEHANDLE *file);
 DIRECTORY* FATFS_dopen(CHAR *directory);
 FILEINFO* FATFS_dgetnextfile(DIRECTORY *directory);
 BOOL FATFS_DirectoryExists(CHAR *directory);
-CHAR* FATFS_GetFileName(FILEINFO *fileInfo);
 
 #endif

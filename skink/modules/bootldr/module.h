@@ -11,10 +11,10 @@
 #include <sdcard/module.h>
 #include <delay/module.h>
 
-#define AUX_FLASH_BASE_ADRS       (0x7FC000)
-#define AUX_FLASH_END_ADRS        (0x7FFFFF)
-#define DEV_CONFIG_REG_BASE_ADDRESS   (0xF80000)
-#define DEV_CONFIG_REG_END_ADDRESS    (0xF80012)
+//#define AUX_FLASH_BASE_ADRS       (0x7FC000)
+//#define AUX_FLASH_END_ADRS        (0x7FFFFF)
+#define DEV_CONFIG_REG_BASE_ADDRESS   (0x9FC02FF0)
+#define DEV_CONFIG_REG_END_ADDRESS    (0x9FC02FFF)
 
 // =============================================
 // CONTENTS OF SD_BOOTLOADER.H
@@ -44,6 +44,17 @@ typedef struct
   DWORD_VAL ExtSegAddress;
   DWORD_VAL ExtLinAddress;
 }T_HEX_RECORD;  
+
+typedef struct _fwversion
+{
+  UINT8 major;
+  UINT8 minor;
+  UINT8 build;
+}FW_VERSION;
+
+#define SAME_VERSION          0
+#define LEFT_VERSION_HIGHER   1
+#define RIGHT_VERSION_HIGHER  2
 
 
 #define DATA_RECORD     0

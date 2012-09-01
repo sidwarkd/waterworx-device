@@ -2,7 +2,7 @@
 
 ///////////////////////////////////////////////////////////////////
 // local functions
-//static FRESULT scan_files (char* path);
+static FRESULT scan_files (char* path);
 
 ///////////////////////////////////////////////////////////////////
 
@@ -17,10 +17,8 @@ void SDCARD_Initialize(void)
 	_SetChipSelect(FALSE);
 	fsMounted = FALSE;
 
-#if _USE_LFN
 	_currentFileInfo.lfname = lfn;
   _currentFileInfo.lfsize = sizeof(lfn);
-#endif
 
 	// Setup the I/O
   SDSetCDDirection();     // CD as input
@@ -31,21 +29,15 @@ void SDCARD_Initialize(void)
 
 BOOL SDCARD_Mount(void)
 {
-	FRESULT res;
 	if(fsMounted == FALSE)
 	{
 		if (!(disk_status(MMC_DRIVE) & STA_NODISK)) {
 			// disk inserted so initialise it
 			if (disk_initialize(MMC_DRIVE) == 0) {
-				res = f_mount(MMC_DRIVE, &fatfs[MMC_DRIVE]);
-				if (res == FR_OK) {
+				if (f_mount(MMC_DRIVE, &fatfs[MMC_DRIVE]) == FR_OK) {
 					fsMounted = TRUE;
 					return TRUE;
-				}
-				else
-				{
-					return FALSE;
-				}
+				}	
 			}
 			else
 			{

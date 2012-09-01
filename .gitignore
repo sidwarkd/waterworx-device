@@ -17,3 +17,4 @@ hardware/design/*.pro
 hardware/lbr/*.l#*
 hardware/datasheets
 skink/build/build/default/production/_ext
+skink/test_apps/TestApps.X/build/default/production/_ext

@@ -1,8 +1,3 @@
-/* 
- Mapping Note: The IVT and C Start-up code of the bootloader is mapped in the boot Flash.
-       		   Rest of the bootloader is mapped in the program Flash from address 0x9D000000 to 0x9D002FFF.
-       		   The user application code must be mapped from the address 0x9D003000 to end of the program Flash. */
-
 /* Default linker script, for normal executables */
 OUTPUT_FORMAT("elf32-tradlittlemips")
 OUTPUT_ARCH(pic32mx)
@@ -29,23 +24,29 @@ INPUT("processor.o")
 /*************************************************************************
  * Processor-specific peripheral libraries are optional
  *************************************************************************/
-OPTIONAL("libmchp_peripheral.a")
+/* OPTIONAL("libmchp_peripheral.a") */
 OPTIONAL("libmchp_peripheral_32MX795F512L.a")
-
-_ramfunc_begin = 0;
 
 /*************************************************************************
  * For interrupt vector handling
  *************************************************************************/
 PROVIDE(_vector_spacing = 0x00000001);
-_ebase_address  = 0x9FC01000;
+_ebase_address = 0x9D01B000;
 
 /*************************************************************************
  * Memory Address Equates
+ * _RESET_ADDR      -- Reset Vector
+ * _BEV_EXCPT_ADDR  -- Boot exception Vector
+ * _DBG_EXCPT_ADDR  -- In-circuit Debugging Exception Vector
+ * _DBG_CODE_ADDR   -- In-circuit Debug Executive address
+ * _DBG_CODE_SIZE   -- In-circuit Debug Executive size
+ * _GEN_EXCPT_ADDR  -- General Exception Vector
  *************************************************************************/
-_RESET_ADDR              = 0xBFC00000;
-_BEV_EXCPT_ADDR          = 0xBFC00380;
-_DBG_EXCPT_ADDR          = 0xBFC00480;
+/* match reset address to ORIGIN of keg1_boot_mem*/
+_RESET_ADDR              = (0x9D01B000 + 0x1000 + 0x970);
+/* map _BEV_EXCPT_ADDR, _DBG_EXCPT_ADDR in to kseg1_boot_mem*/ 
+_BEV_EXCPT_ADDR          = (0x9D01B000 + 0x1000 + 0x970 + 0x380);
+_DBG_EXCPT_ADDR          = (0x9D01B000 + 0x1000 + 0x970 + 0x480);
 _DBG_CODE_ADDR           = 0xBFC02000;
 _DBG_CODE_SIZE           = 0xFF0     ;
 _GEN_EXCPT_ADDR          = _ebase_address + 0x180;
@@ -59,26 +60,31 @@ _GEN_EXCPT_ADDR          = _ebase_address + 0x180;
  *************************************************************************/
 MEMORY
 {
-	
-  kseg0_program_mem    (rx)  : ORIGIN = 0x9D000000, LENGTH = 0x1B000 /* 12KB of Program Flash*/
-  kseg0_boot_mem             : ORIGIN = 0x9FC00490, LENGTH = 0      
-  exception_mem              : ORIGIN = 0x9FC01000, LENGTH = 0x1000 
-   
-  kseg1_boot_mem             : ORIGIN = 0xBFC00000, LENGTH = 0x490
+  /* IVT */
+  exception_mem              : ORIGIN = 0x9D01B000, 				    		LENGTH = 0x1000
+  /* Start-up Codes*/
+  kseg0_boot_mem             : ORIGIN = (0x9D01B000 + 0x1000) , 				LENGTH = 0x970
+  kseg1_boot_mem             : ORIGIN = (0x9D01B000 + 0x1000 + 0x970), 			LENGTH = 0x490
+  /* Text + data section */
+  /* User has to modify the LENGTH of kseg0_program_mem based on the Flash Size available in the chosen part number.*/
+  kseg0_program_mem    (rx)  : ORIGIN = (0x9D01B000 + 0x1000 + 0x970 + 0x490), 	LENGTH = 0x65000
+  
   debug_exec_mem             : ORIGIN = 0xBFC02000, LENGTH = 0xFF0
   config3                    : ORIGIN = 0xBFC02FF0, LENGTH = 0x4
   config2                    : ORIGIN = 0xBFC02FF4, LENGTH = 0x4
   config1                    : ORIGIN = 0xBFC02FF8, LENGTH = 0x4
   config0                    : ORIGIN = 0xBFC02FFC, LENGTH = 0x4
-  kseg1_data_mem       (w!x) : ORIGIN = 0xA0000000, LENGTH = 0x4000
+  kseg1_data_mem       (w!x) : ORIGIN = 0xA0000000, LENGTH = 0x20000
   sfrs                       : ORIGIN = 0xBF800000, LENGTH = 0x100000
   configsfrs                 : ORIGIN = 0xBFC02FF0, LENGTH = 0x10
-	
-  
 }
+
+/*************************************************************************
+ * Configuration-word sections
+ *************************************************************************/
 SECTIONS
 {
-   .config_BFC02FF0 : {
+  .config_BFC02FF0 : {
     KEEP(*(.config_BFC02FF0))
   } > config3
   .config_BFC02FF4 : {
@@ -91,7 +97,6 @@ SECTIONS
     KEEP(*(.config_BFC02FFC))
   } > config0
 }
-
 
 
 PROVIDE(_DBG_CODE_ADDR = 0xBFC02000) ;

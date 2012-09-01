@@ -19,10 +19,17 @@ T_REC record;
 Function prototypes
 *****************************************************************************/
 void ConvertAsciiToHex(UINT8* asciiRec, UINT8* hexRec);
-BOOL NewerFirmwareExists(void);
-BOOL ForcedFirmwareExists(void);
+
 void JumpToApp(void);
 BOOL ValidAppPresent(void);
+
+FW_VERSION GetNewestAvailableFirmwareVersion(void);
+UINT8 FirmwareVersionCompare(FW_VERSION *left, FW_VERSION *right);
+FW_VERSION GetCurrentFirmwareVersion(void);
+void ExtractFirmwareVersionFromFilename(CHAR *filename, FW_VERSION *version);
+BOOL ShouldFlashFirmware(CHAR *file, FW_VERSION *version);
+BOOL NewerFirmwareExists(CHAR *file, FW_VERSION *version);
+BOOL ForcedFirmwareExists(CHAR *file, FW_VERSION *version);
 
 
 void BOOTLDR_Initialize(void (*errFunc)(void))
@@ -34,54 +41,36 @@ void BOOTLDR_Initialize(void (*errFunc)(void))
 void BOOTLDR_Run()
 {
   volatile UINT i;
+  FILEHANDLE *myFile;
+  FILEHANDLE *currentFile;
+  FW_VERSION newVersion;
+  CHAR buffer[64];
 
-  // Order of these checks matters so that the forced firmware will always
-  // take precedence if it's present
-  if(!ForcedFirmwareExists() && !NewerFirmwareExists() && ValidAppPresent())
+  newVersion.major = 0;
+  newVersion.minor = 0;
+  newVersion.build = 0;
+
+  //if(!ForcedFirmwareExists() && !NewerFirmwareExists() && ValidAppPresent())
+  if(!ShouldFlashFirmware(sTargetFile, &newVersion) && ValidAppPresent())
   {
       // No new firmware to load. Jump
       // directly to the application
-      while(1);
-      //JumpToApp();        
+      JumpToApp();        
   }
 
-  if(*sTargetFile)
-  {
-    if(strcmp(sTargetFile, "newer.hex") == 0)
-    {
-      while(1)
-      {
-        mLED_White_Toggle();
-        DelayMs(200);
-      }
-    }
-    if(strcmp(sTargetFile, "forced.hex") == 0)
-    {
-      while(1)
-      {
-        mLED_Yellow_Toggle();
-        DelayMs(200);
-      }
-    }
-  }
-
-  while(1)
-  {
-    mLED_Red_Toggle();
-    DelayMs(1000);
-  }
-
-	/*myFile = FSfopen("image.hex","r");
+  // At this point sTargetFile will have the name of the file we should use
+  //strcpy(sTargetFile, "fw/force/v0_0_2.hex");      
+	myFile = FATFS_fopen(sTargetFile,"r");
     
   if(myFile == NULL)// Make sure the file is present.
   {
     //Indicate error and stay in while loop.
-       Error();
-       while(1);
+      ErrorFunction();
   }     
   
   // Erase Flash (Block Erase the program Flash)
   EraseFlash();
+
   // Initialize the state-machine to read the records.
   record.status = REC_NOT_FOUND;
  
@@ -89,70 +78,110 @@ void BOOTLDR_Run()
   {
    
      // For a faster read, read 512 bytes at a time and buffer it.
-     readBytes = FSfread((void *)&asciiBuffer[pointer],1,512,myFile);
+    readBytes = FATFS_fread((void *)&asciiBuffer[pointer], 1, 512, myFile);
+    //readBytes = FSfread((void *)&asciiBuffer[pointer],1,512,myFile);
      
-     if(readBytes == 0)
-     {
-         // Nothing to read. Come out of this loop
-         // break;
-         FSfclose(myFile);
-         // Something fishy. The hex file has ended abruptly, looks like there was no "end of hex record".
-         //Indicate error and stay in while loop.
-         Error();
-         while(1);             
-     }
+    if(readBytes == 0)
+    {
+      // Nothing to read. Come out of this loop
+      // break;
+      FATFS_fclose(myFile);
+      // Something fishy. The hex file has ended abruptly, looks like there was no "end of hex record".
+      //Indicate error and stay in while loop.
+      ErrorFunction();       
+    }
 
-     for(i = 0; i < (readBytes + pointer); i ++)
-     {
+    for(i = 0; i < (readBytes + pointer); i ++)
+    {
        
       // This state machine seperates-out the valid hex records from the read 512 bytes.
-         switch(record.status)
-         {
-             case REC_FLASHED:
-             case REC_NOT_FOUND:
-                 if(asciiBuffer[i] == ':')
-                 {
-                  // We have a record found in the 512 bytes of data in the buffer.
-                     record.start = &asciiBuffer[i];
-                     record.len = 0;
-                     record.status = REC_FOUND_BUT_NOT_FLASHED;
-                 }
-                 break;
-             case REC_FOUND_BUT_NOT_FLASHED:
-                 if((asciiBuffer[i] == 0x0A) || (asciiBuffer[i] == 0xFF))
-                 {
-                  // We have got a complete record. (0x0A is new line feed and 0xFF is End of file)
-                     // Start the hex conversion from element
-                     // 1. This will discard the ':' which is
-                     // the start of the hex record.
-                     ConvertAsciiToHex(&record.start[1],hexRec);
-                     WriteHexRecord2Flash(hexRec);
-                     record.status = REC_FLASHED;
-                 }
-                 break;
-         }
-         // Move to next byte in the buffer.
-         record.len ++;
-     }
+      switch(record.status)
+      {
+        case REC_FLASHED:
+        case REC_NOT_FOUND:
+          if(asciiBuffer[i] == ':')
+          {
+            // We have a record found in the 512 bytes of data in the buffer.
+            record.start = &asciiBuffer[i];
+            record.len = 0;
+            record.status = REC_FOUND_BUT_NOT_FLASHED;
+          }
+          break;
+        case REC_FOUND_BUT_NOT_FLASHED:
+          if((asciiBuffer[i] == 0x0A) || (asciiBuffer[i] == 0xFF))
+          {
+            // We have got a complete record. (0x0A is new line feed and 0xFF is End of file)
+            // Start the hex conversion from element
+            // 1. This will discard the ':' which is
+            // the start of the hex record.
+            ConvertAsciiToHex(&record.start[1],hexRec);
 
-     if(record.status == REC_FOUND_BUT_NOT_FLASHED)
-     {
+            // We're done so let's close the file and update current.txt
+            if(hexRec[3] == END_OF_FILE_RECORD)
+            {
+              FATFS_fclose(myFile);
+              currentFile = FATFS_fopen("fw/current.txt", "wo");
+              if(currentFile != NULL)
+              {
+                sprintf(buffer, "v%d_%d_%d.hex", newVersion.major, newVersion.minor, newVersion.build);
+                FATFS_fwrite(buffer, 1, strlen(buffer), currentFile);
+                FATFS_fclose(currentFile);
+              }
+            }
+
+            WriteHexRecord2Flash(hexRec);
+            record.status = REC_FLASHED;
+          }
+          break;
+      }
+      // Move to next byte in the buffer.
+      record.len ++;
+    }
+
+    if(record.status == REC_FOUND_BUT_NOT_FLASHED)
+    {
       // We still have a half read record in the buffer. The next half part of the record is read 
       // when we read 512 bytes of data from the next file read. 
-         memcpy(asciiBuffer, record.start, record.len);
-         pointer = record.len;
-         record.status = REC_NOT_FOUND;
-     }
-     else
-     {
-         pointer = 0;
-     }
-     // Blink LED at Faster rate to indicate programming is in progress.
-     led += 3;
-   mLED = ((led & 0x80) == 0);
-       
+      memcpy(asciiBuffer, record.start, record.len);
+      pointer = record.len;
+      record.status = REC_NOT_FOUND;
+    }
+    else
+    {
+      pointer = 0;
+    } 
+
+    // Blink the green LED to indicate programming in progress
+    mLED_Green_Toggle();
   }//while(1)
-  */
+  
+}// end BOOTLDR_Run function
+
+// ==================================================================
+// BOOL ShouldFlashFirmware(CHAR *file, FW_VERSION *version)
+// ==================================================================
+// Description:   Determine if the bootloader module should update
+//                the firmware.
+//
+// Precondition:  The SD card and file system must be initialized
+//
+// Input:         None
+//
+// Output:        TRUE if firmware is ready to load.  FALSE
+//                otherwise.  file and version are also set
+//                as part of this function.
+//
+// Side Effects:  None
+// ==================================================================
+BOOL ShouldFlashFirmware(CHAR *file, FW_VERSION *version)
+{
+  if(ForcedFirmwareExists(file, version))
+    return TRUE;
+
+  if(NewerFirmwareExists(file, version))
+    return TRUE;
+
+  return FALSE;
 }
 
 // ==================================================================
@@ -167,13 +196,19 @@ void BOOTLDR_Run()
 // Output:        TRUE if newer firmware is ready to load.  FALSE
 //                otherwise
 //
-// Side Effects:  If TRUE sets the internal member sTargetFile to
-//                the name of the file that will be used to program
-//                the device
+// Side Effects:  None
 // ==================================================================
-BOOL NewerFirmwareExists(void)
+BOOL NewerFirmwareExists(CHAR *file, FW_VERSION *version)
 {
-  strcpy(sTargetFile, "newer.hex");
+  FW_VERSION currentVersion, newestAvailable;
+  currentVersion = GetCurrentFirmwareVersion();
+  newestAvailable = GetNewestAvailableFirmwareVersion();
+  if (FirmwareVersionCompare(&currentVersion, &newestAvailable) == RIGHT_VERSION_HIGHER)
+  {
+    sprintf(file, "fw/v%d_%d_%d.hex", newestAvailable.major, newestAvailable.minor, newestAvailable.build);
+    return TRUE;
+  }
+  
   return FALSE;
 } 
 
@@ -190,16 +225,114 @@ BOOL NewerFirmwareExists(void)
 // Output:        TRUE if force firmware is ready to load.  FALSE
 //                otherwise
 //
-// Side Effects:  If TRUE sets the internal member sTargetFile to
-//                the name of the file that will be used to program
-//                the device
+// Side Effects:  None
 // ==================================================================
-BOOL ForcedFirmwareExists(void)
+BOOL ForcedFirmwareExists(CHAR *file, FW_VERSION *version)
 {
-  strcpy(sTargetFile, "forced.hex");
+  // A forced version, if it exists would be in /fw/force
+  DIRECTORY *dir;
+  FILEINFO *info;
+  CHAR *temp;
+
+  dir = FATFS_dopen("fw/force");
+  if(dir != NULL)
+  {
+    info = FATFS_dgetnextfile(dir);
+    if(info != NULL)
+    {
+      temp = FATFS_GetFileName(info);
+      sprintf(file, "fw/force/%s", temp);
+      ExtractFirmwareVersionFromFilename(temp, version);
+      return TRUE;
+    }
+  }
+
   return FALSE;
 }
 
+FW_VERSION GetCurrentFirmwareVersion()
+{
+  FW_VERSION currentVersion;
+  FILEHANDLE *currentFile;
+  CHAR versionStr[32];
+  currentVersion.build = 0;
+
+  // The current version is found in /fw/current.txt
+  currentFile = FATFS_fopen("fw/current.txt", "r");
+  if(currentFile != NULL)
+  {
+    FATFS_fgets(versionStr, 32, currentFile);
+    FATFS_fclose(currentFile);
+    ExtractFirmwareVersionFromFilename(versionStr, &currentVersion);
+  }
+  else
+  {
+    // No current file exists so we'll assume no firmware is present yet
+    currentVersion.minor = 0;
+    currentVersion.major = 0;
+  }
+
+  return currentVersion;
+}
+
+FW_VERSION GetNewestAvailableFirmwareVersion()
+{
+  FW_VERSION newestVersion;
+  FW_VERSION tempVersion;
+  DIRECTORY *directory;
+  FILEINFO *currentFileInfo;
+  CHAR *fileName;
+  newestVersion.major = 0;
+  newestVersion.minor = 0;
+  newestVersion.build = 0;
+
+  // Loop through each file in fw folder and return the newest available
+  directory = FATFS_dopen("fw");
+  if(directory)
+  {
+    currentFileInfo = FATFS_dgetnextfile(directory);
+    while(currentFileInfo != NULL)
+    {
+      fileName = FATFS_GetFileName(currentFileInfo);
+      if(strcmp(fileName, "current.txt") != 0)
+      {
+        ExtractFirmwareVersionFromFilename(fileName, &tempVersion);
+        if(FirmwareVersionCompare(&newestVersion, &tempVersion) == RIGHT_VERSION_HIGHER)
+        {
+          newestVersion.major = tempVersion.major;
+          newestVersion.minor = tempVersion.minor;
+          newestVersion.build = tempVersion.build;
+        }
+      }
+      currentFileInfo = FATFS_dgetnextfile(directory);
+    }
+  }
+
+  return newestVersion;
+}
+
+UINT8 FirmwareVersionCompare(FW_VERSION *left, FW_VERSION *right)
+{
+  if(left->major > right->major) return LEFT_VERSION_HIGHER;
+  if(right->major> left->major) return RIGHT_VERSION_HIGHER;
+  if(left->minor > right->minor) return LEFT_VERSION_HIGHER;
+  if(right->minor > left->minor) return RIGHT_VERSION_HIGHER;
+  if(left->build > right->build) return LEFT_VERSION_HIGHER;
+  if(right->build > left->build) return RIGHT_VERSION_HIGHER;
+  return SAME_VERSION;
+}
+
+void ExtractFirmwareVersionFromFilename(CHAR *filename, FW_VERSION *version)
+{
+  // Format of filename will be v1_3_1234.hex
+  CHAR *token;
+  token = strtok(filename, "v_.");
+  version->major = atoi(token);
+  token = strtok(NULL, "v_.");
+  version->minor = atoi(token);
+  token = strtok(NULL, "v_.");
+  version->build = atoi(token);
+}
 
 /********************************************************************
 * Function:   JumpToApp()
@@ -220,6 +353,9 @@ BOOL ForcedFirmwareExists(void)
 void JumpToApp(void)
 { 
   void (*fptr)(void);
+
+  INTDisableInterrupts();
+
   fptr = (void (*)(void))USER_APP_RESET_ADDRESS;
   fptr();
 } 
@@ -316,7 +452,7 @@ void EraseFlash(void)
             while(1);
         } 
         // Blink LED to indicate erase is in progress.
-        mLED = mLED ^ 1;
+        mLED_White_Toggle();
     }                      
 }
 
@@ -364,7 +500,7 @@ void WriteHexRecord2Flash(UINT8* HexRecord)
       //Indicate Error by switching ON all LEDs.
       //Error();
       // Do not proceed further.
-      while(1);
+      ErrorFunction();
   } 
   else
   {

@@ -98,6 +98,6 @@
 /  Note that the files are always accessed in case insensitive. */
 #define	_USE_NTFLAG	        1
 
-
+#define _USE_LFN            
 
 #endif

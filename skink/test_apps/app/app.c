@@ -2,6 +2,8 @@
 
 #include "app.h"
 
+//#define PROGRAM1
+
 void _general_exception_handler(unsigned cause, unsigned status)
 {
 	mLED_Red_On();
@@ -16,16 +18,9 @@ int main(void)
 
   InitializeSystem();
 
-  /*while(1)
+  while(1)
   {
-    if(mSwitch_User == SWITCH_PRESSED)
-    {
-      mLED_Red_Toggle();
-      DelayMs(1000);
-      mLED_Yellow_Toggle();
-      DelayMs(1000); 
-    }
-
+    #ifdef PROGRAM1
     mLED_Green_Toggle();
     DelayMs(200);
     mLED_White_Toggle();
@@ -34,33 +29,17 @@ int main(void)
     DelayMs(200);
     mLED_Yellow_Toggle();
     DelayMs(200);
-  }*/
-
-  // Wait for an SD card to be inserted
-  while(!SDCARD_IsCardInserted())
-  {
+    #else
+    mLED_Yellow_Toggle();
+    DelayMs(200);
+    mLED_Red_Toggle();
+    DelayMs(200);
+    mLED_White_Toggle();
+    DelayMs(200);
     mLED_Green_Toggle();
     DelayMs(200);
+    #endif
   }
-
-  // Some SD card sockets trigger the card detect long before the card is
-  // actually seated in the socket.  Let's give ourselves some time here
-  mLED_Green_On();
-  DelayMs(2000);
-
-  if(!SDCARD_Mount())
-  {
-    // Something went wrong with the SD card.  We can't go any further
-    Error();
-  }
-
-  // Set up the bootloader module to use our custom error function
-  BOOTLDR_Initialize(&Error);
-  BOOTLDR_Run();
-
-  // We should never get to the next line of code but just in case let's 
-  // make that an error case
-  Error();
 }
 
 void InitializeSystem()
@@ -93,16 +72,4 @@ void InitializeSystem()
 	mPORTGClearBits(0xFFFF);
 
 	INTEnableSystemMultiVectoredInt();
-	
-  // Handle module initializations
-	SDCARD_Initialize();
-}
-
-void Error()
-{
-  while(1)
-  {
-    mLED_Red_Toggle();
-    DelayMs(200);
-  }
 }

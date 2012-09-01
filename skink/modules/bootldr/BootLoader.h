@@ -43,12 +43,14 @@
  		 
  		2)The base address and end address must align on  4K address boundary */
  		
-#define APP_FLASH_BASE_ADDRESS 	0x9D006000 
+//#define APP_FLASH_BASE_ADDRESS 	0x9D006000 
+#define APP_FLASH_BASE_ADDRESS	0x9D01B000
 #define APP_FLASH_END_ADDRESS   PROGRAM_FLASH_END_ADRESS
 
 /* Address of  the Flash from where the application starts executing */
 /* Rule: Set APP_FLASH_BASE_ADDRESS to _RESET_ADDR value of application linker script*/
-#define USER_APP_RESET_ADDRESS 	(0x9D006000 + 0x1000 + 0x970)
+//#define USER_APP_RESET_ADDRESS 	(0x9D006000 + 0x1000 + 0x970)
+#define USER_APP_RESET_ADDRESS 	(APP_FLASH_BASE_ADDRESS + 0x1000 + 0x970)
 
 
 //-------User configurable macros end-----------
