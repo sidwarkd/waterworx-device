@@ -206,6 +206,9 @@ BOOL NewerFirmwareExists(CHAR *file, FW_VERSION *version)
   if (FirmwareVersionCompare(&currentVersion, &newestAvailable) == RIGHT_VERSION_HIGHER)
   {
     sprintf(file, "fw/v%d_%d_%d.hex", newestAvailable.major, newestAvailable.minor, newestAvailable.build);
+    version->major = newestAvailable.major;
+    version->minor = newestAvailable.minor;
+    version->build = newestAvailable.build;
     return TRUE;
   }
   
