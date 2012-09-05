@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="62">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <logicalFolder name="app" displayName="app" projectFiles="true">
+        <itemPath>../app/app.h</itemPath>
+        <itemPath>../app/device.h</itemPath>
+        <itemPath>../app/userconfig.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="delay" displayName="delay" projectFiles="true">
+        <itemPath>../modules/delay/module.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="http_server" displayName="http_server" projectFiles="true">
+        <itemPath>../modules/http_server/module.h</itemPath>
+        <itemPath>../modules/http_server/HTTPPrint.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="rtcc" displayName="rtcc" projectFiles="true">
+        <itemPath>../modules/rtcc/module.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="sdcard" displayName="sdcard" projectFiles="true">
+        <itemPath>../modules/sdcard/diskio.h</itemPath>
+        <itemPath>../modules/sdcard/diskio_weak.h</itemPath>
+        <itemPath>../modules/sdcard/ff.h</itemPath>
+        <itemPath>../modules/sdcard/module.h</itemPath>
+        <itemPath>../modules/sdcard/ffconf.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="tcpip" displayName="tcpip" projectFiles="true">
+        <itemPath>../modules/tcpip/TCPIP Stack/_HTTP2.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/AES.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/AES_CBC.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/AES_CFB.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/AES_CTR.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/AES_ECB.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/AES_ECB_PIC32.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/AES_OFB.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/aes_pic24f.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/Announce.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ARCFOUR.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ARP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/AutoIP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/BerkeleyAPI.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/BigInt.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/Delay.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/DHCP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/DNS.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/DynDNS.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ENC28J60.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ENCX24J600.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ETH97J60.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ETHPIC32ExtPhy.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ETHPIC32ExtPhyDP83640.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ETHPIC32ExtPhyDP83848.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ETHPIC32ExtPhyRegs.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ETHPIC32ExtPhySMSC8700.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ETHPIC32ExtPhySMSC8720.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/FileSystem.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/FTP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/Hashes.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/Helpers.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/HTTP2.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ICMP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/IP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/LCDBlocking.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/MAC.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/MPFS2.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/NBNS.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/Random.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/Reboot.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/regdef.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/RSA.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/SMTP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/SNMP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/SNMPv3.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/SNTP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/SPIFlash.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/SPIRAM.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/SSL.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/SSLClientSize.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/StackTsk.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/TCP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/TCPIP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/TCPPerformanceTest.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/Telnet.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/TFTPc.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/Tick.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/UART.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/UART2TCPBridge.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/UDP.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/UDPPerformanceTest.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFApi.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFConsole.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFConsoleIfconfig.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFConsoleIwconfig.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFConsoleIwpriv.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFConsoleMsgHandler.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFConsoleMsgs.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFDriverPrv.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFEasyConfig.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFMac.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFMgmtMsg.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/WFRaw.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/XEEPROM.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ZeroconfHelper.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ZeroconfLinkLocal.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/ZeroconfMulticastDNS.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="tcpip_config"
+                     displayName="tcpip_config"
+                     projectFiles="true">
+        <itemPath>../modules/tcpip/module.h</itemPath>
+        <itemPath>../modules/tcpip/TCPIPConfig.h</itemPath>
+        <itemPath>../modules/tcpip/WF_Config.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="usb" displayName="usb" projectFiles="true">
+        <itemPath>../modules/usb/module.h</itemPath>
+        <itemPath>../modules/usb/usb.h</itemPath>
+        <itemPath>../modules/usb/usb_ch9.h</itemPath>
+        <itemPath>../modules/usb/usb_common.h</itemPath>
+        <itemPath>../modules/usb/usb_config.h</itemPath>
+        <itemPath>../modules/usb/usb_device.h</itemPath>
+        <itemPath>../modules/usb/usb_device_local.h</itemPath>
+        <itemPath>../modules/usb/usb_function_cdc.h</itemPath>
+        <itemPath>../modules/usb/usb_hal.h</itemPath>
+        <itemPath>../modules/usb/usb_hal_pic32.h</itemPath>
+        <itemPath>../modules/usb/usb_pic32.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="LinkerScript"
+                   displayName="Linker Files"
+                   projectFiles="true">
+      <itemPath>../app/skink.ld</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="app" displayName="app" projectFiles="true">
+        <itemPath>../app/app.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="delay" displayName="delay" projectFiles="true">
+        <itemPath>../modules/delay/simpledelay.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="http_server" displayName="http_server" projectFiles="true">
+        <itemPath>../modules/http_server/CustomHTTPApp.c</itemPath>
+        <itemPath>../modules/http_server/MPFSImg2.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="rtcc" displayName="rtcc" projectFiles="true">
+        <itemPath>../modules/rtcc/rtcc_helper.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="sdcard" displayName="sdcard" projectFiles="true">
+        <itemPath>../modules/sdcard/src/diskio.c</itemPath>
+        <itemPath>../modules/sdcard/src/fatfs_mmc_spi.c</itemPath>
+        <itemPath>../modules/sdcard/src/ff.c</itemPath>
+        <itemPath>../modules/sdcard/src/sdcard.c</itemPath>
+        <itemPath>../modules/sdcard/src/sdcard_helper.c</itemPath>
+        <itemPath>../modules/sdcard/src/ccsbcs.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="tcpip" displayName="tcpip" projectFiles="true">
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WF_Eint.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WF_Spi.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFConnectionAlgorithm.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFConnectionManager.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFConnectionProfile.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFConsole.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFConsoleIfconfig.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFConsoleIwconfig.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFConsoleIwpriv.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFConsoleMsgHandler.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFConsoleMsgs.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFDataTxRx.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFDriverCom.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFDriverRaw.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFEasyConfig.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFEventHandler.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFInit.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFMac.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFMgmtMsg.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFParamMsg.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFPowerSave.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFScan.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/wifi_src/WFTxPower.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/Announce.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/ARP.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/AutoIP.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/BigInt.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/DHCP.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/DHCPs.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/DNS.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/DNSs.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/ETHPIC32ExtPhy.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/ETHPIC32IntMac.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/Helpers.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/HTTP2.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/ICMP.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/IP.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/MPFS2.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/NBNS.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/StackTsk.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/TCP.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/Tick.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/UDP.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="tcpip_custom"
+                     displayName="tcpip_custom"
+                     projectFiles="true">
+        <itemPath>../modules/tcpip/tcpip.c</itemPath>
+        <itemPath>../modules/tcpip/WF_Config.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="usb" displayName="usb" projectFiles="true">
+        <itemPath>../modules/usb/src/serial_usb.c</itemPath>
+        <itemPath>../modules/usb/src/usb_descriptors.c</itemPath>
+        <itemPath>../modules/usb/src/usb_device.c</itemPath>
+        <itemPath>../modules/usb/src/usb_function_cdc.c</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>../</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="default" type="2">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <targetDevice>PIC32MX795F512L</targetDevice>
+        <targetHeader></targetHeader>
+        <platformTool>PICkit3PlatformTool</platformTool>
+        <languageToolchain>XC32</languageToolchain>
+        <languageToolchainVersion>1.10</languageToolchainVersion>
+        <platform>3</platform>
+      </toolsSet>
+      <compileType>
+        <linkerTool>
+          <linkerLibItems>
+          </linkerLibItems>
+        </linkerTool>
+        <loading>
+          <useAlternateLoadableFile>false</useAlternateLoadableFile>
+          <alternateLoadableFile></alternateLoadableFile>
+        </loading>
+      </compileType>
+      <makeCustomizationType>
+        <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
+        <makeCustomizationPreStep></makeCustomizationPreStep>
+        <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
+        <makeCustomizationPostStep></makeCustomizationPostStep>
+        <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
+        <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
+        <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
+      </makeCustomizationType>
+      <C32>
+        <property key="additional-warnings" value="false"/>
+        <property key="enable-app-io" value="false"/>
+        <property key="enable-omit-frame-pointer" value="false"/>
+        <property key="enable-symbols" value="true"/>
+        <property key="enable-unroll-loops" value="false"/>
+        <property key="exclude-floating-point" value="false"/>
+        <property key="extra-include-directories"
+                  value="../modules/tcpip;../app;../modules/base;../modules;../modules/http_server;../modules/usb;../modules/delay;../modules/tcpip/TCPIP Stack;../modules/sdcard;../modules/rtcc;"/>
+        <property key="generate-16-bit-code" value="false"/>
+        <property key="isolate-each-function" value="false"/>
+        <property key="make-warnings-into-errors" value="false"/>
+        <property key="optimization-level" value=""/>
+        <property key="place-data-into-section" value="false"/>
+        <property key="post-instruction-scheduling" value="default"/>
+        <property key="pre-instruction-scheduling" value="default"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="strict-ansi" value="false"/>
+        <property key="support-ansi" value="false"/>
+        <property key="use-indirect-calls" value="false"/>
+      </C32>
+      <C32-AS>
+        <property key="assembler-symbols" value=""/>
+        <property key="enable-symbols" value="true"/>
+        <property key="exclude-floating-point-library" value="false"/>
+        <property key="expand-macros" value="false"/>
+        <property key="extra-include-directories-for-assembler" value="..;"/>
+        <property key="extra-include-directories-for-preprocessor" value=""/>
+        <property key="false-conditionals" value="false"/>
+        <property key="keep-locals" value="false"/>
+        <property key="list-assembly" value="false"/>
+        <property key="list-file" value=""/>
+        <property key="list-section-info" value="false"/>
+        <property key="list-source" value="false"/>
+        <property key="list-symbols" value="false"/>
+        <property key="omit-debug-dirs" value="false"/>
+        <property key="omit-forms" value="false"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="warning-level" value=""/>
+      </C32-AS>
+      <C32-LD>
+        <property key="enable-check-sections" value="false"/>
+        <property key="exclude-floating-point-library" value="false"/>
+        <property key="exclude-standard-libraries" value="false"/>
+        <property key="extra-lib-directories" value="..;"/>
+        <property key="generate-16-bit-code" value="false"/>
+        <property key="generate-cross-reference-file" value="false"/>
+        <property key="heap-size" value="2048"/>
+        <property key="input-libraries" value=""/>
+        <property key="linker-symbols" value=""/>
+        <property key="map-file" value="&quot;${DISTDIR}/waterworx.X.${IMAGE_TYPE}.map&quot;"/>
+        <property key="no-startup-files" value="false"/>
+        <property key="optimization-level" value=""/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="remove-unused-sections" value="false"/>
+        <property key="report-memory-usage" value="false"/>
+        <property key="stack-size" value=""/>
+        <property key="symbol-stripping" value=""/>
+        <property key="trace-symbols" value=""/>
+        <property key="warn-section-align" value="false"/>
+      </C32-LD>
+      <C32Global>
+        <property key="legacy-libc" value="false"/>
+      </C32Global>
+      <PICkit3PlatformTool>
+        <property key="tracecontrol.disablemacros" value="true"/>
+        <property key="tracecontrol.medium" value="0"/>
+        <property key="tracecontrol.select" value="0"/>
+      </PICkit3PlatformTool>
+    </conf>
+  </confs>
+</configurationDescriptor>

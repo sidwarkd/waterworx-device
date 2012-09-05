@@ -5,6 +5,7 @@ firmware/bin/*.*
 firmwarev2/bin/obj
 firmwarev2/bin/*.*
 !firmwarev2/bin/waterworx.hex
+firmwarev2/waterworx.X/build/default/production/_ext
 *.mcw
 *.mcs
 *.swp

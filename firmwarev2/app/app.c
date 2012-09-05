@@ -14,7 +14,6 @@ void _general_exception_handler(unsigned cause, unsigned status)
 int main(void)
 {
 	#ifndef TESTING
-  FILEHANDLE fp;
 
 	InitializeSystem();
 
@@ -29,19 +28,6 @@ int main(void)
         //DelayMs(1000);
         //mLED_Yellow_Toggle();
         //DelayMs(1000); 
-
-        mLED_Yellow_On();
-        if(OpenFile("user.txt", &fp, FA_CREATE_NEW | FA_WRITE))
-        {
-          WriteFile("You pushed the user button.", &fp);
-          CloseFile(&fp);
-          DelayMs(2000);
-          mLED_Yellow_Off();
-        }
-        else
-        {
-          mLED_Red_On();
-        }
     	}
         
 
