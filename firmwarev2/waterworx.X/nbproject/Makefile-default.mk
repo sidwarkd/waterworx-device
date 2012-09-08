@@ -41,11 +41,11 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360919890/app.o ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o ${OBJECTDIR}/_ext/2048433900/simpledelay.o ${OBJECTDIR}/_ext/2063154737/tcpip.o ${OBJECTDIR}/_ext/2063154737/WF_Config.o ${OBJECTDIR}/_ext/1985307369/WF_Eint.o ${OBJECTDIR}/_ext/1985307369/WF_Spi.o ${OBJECTDIR}/_ext/1985307369/WFConnectionAlgorithm.o ${OBJECTDIR}/_ext/1985307369/WFConnectionManager.o ${OBJECTDIR}/_ext/1985307369/WFConnectionProfile.o ${OBJECTDIR}/_ext/1985307369/WFConsole.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIfconfig.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIwconfig.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIwpriv.o ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgHandler.o ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgs.o ${OBJECTDIR}/_ext/1985307369/WFDataTxRx.o ${OBJECTDIR}/_ext/1985307369/WFDriverCom.o ${OBJECTDIR}/_ext/1985307369/WFDriverRaw.o ${OBJECTDIR}/_ext/1985307369/WFEasyConfig.o ${OBJECTDIR}/_ext/1985307369/WFEventHandler.o ${OBJECTDIR}/_ext/1985307369/WFInit.o ${OBJECTDIR}/_ext/1985307369/WFMac.o ${OBJECTDIR}/_ext/1985307369/WFMgmtMsg.o ${OBJECTDIR}/_ext/1985307369/WFParamMsg.o ${OBJECTDIR}/_ext/1985307369/WFPowerSave.o ${OBJECTDIR}/_ext/1985307369/WFScan.o ${OBJECTDIR}/_ext/1985307369/WFTxPower.o ${OBJECTDIR}/_ext/1447902105/Announce.o ${OBJECTDIR}/_ext/1447902105/ARP.o ${OBJECTDIR}/_ext/1447902105/AutoIP.o ${OBJECTDIR}/_ext/1447902105/BigInt.o ${OBJECTDIR}/_ext/1447902105/DHCP.o ${OBJECTDIR}/_ext/1447902105/DHCPs.o ${OBJECTDIR}/_ext/1447902105/DNS.o ${OBJECTDIR}/_ext/1447902105/DNSs.o ${OBJECTDIR}/_ext/1447902105/ETHPIC32ExtPhy.o ${OBJECTDIR}/_ext/1447902105/ETHPIC32IntMac.o ${OBJECTDIR}/_ext/1447902105/Helpers.o ${OBJECTDIR}/_ext/1447902105/HTTP2.o ${OBJECTDIR}/_ext/1447902105/ICMP.o ${OBJECTDIR}/_ext/1447902105/IP.o ${OBJECTDIR}/_ext/1447902105/MPFS2.o ${OBJECTDIR}/_ext/1447902105/NBNS.o ${OBJECTDIR}/_ext/1447902105/StackTsk.o ${OBJECTDIR}/_ext/1447902105/TCP.o ${OBJECTDIR}/_ext/1447902105/Tick.o ${OBJECTDIR}/_ext/1447902105/UDP.o ${OBJECTDIR}/_ext/733900163/MPFSImg2.o ${OBJECTDIR}/_ext/252269054/serial_usb.o ${OBJECTDIR}/_ext/252269054/usb_descriptors.o ${OBJECTDIR}/_ext/252269054/usb_device.o ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o ${OBJECTDIR}/_ext/1410781165/diskio.o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ${OBJECTDIR}/_ext/1410781165/ff.o ${OBJECTDIR}/_ext/1410781165/sdcard.o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360919890/app.o.d ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d ${OBJECTDIR}/_ext/2048433900/simpledelay.o.d ${OBJECTDIR}/_ext/2063154737/tcpip.o.d ${OBJECTDIR}/_ext/2063154737/WF_Config.o.d ${OBJECTDIR}/_ext/1985307369/WF_Eint.o.d ${OBJECTDIR}/_ext/1985307369/WF_Spi.o.d ${OBJECTDIR}/_ext/1985307369/WFConnectionAlgorithm.o.d ${OBJECTDIR}/_ext/1985307369/WFConnectionManager.o.d ${OBJECTDIR}/_ext/1985307369/WFConnectionProfile.o.d ${OBJECTDIR}/_ext/1985307369/WFConsole.o.d ${OBJECTDIR}/_ext/1985307369/WFConsoleIfconfig.o.d ${OBJECTDIR}/_ext/1985307369/WFConsoleIwconfig.o.d ${OBJECTDIR}/_ext/1985307369/WFConsoleIwpriv.o.d ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgHandler.o.d ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgs.o.d ${OBJECTDIR}/_ext/1985307369/WFDataTxRx.o.d ${OBJECTDIR}/_ext/1985307369/WFDriverCom.o.d ${OBJECTDIR}/_ext/1985307369/WFDriverRaw.o.d ${OBJECTDIR}/_ext/1985307369/WFEasyConfig.o.d ${OBJECTDIR}/_ext/1985307369/WFEventHandler.o.d ${OBJECTDIR}/_ext/1985307369/WFInit.o.d ${OBJECTDIR}/_ext/1985307369/WFMac.o.d ${OBJECTDIR}/_ext/1985307369/WFMgmtMsg.o.d ${OBJECTDIR}/_ext/1985307369/WFParamMsg.o.d ${OBJECTDIR}/_ext/1985307369/WFPowerSave.o.d ${OBJECTDIR}/_ext/1985307369/WFScan.o.d ${OBJECTDIR}/_ext/1985307369/WFTxPower.o.d ${OBJECTDIR}/_ext/1447902105/Announce.o.d ${OBJECTDIR}/_ext/1447902105/ARP.o.d ${OBJECTDIR}/_ext/1447902105/AutoIP.o.d ${OBJECTDIR}/_ext/1447902105/BigInt.o.d ${OBJECTDIR}/_ext/1447902105/DHCP.o.d ${OBJECTDIR}/_ext/1447902105/DHCPs.o.d ${OBJECTDIR}/_ext/1447902105/DNS.o.d ${OBJECTDIR}/_ext/1447902105/DNSs.o.d ${OBJECTDIR}/_ext/1447902105/ETHPIC32ExtPhy.o.d ${OBJECTDIR}/_ext/1447902105/ETHPIC32IntMac.o.d ${OBJECTDIR}/_ext/1447902105/Helpers.o.d ${OBJECTDIR}/_ext/1447902105/HTTP2.o.d ${OBJECTDIR}/_ext/1447902105/ICMP.o.d ${OBJECTDIR}/_ext/1447902105/IP.o.d ${OBJECTDIR}/_ext/1447902105/MPFS2.o.d ${OBJECTDIR}/_ext/1447902105/NBNS.o.d ${OBJECTDIR}/_ext/1447902105/StackTsk.o.d ${OBJECTDIR}/_ext/1447902105/TCP.o.d ${OBJECTDIR}/_ext/1447902105/Tick.o.d ${OBJECTDIR}/_ext/1447902105/UDP.o.d ${OBJECTDIR}/_ext/733900163/MPFSImg2.o.d ${OBJECTDIR}/_ext/252269054/serial_usb.o.d ${OBJECTDIR}/_ext/252269054/usb_descriptors.o.d ${OBJECTDIR}/_ext/252269054/usb_device.o.d ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o.d ${OBJECTDIR}/_ext/1410781165/diskio.o.d ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d ${OBJECTDIR}/_ext/1410781165/ff.o.d ${OBJECTDIR}/_ext/1410781165/sdcard.o.d ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d ${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d ${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360919890/app.o ${OBJECTDIR}/_ext/2048433900/simpledelay.o ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ${OBJECTDIR}/_ext/1410781165/diskio.o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ${OBJECTDIR}/_ext/1410781165/ff.o ${OBJECTDIR}/_ext/1410781165/sdcard.o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o ${OBJECTDIR}/_ext/1985307369/WF_Eint.o ${OBJECTDIR}/_ext/1985307369/WF_Spi.o ${OBJECTDIR}/_ext/1985307369/WFConnectionAlgorithm.o ${OBJECTDIR}/_ext/1985307369/WFConnectionManager.o ${OBJECTDIR}/_ext/1985307369/WFConnectionProfile.o ${OBJECTDIR}/_ext/1985307369/WFConsole.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIfconfig.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIwconfig.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIwpriv.o ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgHandler.o ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgs.o ${OBJECTDIR}/_ext/1985307369/WFDataTxRx.o ${OBJECTDIR}/_ext/1985307369/WFDriverCom.o ${OBJECTDIR}/_ext/1985307369/WFDriverRaw.o ${OBJECTDIR}/_ext/1985307369/WFEasyConfig.o ${OBJECTDIR}/_ext/1985307369/WFEventHandler.o ${OBJECTDIR}/_ext/1985307369/WFInit.o ${OBJECTDIR}/_ext/1985307369/WFMac.o ${OBJECTDIR}/_ext/1985307369/WFMgmtMsg.o ${OBJECTDIR}/_ext/1985307369/WFParamMsg.o ${OBJECTDIR}/_ext/1985307369/WFPowerSave.o ${OBJECTDIR}/_ext/1985307369/WFScan.o ${OBJECTDIR}/_ext/1985307369/WFTxPower.o ${OBJECTDIR}/_ext/1447902105/Announce.o ${OBJECTDIR}/_ext/1447902105/ARP.o ${OBJECTDIR}/_ext/1447902105/AutoIP.o ${OBJECTDIR}/_ext/1447902105/BigInt.o ${OBJECTDIR}/_ext/1447902105/DHCP.o ${OBJECTDIR}/_ext/1447902105/DHCPs.o ${OBJECTDIR}/_ext/1447902105/DNS.o ${OBJECTDIR}/_ext/1447902105/DNSs.o ${OBJECTDIR}/_ext/1447902105/ETHPIC32ExtPhy.o ${OBJECTDIR}/_ext/1447902105/ETHPIC32IntMac.o ${OBJECTDIR}/_ext/1447902105/Helpers.o ${OBJECTDIR}/_ext/1447902105/ICMP.o ${OBJECTDIR}/_ext/1447902105/IP.o ${OBJECTDIR}/_ext/1447902105/NBNS.o ${OBJECTDIR}/_ext/1447902105/StackTsk.o ${OBJECTDIR}/_ext/1447902105/TCP.o ${OBJECTDIR}/_ext/1447902105/Tick.o ${OBJECTDIR}/_ext/1447902105/UDP.o ${OBJECTDIR}/_ext/2063154737/tcpip.o ${OBJECTDIR}/_ext/2063154737/WF_Config.o ${OBJECTDIR}/_ext/252269054/serial_usb.o ${OBJECTDIR}/_ext/252269054/usb_descriptors.o ${OBJECTDIR}/_ext/252269054/usb_device.o ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o ${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360919890/app.o.d ${OBJECTDIR}/_ext/2048433900/simpledelay.o.d ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d ${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d ${OBJECTDIR}/_ext/1410781165/diskio.o.d ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d ${OBJECTDIR}/_ext/1410781165/ff.o.d ${OBJECTDIR}/_ext/1410781165/sdcard.o.d ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d ${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d ${OBJECTDIR}/_ext/1985307369/WF_Eint.o.d ${OBJECTDIR}/_ext/1985307369/WF_Spi.o.d ${OBJECTDIR}/_ext/1985307369/WFConnectionAlgorithm.o.d ${OBJECTDIR}/_ext/1985307369/WFConnectionManager.o.d ${OBJECTDIR}/_ext/1985307369/WFConnectionProfile.o.d ${OBJECTDIR}/_ext/1985307369/WFConsole.o.d ${OBJECTDIR}/_ext/1985307369/WFConsoleIfconfig.o.d ${OBJECTDIR}/_ext/1985307369/WFConsoleIwconfig.o.d ${OBJECTDIR}/_ext/1985307369/WFConsoleIwpriv.o.d ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgHandler.o.d ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgs.o.d ${OBJECTDIR}/_ext/1985307369/WFDataTxRx.o.d ${OBJECTDIR}/_ext/1985307369/WFDriverCom.o.d ${OBJECTDIR}/_ext/1985307369/WFDriverRaw.o.d ${OBJECTDIR}/_ext/1985307369/WFEasyConfig.o.d ${OBJECTDIR}/_ext/1985307369/WFEventHandler.o.d ${OBJECTDIR}/_ext/1985307369/WFInit.o.d ${OBJECTDIR}/_ext/1985307369/WFMac.o.d ${OBJECTDIR}/_ext/1985307369/WFMgmtMsg.o.d ${OBJECTDIR}/_ext/1985307369/WFParamMsg.o.d ${OBJECTDIR}/_ext/1985307369/WFPowerSave.o.d ${OBJECTDIR}/_ext/1985307369/WFScan.o.d ${OBJECTDIR}/_ext/1985307369/WFTxPower.o.d ${OBJECTDIR}/_ext/1447902105/Announce.o.d ${OBJECTDIR}/_ext/1447902105/ARP.o.d ${OBJECTDIR}/_ext/1447902105/AutoIP.o.d ${OBJECTDIR}/_ext/1447902105/BigInt.o.d ${OBJECTDIR}/_ext/1447902105/DHCP.o.d ${OBJECTDIR}/_ext/1447902105/DHCPs.o.d ${OBJECTDIR}/_ext/1447902105/DNS.o.d ${OBJECTDIR}/_ext/1447902105/DNSs.o.d ${OBJECTDIR}/_ext/1447902105/ETHPIC32ExtPhy.o.d ${OBJECTDIR}/_ext/1447902105/ETHPIC32IntMac.o.d ${OBJECTDIR}/_ext/1447902105/Helpers.o.d ${OBJECTDIR}/_ext/1447902105/ICMP.o.d ${OBJECTDIR}/_ext/1447902105/IP.o.d ${OBJECTDIR}/_ext/1447902105/NBNS.o.d ${OBJECTDIR}/_ext/1447902105/StackTsk.o.d ${OBJECTDIR}/_ext/1447902105/TCP.o.d ${OBJECTDIR}/_ext/1447902105/Tick.o.d ${OBJECTDIR}/_ext/1447902105/UDP.o.d ${OBJECTDIR}/_ext/2063154737/tcpip.o.d ${OBJECTDIR}/_ext/2063154737/WF_Config.o.d ${OBJECTDIR}/_ext/252269054/serial_usb.o.d ${OBJECTDIR}/_ext/252269054/usb_descriptors.o.d ${OBJECTDIR}/_ext/252269054/usb_device.o.d ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o.d ${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1360919890/app.o ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o ${OBJECTDIR}/_ext/2048433900/simpledelay.o ${OBJECTDIR}/_ext/2063154737/tcpip.o ${OBJECTDIR}/_ext/2063154737/WF_Config.o ${OBJECTDIR}/_ext/1985307369/WF_Eint.o ${OBJECTDIR}/_ext/1985307369/WF_Spi.o ${OBJECTDIR}/_ext/1985307369/WFConnectionAlgorithm.o ${OBJECTDIR}/_ext/1985307369/WFConnectionManager.o ${OBJECTDIR}/_ext/1985307369/WFConnectionProfile.o ${OBJECTDIR}/_ext/1985307369/WFConsole.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIfconfig.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIwconfig.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIwpriv.o ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgHandler.o ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgs.o ${OBJECTDIR}/_ext/1985307369/WFDataTxRx.o ${OBJECTDIR}/_ext/1985307369/WFDriverCom.o ${OBJECTDIR}/_ext/1985307369/WFDriverRaw.o ${OBJECTDIR}/_ext/1985307369/WFEasyConfig.o ${OBJECTDIR}/_ext/1985307369/WFEventHandler.o ${OBJECTDIR}/_ext/1985307369/WFInit.o ${OBJECTDIR}/_ext/1985307369/WFMac.o ${OBJECTDIR}/_ext/1985307369/WFMgmtMsg.o ${OBJECTDIR}/_ext/1985307369/WFParamMsg.o ${OBJECTDIR}/_ext/1985307369/WFPowerSave.o ${OBJECTDIR}/_ext/1985307369/WFScan.o ${OBJECTDIR}/_ext/1985307369/WFTxPower.o ${OBJECTDIR}/_ext/1447902105/Announce.o ${OBJECTDIR}/_ext/1447902105/ARP.o ${OBJECTDIR}/_ext/1447902105/AutoIP.o ${OBJECTDIR}/_ext/1447902105/BigInt.o ${OBJECTDIR}/_ext/1447902105/DHCP.o ${OBJECTDIR}/_ext/1447902105/DHCPs.o ${OBJECTDIR}/_ext/1447902105/DNS.o ${OBJECTDIR}/_ext/1447902105/DNSs.o ${OBJECTDIR}/_ext/1447902105/ETHPIC32ExtPhy.o ${OBJECTDIR}/_ext/1447902105/ETHPIC32IntMac.o ${OBJECTDIR}/_ext/1447902105/Helpers.o ${OBJECTDIR}/_ext/1447902105/HTTP2.o ${OBJECTDIR}/_ext/1447902105/ICMP.o ${OBJECTDIR}/_ext/1447902105/IP.o ${OBJECTDIR}/_ext/1447902105/MPFS2.o ${OBJECTDIR}/_ext/1447902105/NBNS.o ${OBJECTDIR}/_ext/1447902105/StackTsk.o ${OBJECTDIR}/_ext/1447902105/TCP.o ${OBJECTDIR}/_ext/1447902105/Tick.o ${OBJECTDIR}/_ext/1447902105/UDP.o ${OBJECTDIR}/_ext/733900163/MPFSImg2.o ${OBJECTDIR}/_ext/252269054/serial_usb.o ${OBJECTDIR}/_ext/252269054/usb_descriptors.o ${OBJECTDIR}/_ext/252269054/usb_device.o ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o ${OBJECTDIR}/_ext/1410781165/diskio.o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ${OBJECTDIR}/_ext/1410781165/ff.o ${OBJECTDIR}/_ext/1410781165/sdcard.o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o
+OBJECTFILES=${OBJECTDIR}/_ext/1360919890/app.o ${OBJECTDIR}/_ext/2048433900/simpledelay.o ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ${OBJECTDIR}/_ext/1410781165/diskio.o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ${OBJECTDIR}/_ext/1410781165/ff.o ${OBJECTDIR}/_ext/1410781165/sdcard.o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o ${OBJECTDIR}/_ext/1985307369/WF_Eint.o ${OBJECTDIR}/_ext/1985307369/WF_Spi.o ${OBJECTDIR}/_ext/1985307369/WFConnectionAlgorithm.o ${OBJECTDIR}/_ext/1985307369/WFConnectionManager.o ${OBJECTDIR}/_ext/1985307369/WFConnectionProfile.o ${OBJECTDIR}/_ext/1985307369/WFConsole.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIfconfig.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIwconfig.o ${OBJECTDIR}/_ext/1985307369/WFConsoleIwpriv.o ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgHandler.o ${OBJECTDIR}/_ext/1985307369/WFConsoleMsgs.o ${OBJECTDIR}/_ext/1985307369/WFDataTxRx.o ${OBJECTDIR}/_ext/1985307369/WFDriverCom.o ${OBJECTDIR}/_ext/1985307369/WFDriverRaw.o ${OBJECTDIR}/_ext/1985307369/WFEasyConfig.o ${OBJECTDIR}/_ext/1985307369/WFEventHandler.o ${OBJECTDIR}/_ext/1985307369/WFInit.o ${OBJECTDIR}/_ext/1985307369/WFMac.o ${OBJECTDIR}/_ext/1985307369/WFMgmtMsg.o ${OBJECTDIR}/_ext/1985307369/WFParamMsg.o ${OBJECTDIR}/_ext/1985307369/WFPowerSave.o ${OBJECTDIR}/_ext/1985307369/WFScan.o ${OBJECTDIR}/_ext/1985307369/WFTxPower.o ${OBJECTDIR}/_ext/1447902105/Announce.o ${OBJECTDIR}/_ext/1447902105/ARP.o ${OBJECTDIR}/_ext/1447902105/AutoIP.o ${OBJECTDIR}/_ext/1447902105/BigInt.o ${OBJECTDIR}/_ext/1447902105/DHCP.o ${OBJECTDIR}/_ext/1447902105/DHCPs.o ${OBJECTDIR}/_ext/1447902105/DNS.o ${OBJECTDIR}/_ext/1447902105/DNSs.o ${OBJECTDIR}/_ext/1447902105/ETHPIC32ExtPhy.o ${OBJECTDIR}/_ext/1447902105/ETHPIC32IntMac.o ${OBJECTDIR}/_ext/1447902105/Helpers.o ${OBJECTDIR}/_ext/1447902105/ICMP.o ${OBJECTDIR}/_ext/1447902105/IP.o ${OBJECTDIR}/_ext/1447902105/NBNS.o ${OBJECTDIR}/_ext/1447902105/StackTsk.o ${OBJECTDIR}/_ext/1447902105/TCP.o ${OBJECTDIR}/_ext/1447902105/Tick.o ${OBJECTDIR}/_ext/1447902105/UDP.o ${OBJECTDIR}/_ext/2063154737/tcpip.o ${OBJECTDIR}/_ext/2063154737/WF_Config.o ${OBJECTDIR}/_ext/252269054/serial_usb.o ${OBJECTDIR}/_ext/252269054/usb_descriptors.o ${OBJECTDIR}/_ext/252269054/usb_device.o ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o ${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o
 
 
 CFLAGS=
@@ -86,25 +86,50 @@ ${OBJECTDIR}/_ext/1360919890/app.o: ../app/app.c  nbproject/Makefile-${CND_CONF}
 	@${RM} ${OBJECTDIR}/_ext/1360919890/app.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360919890/app.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1360919890/app.o.d" -o ${OBJECTDIR}/_ext/1360919890/app.o ../app/app.c  
 	
-${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o: ../modules/http_server/CustomHTTPApp.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/733900163 
-	@${RM} ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d" -o ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o ../modules/http_server/CustomHTTPApp.c  
-	
 ${OBJECTDIR}/_ext/2048433900/simpledelay.o: ../modules/delay/simpledelay.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2048433900 
 	@${RM} ${OBJECTDIR}/_ext/2048433900/simpledelay.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2048433900/simpledelay.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/2048433900/simpledelay.o.d" -o ${OBJECTDIR}/_ext/2048433900/simpledelay.o ../modules/delay/simpledelay.c  
 	
-${OBJECTDIR}/_ext/2063154737/tcpip.o: ../modules/tcpip/tcpip.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/2063154737 
-	@${RM} ${OBJECTDIR}/_ext/2063154737/tcpip.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/2063154737/tcpip.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/2063154737/tcpip.o.d" -o ${OBJECTDIR}/_ext/2063154737/tcpip.o ../modules/tcpip/tcpip.c  
+${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o: ../modules/http_server/CustomHTTPApp.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/733900163 
+	@${RM} ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d" -o ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o ../modules/http_server/CustomHTTPApp.c  
 	
-${OBJECTDIR}/_ext/2063154737/WF_Config.o: ../modules/tcpip/WF_Config.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/2063154737 
-	@${RM} ${OBJECTDIR}/_ext/2063154737/WF_Config.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/2063154737/WF_Config.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/2063154737/WF_Config.o.d" -o ${OBJECTDIR}/_ext/2063154737/WF_Config.o ../modules/tcpip/WF_Config.c  
+${OBJECTDIR}/_ext/66509721/rtcc_helper.o: ../modules/rtcc/rtcc_helper.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/66509721 
+	@${RM} ${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d" -o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ../modules/rtcc/rtcc_helper.c  
+	
+${OBJECTDIR}/_ext/1410781165/diskio.o: ../modules/sdcard/src/diskio.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/diskio.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/diskio.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/diskio.o.d" -o ${OBJECTDIR}/_ext/1410781165/diskio.o ../modules/sdcard/src/diskio.c  
+	
+${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o: ../modules/sdcard/src/fatfs_mmc_spi.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d" -o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ../modules/sdcard/src/fatfs_mmc_spi.c  
+	
+${OBJECTDIR}/_ext/1410781165/ff.o: ../modules/sdcard/src/ff.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/ff.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/ff.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/ff.o.d" -o ${OBJECTDIR}/_ext/1410781165/ff.o ../modules/sdcard/src/ff.c  
+	
+${OBJECTDIR}/_ext/1410781165/sdcard.o: ../modules/sdcard/src/sdcard.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/sdcard.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/sdcard.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/sdcard.o.d" -o ${OBJECTDIR}/_ext/1410781165/sdcard.o ../modules/sdcard/src/sdcard.c  
+	
+${OBJECTDIR}/_ext/1410781165/sdcard_helper.o: ../modules/sdcard/src/sdcard_helper.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" -o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ../modules/sdcard/src/sdcard_helper.c  
+	
+${OBJECTDIR}/_ext/1410781165/ccsbcs.o: ../modules/sdcard/src/ccsbcs.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" -o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o ../modules/sdcard/src/ccsbcs.c  
 	
 ${OBJECTDIR}/_ext/1985307369/WF_Eint.o: ../modules/tcpip/TCPIP\ Stack/wifi_src/WF_Eint.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1985307369 
@@ -276,11 +301,6 @@ ${OBJECTDIR}/_ext/1447902105/Helpers.o: ../modules/tcpip/TCPIP\ Stack/src/Helper
 	@${RM} ${OBJECTDIR}/_ext/1447902105/Helpers.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/Helpers.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/Helpers.o.d" -o ${OBJECTDIR}/_ext/1447902105/Helpers.o "../modules/tcpip/TCPIP Stack/src/Helpers.c"  
 	
-${OBJECTDIR}/_ext/1447902105/HTTP2.o: ../modules/tcpip/TCPIP\ Stack/src/HTTP2.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
-	@${RM} ${OBJECTDIR}/_ext/1447902105/HTTP2.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/HTTP2.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/HTTP2.o.d" -o ${OBJECTDIR}/_ext/1447902105/HTTP2.o "../modules/tcpip/TCPIP Stack/src/HTTP2.c"  
-	
 ${OBJECTDIR}/_ext/1447902105/ICMP.o: ../modules/tcpip/TCPIP\ Stack/src/ICMP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
 	@${RM} ${OBJECTDIR}/_ext/1447902105/ICMP.o.d 
@@ -290,11 +310,6 @@ ${OBJECTDIR}/_ext/1447902105/IP.o: ../modules/tcpip/TCPIP\ Stack/src/IP.c  nbpro
 	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
 	@${RM} ${OBJECTDIR}/_ext/1447902105/IP.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/IP.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/IP.o.d" -o ${OBJECTDIR}/_ext/1447902105/IP.o "../modules/tcpip/TCPIP Stack/src/IP.c"  
-	
-${OBJECTDIR}/_ext/1447902105/MPFS2.o: ../modules/tcpip/TCPIP\ Stack/src/MPFS2.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
-	@${RM} ${OBJECTDIR}/_ext/1447902105/MPFS2.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/MPFS2.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/MPFS2.o.d" -o ${OBJECTDIR}/_ext/1447902105/MPFS2.o "../modules/tcpip/TCPIP Stack/src/MPFS2.c"  
 	
 ${OBJECTDIR}/_ext/1447902105/NBNS.o: ../modules/tcpip/TCPIP\ Stack/src/NBNS.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
@@ -321,10 +336,15 @@ ${OBJECTDIR}/_ext/1447902105/UDP.o: ../modules/tcpip/TCPIP\ Stack/src/UDP.c  nbp
 	@${RM} ${OBJECTDIR}/_ext/1447902105/UDP.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/UDP.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/UDP.o.d" -o ${OBJECTDIR}/_ext/1447902105/UDP.o "../modules/tcpip/TCPIP Stack/src/UDP.c"  
 	
-${OBJECTDIR}/_ext/733900163/MPFSImg2.o: ../modules/http_server/MPFSImg2.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/733900163 
-	@${RM} ${OBJECTDIR}/_ext/733900163/MPFSImg2.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/733900163/MPFSImg2.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/733900163/MPFSImg2.o.d" -o ${OBJECTDIR}/_ext/733900163/MPFSImg2.o ../modules/http_server/MPFSImg2.c  
+${OBJECTDIR}/_ext/2063154737/tcpip.o: ../modules/tcpip/tcpip.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/2063154737 
+	@${RM} ${OBJECTDIR}/_ext/2063154737/tcpip.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/2063154737/tcpip.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/2063154737/tcpip.o.d" -o ${OBJECTDIR}/_ext/2063154737/tcpip.o ../modules/tcpip/tcpip.c  
+	
+${OBJECTDIR}/_ext/2063154737/WF_Config.o: ../modules/tcpip/WF_Config.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/2063154737 
+	@${RM} ${OBJECTDIR}/_ext/2063154737/WF_Config.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/2063154737/WF_Config.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/2063154737/WF_Config.o.d" -o ${OBJECTDIR}/_ext/2063154737/WF_Config.o ../modules/tcpip/WF_Config.c  
 	
 ${OBJECTDIR}/_ext/252269054/serial_usb.o: ../modules/usb/src/serial_usb.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/252269054 
@@ -346,40 +366,10 @@ ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o: ../modules/usb/src/usb_function_
 	@${RM} ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/252269054/usb_function_cdc.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/252269054/usb_function_cdc.o.d" -o ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o ../modules/usb/src/usb_function_cdc.c  
 	
-${OBJECTDIR}/_ext/1410781165/diskio.o: ../modules/sdcard/src/diskio.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/diskio.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/diskio.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/diskio.o.d" -o ${OBJECTDIR}/_ext/1410781165/diskio.o ../modules/sdcard/src/diskio.c  
-	
-${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o: ../modules/sdcard/src/fatfs_mmc_spi.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d" -o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ../modules/sdcard/src/fatfs_mmc_spi.c  
-	
-${OBJECTDIR}/_ext/1410781165/ff.o: ../modules/sdcard/src/ff.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/ff.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/ff.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/ff.o.d" -o ${OBJECTDIR}/_ext/1410781165/ff.o ../modules/sdcard/src/ff.c  
-	
-${OBJECTDIR}/_ext/1410781165/sdcard.o: ../modules/sdcard/src/sdcard.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/sdcard.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/sdcard.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/sdcard.o.d" -o ${OBJECTDIR}/_ext/1410781165/sdcard.o ../modules/sdcard/src/sdcard.c  
-	
-${OBJECTDIR}/_ext/1410781165/sdcard_helper.o: ../modules/sdcard/src/sdcard_helper.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" -o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ../modules/sdcard/src/sdcard_helper.c  
-	
-${OBJECTDIR}/_ext/66509721/rtcc_helper.o: ../modules/rtcc/rtcc_helper.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/66509721 
-	@${RM} ${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d" -o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ../modules/rtcc/rtcc_helper.c  
-	
-${OBJECTDIR}/_ext/1410781165/ccsbcs.o: ../modules/sdcard/src/ccsbcs.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" -o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o ../modules/sdcard/src/ccsbcs.c  
+${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o: ../modules/tcpip/TCPIP\ Stack/src/HTTP2_FATFS.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
+	@${RM} ${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o.d" -o ${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o "../modules/tcpip/TCPIP Stack/src/HTTP2_FATFS.c"  
 	
 else
 ${OBJECTDIR}/_ext/1360919890/app.o: ../app/app.c  nbproject/Makefile-${CND_CONF}.mk
@@ -387,25 +377,50 @@ ${OBJECTDIR}/_ext/1360919890/app.o: ../app/app.c  nbproject/Makefile-${CND_CONF}
 	@${RM} ${OBJECTDIR}/_ext/1360919890/app.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360919890/app.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1360919890/app.o.d" -o ${OBJECTDIR}/_ext/1360919890/app.o ../app/app.c  
 	
-${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o: ../modules/http_server/CustomHTTPApp.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/733900163 
-	@${RM} ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d" -o ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o ../modules/http_server/CustomHTTPApp.c  
-	
 ${OBJECTDIR}/_ext/2048433900/simpledelay.o: ../modules/delay/simpledelay.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2048433900 
 	@${RM} ${OBJECTDIR}/_ext/2048433900/simpledelay.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2048433900/simpledelay.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/2048433900/simpledelay.o.d" -o ${OBJECTDIR}/_ext/2048433900/simpledelay.o ../modules/delay/simpledelay.c  
 	
-${OBJECTDIR}/_ext/2063154737/tcpip.o: ../modules/tcpip/tcpip.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/2063154737 
-	@${RM} ${OBJECTDIR}/_ext/2063154737/tcpip.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/2063154737/tcpip.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/2063154737/tcpip.o.d" -o ${OBJECTDIR}/_ext/2063154737/tcpip.o ../modules/tcpip/tcpip.c  
+${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o: ../modules/http_server/CustomHTTPApp.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/733900163 
+	@${RM} ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o.d" -o ${OBJECTDIR}/_ext/733900163/CustomHTTPApp.o ../modules/http_server/CustomHTTPApp.c  
 	
-${OBJECTDIR}/_ext/2063154737/WF_Config.o: ../modules/tcpip/WF_Config.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/2063154737 
-	@${RM} ${OBJECTDIR}/_ext/2063154737/WF_Config.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/2063154737/WF_Config.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/2063154737/WF_Config.o.d" -o ${OBJECTDIR}/_ext/2063154737/WF_Config.o ../modules/tcpip/WF_Config.c  
+${OBJECTDIR}/_ext/66509721/rtcc_helper.o: ../modules/rtcc/rtcc_helper.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/66509721 
+	@${RM} ${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d" -o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ../modules/rtcc/rtcc_helper.c  
+	
+${OBJECTDIR}/_ext/1410781165/diskio.o: ../modules/sdcard/src/diskio.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/diskio.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/diskio.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/diskio.o.d" -o ${OBJECTDIR}/_ext/1410781165/diskio.o ../modules/sdcard/src/diskio.c  
+	
+${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o: ../modules/sdcard/src/fatfs_mmc_spi.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d" -o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ../modules/sdcard/src/fatfs_mmc_spi.c  
+	
+${OBJECTDIR}/_ext/1410781165/ff.o: ../modules/sdcard/src/ff.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/ff.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/ff.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/ff.o.d" -o ${OBJECTDIR}/_ext/1410781165/ff.o ../modules/sdcard/src/ff.c  
+	
+${OBJECTDIR}/_ext/1410781165/sdcard.o: ../modules/sdcard/src/sdcard.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/sdcard.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/sdcard.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/sdcard.o.d" -o ${OBJECTDIR}/_ext/1410781165/sdcard.o ../modules/sdcard/src/sdcard.c  
+	
+${OBJECTDIR}/_ext/1410781165/sdcard_helper.o: ../modules/sdcard/src/sdcard_helper.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" -o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ../modules/sdcard/src/sdcard_helper.c  
+	
+${OBJECTDIR}/_ext/1410781165/ccsbcs.o: ../modules/sdcard/src/ccsbcs.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
+	@${RM} ${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" -o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o ../modules/sdcard/src/ccsbcs.c  
 	
 ${OBJECTDIR}/_ext/1985307369/WF_Eint.o: ../modules/tcpip/TCPIP\ Stack/wifi_src/WF_Eint.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1985307369 
@@ -577,11 +592,6 @@ ${OBJECTDIR}/_ext/1447902105/Helpers.o: ../modules/tcpip/TCPIP\ Stack/src/Helper
 	@${RM} ${OBJECTDIR}/_ext/1447902105/Helpers.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/Helpers.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/Helpers.o.d" -o ${OBJECTDIR}/_ext/1447902105/Helpers.o "../modules/tcpip/TCPIP Stack/src/Helpers.c"  
 	
-${OBJECTDIR}/_ext/1447902105/HTTP2.o: ../modules/tcpip/TCPIP\ Stack/src/HTTP2.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
-	@${RM} ${OBJECTDIR}/_ext/1447902105/HTTP2.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/HTTP2.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/HTTP2.o.d" -o ${OBJECTDIR}/_ext/1447902105/HTTP2.o "../modules/tcpip/TCPIP Stack/src/HTTP2.c"  
-	
 ${OBJECTDIR}/_ext/1447902105/ICMP.o: ../modules/tcpip/TCPIP\ Stack/src/ICMP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
 	@${RM} ${OBJECTDIR}/_ext/1447902105/ICMP.o.d 
@@ -591,11 +601,6 @@ ${OBJECTDIR}/_ext/1447902105/IP.o: ../modules/tcpip/TCPIP\ Stack/src/IP.c  nbpro
 	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
 	@${RM} ${OBJECTDIR}/_ext/1447902105/IP.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/IP.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/IP.o.d" -o ${OBJECTDIR}/_ext/1447902105/IP.o "../modules/tcpip/TCPIP Stack/src/IP.c"  
-	
-${OBJECTDIR}/_ext/1447902105/MPFS2.o: ../modules/tcpip/TCPIP\ Stack/src/MPFS2.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
-	@${RM} ${OBJECTDIR}/_ext/1447902105/MPFS2.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/MPFS2.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/MPFS2.o.d" -o ${OBJECTDIR}/_ext/1447902105/MPFS2.o "../modules/tcpip/TCPIP Stack/src/MPFS2.c"  
 	
 ${OBJECTDIR}/_ext/1447902105/NBNS.o: ../modules/tcpip/TCPIP\ Stack/src/NBNS.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
@@ -622,10 +627,15 @@ ${OBJECTDIR}/_ext/1447902105/UDP.o: ../modules/tcpip/TCPIP\ Stack/src/UDP.c  nbp
 	@${RM} ${OBJECTDIR}/_ext/1447902105/UDP.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/UDP.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/UDP.o.d" -o ${OBJECTDIR}/_ext/1447902105/UDP.o "../modules/tcpip/TCPIP Stack/src/UDP.c"  
 	
-${OBJECTDIR}/_ext/733900163/MPFSImg2.o: ../modules/http_server/MPFSImg2.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/733900163 
-	@${RM} ${OBJECTDIR}/_ext/733900163/MPFSImg2.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/733900163/MPFSImg2.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/733900163/MPFSImg2.o.d" -o ${OBJECTDIR}/_ext/733900163/MPFSImg2.o ../modules/http_server/MPFSImg2.c  
+${OBJECTDIR}/_ext/2063154737/tcpip.o: ../modules/tcpip/tcpip.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/2063154737 
+	@${RM} ${OBJECTDIR}/_ext/2063154737/tcpip.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/2063154737/tcpip.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/2063154737/tcpip.o.d" -o ${OBJECTDIR}/_ext/2063154737/tcpip.o ../modules/tcpip/tcpip.c  
+	
+${OBJECTDIR}/_ext/2063154737/WF_Config.o: ../modules/tcpip/WF_Config.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/2063154737 
+	@${RM} ${OBJECTDIR}/_ext/2063154737/WF_Config.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/2063154737/WF_Config.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/2063154737/WF_Config.o.d" -o ${OBJECTDIR}/_ext/2063154737/WF_Config.o ../modules/tcpip/WF_Config.c  
 	
 ${OBJECTDIR}/_ext/252269054/serial_usb.o: ../modules/usb/src/serial_usb.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/252269054 
@@ -647,40 +657,10 @@ ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o: ../modules/usb/src/usb_function_
 	@${RM} ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o.d 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/252269054/usb_function_cdc.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/252269054/usb_function_cdc.o.d" -o ${OBJECTDIR}/_ext/252269054/usb_function_cdc.o ../modules/usb/src/usb_function_cdc.c  
 	
-${OBJECTDIR}/_ext/1410781165/diskio.o: ../modules/sdcard/src/diskio.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/diskio.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/diskio.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/diskio.o.d" -o ${OBJECTDIR}/_ext/1410781165/diskio.o ../modules/sdcard/src/diskio.c  
-	
-${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o: ../modules/sdcard/src/fatfs_mmc_spi.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o.d" -o ${OBJECTDIR}/_ext/1410781165/fatfs_mmc_spi.o ../modules/sdcard/src/fatfs_mmc_spi.c  
-	
-${OBJECTDIR}/_ext/1410781165/ff.o: ../modules/sdcard/src/ff.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/ff.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/ff.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/ff.o.d" -o ${OBJECTDIR}/_ext/1410781165/ff.o ../modules/sdcard/src/ff.c  
-	
-${OBJECTDIR}/_ext/1410781165/sdcard.o: ../modules/sdcard/src/sdcard.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/sdcard.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/sdcard.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/sdcard.o.d" -o ${OBJECTDIR}/_ext/1410781165/sdcard.o ../modules/sdcard/src/sdcard.c  
-	
-${OBJECTDIR}/_ext/1410781165/sdcard_helper.o: ../modules/sdcard/src/sdcard_helper.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/sdcard_helper.o.d" -o ${OBJECTDIR}/_ext/1410781165/sdcard_helper.o ../modules/sdcard/src/sdcard_helper.c  
-	
-${OBJECTDIR}/_ext/66509721/rtcc_helper.o: ../modules/rtcc/rtcc_helper.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/66509721 
-	@${RM} ${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/66509721/rtcc_helper.o.d" -o ${OBJECTDIR}/_ext/66509721/rtcc_helper.o ../modules/rtcc/rtcc_helper.c  
-	
-${OBJECTDIR}/_ext/1410781165/ccsbcs.o: ../modules/sdcard/src/ccsbcs.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1410781165 
-	@${RM} ${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1410781165/ccsbcs.o.d" -o ${OBJECTDIR}/_ext/1410781165/ccsbcs.o ../modules/sdcard/src/ccsbcs.c  
+${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o: ../modules/tcpip/TCPIP\ Stack/src/HTTP2_FATFS.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1447902105 
+	@${RM} ${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o.d 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o.d" $(SILENT) -c  ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../modules/tcpip" -I"../app" -I"../modules/base" -I"../modules" -I"../modules/http_server" -I"../modules/usb" -I"../modules/delay" -I"../modules/tcpip/TCPIP Stack" -I"../modules/sdcard" -I"../modules/rtcc" -MMD -MF "${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o.d" -o ${OBJECTDIR}/_ext/1447902105/HTTP2_FATFS.o "../modules/tcpip/TCPIP Stack/src/HTTP2_FATFS.c"  
 	
 endif
 
@@ -689,11 +669,11 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/waterworx.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mdebugger -D__MPLAB_DEBUGGER_PK3=1 -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/waterworx.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}       -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__ICD2RAM=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,--defsym=_min_heap_size=2048,-L"..",-Map="${DISTDIR}/waterworx.X.${IMAGE_TYPE}.map"
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mdebugger -D__MPLAB_DEBUGGER_PK3=1 -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/waterworx.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}       -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__ICD2RAM=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,--defsym=_min_heap_size=4096,-L"..",-Map="${DISTDIR}/waterworx.X.${IMAGE_TYPE}.map"
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/waterworx.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/waterworx.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}       -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=_min_heap_size=2048,-L"..",-Map="${DISTDIR}/waterworx.X.${IMAGE_TYPE}.map"
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/waterworx.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}       -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=_min_heap_size=4096,-L"..",-Map="${DISTDIR}/waterworx.X.${IMAGE_TYPE}.map"
 	${MP_CC_DIR}\\xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/waterworx.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
 endif
 

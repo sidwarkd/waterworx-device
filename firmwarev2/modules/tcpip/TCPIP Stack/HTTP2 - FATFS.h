@@ -48,13 +48,13 @@
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Nilesh Rajbharti     8/14/01 Original
  * Elliott Wood			6/4/07	Complete rewrite (known as HTTP2)
- * Amit Shirbhate	11/12/09 Modified for MDD File System Support
 ********************************************************************/
 
 #ifndef __HTTP2_H
 #define __HTTP2_H
 
 #include "TCPIP Stack/TCPIP.h"
+#include <sdcard/module.h>
 
 #if defined(STACK_USE_HTTP2_SERVER)
 
@@ -76,7 +76,7 @@
         #define HTTP_MIN_CALLBACK_FREE	(16u)
     #endif
 	#define HTTP_CACHE_LEN			("600")	// Max lifetime (sec) of static responses as string
-	#define HTTP_TIMEOUT			(45u)	// Max time (sec) to await more data before
+	#define HTTP_TIMEOUT			(45u)	// Max time (sec) to await more data before timing out and disconnecting the socket
 
 	// Authentication requires Base64 decoding
 	#if defined(HTTP_USE_AUTHENTICATION)
@@ -93,22 +93,15 @@
 	//Supported Commands and Server Response Codes
 	typedef enum
 	{
-	    HTTP_GET = 0u,					// GET command is being processed
-	    HTTP_POST,						// POST command is being processed
-	    HTTP_BAD_REQUEST,				// 400 Bad Request will be returned
-		HTTP_UNAUTHORIZED,				// 401 Unauthorized will be returned
-	    HTTP_NOT_FOUND,					// 404 Not Found will be returned
-		HTTP_OVERFLOW,					// 414 Request-URI Too Long will be returned
+		HTTP_OK = 0u,									// 200 Everything is good
+	  HTTP_BAD_REQUEST,							// 400 Bad Request will be returned
+		HTTP_UNAUTHORIZED,						// 401 Unauthorized will be returned
+	  HTTP_NOT_FOUND,								// 404 Not Found will be returned
+		HTTP_OVERFLOW,								// 414 Request-URI Too Long will be returned
 		HTTP_INTERNAL_SERVER_ERROR,		// 500 Internal Server Error will be returned
-		HTTP_NOT_IMPLEMENTED,			// 501 Not Implemented (not a GET or POST command)
-		#if defined(HTTP_MPFS_UPLOAD)
-		HTTP_MPFS_FORM,					// Show the MPFS Upload form
-		HTTP_MPFS_UP,					// An MPFS Upload is being processed
-		HTTP_MPFS_OK,					// An MPFS Upload was successful
-		HTTP_MPFS_ERROR,				// An MPFS Upload was not a valid image
-		#endif
-		HTTP_REDIRECT,					// 302 Redirect will be returned
-		HTTP_SSL_REQUIRED				// 403 Forbidden is returned, indicating SSL is required
+		HTTP_NOT_IMPLEMENTED,					// 501 Not Implemented (not a GET or POST command)
+		HTTP_REDIRECT,								// 302 Redirect will be returned
+		HTTP_SSL_REQUIRED							// 403 Forbidden is returned, indicating SSL is required
 	} HTTP_STATUS;
 
 /****************************************************************************
@@ -119,19 +112,28 @@
 	// Basic HTTP Connection State Machine
 	typedef enum
 	{
-		SM_HTTP_IDLE = 0u,				// Socket is idle
+		SM_HTTP_IDLE = 0u,					// Socket is idle
 		SM_HTTP_PARSE_REQUEST,			// Parses the first line for a file name and GET args
 		SM_HTTP_PARSE_HEADERS,			// Reads and parses headers one at a time
-		SM_HTTP_AUTHENTICATE,			// Validates the current authorization state
-		SM_HTTP_PROCESS_GET,			// Invokes user callback for GET args or cookies
-		SM_HTTP_PROCESS_POST,			// Invokes user callback for POSTed data
-		SM_HTTP_PROCESS_REQUEST,		// Begins the process of returning data
-		SM_HTTP_SERVE_HEADERS,			// Sends any required headers for the response
-		SM_HTTP_SERVE_COOKIES,			// Adds any cookies to the response
-		SM_HTTP_SERVE_BODY,				// Serves the actual content
-		SM_HTTP_SEND_FROM_CALLBACK,		// Invokes a dynamic variable callback
-		SM_HTTP_DISCONNECT				// Disconnects the server and closes all files
+		SM_HTTP_AUTHENTICATE,				// Validates the current authorization state
+		SM_HTTP_PROCESS_GET,				// Invokes user callback for GET args or cookies
+		SM_HTTP_PROCESS_POST,				// Invokes user callback for POSTed data
+		// SM_HTTP_PROCESS_REQUEST,		// Begins the process of returning data
+		// SM_HTTP_SERVE_HEADERS,			// Sends any required headers for the response
+		// SM_HTTP_SERVE_COOKIES,			// Adds any cookies to the response
+		// SM_HTTP_SERVE_BODY,					// Serves the actual content
+		SM_HTTP_HANDLE_ERROR,
+		SM_HTTP_DISCONNECT					// Disconnects the server and closes all files
 	} SM_HTTP2;
+
+	typedef enum 
+	{  
+		ROUTE_PROCESS_REQUEST = 0u,
+		ROUTE_SERVE_HEADERS,
+		ROUTE_SERVE_BODY,
+		ROUTE_DONE
+	} HTTP_ROUTE_STATE;
+
 
 	// Result states for execution callbacks
 	typedef enum
@@ -140,6 +142,7 @@
 		HTTP_IO_NEED_DATA,	// More data needed to continue, call again later
 		HTTP_IO_WAITING		// Waiting for asynchronous process to complete, call again later
 	} HTTP_IO_RESULT;
+
 
 	// Result states for HTTPPostReadName and HTTPPostReadValue
 	typedef enum
@@ -153,61 +156,128 @@
 	typedef enum
 	{
 		HTTP_TXT = 0u,		// File is a text document
-		HTTP_HTM,			// File is HTML (extension .htm)
-		HTTP_HTML,			// File is HTML (extension .html)
-		HTTP_CGI,			// File is HTML (extension .cgi)
-		HTTP_XML,			// File is XML (extension .xml)
-		HTTP_CSS,			// File is stylesheet (extension .css)
-		HTTP_GIF,			// File is GIF image (extension .gif)
-		HTTP_PNG,			// File is PNG image (extension .png)
-		HTTP_JPG,			// File is JPG image (extension .jpg)
-		HTTP_JAVA,			// File is java (extension .java)
-		HTTP_WAV,			// File is audio (extension .wav)
-		HTTP_UNKNOWN		// File type is unknown
+		HTTP_HTM,					// File is HTML (extension .htm)
+		HTTP_HTML,				// File is HTML (extension .html)
+		HTTP_CGI,					// File is HTML (extension .cgi)
+		HTTP_XML,					// File is XML (extension .xml)
+		HTTP_CSS,					// File is stylesheet (extension .css)
+		HTTP_GIF,					// File is GIF image (extension .gif)
+		HTTP_PNG,					// File is PNG image (extension .png)
+		HTTP_JPG,					// File is JPG image (extension .jpg)
+		HTTP_JAVA,				// File is java (extension .java)
+		HTTP_WAV,					// File is audio (extension .wav)
+		HTTP_JS,					// File is javascript (extension .js)
+		HTTP_JSON,				// Return data is json
+		HTTP_UNKNOWN			// File type is unknown
 	} HTTP_FILE_TYPE;
+
+	typedef enum 
+	{  
+		HTTP_GET = 0u,
+		HTTP_POST,
+		HTTP_PUT,
+		HTTP_DELETE
+
+	} HTTP_METHOD;
 
 	// HTTP Connection Struct
 	// Stores partial state data for each connection
 	// Meant for storage in fast access RAM
-	typedef struct
+	/*typedef struct
 	{
 	    SM_HTTP2 sm;						// Current connection state
 	    TCP_SOCKET socket;					// Socket being served
-	} HTTP_STUB;
+	} HTTP_STUB;*/
 
-	#define sktHTTP		httpStubs[curHTTPID].socket		// Access the current socket
+	//#define sktHTTP		httpStubs[curHTTPID].socket		// Access the current socket
 
 	// Stores extended state data for each connection
-	typedef struct
+	/*typedef struct
 	{
 		DWORD byteCount;					// How many bytes have been read so far
-		DWORD nextCallback;					// Byte index of the next callback
+		DWORD nextCallback;				// Byte index of the next callback
 		DWORD callbackID;					// Callback ID to execute, also used as watchdog timer
-		DWORD callbackPos;					// Callback position indicator
+		DWORD callbackPos;				// Callback position indicator
 		BYTE *ptrData;						// Points to first free byte in data
 		BYTE *ptrRead;						// Points to current read location
-		FILE_HANDLE file;					// File pointer for the file being served
-	    FILE_HANDLE offsets;				// File pointer for any offset info being used
-		BYTE hasArgs;						// True if there were get or cookie arguments
-		BYTE isAuthorized;					// 0x00-0x79 on fail, 0x80-0xff on pass
-		HTTP_STATUS httpStatus;				// Request method/status
-	    HTTP_FILE_TYPE fileType;			// File type to return with Content-Type
-		BYTE data[HTTP_MAX_DATA_LEN];		// General purpose data buffer
+		FILEHANDLE file;
+		//MPFS_HANDLE file;				// File pointer for the file being served
+	  //MPFS_HANDLE offsets;		// File pointer for any offset info being used
+		BYTE hasArgs;							// True if there were get or cookie arguments
+		BYTE isAuthorized;				// 0x00-0x79 on fail, 0x80-0xff on pass
+		HTTP_STATUS httpStatus;		// Request method/status
+	  HTTP_FILE_TYPE fileType;			// File type to return with Content-Type
+		BYTE data[HTTP_MAX_DATA_LEN];	// General purpose data buffer
 		#if defined(HTTP_USE_POST)
-		BYTE smPost;						// POST state machine variable
+		BYTE smPost;							// POST state machine variable
 		#endif
-	} HTTP_CONN;
+		HTTP_PATH_TYPE pathType;
+		BYTE *queryString;
+	} HTTP_CONN;*/
 
-	#define RESERVED_HTTP_MEMORY ( (DWORD)MAX_HTTP_CONNECTIONS * (DWORD)sizeof(HTTP_CONN))
+
+	// Patterned after the NodeJS http.ServerRequest object
+	typedef struct 
+	{
+		HTTP_METHOD method;			// Method used (GET, POST, PUT, DELETE)
+		BYTE url[MAX_URL_LEN];	// The url including query string if present
+		BYTE methodState;							// State machine state for processing request
+		DWORD contentLength;
+
+	} HTTP_SERVER_REQUEST;
+
+	typedef struct 
+	{
+		HTTP_STATUS status;
+		HTTP_FILE_TYPE returnType;
+		BOOL disableCache;
+		
+	} HTTP_SERVER_RESPONSE;
+
+	typedef struct 
+	{
+		HTTP_SERVER_REQUEST request;
+		HTTP_SERVER_RESPONSE response;
+		SM_HTTP2 state;
+		TCP_SOCKET socket;
+		DWORD wdTimer;
+		BYTE data[HTTP_MAX_DATA_LEN];	// General purpose data buffer
+		DWORD bytesAvailable;
+		FILEHANDLE *file;
+
+	} HTTP_SERVER_CONNECTION;
+
+
+	extern HTTP_SERVER_CONNECTION httpConnections[1];
+	extern BYTE activeConnectionID;
+	extern HTTP_SERVER_CONNECTION activeConnection;
+
+	#define activeSocket		httpConnections[activeConnectionID].socket		// Access the current socket
+
+#if defined(HTTP_SAVE_CONTEXT_IN_PIC_RAM)
+	#define RESERVED_HTTP_MEMORY 0ul        // Macro indicating how much RAM to allocate on an ethernet controller to store HTTP state data.
+#else
+	#define RESERVED_HTTP_MEMORY ((DWORD)MAX_HTTP_CONNECTIONS * (DWORD)sizeof(HTTP_SERVER_REQUEST))
+	//#define RESERVED_HTTP_MEMORY ((DWORD)MAX_HTTP_CONNECTIONS * (DWORD)sizeof(HTTP_CONN))
+#endif
 
 /****************************************************************************
   Section:
 	Global HTTP Variables
   ***************************************************************************/
 
-extern HTTP_CONN curHTTP;
-extern HTTP_STUB httpStubs[MAX_HTTP_CONNECTIONS];
-extern BYTE curHTTPID;
+#if defined(HTTP_SAVE_CONTEXT_IN_PIC_RAM)
+	extern HTTP_CONN		HTTPControlBlocks[MAX_HTTP_CONNECTIONS];
+	#define curHTTP			HTTPControlBlocks[curHTTPID]							// Current HTTP connection state
+#else
+	//extern HTTP_CONN curHTTP;
+	extern HTTP_SERVER_REQUEST currentRequest;
+#endif
+
+
+
+//extern HTTP_STUB httpStubs[MAX_HTTP_CONNECTIONS];
+//extern BYTE curHTTPID;
 
 /****************************************************************************
   Section:
@@ -347,6 +417,7 @@ void HTTPIncFile(ROM BYTE* cFile);
 	with individual requests.
   ***************************************************************************/
 HTTP_IO_RESULT HTTPExecuteGet(void);
+HTTP_IO_RESULT HTTPExecuteRoute(void);
 
 /*****************************************************************************
   Function:

@@ -58,7 +58,8 @@ build: .build-post
 
 .build-post: .build-impl
 # Add your post 'build' code here...
-
+	cp ${CND_ARTIFACT_PATH_${CONF}} ../bin
+	mv ../bin/${CND_ARTIFACT_NAME_${CONF}} ../bin/v0_0_2.hex
 
 # clean
 clean: .clean-post

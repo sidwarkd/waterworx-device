@@ -96,7 +96,7 @@
 	
 	
 	#if defined(STACK_USE_HTTP2_SERVER) || defined(STACK_USE_FTP_SERVER)
-		#define STACK_USE_MPFS2
+		//#define STACK_USE_MPFS2
 	#endif
 
 	#if defined(STACK_USE_SNMPV3_SERVER) && !defined (STACK_USE_SNMP_SERVER)

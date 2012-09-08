@@ -6,6 +6,20 @@
 
 ///////////////////////////////////////////////////////////////////
 
+// Definition of extern variables to be used across files
+BOOL fsMounted;
+FATFS fatfs[2];  // file system object
+FATFS *fs;
+
+DIRECTORY _currentDirectory;
+FILEINFO _currentFileInfo;
+//FILEHANDLE _currentFile;
+UINT8 numOpenFiles;
+
+#if _USE_LFN
+char lfn[_MAX_LFN + 1];
+#endif
+
 void SDCARD_Initialize(void)
 {
 	// Set up Timer 1 to generate interrupts at 1kHz
@@ -16,11 +30,12 @@ void SDCARD_Initialize(void)
 
 	_SetChipSelect(FALSE);
 	fsMounted = FALSE;
+	numOpenFiles = 0;
 
-#if _USE_LFN
+// #if _USE_LFN
 	_currentFileInfo.lfname = lfn;
   _currentFileInfo.lfsize = sizeof(lfn);
-#endif
+// #endif
 
 	// Setup the I/O
   SDSetCDDirection();     // CD as input

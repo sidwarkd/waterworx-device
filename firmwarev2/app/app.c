@@ -4,18 +4,28 @@
 
 #define SaveAppConfig(a)
 
+void Error(void);
+
 void _general_exception_handler(unsigned cause, unsigned status)
 {
-	mLED_Red_On();
+	mLED_Yellow_On();
 	Nop();
 	Nop();
+  Error();
 }
 
 int main(void)
 {
 	#ifndef TESTING
+  FILEHANDLE *file;
 
 	InitializeSystem();
+
+  if(!SDCARD_Mount())
+  {
+    // Something went wrong with the SD card.  We can't go any further
+    Error();
+  }
 
     while(1)
     {
@@ -47,6 +57,9 @@ int main(void)
         DelayMs(1000);
         mLED_Yellow_Toggle();
         DelayMs(1000);*/
+
+        file = FATFS_fopen("testing.txt", "r");
+        FATFS_fclose(file);
 
         /*mLED_White_On();
         if(OpenFile("program.txt", &fp, FA_CREATE_NEW | FA_WRITE))
@@ -138,7 +151,16 @@ void InitializeSystem()
 	//SPRINKLER_Initialize();
 	//RTCC_Initialize(); 
   //SERIALUSB_Initialize();
-	//SDCARD_Initialize();
+	SDCARD_Initialize();
 
   TCPIP_Initialize();
+}
+
+void Error()
+{
+  while(1)
+  {
+    mLED_Red_Toggle();
+    DelayMs(200);
+  }
 }

@@ -105,7 +105,7 @@
  *   applications.  If your custom application requires it
  *   otherwise, uncomment the appropriate selection.
  */
-#define STACK_USE_MPFS2
+//#define STACK_USE_MPFS2
 
 /* MPFS Storage Location
  *   If html pages are stored in internal program memory,
@@ -138,7 +138,7 @@
  *   Maximum number of simultaneously open MPFS2 files.
  *   For MPFS Classic, this has no effect.
  */
-#define MAX_MPFS_HANDLES				(7ul)
+#define MAX_MPFS_HANDLES				(6ul)
 
 
 // =======================================================================
@@ -150,7 +150,7 @@
  *   To clear EEPROM, hold BUTTON0, reset the board, and continue
  *   holding until the LEDs flash.  Release, and reset again.
  */
-#define MY_DEFAULT_HOST_NAME			"waterworx"
+#define MY_DEFAULT_HOST_NAME			"WATERWRX"
 
 #define MY_DEFAULT_MAC_BYTE1            (0x00)	// Use the default of 00-04-A3-00-00-00
 #define MY_DEFAULT_MAC_BYTE2            (0x04)	// if using an ENCX24J600, MRF24WB0M, or
@@ -355,7 +355,7 @@
 
 	// Define which HTTP modules to use
 	// If not using a specific module, comment it to save resources
-	//#define HTTP_USE_POST					// Enable POST support
+	#define HTTP_USE_POST					// Enable POST support
 	//#define HTTP_USE_COOKIES				// Enable cookie support
 	//#define HTTP_USE_AUTHENTICATION			// Enable basic authentication support
 

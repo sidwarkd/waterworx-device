@@ -6,6 +6,18 @@
 
 ///////////////////////////////////////////////////////////////////
 
+// Definition of extern variables to be used across files
+BOOL fsMounted;
+FATFS fatfs[2];  // file system object
+FATFS *fs;
+
+DIRECTORY _currentDirectory;
+FILEINFO _currentFileInfo;
+FILEHANDLE _currentFile;
+#if _USE_LFN
+char lfn[_MAX_LFN + 1];
+#endif
+
 void SDCARD_Initialize(void)
 {
 	// Set up Timer 1 to generate interrupts at 1kHz

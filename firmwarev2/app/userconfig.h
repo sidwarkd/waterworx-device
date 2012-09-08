@@ -4,12 +4,10 @@
 //============================================
 // RUNTIME MODE
 //============================================
-#define DEBUGGING
+//#define DEBUGGING
 #ifndef DEBUGGING
 #define RELEASE
 #endif
-
-//#define TESTING
 
 //============================================
 // CONFIGURATION BITS
@@ -216,6 +214,8 @@
 //============================================
 // SD CARD Settings
 //============================================
+
+#define MAX_OPEN_FILES  4
 // define the interface that the SD card is using
 //#define MEDIASD_IF_SPI1
 #define MEDIASD_SP2
@@ -243,8 +243,15 @@
 
 //============================================
 // Testing Module Settings
+//===========================================
+
+#define MAX_URL_LEN 32
+
+//============================================
+// Testing Module Settings
 //============================================
 #define NUM_MODULES_TO_TEST     1
+
 
 #endif
 

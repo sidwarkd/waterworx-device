@@ -47,17 +47,11 @@
 // Reuse the setting in userconfig.h
 #define FOSC	CLOCK_FREQ
 
-BOOL fsMounted;
-static FATFS fatfs[2];	// file system object
-static FATFS *fs;
-
 typedef FIL     FILEHANDLE;
 typedef FILINFO FILEINFO;
 typedef DIR     DIRECTORY;
 
 #define f_size(fp) ((fp)->fsize)
-
-
 
 // Helper functions for interacting with the SD card
 //BOOL OpenFile(char *filename, FILEHANDLE *stream, BYTE flags);
@@ -71,11 +65,16 @@ typedef DIR     DIRECTORY;
 // =================================
 // INTERNAL MODULE FUNCTIONS/MEMBERS
 // =================================
-static DIRECTORY _currentDirectory;
-static FILEINFO _currentFileInfo;
-static FILEHANDLE _currentFile;
+
+extern BOOL fsMounted;
+extern FATFS fatfs[2];  // file system object
+extern FATFS *fs;
+
+extern DIRECTORY _currentDirectory;
+extern FILEINFO _currentFileInfo;
+extern FILEHANDLE _currentFile;
 #if _USE_LFN
-static char lfn[_MAX_LFN + 1];
+extern char lfn[_MAX_LFN + 1];
 #endif
 
 

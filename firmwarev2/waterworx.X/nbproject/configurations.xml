@@ -14,7 +14,6 @@
       </logicalFolder>
       <logicalFolder name="http_server" displayName="http_server" projectFiles="true">
         <itemPath>../modules/http_server/module.h</itemPath>
-        <itemPath>../modules/http_server/HTTPPrint.h</itemPath>
       </logicalFolder>
       <logicalFolder name="rtcc" displayName="rtcc" projectFiles="true">
         <itemPath>../modules/rtcc/module.h</itemPath>
@@ -27,7 +26,6 @@
         <itemPath>../modules/sdcard/ffconf.h</itemPath>
       </logicalFolder>
       <logicalFolder name="tcpip" displayName="tcpip" projectFiles="true">
-        <itemPath>../modules/tcpip/TCPIP Stack/_HTTP2.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/AES.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/AES_CBC.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/AES_CFB.h</itemPath>
@@ -64,7 +62,6 @@
         <itemPath>../modules/tcpip/TCPIP Stack/IP.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/LCDBlocking.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/MAC.h</itemPath>
-        <itemPath>../modules/tcpip/TCPIP Stack/MPFS2.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/NBNS.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/Random.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/Reboot.h</itemPath>
@@ -143,7 +140,6 @@
       </logicalFolder>
       <logicalFolder name="http_server" displayName="http_server" projectFiles="true">
         <itemPath>../modules/http_server/CustomHTTPApp.c</itemPath>
-        <itemPath>../modules/http_server/MPFSImg2.c</itemPath>
       </logicalFolder>
       <logicalFolder name="rtcc" displayName="rtcc" projectFiles="true">
         <itemPath>../modules/rtcc/rtcc_helper.c</itemPath>
@@ -191,15 +187,14 @@
         <itemPath>../modules/tcpip/TCPIP Stack/src/ETHPIC32ExtPhy.c</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/src/ETHPIC32IntMac.c</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/src/Helpers.c</itemPath>
-        <itemPath>../modules/tcpip/TCPIP Stack/src/HTTP2.c</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/src/ICMP.c</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/src/IP.c</itemPath>
-        <itemPath>../modules/tcpip/TCPIP Stack/src/MPFS2.c</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/src/NBNS.c</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/src/StackTsk.c</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/src/TCP.c</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/src/Tick.c</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/src/UDP.c</itemPath>
+        <itemPath>../modules/tcpip/TCPIP Stack/src/HTTP2_FATFS.c</itemPath>
       </logicalFolder>
       <logicalFolder name="tcpip_custom"
                      displayName="tcpip_custom"
@@ -262,7 +257,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../modules/tcpip;../app;../modules/base;../modules;../modules/http_server;../modules/usb;../modules/delay;../modules/tcpip/TCPIP Stack;../modules/sdcard;../modules/rtcc;"/>
+                  value="../modules/tcpip;../app;../modules/base;../modules;../modules/http_server;../modules/usb;../modules/delay;../modules/tcpip/TCPIP Stack;../modules/sdcard;../modules/rtcc"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="isolate-each-function" value="false"/>
         <property key="make-warnings-into-errors" value="false"/>
@@ -298,10 +293,10 @@
         <property key="enable-check-sections" value="false"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
-        <property key="extra-lib-directories" value="..;"/>
+        <property key="extra-lib-directories" value=".."/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
-        <property key="heap-size" value="2048"/>
+        <property key="heap-size" value="4096"/>
         <property key="input-libraries" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="&quot;${DISTDIR}/waterworx.X.${IMAGE_TYPE}.map&quot;"/>

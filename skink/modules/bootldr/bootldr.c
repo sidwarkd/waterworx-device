@@ -131,6 +131,9 @@ void BOOTLDR_Run()
 
             WriteHexRecord2Flash(hexRec);
             record.status = REC_FLASHED;
+
+            // Blink the green LED to indicate programming in progress
+            mLED_Green_Toggle();
           }
           break;
       }
@@ -150,9 +153,6 @@ void BOOTLDR_Run()
     {
       pointer = 0;
     } 
-
-    // Blink the green LED to indicate programming in progress
-    mLED_Green_Toggle();
   }//while(1)
   
 }// end BOOTLDR_Run function

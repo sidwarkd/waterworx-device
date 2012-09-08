@@ -62,7 +62,6 @@ BOOL DirectoryExists(char *dir)
 	return FALSE;
 }*/
 
-
 BOOL SDCARD_IsCardInserted()
 {
 	if(SD_CD != 0)
@@ -76,6 +75,8 @@ void FATFS_fclose(FILEHANDLE *file)
 	if(fsMounted)
 	{
 		f_close((FIL*)file);
+		numOpenFiles--;
+		free(file);
 	}
 }
 
@@ -98,8 +99,14 @@ FILEHANDLE* FATFS_fopen(CHAR *filename, CHAR *mode)
 {
 	FRESULT res;
 	BYTE flags;
-	char fatfsFilename[64];
+	FIL *newFile;
+	char fatfsFilename[128];
 	flags = 0;
+
+	// Can't open any more files
+	if(numOpenFiles == MAX_OPEN_FILES)
+		return NULL;
+
 	sprintf(&fatfsFilename[0], "1:%s", filename);
 	if(fsMounted == TRUE)
 	{
@@ -112,12 +119,21 @@ FILEHANDLE* FATFS_fopen(CHAR *filename, CHAR *mode)
 		if(strchr(mode, 'o') != NULL) flags |= FA_CREATE_ALWAYS;
 		#endif
 
-
-		res = f_open((FIL*)&_currentFile, &fatfsFilename[0], flags);
-		if(res == FR_OK)
+		newFile = (FIL*)malloc(sizeof(FIL));
+		if(newFile != NULL)
 		{
-			f_lseek(&_currentFile, 0);
-			return &_currentFile;
+			res = f_open(newFile, &fatfsFilename[0], flags);
+			if(res == FR_OK)
+			{
+				f_lseek(newFile, 0);
+				numOpenFiles++;
+				return (FILEHANDLE*)newFile;
+			}
+			else
+			{
+				// Free the allocated memory
+				free(newFile);
+			}
 		}
 	}
 
@@ -141,7 +157,7 @@ size_t FATFS_fwrite(void *buffer, size_t size, size_t count, FILEHANDLE *file)
 	UINT numBytesWritten = 0;
 	if(fsMounted)
 	{
-		f_write((FIL*)&_currentFile, buffer, size * count, &numBytesWritten);
+		f_write((FIL*)file, buffer, size * count, &numBytesWritten);
 		return (size_t)numBytesWritten;
 	}
 	return 0;
@@ -157,6 +173,11 @@ void FATFS_fputs(CHAR *str, FILEHANDLE *file)
 	FATFS_fwrite(str, 1, strlen(str), file);
 }
 #endif
+
+BOOL FATFS_feof(FILEHANDLE *file)
+{
+	return (BOOL)f_eof((FIL*)file);
+}
 
 
 DIRECTORY* FATFS_dopen(CHAR *directory)
