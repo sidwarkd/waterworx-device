@@ -16,9 +16,6 @@ void _general_exception_handler(unsigned cause, unsigned status)
 
 int main(void)
 {
-	#ifndef TESTING
-  FILEHANDLE *file;
-
 	InitializeSystem();
 
   if(!SDCARD_Mount())
@@ -58,9 +55,6 @@ int main(void)
         mLED_Yellow_Toggle();
         DelayMs(1000);*/
 
-        file = FATFS_fopen("testing.txt", "r");
-        FATFS_fclose(file);
-
         /*mLED_White_On();
         if(OpenFile("program.txt", &fp, FA_CREATE_NEW | FA_WRITE))
         {
@@ -92,22 +86,6 @@ int main(void)
         TCPIP_PerformStackTasks();
         //SERIALUSB_ProcessTasks();
     }
-  #else
-  // Testing mode
-  InitializeSystem();
-
-  while(1)
-  {
-  	if(mSwitch_Prog == SWITCH_PRESSED)
-  	{
-  		Modules[0] = RTCC_GetTestModule();
-  		RunAllTests();
-  		DisplayTestResults();
-  	}
-
-  	SERIALUSB_ProcessTasks();
-  }
-  #endif
 }
 
 void InitializeSystem()

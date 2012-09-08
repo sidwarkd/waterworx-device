@@ -84,20 +84,6 @@ static BOOL lastFailure = FALSE;
 BYTE sendDataBuffer[512];
 
 static BOOL HTTPServeStaticAsset(void);
-
-/****************************************************************************
-  Section:
-  String Constants
-  ***************************************************************************/
-  //static ROM BYTE HTTP_CRLF[] = "\r\n"; // New line sequence
-
-
-
-
-/****************************************************************************
-  Section:
-	Authorization Handlers
-  ***************************************************************************/
   
 /*****************************************************************************
   Function:
@@ -259,7 +245,6 @@ HTTP_IO_RESULT HTTPExecuteRoute(void)
       	activeRequest.methodState = ROUTE_DONE;
   
       // Move to next stage
-      //isDone = FALSE;
       return HTTP_IO_WAITING;
       break;
 
@@ -293,160 +278,6 @@ HTTP_IO_RESULT HTTPExecuteRoute(void)
 			break;
 
 	} 
-}
-
-/****************************************************************************
-  Section:
-	GET Form Handlers
-  ***************************************************************************/
-  
-/*****************************************************************************
-  Function:
-	HTTP_IO_RESULT HTTPExecuteGet(void)
-	
-  Internal:
-  	See documentation in the TCP/IP Stack API or HTTP2.h for details.
-  ***************************************************************************/
-HTTP_IO_RESULT HTTPExecuteGet(void)
-{
-	BYTE *ptr, *ptr1;
-	BYTE filename[20];
-	
-	BYTE bssIdx;
-	WORD_VAL bssIdxStr;
-	
-	//mLED_Red_Toggle();
-	// Load the file name
-	// Make sure BYTE filename[] above is large enough for your longest name
-	//MPFSGetFilename(curHTTP.file, filename, 20);
-	
-	// If its the forms.htm page
-	// if(!memcmppgm2ram(filename, "forms.htm", 9))
-	// {
-	// 	// Seek out each of the four LED strings, and if it exists set the LED states
-	// }
-	
-	// If it's the LED updater file
-	// else if(!memcmppgm2ram(filename, "cookies.htm", 11))
-	// {
-	// 	// This is very simple.  The names and values we want are already in
-	// 	// the data array.  We just set the hasArgs value to indicate how many
-	// 	// name/value pairs we want stored as cookies.
-	// 	// To add the second cookie, just increment this value.
-	// 	// remember to also add a dynamic variable callback to control the printout.
-	// 	curHTTP.hasArgs = 0x01;
-	// }
-		
-	
-	// If it's the LED updater file
-	// else if(!memcmppgm2ram(filename, "stations.cgi", 8))
-	// {
-	// 	// Determine which LED to toggle
-	// 	ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"station");
-		
-	// 	// Toggle the specified LED
-	// 	switch(*ptr) {
-	// 		case '1':
-	// 			mLED_Green_Toggle();
-	// 			mLED_White_Off();
-	// 			mLED_Red_Off();
-	// 			mLED_Yellow_Off();
-	// 			mStation5_Off();
-	// 			break;
-	// 		case '2':
-	// 			mLED_White_Toggle();
-	// 			mLED_Green_Off();
-	// 			mLED_Red_Off();
-	// 			mLED_Yellow_Off();
-	// 			mStation5_Off();
-	// 			break;
-	// 		case '3':
-	// 			mLED_Red_Toggle();
-	// 			mLED_Green_Off();
-	// 			mLED_White_Off();
-	// 			mLED_Yellow_Off();
-	// 			mStation5_Off();
-	// 			break;
-	// 		case '4':
-	// 			mLED_Yellow_Toggle();
-	// 			mLED_Green_Off();
-	// 			mLED_White_Off();
-	// 			mLED_Red_Off();
-	// 			mStation5_Off();
-	// 			break;
-	// 		case '5':
-	// 			mStation5_Toggle();
-	// 			mLED_Yellow_Off();
-	// 			mLED_Green_Off();
-	// 			mLED_White_Off();
-	// 			mLED_Red_Off();
-	// 			break;
-	// 	}
-		
-	// }
-	// else if(!memcmppgm2ram(filename, "scan.cgi", 8))
-	// {
-	// 	ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"scan");
-	// 	ptr1 = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"getBss");
-		
-	// 	if ((ptr != NULL) && (ptr1 == NULL))
-	// 	{
-	// 		bssDescIsValid = FALSE;
-	// 		// scan request
- //        	if (WFStartScan() == WF_SUCCESS)
-	//     	{
- //            	SCAN_SET_DISPLAY(SCANCXT.scanState);
- //            	SCANCXT.displayIdx = 0;
- //        	}
-	// 	}
-	// 	else if ((ptr == NULL) && (ptr1 != NULL))
-	// 	{
-	// 		// getBss request
-	// 		// use the value to get the nth bss stored on chip
-	// 		bssDescIsValid = FALSE;
-	// 		bssIdxStr.v[1] = *ptr1;
-	// 		bssIdxStr.v[0] = *(ptr1+1);	
-	//   		bssIdx = hexatob(bssIdxStr);
-	//   		WFRetrieveScanResult(bssIdx, &bssDesc);
-	  		
-	//   		bssDescIsValid = TRUE;
-	// 	}
-	// 	else
-	// 	{
-	// 		// impossible to get here
-	// 	}			  	
-	// }
-	// else
-	// {
-	// }		
-	
-	return HTTP_IO_DONE;
-}
-
-
-/****************************************************************************
-  Section:
-	POST Form Handlers
-  ***************************************************************************/
-#if defined(HTTP_USE_POST)
-
-/*****************************************************************************
-  Function:
-	HTTP_IO_RESULT HTTPExecutePost(void)
-	
-  Internal:
-  	See documentation in the TCP/IP Stack API or HTTP2.h for details.
-  ***************************************************************************/
-HTTP_IO_RESULT HTTPExecutePost(void)
-{
-	// Resolve which function to use and pass along
-	BYTE filename[20];
-	
-	// Load the file name
-	// Make sure BYTE filename[] above is large enough for your longest name
-	//MPFSGetFilename(curHTTP.file, filename, sizeof(filename));
-
-	return HTTP_IO_DONE;
 }
 
 static BOOL HTTPServeStaticAsset(void)
@@ -483,7 +314,7 @@ static BOOL HTTPServeStaticAsset(void)
       // If HashIndex do not match,that means no entry in the "FilRcrd.bin", means no dynamic variables for this wepage,
       //then proceed to serve the page as normal HTML text
     	memset(sendDataBuffer, 0, sizeof(sendDataBuffer));
-    	
+
       availbleTcpBuffSize = TCPIsPutReady(activeSocket);
       
       if(availbleTcpBuffSize >= 512)
@@ -553,7 +384,5 @@ static BOOL HTTPServeStaticAsset(void)
 
   return FALSE;
 }
-
-#endif // if post
 
 #endif

@@ -53,14 +53,6 @@ typedef DIR     DIRECTORY;
 
 #define FATFS_fsize(fp) ((fp)->fsize)
 
-// Helper functions for interacting with the SD card
-//BOOL OpenFile(char *filename, FILEHANDLE *stream, BYTE flags);
-//void CloseFile(FILEHANDLE *stream);
-//int WriteFile(const char *str, FILEHANDLE *stream);
-//BOOL DirectoryExists(char *dir);
-//BOOL OpenDirectory(char *directory, DIRECTORY *directory);
-//BOOL GetNextFile(DIRECTORY *directory, char *filename);
-//int ReadFile(void *buffer, int numBytesToRead, FILEHANDLE *file);
 
 // =================================
 // INTERNAL MODULE FUNCTIONS/MEMBERS
