@@ -108,6 +108,7 @@
         <itemPath>../modules/tcpip/module.h</itemPath>
         <itemPath>../modules/tcpip/TCPIPConfig.h</itemPath>
         <itemPath>../modules/tcpip/WF_Config.h</itemPath>
+        <itemPath>../modules/tcpip/wifi.h</itemPath>
       </logicalFolder>
       <logicalFolder name="usb" displayName="usb" projectFiles="true">
         <itemPath>../modules/usb/module.h</itemPath>
@@ -140,6 +141,13 @@
       <logicalFolder name="http_server" displayName="http_server" projectFiles="true">
         <itemPath>../modules/http_server/server.c</itemPath>
         <itemPath>../modules/http_server/static.c</itemPath>
+        <itemPath>../modules/http_server/networks.c</itemPath>
+        <itemPath>../modules/http_server/utilities.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="json" displayName="json" projectFiles="true">
+        <itemPath>../modules/json/cJSON.c</itemPath>
+        <itemPath>../modules/json/cJSON.h</itemPath>
+        <itemPath>../modules/json/module.h</itemPath>
       </logicalFolder>
       <logicalFolder name="rtcc" displayName="rtcc" projectFiles="true">
         <itemPath>../modules/rtcc/rtcc_helper.c</itemPath>
@@ -200,6 +208,7 @@
                      projectFiles="true">
         <itemPath>../modules/tcpip/tcpip.c</itemPath>
         <itemPath>../modules/tcpip/WF_Config.c</itemPath>
+        <itemPath>../modules/tcpip/wifi.c</itemPath>
       </logicalFolder>
       <logicalFolder name="usb" displayName="usb" projectFiles="true">
         <itemPath>../modules/usb/src/serial_usb.c</itemPath>
@@ -274,7 +283,7 @@
         <property key="enable-symbols" value="true"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="expand-macros" value="false"/>
-        <property key="extra-include-directories-for-assembler" value="..;"/>
+        <property key="extra-include-directories-for-assembler" value=".."/>
         <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="false-conditionals" value="false"/>
         <property key="keep-locals" value="false"/>
@@ -295,7 +304,7 @@
         <property key="extra-lib-directories" value=".."/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
-        <property key="heap-size" value="4096"/>
+        <property key="heap-size" value="8192"/>
         <property key="input-libraries" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="&quot;${DISTDIR}/waterworx.X.${IMAGE_TYPE}.map&quot;"/>

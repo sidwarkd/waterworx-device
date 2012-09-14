@@ -49,6 +49,7 @@
 
 
 #include "module.h"
+#include <tcpip/wifi.h>
 
 #if defined(WF_CS_TRIS)
 
@@ -192,6 +193,7 @@ void WF_ProcessEvent(UINT8 event, UINT16 eventInfo)
             #if defined ( EZ_CONFIG_SCAN )
             WFScanEventHandler(eventInfo);
 			#endif /* EZ_CONFIG_SCAN */
+            WIFI_ScanResultsReady(eventInfo);
             break;
             
         /*--------------------------------------*/                            

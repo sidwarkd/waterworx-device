@@ -114,7 +114,7 @@ static BOOL HTTPServeStaticAsset(HTTP_SERVER_CONNECTION *activeConnection)
 
   }smStateTracker[MAX_HTTP_CONNECTIONS];
 
-  switch(smStateTracker[activeConnection->connectionID])
+  switch(smStateTracker[activeConnection->ID])
   {
 
     case SM_IDLE:
@@ -168,7 +168,7 @@ static BOOL HTTPServeStaticAsset(HTTP_SERVER_CONNECTION *activeConnection)
 
         FATFS_fclose(activeConnection->file);
 
-        smStateTracker[activeConnection->connectionID] = SM_IDLE;
+        smStateTracker[activeConnection->ID] = SM_IDLE;
         return TRUE;
       }
 
@@ -183,7 +183,7 @@ static BOOL HTTPServeStaticAsset(HTTP_SERVER_CONNECTION *activeConnection)
     
     FATFS_fclose(activeConnection->file);
             
-    smStateTracker[activeConnection->connectionID] = SM_IDLE;
+    smStateTracker[activeConnection->ID] = SM_IDLE;
     return TRUE;
   }
 

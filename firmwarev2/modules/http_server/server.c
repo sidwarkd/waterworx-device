@@ -10,7 +10,7 @@ static void AddHeaderToRequest(HTTP_SERVER_CONNECTION *connection, CHAR *headerL
 
 ROM BYTE HTTP_CRLF[] = "\r\n"; // New line sequence
 HTTP_SERVER_CONNECTION httpConnections[MAX_HTTP_CONNECTIONS];
-BYTE activeConnectionID;
+//BYTE activeConnectionID;
 MIDDLEWARE_MODULE middlewareModules[MAX_MIDDLEWARE_MODULES];
 
 ROM char * ROM HTTPResponseChunks[] =
@@ -85,18 +85,20 @@ void HTTPInit(void)
     #if defined(STACK_USE_SSL_SERVER)
     TCPAddSSLListener(httpConnections[i].socket, HTTPS_PORT);
     #endif
-    httpConnections[i].connectionID = i;
+    httpConnections[i].ID = i;
   }
 
   // Blank out all of the middleware
   for(i = 0; i < MAX_MIDDLEWARE_MODULES; i++)
   {
-    middlewareModules[i].next = NULL;
     middlewareModules[i].process = NULL;
   }
 
   // Configure what middleware modules you want to run here
   middlewareModules[0].process = Middleware_Static;
+  middlewareModules[1].process = Middleware_Networks;
+  middlewareModules[2].process = Middleware_Utilities;
+  // middlewareModules[3].process = ;
 }
 
 void HTTPServer(void)
@@ -230,10 +232,8 @@ static void ServiceHttpConnection(HTTP_SERVER_CONNECTION *connection)
 
         // Move to parsing the headers
         connection->state = SM_CONNECTION_PARSE_HEADERS;
-        
         // No break, continue to parsing headers
 
-        break;
   // ==========================================================================================================      
   // After the SM_CONNECTION_PARSE_HEADERS state the req stuct of the
   // connection will be fully populated        
@@ -301,14 +301,13 @@ static void ServiceHttpConnection(HTTP_SERVER_CONNECTION *connection)
             case MIDDLEWARE_PROCESSING:
               break;
             case MIDDLEWARE_DONE:
-              connection->activeMiddleware = connection->activeMiddleware->next;
+              connection->activeMiddleware++;
               isDone = FALSE;
               break;
           }
         }
         else
         {
-          // One of the middleware modules has finished the response
           connection->state = SM_CONNECTION_DISCONNECT;
           isDone = FALSE;
         }
@@ -336,6 +335,9 @@ static void ServiceHttpConnection(HTTP_SERVER_CONNECTION *connection)
         TCPDisconnect(connection->socket);
         connection->state = SM_CONNECTION_IDLE;
         break;
+
+      default:
+        connection->state = SM_CONNECTION_IDLE;
     } // End switch
   } while (!isDone);
 }
@@ -349,7 +351,7 @@ void InitializeServerConnection(HTTP_SERVER_CONNECTION *connection)
   //connection->resp.headersWritten = FALSE;
 
   connection->req.method = HTTP_GET;
-  connection->req.url[0] = '\0';
+  memset(&(connection->req.url), 0, MAX_URL_LEN);
   connection->req.contentLength = 0;
   
   connection->wdTimer = TickGet() + HTTP_TIMEOUT*TICK_SECOND;
@@ -357,6 +359,8 @@ void InitializeServerConnection(HTTP_SERVER_CONNECTION *connection)
   connection->data[0] = '\0';
   connection->activeMiddleware = &middlewareModules[0];
   connection->middlewareState = 0x00;
+  connection->sendPointer = NULL;
+  connection->genericMemoryPointer = NULL;
 }
 
 // ======================================================================================
@@ -442,14 +446,18 @@ void SetResponseStatus(HTTP_SERVER_RESPONSE *resp, HTTP_STATUS status)
   resp->status = status;
 }
 
-void ServerResponseWriteHead(HTTP_SERVER_RESPONSE *resp, HTTP_STATUS status)
+void ServerResponseWriteHead(HTTP_SERVER_CONNECTION *connection, HTTP_STATUS status)
 {
+  connection->resp.status = status;
 
+  TCPPutROMString(connection->socket, (ROM BYTE*)HTTPResponseChunks[status]); 
 }
 
-void ServerResponseSetCustomHeader(CHAR *name, CHAR *value)
+void ServerResponseSetCustomHeader(HTTP_SERVER_CONNECTION *connection, CHAR *name, CHAR *value)
 {
-
+  TCPPutString(connection->socket, name);
+  TCPPutString(connection->socket, value);
+  TCPPutROMString(connection->socket, HTTP_CRLF);
 }
 
 void ServerResponseSetSupportedHeader(HTTP_SERVER_CONNECTION *connection, HEADER_NAME_INDEX index, CHAR *value)
@@ -462,14 +470,18 @@ void ServerResponseSetSupportedHeader(HTTP_SERVER_CONNECTION *connection, HEADER
   }
 }
 
-void ServerResponseWrite(BYTE *data)
+void ServerResponseWrite(HTTP_SERVER_CONNECTION *connection, BYTE *data)
 {
-
+  TCPPutString(connection->socket, data);
 }
 
-void ServerResponseEnd(BYTE *data)
+void ServerResponseEnd(HTTP_SERVER_CONNECTION *connection, BYTE *data)
 {
+  if(data != NULL)
+    TCPPutString(connection->socket, data);
 
+  TCPFlush(connection->socket);
+  connection->state = SM_CONNECTION_DISCONNECT;
 }
 
 

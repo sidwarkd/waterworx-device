@@ -145,13 +145,12 @@ struct _HTTP_SERVER_CONNECTION;
 typedef struct _MIDDLEWARE_MODULE
 {
 	MIDDLEWARE_RESULT (*process)(struct _HTTP_SERVER_CONNECTION *connection);
-	struct _MIDDLEWARE_MODULE *next;
 
 } MIDDLEWARE_MODULE;
 
 typedef struct _HTTP_SERVER_CONNECTION
 {
-	UINT8 connectionID;
+	UINT8 ID;
 	HTTP_SERVER_REQUEST req;
 	HTTP_SERVER_RESPONSE resp;
 	CONNECTION_STATE state;
@@ -162,6 +161,8 @@ typedef struct _HTTP_SERVER_CONNECTION
 	FILEHANDLE *file;
 	MIDDLEWARE_MODULE *activeMiddleware;
 	BYTE middlewareState;
+	BYTE *sendPointer;
+	BYTE *genericMemoryPointer;  // Use to keep track of heap allocations assiged to a connection
 
 } HTTP_SERVER_CONNECTION;
 
@@ -182,7 +183,12 @@ extern ROM BYTE HTTP_CRLF[HTTP_CRLF_LEN];
 extern MIDDLEWARE_MODULE middlewareModules[MAX_MIDDLEWARE_MODULES];
 
 void SetResponseStatus(HTTP_SERVER_RESPONSE *resp, HTTP_STATUS status);
+void ServerResponseWriteHead(HTTP_SERVER_CONNECTION *connection, HTTP_STATUS status);
 void ServerResponseSetSupportedHeader(HTTP_SERVER_CONNECTION *connection, HEADER_NAME_INDEX index, CHAR *value);
+void ServerResponseSetCustomHeader(HTTP_SERVER_CONNECTION *connection, CHAR *name, CHAR *value);
+void ServerResponseWrite(HTTP_SERVER_CONNECTION *connection, BYTE *data);
+void ServerResponseEnd(HTTP_SERVER_CONNECTION *connection, BYTE *data);
+
 
 #define RESERVED_HTTP_MEMORY 0ul
 
@@ -195,6 +201,9 @@ void ServerResponseSetSupportedHeader(HTTP_SERVER_CONNECTION *connection, HEADER
 
 // Middleware Functions
 MIDDLEWARE_RESULT Middleware_Static(HTTP_SERVER_CONNECTION *connection);
+MIDDLEWARE_RESULT Middleware_Utilities(HTTP_SERVER_CONNECTION *connection);
+MIDDLEWARE_RESULT Middleware_Networks(HTTP_SERVER_CONNECTION *connection);
+
 
 typedef enum 
 {

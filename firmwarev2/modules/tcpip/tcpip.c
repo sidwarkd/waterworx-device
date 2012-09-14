@@ -1,5 +1,6 @@
 
 #include <tcpip/module.h>
+#include <tcpip/wifi.h>
 
 // Used for Wi-Fi assertions
 #define WF_MODULE_NUMBER   WF_MODULE_MAIN_DEMO
