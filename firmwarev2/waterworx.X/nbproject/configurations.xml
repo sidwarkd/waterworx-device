@@ -57,7 +57,6 @@
         <itemPath>../modules/tcpip/TCPIP Stack/FTP.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/Hashes.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/Helpers.h</itemPath>
-        <itemPath>../modules/tcpip/TCPIP Stack/HTTP2.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/ICMP.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/IP.h</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/LCDBlocking.h</itemPath>
@@ -139,7 +138,8 @@
         <itemPath>../modules/delay/simpledelay.c</itemPath>
       </logicalFolder>
       <logicalFolder name="http_server" displayName="http_server" projectFiles="true">
-        <itemPath>../modules/http_server/CustomHTTPApp.c</itemPath>
+        <itemPath>../modules/http_server/server.c</itemPath>
+        <itemPath>../modules/http_server/static.c</itemPath>
       </logicalFolder>
       <logicalFolder name="rtcc" displayName="rtcc" projectFiles="true">
         <itemPath>../modules/rtcc/rtcc_helper.c</itemPath>
@@ -194,7 +194,6 @@
         <itemPath>../modules/tcpip/TCPIP Stack/src/TCP.c</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/src/Tick.c</itemPath>
         <itemPath>../modules/tcpip/TCPIP Stack/src/UDP.c</itemPath>
-        <itemPath>../modules/tcpip/TCPIP Stack/src/HTTP2_FATFS.c</itemPath>
       </logicalFolder>
       <logicalFolder name="tcpip_custom"
                      displayName="tcpip_custom"

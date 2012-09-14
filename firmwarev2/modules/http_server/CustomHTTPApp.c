@@ -142,7 +142,7 @@ BYTE HTTPCheckAuth(BYTE* cUser, BYTE* cPass)
 }
 #endif
 
-HTTP_IO_RESULT HTTPExecuteRoute(void)
+HTTP_IO_RESULT HttpServeResponse(void)
 {
 	BYTE *queryStringPos;
 	BYTE *ext;
@@ -183,6 +183,9 @@ HTTP_IO_RESULT HTTPExecuteRoute(void)
 			}
 			else
 			{
+        // Resolve the route to a handler function
+
+
 				activeRequest.routeType = ROUTE_DYNAMIC;
 				activeResponse.disableCache = TRUE;
 			}
@@ -266,6 +269,7 @@ HTTP_IO_RESULT HTTPExecuteRoute(void)
 			else
 			{
 				// This is a dynamic route and we need to decide what to do
+
 				activeRequest.methodState = ROUTE_DONE;
 			}
 
@@ -314,6 +318,100 @@ static BOOL HTTPServeStaticAsset(void)
       // If HashIndex do not match,that means no entry in the "FilRcrd.bin", means no dynamic variables for this wepage,
       //then proceed to serve the page as normal HTML text
     	memset(sendDataBuffer, 0, sizeof(sendDataBuffer));
+
+      availbleTcpBuffSize = TCPIsPutReady(activeSocket);
+      
+      if(availbleTcpBuffSize >= 512)
+      {
+        if(numBytes >= 512)
+        {
+          len=FATFS_fread(sendDataBuffer, 1, 512, activeConnection.file);
+          TCPPutArray(activeSocket, sendDataBuffer, len);
+          numBytes -= len;
+        }
+        else
+        {
+          len=FATFS_fread(sendDataBuffer, 1, numBytes, activeConnection.file);
+          TCPPutArray(activeSocket, sendDataBuffer, len);
+          numBytes = 0;
+
+        }
+      }
+      else if(availbleTcpBuffSize != 0)
+      {
+        if(numBytes >= availbleTcpBuffSize)
+        {
+          len=FATFS_fread(sendDataBuffer, 1, availbleTcpBuffSize, activeConnection.file);
+          TCPPutArray(activeSocket, sendDataBuffer, len);
+          numBytes -= len;
+        }
+        else 
+        {
+          len=FATFS_fread(sendDataBuffer, 1, numBytes, activeConnection.file);
+          TCPPutArray(activeSocket, sendDataBuffer, numBytes);
+          numBytes = 0;
+          
+        }
+      }
+      if(numBytes <= 100)
+      {
+        numBytes=numBytes;
+      }
+      if(numBytes == 0)
+      {
+        TCPFlush(activeSocket);
+
+        FATFS_fclose(activeConnection.file);
+
+        smHTTPSendFile=SM_IDLE;
+        bytesReadCount=0;
+        return TRUE;
+      }
+
+      TCPFlush(activeSocket);
+      break;
+
+    default:
+      return FALSE;
+        
+  }
+
+  if(FATFS_feof(activeConnection.file) || numBytes == 0)
+  {
+    TCPFlush(activeSocket);
+    
+    FATFS_fclose(activeConnection.file);
+            
+    smHTTPSendFile=SM_IDLE;
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+static BOOL RouteHandlerExample(void)
+{
+
+  static enum
+  {
+    SM_ROUTE_READY_TO_PROCESS = 0u,
+    SM_ROUTE_SERVE_HEADERS
+    SM_ROUTE_BUILDING_RESPONSE,     
+    
+
+  }smHTTPSendFile = SM_IDLE;
+
+  switch(smHTTPSendFile)
+  {
+
+    case SM_IDLE:
+      numBytes = FATFS_fsize(activeConnection.file);
+
+    case SM_SERVE_TEXT_DATA:
+
+      // If HashIndex do not match,that means no entry in the "FilRcrd.bin", means no dynamic variables for this wepage,
+      //then proceed to serve the page as normal HTML text
+      memset(sendDataBuffer, 0, sizeof(sendDataBuffer));
 
       availbleTcpBuffSize = TCPIsPutReady(activeSocket);
       

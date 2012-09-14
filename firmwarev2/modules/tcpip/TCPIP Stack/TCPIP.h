@@ -365,7 +365,8 @@
 		#include "TCPIP Stack/FileSystem.h"
 		#include "TCPIP Stack/_HTTP2.h"
 	#else
-		#include "TCPIP Stack/HTTP2.h"
+		//#include "TCPIP Stack/HTTP2.h"
+		#include <http_server/module.h>
 	#endif
 #endif
 

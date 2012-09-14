@@ -167,6 +167,17 @@
 		HTTP_UNKNOWN			// File type is unknown
 	} HTTP_FILE_TYPE;
 
+	typedef enum
+	{
+		HEADER_UNUSED = 99u,
+		HEADER_COOKIE = 0u,
+		HEADER_AUTH,
+		HEADER_CONTENT_LENGTH,
+		HEADER_CONTENT_TYPE,
+		HEADER_CONNECTION
+
+	} HEADER_NAME_INDEX;
+
 	typedef enum 
 	{  
 		HTTP_GET = 0u,
@@ -183,14 +194,22 @@
 
 	} ROUTE_TYPE;
 
+	typedef struct
+	{
+		HEADER_NAME_INDEX nameID;
+		CHAR *value;  // This could point to a ROM string or dynamically generated string
+
+	} HTTP_HEADER;
+
 	// Patterned after the NodeJS http.ServerRequest object
 	typedef struct 
 	{
 		HTTP_METHOD method;			// Method used (GET, POST, PUT, DELETE)
 		BYTE url[MAX_URL_LEN];	// The url including query string if present
-		BYTE methodState;							// State machine state for processing request
+		BYTE routeState;							// State machine state for processing request
 		DWORD contentLength;
 		ROUTE_TYPE routeType;
+		void (*callback)(void);
 
 	} HTTP_SERVER_REQUEST;
 
@@ -199,6 +218,7 @@
 		HTTP_STATUS status;
 		HTTP_FILE_TYPE returnType;
 		BOOL disableCache;
+		HTTP_HEADER headers[5];
 		
 	} HTTP_SERVER_RESPONSE;
 
@@ -222,6 +242,7 @@
 	extern BYTE activeConnectionID;
 
 	extern ROM BYTE HTTP_CRLF[HTTP_CRLF_LEN];
+	extern ROM char * ROM HTTPSupportedHeaders[];
 	extern ROM char * ROM HTTPResponseHeaders[];
 	extern ROM char * ROM HTTPRequestHeaders[];
 	extern ROM char * ROM httpContentTypes[HTTP_UNKNOWN+1];
@@ -250,7 +271,7 @@ void HTTPInit(void);
 void HTTPServer(void);
 
 
-HTTP_IO_RESULT HTTPExecuteRoute(void);
+HTTP_IO_RESULT HttpServeResponse(void);
 
 
 /*****************************************************************************

@@ -66,6 +66,16 @@
     "Content-Length:"
   };
 
+  // Header strings for which we'd like to parse
+  ROM char * ROM HTTPSupportedHeaders[] =
+  {
+    "Cookie:",
+    "Authorization: ",
+    "Content-Length: ",
+    "Content-Type: ",
+    "Connection: "
+  };
+
   /****************************************************************************
   Section:
   Commands and Server Responses
@@ -285,13 +295,6 @@ static void HTTPProcess(void)
   BYTE buffer[HTTP_MAX_HEADER_LEN+1];
   BYTE tempflag=FALSE;
 
-  if(!SDCARD_IsCardInserted())
-  { 
-    activeResponse.status = HTTP_NOT_FOUND;
-    activeConnectionState = SM_HTTP_HANDLE_ERROR;
-  }
-
-
   do
   {
     isDone = TRUE;
@@ -304,22 +307,12 @@ static void HTTPProcess(void)
         // Check how much data is waiting
         lenA = TCPIsGetReady(activeSocket);
 
-        // If a connection has been made, then process the request
+        // A new connection has been made so let's initialize the 
+        // connection object to a known state.
         if(lenA)
         {
-          // Clear out state info and move to next state
-          activeResponse.status = HTTP_OK;
-          activeResponse.returnType = HTTP_UNKNOWN;
-          activeResponse.disableCache = FALSE;
 
-          activeRequest.method = HTTP_GET;
-          activeRequest.url[0] = '\0';
-          activeRequest.methodState = 0x00;
-          activeRequest.contentLength = 0;
-          
-          activeConnection.wdTimer = TickGet() + HTTP_TIMEOUT*TICK_SECOND;
-          activeConnection.bytesAvailable = 0xffffffff;
-          activeConnection.data[0] = '\0';
+          ServerConnection_Initialize(&activeConnection);
           
           activeConnectionState = SM_HTTP_PARSE_REQUEST;
 
@@ -494,7 +487,7 @@ static void HTTPProcess(void)
     case SM_HTTP_PROCESS_GET:
 
       // Run the application callback HTTPExecuteGet()
-      if(HTTPExecuteRoute() == HTTP_IO_WAITING)
+      if(HttpServeResponse() == HTTP_IO_WAITING)
       {
         // If waiting for asynchronous process, return to main app
         break;
@@ -522,7 +515,7 @@ static void HTTPProcess(void)
       if(activeRequest.method == HTTP_POST)
       {
         // Run the application callback HTTPExecutePost()
-        c = HTTPExecuteRoute();
+        c = HttpServeResponse();
         
         // If waiting for asynchronous process, return to main app
         if(c == (BYTE)HTTP_IO_WAITING)
