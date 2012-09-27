@@ -1,0 +1,40 @@
+.profile-summary
+{
+  border: solid 1px green;
+  color: #333;
+  font-size: 16px;
+  font-family: Verdana, sans-serif;
+  line-height: 22px;
+  padding:7px;
+  margin-bottom: 5px;
+}
+
+.ss_poor
+{
+
+}
+
+.ss_ok
+{
+  
+}
+
+.ss_good
+{
+  
+}
+
+.ss_excellent
+{
+  
+}
+
+.instructions{
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#wifi-search-indicator{
+  display: none;
+  margin-left:10px;
+}
