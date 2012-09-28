@@ -38,3 +38,7 @@
   display: none;
   margin-left:10px;
 }
+
+.profile-summary{
+  cursor:pointer;
+}

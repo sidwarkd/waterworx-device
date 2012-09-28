@@ -11,6 +11,10 @@ $(document).ready(function(){
   var ProfileSummaryView = Backbone.View.extend({
     template: _.template($("#profile-summary-template").html()),
 
+    events: {
+      "click .profile-summary": "NetworkSelected"
+    },
+
     initialize: function(){
       // Modify the model to display how we want it
       this.viewModel = {};
@@ -31,6 +35,32 @@ $(document).ready(function(){
     render: function(){
       this.$el.html(this.template(this.viewModel));
       return this;
+    },
+
+    NetworkSelected: function(){
+      // Determine the security modal and display a dialog to ask for
+      // authentication if necessary.  Bit 6 in apconfig (64) indicates WPA security.
+      // Bit 7 in apconfig (128) indicates WPA2.  If neither bit is set
+      // but the privacy bit is set then it's WEP.
+
+      var apConfig = this.model.get("apconfig");
+      if(apConfig & 16){
+        // Requires authentication
+        this.modal = new NetworkAuthenticationView({model:this.model});
+        this.modal.on("passwordCaptured", this.JoinNetwork, this);
+        this.modal.Show();
+      }
+      else
+        this.JoinNetwork(null);
+    },
+
+    JoinNetwork: function(password){
+      if(password != null){
+        alert("Joining Secured Network.  Password: " + password);
+        this.modal.off("passwordCaptured", this.JoinNetwork);
+      }
+      else
+        alert("Joining open network");
     }
   });
 
@@ -73,10 +103,56 @@ $(document).ready(function(){
     },
 
     Show: function(){
-      this.$el.fadeIn(200);
+      this.$el.fadeIn(100);
       this.intervalID = setInterval(function(){Profiles.fetch(); $("#wifi-search-indicator").hide();}, 5000);
     }
 
+  });
+
+  window.NetworkAuthenticationView = Backbone.View.extend({
+    el: $("#modal"),
+
+    template: _.template($("#modal-view-template").html()),
+
+    events: {
+      "click .join": "JoinNetwork",
+      "click .cancel": "hide",
+      "hidden": "hidden",
+      "shown": "shown"
+    },
+
+    initialize: function(){
+    },
+
+    render: function(){
+      this.$el.html(this.template(this.model.toJSON()));
+      this.$el.modal();
+      return this;
+    },
+
+    JoinNetwork: function(){
+      this.$el.modal("hide");
+      this.trigger("passwordCaptured", $("#networkPassword").val());
+    }, 
+
+    hide: function(){
+      this.$el.modal("hide");
+      this.off("passwordCaptured");
+      return false;
+    },
+
+    hidden: function(){
+      this.$el.empty();
+      return false;
+    },
+
+    shown: function(){
+      // Set focus to the appropriate field.
+    },
+
+    Show: function(){
+      this.render();
+    }
   });
 
   var App = Backbone.View.extend({
@@ -104,7 +180,7 @@ $(document).ready(function(){
 
     ConfigureNetwork: function(){
       var page = this.configPage;
-      this.welcomePage.fadeOut(300, function(){page.Show();});
+      this.welcomePage.fadeOut(100, function(){page.Show();});
     },
 
     ShowHomePage: function(){

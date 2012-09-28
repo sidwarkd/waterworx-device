@@ -9,6 +9,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/us.js"></script>
     <script src="js/bbone.js"></script>
+    <script src="js/bs.js"></script>
     <script src="js/device.js"></script>
     <style type="text/css">
       body {
@@ -32,8 +33,20 @@
         </div>
       </div>
     </script>
+
+    <script id="modal-view-template" type="text/html">
+      <div class="modal-header" style="text-align:center;">
+        <button class="btn cancel pull-left">Cancel</button>
+        <button class="btn join pull-right">Join</button>
+        <h3>Enter Password for <%= ssid %></h3>
+      </div>
+      <div class="modal-body">
+        <input type="password" id="networkPassword" placeholder="Password">
+      </div>
+    </script>
 </head> 
 <body> 
+  <div class="modal hide fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner" style="background-color:#75AE18; background-image:none">
